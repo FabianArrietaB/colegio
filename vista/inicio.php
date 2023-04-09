@@ -90,80 +90,58 @@
 
     <div id="page-wrapper">
         <div class="card border-primary">
-            <div class="card-header text-center">
+            <div class="card-header">
                 <div id="page-inner">
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="page-head-line">Pagos</h1>
                         </div>
                     </div>
-                    <div class="row" style="margin-bottom:20px;">
-                        <div class="col-md-12">
-                            <fieldset class="scheduler-border" >
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row" style="margin-bottom:20px;">
+                    <div class="col-md-12">
+                        <fieldset class="scheduler-border" >
                             <legend  class="scheduler-border">Búsqueda:</legend>
-                                <form class="form-inline" role="form" id="searchform">
-                                    <div class="form-group">
-                                        <label for="email">Nombre</label>
-                                        <input type="text" class="form-control" id="student" name="student">
+                            <form class="form-inline" role="form" id="searchform">
+                                <div class="form-group">
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="alumno" name="alumno" placeholder="Nombre Alumno">
                                     </div>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="email"> Fecha de Ingreso </label>
-                                        <input type="text" class="form-control" id="doj" name="doj" >
+                                <div class="form-group">
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="fecing" name="fecinh" placeholder="Fecha Ingreso">
                                     </div>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="email"> Bancos </label>
-                                        <select  class="form-control" id="branch" name="branch" >
-                                            <option value="" >Selecciona Grado</option>
+                                <div class="form-group">
+                                    <div class="col-sm-2">
+                                        <select  class="form-control" id="grado" name="grado" >
+                                            <option value="0" >Selecciona Grado</option>
                                             <?php
-                                                $sql = "select * from grados where delete_status='0' order by branch.branch asc";
-                                                while($r = $q->fetch_assoc())
-                                                {
-                                                echo '<option value="'.$r['id'].'"  '.(($branch==$r['id'])?'selected="selected"':'').'>'.$r['branch'].'</option>';
+                                                $query = $mysqli -> query ("SELECT * FROM grados");
+                                                while ($valores = mysqli_fetch_array($query)) {
+                                                    echo '<option value="'.$valores['id_grado'].'">'.$valores['gra_nombre'].'</option>';
                                                 }
                                             ?>
                                         </select>
                                     </div>
-                                    <button type="button" class="btn btn-success btn-sm" id="find" > Búsqueda </button>
-                                    <button type="reset" class="btn btn-danger btn-sm" id="clear" > Limpiar </button>
-                                </form>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Gestionar Pagos
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-sorting table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Nombre</th>
-                                            <th>Pagos</th>
-                                            <th>Balance</th>
-                                            <th>Banco</th>
-                                            <th>Fecha Ingreso</th>
-                                            <th>Acción</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                </div>
+                                <button type="button" class="btn btn-success btn-sm" id="find" > Búsqueda </button>
+                                <button type="reset" class="btn btn-danger btn-sm" id="clear" > Limpiar </button>
+                            </form>
+                        </fieldset>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="card border-primary">
+        <table></table>
+    </div>
     </div>
     <!-- /. PAGE INNER  -->
 </div>
