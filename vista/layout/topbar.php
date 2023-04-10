@@ -61,7 +61,7 @@
         <style>
             .marca {
                 width: 100%;
-                background: rgb(13, 39, 48);
+                background: #0097ff;
                 position: fixed;
                 bottom: 0;
                 z-index: 999;

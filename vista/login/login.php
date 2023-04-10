@@ -26,13 +26,6 @@
                     include "../../modelo/conexion.php";
                     include "../../controlador/login.php";
                     ?>
-                    <!-- AQUI VA EL MENSAJE DE ERROR -->
-                    <!-- <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
-                        <small>mensaje de error</small>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div> -->
                     <div class="input-div one">
                         <div class="i">
                             <i class="fas fa-user"></i>

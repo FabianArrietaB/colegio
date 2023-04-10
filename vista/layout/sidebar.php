@@ -16,7 +16,7 @@
                     </span>
                     <ul>
                         <li>
-                            <a href="" class="">
+                            <a href="alumnos/list-alumnos.php" class="">
                                 <i class="fas fa-plus-square icono-submenu"></i>
                                 <span class="lbl">Lista Alumnos</span>
                             </a>
@@ -81,17 +81,5 @@
                         </li>
                     </ul>
                 </li>
-
-                <li class="red">
-                    <a href="acerca.php" class="">
-                        <img src="../public/img-inicio/info.png" class="img-inicio" alt="">
-                        <!-- <i class="fas fa-exclamation"></i> -->
-                        <span class="lbl">ACERCA DE</span>
-                    </a>
-                </li>
-
-
-
-
             </ul>
         </nav>
