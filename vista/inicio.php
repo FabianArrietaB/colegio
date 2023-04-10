@@ -94,30 +94,32 @@
             <h2>PAGOS</h2>
         </div>
         <div class="card-body">
-        <table class="table table-light">
-                <thead class="thead-light">
-                    <tr>
-                        <th>Nombre Alumno</th>
-                        <th>Grado</th>
-                        <th>Valor Matricula</th>
-                        <th>Saldo Anterior</th>
-                        <th>Fecha Ultimo Pago</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>MICHELLE ANDREA ARRIETA BLANCO</td>
-                        <td>Tercero</td>
-                        <td>$1200000</td>
-                        <td>$800000</td>
-                        <td>23 Febrero 2023</td>
-                        <td>
-                            <input name="" id="" class="btn btn-success" type="button" value="Tomar Pago">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-light">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Nombre Alumno</th>
+                            <th>Grado</th>
+                            <th>Valor Matricula</th>
+                            <th>Saldo Anterior</th>
+                            <th>Fecha Ultimo Pago</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MICHELLE ANDREA ARRIETA BLANCO</td>
+                            <td>Tercero</td>
+                            <td>$1200000</td>
+                            <td>$800000</td>
+                            <td>23 Febrero 2023</td>
+                            <td>
+                                <input name="" id="" class="btn btn-success" type="button" value="Tomar Pago">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <!-- /. PAGE INNER  -->

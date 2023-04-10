@@ -106,7 +106,7 @@
             <div class="container-fluid" style="padding-left: 40px;">
 
                 <a href="#" class="site-logo">
-
+                    <img src="../../public/images/logo.png" alt="">
                 </a>
 
                 <button id="show-hide-sidebar-toggle" class="show-hide-sidebar">
