@@ -8,7 +8,7 @@
 <?php require('../layout/header.php'); ?>
 <!-- luego se carga el sidebar -->
 <?php require('../layout/sidebar.php'); ?>
-
+<!-- inicio del contenido principal -->
 <section class="home-section">
     <div class="container-fluid">
         <div class="page-content">
@@ -65,7 +65,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-sm-4">
                             <div class="card text-white bg-warning mb-3">
                                 <div class="card-header">
@@ -91,7 +90,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="card border-primary">
                 <div class="card-header text-center">
                     <div class="title">
@@ -127,14 +125,10 @@
                     </div>
                 </div>
             </div>
-    <!-- /. PAGE INNER  -->
+            <!-- /. PAGE INNER  -->
         </div>
     </div>
 </section>
-
-
-<!-- inicio del contenido principal -->
-
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php require('../layout/footer.php'); ?>
