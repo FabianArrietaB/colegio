@@ -2,34 +2,29 @@
     <div class="logo-details">
         <i class='bx bxl-c-plus-plus icon'></i>
             <div class="logo_name"><?= $_SESSION ["nombre"] ?></div>
-        <i class='bx bx-menu' id="btn" ></i>
+          <i class="fa-solid fa-bars" id="btn"></i>
     </div>
     <ul class="nav-list">
-        <li>
-            <i class='bx bx-search' ></i>
-            <input type="text" placeholder="Search...">
-            <span class="tooltip">Search</span>
-        </li>
       <li>
         <a href="#">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Inicio</span>
         </a>
-         <span class="tooltip">Dashboard</span>
+         <span class="tooltip">Inicio</span>
       </li>
       <li>
        <a href="#">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">User</span>
+       <i class="fa-regular fa-user"></i>
+         <span class="links_name">Alumnos</span>
        </a>
-       <span class="tooltip">User</span>
+       <span class="tooltip">Alumnos</span>
      </li>
      <li>
        <a href="#">
-         <i class='bx bx-chat' ></i>
-         <span class="links_name">Messages</span>
+       <i class="fa-solid fa-users"></i>         
+       <span class="links_name">Empleados</span>
        </a>
-       <span class="tooltip">Messages</span>
+       <span class="tooltip">Empleados</span>
      </li>
      <li>
        <a href="#">
