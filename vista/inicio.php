@@ -1,15 +1,17 @@
-<?php 
+<?php
     session_start();
     if (empty($_SESSION['nombre'])) {
         header('location:login/login.php');
     }
 ?>
+
 <!-- primero se carga el topbar -->
 <?php require('./layout/topbar.php'); ?>
 <!-- luego se carga el sidebar -->
 <?php require('./layout/sidebar.php'); ?>
 
-<!-- inicio del contenido principal -->
+<section class="home-section">
+    <div class="container-fluid">
 <div class="page-content">
     <div class="card border-primary">
         <div class="card-header text-center">
@@ -124,6 +126,12 @@
     </div>
     <!-- /. PAGE INNER  -->
 </div>
+</div>
+</section>
+
+
+<!-- inicio del contenido principal -->
+
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php require('./layout/footer.php'); ?>

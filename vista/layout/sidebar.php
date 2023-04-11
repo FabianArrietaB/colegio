@@ -1,85 +1,80 @@
-<nav class="side-menu">
-        <ul class="side-menu-list p-0">
-                <li class="red">
-                    <a href="inicio.php" class="">
-                        <img src="../public/img-inicio/house.png" class="img-inicio" alt="">
-                        <!-- <i class="fas fa-house-user"></i> -->
-                        <span class="lbl">INICIO</span>
-                    </a>
-                </li>
-
-                <li class="grey with-sub">
-                    <span>
-                        <img src="../public/img-inicio/programar.png" class="img-inicio" alt="">
-                        <!-- <i class="fas fa-sort-amount-up-alt"></i> -->
-                        <span class="lbl">Alumnos</span>
-                    </span>
-                    <ul>
-                        <li>
-                            <a href="alumnos/list-alumnos.php" class="">
-                                <i class="fas fa-plus-square icono-submenu"></i>
-                                <span class="lbl">Lista Alumnos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="">
-                                <i class="fas fa-th-list icono-submenu"></i>
-                                <span class="lbl">Certificados</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="red">
-                    <a href="inicio.php" class="">
-                        <img src="../public/img-inicio/house.png" class="img-inicio" alt="">
-                        <!-- <i class="fas fa-house-user"></i> -->
-                        <span class="lbl">ACUDIENTES</span>
-                    </a>
-                </li>
-
-                <li class="red">
-                    <a href="inicio.php" class="">
-                        <img src="../public/img-inicio/house.png" class="img-inicio" alt="">
-                        <!-- <i class="fas fa-house-user"></i> -->
-                        <span class="lbl">EMPLEADOS</span>
-                    </a>
-                </li>
-
-                <li class="red">
-                    <a href="inicio.php" class="">
-                        <img src="../public/img-inicio/house.png" class="img-inicio" alt="">
-                        <!-- <i class="fas fa-house-user"></i> -->
-                        <span class="lbl">PRODUCTOS</span>
-                    </a>
-                </li>
-
-                <li class="grey with-sub">
-                    <span>
-                        <img src="../public/img-inicio/programar.png" class="img-inicio" alt="">
-                        <!-- <i class="fas fa-sort-amount-up-alt"></i> -->
-                        <span class="lbl">REPORTES</span>
-                    </span>
-                    <ul>
-                        <li>
-                            <a href="" class="">
-                                <i class="fas fa-plus-square icono-submenu"></i>
-                                <span class="lbl">Reporte Matriculas</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="">
-                                <i class="fas fa-th-list icono-submenu"></i>
-                                <span class="lbl">Reportes Certificados</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="">
-                                <i class="fas fa-th-list icono-submenu"></i>
-                                <span class="lbl">Reportes General</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+<div class="sidebar">
+    <div class="logo-details">
+        <i class='bx bxl-c-plus-plus icon'></i>
+            <div class="logo_name"><?= $_SESSION ["nombre"] ?></div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+        <li>
+            <i class='bx bx-search' ></i>
+            <input type="text" placeholder="Search...">
+            <span class="tooltip">Search</span>
+        </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Inicio</span>
+        </a>
+         <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+       <a href="#">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">User</span>
+       </a>
+       <span class="tooltip">User</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-chat' ></i>
+         <span class="links_name">Messages</span>
+       </a>
+       <span class="tooltip">Messages</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Analytics</span>
+       </a>
+       <span class="tooltip">Analytics</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">File Manager</span>
+       </a>
+       <span class="tooltip">Files</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Order</span>
+       </a>
+       <span class="tooltip">Order</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-heart' ></i>
+         <span class="links_name">Saved</span>
+       </a>
+       <span class="tooltip">Saved</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-cog' ></i>
+         <span class="links_name">Setting</span>
+       </a>
+       <span class="tooltip">Setting</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <!--<img src="profile.jpg" alt="profileImg">-->
+           <div class="name_job">
+             <div class="name">Prem Shahi</div>
+             <div class="job">Web designer</div>
+           </div>
+         </div>
+         <i class='bx bx-log-out' id="log_out" ></i>
+     </li>
+    </ul>
+  </div>
