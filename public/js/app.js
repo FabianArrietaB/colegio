@@ -1,22 +1,23 @@
-  let sidebar = document.querySelector(".sidebar");
-  let closeBtn = document.querySelector("#btn");
+window.onload = function(){
+  const sidebar = document.querySelector(".sidebar");
+  const closeBtn = document.querySelector("#btn");
+  const searchBtn = document.querySelector(".bx-search")
 
-  closeBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("open");
-    menuBtnChange();//calling the function(optional)
-  });
+  closeBtn.addEventListener("click",function(){
+      sidebar.classList.toggle("open")
+      menuBtnChange()
+  })
 
-  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-    sidebar.classList.toggle("open");
-    menuBtnChange(); //calling the function(optional)
-  });
+  searchBtn.addEventListener("click",function(){
+      sidebar.classList.toggle("open")
+      menuBtnChange()
+  })
 
-  // following are the code to change sidebar button(optional)
-  function menuBtnChange() {
-   if(sidebar.classList.contains("open")){
-      closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-     
-   }else {
-    closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-   }
+  function menuBtnChange(){
+      if(sidebar.classList.contains("open")){
+          closeBtn.classList.replace("bx-menu","bx-menu-alt-right")
+      }else{
+          closeBtn.classList.replace("bx-menu-alt-right","bx-menu")
+      }
   }
+}

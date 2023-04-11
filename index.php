@@ -9,5 +9,5 @@ if (empty($_SESSION['user']) and empty($_SESSION['clave'])) {
 // $codigo = $_SESSION['id'];
 // $consulta2 = $conexion->query(" select *from usuario where id_usuario=$codigo ");
 // $datos2 = $consulta2->fetch_object();
-header('location:./vista/inicio.php');
+header('location:../vista/home/inicio.php');
 }

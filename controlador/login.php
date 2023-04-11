@@ -8,7 +8,7 @@
             $sql=$conexion->query("select * from usuarios where user_usuario='$user_usuario' and user_contra='$user_contra'");
             if ($datos=$sql->fetch_object()) {
                 $_SESSION["nombre"]=$datos->user_nombre;
-                header("location:../inicio.php");
+                header("location:../home/inicio.php");
             } else {
                 echo "<script>
                 Swal.fire({
