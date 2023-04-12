@@ -1,13 +1,13 @@
 <?php
     session_start();
-    if (empty($_SESSION['nombre'])) {
-        header('location:login/login.php');
-    }
+    include "../header.php";
+    include "../sidebar.php";
+    if(isset($_SESSION['usuario']) &&
+    $_SESSION['usuario']['rol'] == 1 ||
+    $_SESSION['usuario']['rol'] == 2||
+    $_SESSION['usuario']['rol'] == 3) {
+    $idUsuario = $_SESSION['usuario']['id'];
 ?>
-<!-- primero se carga el topbar -->
-<?php require('../header.php'); ?>
-<!-- luego se carga el sidebar -->
-<?php require('../sidebar.php'); ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
     <div class="container-fluid">
@@ -132,3 +132,9 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php require('../footer.php'); ?>
+
+<?php
+    }else{
+        header("../login/login.php");
+    }
+?>

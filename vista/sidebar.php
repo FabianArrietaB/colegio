@@ -1,6 +1,6 @@
 <div class="sidebar">
     <div class="logo_details">
-      <div class="logo_name"><?= $_SESSION ["nombre"] ?></div>
+      <div class="logo_name"></div>
       <i class="bx bx-menu" id="btn"></i>
     </div>
     <ul class="nav-list">

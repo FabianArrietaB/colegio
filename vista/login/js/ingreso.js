@@ -2,7 +2,7 @@ function ingresar(){
     $.ajax({
         type:"POST",
         data:$('#frmIngreso').serialize(),
-        url:"controladdor/usuarios/login.php",
+        url:"controlador/usuarios/login.php",
         success:function(respuesta){
                 respuesta = respuesta.trim(); 
                 if(respuesta == 1){
