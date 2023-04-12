@@ -14,44 +14,56 @@
         <div class="page-content">
             <div class="card border-primary">
                 <div class="card-header text-center">
-                <div class="row">
-                    <div class="col-3 border-primary">
-                        <button routerLink="/addalum" type="button" class="btn btn-success">Nuevo Alumno</button>
+                    <div class="row">
+                        <div class="col-9">
+                            <h4>Lista Alumnos</h4>
+                        </div>
+                        <div class="col-3 border-primary">
+                            <input class="form-control me-xl-2" [(ngModel)]="filterTerm" type="search" placeholder="Search">
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <h4>Lista Alumnos</h4>
-                    </div>
-                    <div class="col-3 border-primary">
-                        <input class="form-control me-sm-2" [(ngModel)]="filterTerm" type="search" placeholder="Search">
-                    </div>
-                </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-light">
-                        <thead>
-                        <tr>
-                            <th scope="col" >Nombres</th>
-                            <th scope="col" >Codigo</th>
-                            <th scope="col" >Tipo Documento</th>
-                            <th scope="col" >Documento</th>
-                            <th scope="col" >Direccion</th>
-                            <th scope="col" >Telefono</th>
-                            <th scope="col" >Celular</th>
-                            <th scope="col" >Correo</th>
-                        </tr>
-                    </thead>
-                            <tbody>
+                        <table class="table table-light  align-middle">
+                            <thead>
                                 <tr>
-                                    <td>MICHELLE ANDREA ARRIETA BLANCO</td>
-                                    <td>Tercero</td>
-                                    <td>$1200000</td>
-                                    <td>$800000</td>
-                                    <td>23 Febrero 2023</td>
+                                    <th scope="col" >Nombres</th>
+                                    <th scope="col" >Codigo</th>
+                                    <th scope="col" >Tipo Documento</th>
+                                    <th scope="col" >Documento</th>
+                                    <th scope="col" >Direccion</th>
+                                    <th scope="col" >Celular</th>
+                                    <th scope="col" >Correo</th>
+                                    <th>
+                                        <div class="d-grid gap-2">
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#create"><i class="fa-solid fa-square-plus fa-lg"></i></button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                                include "../../modelo/conexion.php";
+                                $sql = "select * from alumnos";
+                                $query = mysqli_query($conexion, $sql);
+                                while ($alumnos = mysqli_fetch_array($query)){
+                            ?>
+                                <tr>
+                                    <td> <?php echo $alumnos['alu_nombre']; ?> </td>
+                                    <td> <?php echo $alumnos['alu_grado']; ?></td>
+                                    <td> <?php echo $alumnos['alu_cladoc']; ?></td>
+                                    <td> <?php echo $alumnos['alu_docume']; ?></td>
+                                    <td> <?php echo $alumnos['alu_direcc']; ?></td>
+                                    <td> <?php echo $alumnos['alu_telcel']; ?></td>
+                                    <td> <?php echo $alumnos['alu_correo']; ?></td>
                                     <td>
-                                        <input name="" id="" class="btn btn-success" type="button" value="Tomar Pago">
+                                        <button class="btn btn-warning" type="button"><i class="fa-solid fa-pen-to-square fa-xl"></i></button>
+                                        <button class="btn btn-danger" type="button"><i class="fa-regular fa-trash-can fa-xl"></i></button>
+                                        <button class="btn btn-info" type="button"><i class="fa-sharp fa-regular fa-circle-info fa-xl"></i></button>
                                     </td>
                                 </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
@@ -62,41 +74,10 @@
     </div>
 </section>
 <!-- fin del contenido principal -->
-
-<!-- Formulario (Agregar, Modificar) -->
-<div class="modal fade" id="FormularioArticulo" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <input type="hidden" id="Codigo">
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label>Descripción:</label>
-                        <input type="text" id="Descripcion" class="form-control" placeholder="">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label>Precio:</label>
-                        <input type="number" id="Precio" class="form-control" placeholder="">
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" id="ConfirmarAgregar" class="btn btn-success">Agregar</button>
-                    <button type="button" id="ConfirmarModificar" class="btn btn-success">Modificar</button>
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Fin Formulario (Agregar, Modificar) -->
 <!-- por ultimo se carga el footer -->
-<?php require('../layout/footer.php'); ?>
+<?php 
+include ("crearalumno.php");
+?>
+<?php 
+require('../layout/footer.php'); 
+?>
