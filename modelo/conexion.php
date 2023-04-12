@@ -1,5 +1,12 @@
 <?php
-   $conexion = new mysqli("localhost", "root", "", "colegio");
-   $conexion->set_charset("utf8");
-   date_default_timezone_set("America/Lima");
+   class Conexion{
+      public function conectar(){
+      $servidor = "localhost";
+      $usuario = "root";
+      $password = "";
+      $db = "colegio";
+      $conexion = new mysqli($servidor, $usuario, $password, $db);
+      return $conexion;
+   }
+}
 ?>
