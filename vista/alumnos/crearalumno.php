@@ -1,3 +1,4 @@
+https://www.youtube.com/watch?v=CQAChTOqpJU&list=PLbsNb1gaMPj4gPitGuaZdURSBZnZJ0Kz_&index=3
 <?php
     include "../../modelo/conexion.php";
 
@@ -61,8 +62,8 @@
                 <h5 class="modal-title" id="exampleModalLabel">Agregar Alumno</h5>
                 <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="create.php" method="post">
-                <div class="modal-body">
+            <div class="modal-body">
+                <form action="create.php" method="post">
                     <!-- Formulario (Estudiante) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Estudiante</legend>
@@ -137,11 +138,9 @@
                             </div>
                         </div>
                     </fieldset>
-                </div>
-                <div class="modal-footer">
                     <input type="button" class="btn btn-success" value="Guardar">
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>
