@@ -67,7 +67,7 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Estudiante</legend>
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-4">
                                 <div class="input-group mb-3">
                                     <input type="text" id="nombre" name="nombre" class="form-control input-sm" placeholder="Ingrese Nombres" aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
@@ -82,7 +82,7 @@
                                     <input type="text" id="docume" name="docume" class="form-control input-sm" placeholder="Numero Documento" aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Fecha Nacimiento</span>
                                     <input type="date" id="fecnac" name="fecnac" class="form-control input-sm" placeholder="Fecha Nacimiento" aria-label="Username" aria-describedby="basic-addon1">
