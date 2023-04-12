@@ -1,5 +1,6 @@
-<!-- Modal -->
 <?php
+    include "../../modelo/conexion.php";
+
     if (isset($_POST['nombre']) && isset($_POST['cladoc']) && isset($_POST['docume']) && isset($_POST['fecnac']) && isset($_POST['sexo']) && isset($_POST['grpsan']) && isset($_POST['factrh'])
     && isset($_POST['estciv']) && isset($_POST['ciudad']) && isset($_POST['direcc']) && isset($_POST['telcel']) && isset($_POST['correo']) && !empty($_POST['nombre'])
     && empty($_POST['cladoc']) && empty($_POST['docume']) && empty($_POST['fecnac']) && empty($_POST['sexo']) && empty($_POST['grpsan']) && empty($_POST['factrh'])
@@ -50,6 +51,8 @@
     }else {
 
 ?>
+
+<!-- Modal -->
 <!-- Formulario (Agregar, Modificar) -->
 <div class="modal fade" id="create" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -143,6 +146,6 @@
     </div>
 </div>
 <!-- Fin Formulario (Agregar, Modificar) -->
-<?php.
+<?php 
 }
 ?>

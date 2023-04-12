@@ -19,7 +19,7 @@
                             <h4>Lista Alumnos</h4>
                         </div>
                         <div class="col-3 border-primary">
-                            <input class="form-control me-xl-2" [(ngModel)]="filterTerm" type="search" placeholder="Search">
+                            <input class="form-control me-xl-2" type="search" placeholder="Search">
                         </div>
                     </div>
                 </div>
