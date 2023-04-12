@@ -1,4 +1,3 @@
-https://www.youtube.com/watch?v=CQAChTOqpJU&list=PLbsNb1gaMPj4gPitGuaZdURSBZnZJ0Kz_&index=3
 <?php
     include "../../modelo/conexion.php";
 

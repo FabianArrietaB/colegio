@@ -5,9 +5,9 @@
     }
 ?>
 <!-- primero se carga el topbar -->
-<?php require('../layout/header.php'); ?>
+<?php require('../header.php'); ?>
 <!-- luego se carga el sidebar -->
-<?php require('../layout/sidebar.php'); ?>
+<?php require('../sidebar.php'); ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
     <div class="container-fluid">
@@ -131,4 +131,4 @@
 </section>
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
-<?php require('../layout/footer.php'); ?>
+<?php require('../footer.php'); ?>

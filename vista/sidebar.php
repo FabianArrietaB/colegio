@@ -5,14 +5,14 @@
     </div>
     <ul class="nav-list">
       <li>
-        <a href="../home/inicio.php">
+        <a href="inicio.php">
           <i class="bx bx-grid-alt"></i>
           <span class="link_name">Dashboard</span>
         </a>
         <span class="tooltip">Dashboard</span>
       </li>
       <li>
-        <a href="../alumnos/list-alumnos.php">
+        <a href="alumnos.php">
           <i class="bx bx-user"></i>
           <span class="link_name">Alumnos</span>
         </a>
@@ -31,6 +31,13 @@
           <span class="link_name">Grados</span>
         </a>
         <span class="tooltip">Grados</span>
+      </li>
+      <li>
+        <a href="productos.php">
+          <i class="bx bx-pie-chart-alt-2"></i>
+          <span class="link_name">Productos</span>
+        </a>
+        <span class="tooltip">Productos</span>
       </li>
       <li>
         <a href="#">
@@ -59,4 +66,4 @@
         </a>
       </li>
     </ul>
-  </div>
+</div>
