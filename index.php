@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION['user']) and empty($_SESSION['clave'])) {
-    header('location:./vista/login/login.php');
+    header('location:./vista/login/login.html');
 }else{
 /* consulta para los datos en e inicio */
 //include './modelo/conexion.php';

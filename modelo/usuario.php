@@ -10,8 +10,8 @@
                 $datos = mysqli_fetch_array($respuesta);
                 if ($datos['user_estado'] == 1) {
                     $_SESSION['usuario'] ['nombre'] = $datos['user_nombre'];
-                    $_SESSION['usuario'] ['id'] =     $datos['id_usuario'];
-                    $_SESSION['usuario'] ['rol'] =    $datos['id_rol'];
+                    $_SESSION['usuario'] ['id']     = $datos['id_usuario'];
+                    $_SESSION['usuario'] ['rol']    = $datos['id_rol'];
                     return 1;
                 } else {
                     return 0;

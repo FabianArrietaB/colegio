@@ -1,12 +1,11 @@
 <?php
-    session_start();
     include "../header.php";
     include "../sidebar.php";
     if(isset($_SESSION['usuario']) &&
     $_SESSION['usuario']['rol'] == 1 ||
     $_SESSION['usuario']['rol'] == 2||
     $_SESSION['usuario']['rol'] == 3) {
-    $idUsuario = $_SESSION['usuario']['id'];
+    $idUsuario = $_SESSION['usuario']['id_usuario'];
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">

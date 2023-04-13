@@ -22,10 +22,6 @@
                 <form id="frmIngreso" method="post" onsubmit="return ingresar()">
                     <img src="img/avatar.svg">
                     <h2 class="title">BIENVENIDO</h2>
-                    <!-- <?php
-                    include "../../modelo/conexion.php";
-                    include "../../controlador/login.php";
-                    ?> -->
                     <div class="input-div one">
                         <div class="i">
                             <i class="fas fa-user"></i>
