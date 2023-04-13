@@ -1,16 +1,16 @@
 <!-- Formulario (Agregar) -->
-<form id="frmagregarproducto" method="post" onsubmit="return agregarproducto()">
+<form id="frmagregarproducto" method="post" onsubmit="return agregarusuario()">
     <div class="modal fade" id="create" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Usuario</h5>
                     <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <d class="modal-body">
                     <!-- Formulario (Estudiante) -->
                     <fieldset class="group-border">
-                        <legend class="group-border">Informacion Procduto</legend>
+                        <legend class="group-border">Informacion Usuario</legend>
                             <div class="col">
                                 <div class="input-group mb-3">
                                     <input type="text" id="nombre" name="nombre" class="form-control input-sm" placeholder="Ingrese Nombre" >

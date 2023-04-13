@@ -23,7 +23,7 @@
             }
         }
 
-        public function activarUsuario($idUsuario, $estado){
+        public function activarUsuario($idusuario, $estado){
             $conexion = Conexion::conectar();
             if($estado == 1){
                 $estado = 0;
@@ -33,7 +33,7 @@
 
             $sql = "UPDATE usuarios SET user_estado = ? WHERE id_usuario = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('ii', $estado, $idUsuario);
+            $query->bind_param('ii', $estado, $idusuario);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

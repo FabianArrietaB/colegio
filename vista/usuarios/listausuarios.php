@@ -3,7 +3,17 @@
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
-    $sql = "SELECT * FROM usuarios AS usuarios INNER JOIN roles AS roles ON usuarios.id_rol = roles.id_rol;";
+    $sql = "SELECT
+        usuarios.id_usuario     AS idusuario,
+        usuarios.user_usuario   AS usuario,
+        usuarios.user_nombre    AS nombre,
+        usuarios.user_correo    AS correo,
+        usuarios.id_rol         AS idrol,
+        roles.rol_nombre        AS rol,
+        usuarios.user_estado     AS estado,
+        usuarios.user_fecope     AS fecha
+        FROM usuarios AS usuarios
+        INNER JOIN roles AS roles ON usuarios.id_rol = roles.id_rol;";
     $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio Tabla -->
@@ -29,25 +39,25 @@
         while ($usuarios = mysqli_fetch_array($query)){
     ?>
         <tr>
-            <td> <?php echo $usuarios['user_usuario']; ?> </td>
-            <td> <?php echo $usuarios['user_nombre']; ?></td>
-            <td> <?php echo $usuarios['user_correo']; ?></td>
-            <td> <?php echo $usuarios['rol_nombre']; ?></td>
-            <td> <?php echo $usuarios['user_fecope']; ?></td>
+            <td> <?php echo $usuarios['usuario']; ?> </td>
+            <td> <?php echo $usuarios['nombre']; ?></td>
+            <td> <?php echo $usuarios['correo']; ?></td>
+            <td> <?php echo $usuarios['rol']; ?></td>
+            <td> <?php echo $usuarios['fecha']; ?></td>
             <td> <?php
-                if ($usuarios['user_estado'] == 0) {
+                if ($usuarios['estado'] == 0) {
                 ?>
                     <button class="btn btn-danger btn-sm" onclick="activarUsuario(
-                        <?php echo $usuarios['id_usuario'] ?>,
-                        <?php echo $usuarios['user_estado'] ?>)">
+                        <?php echo $usuarios['idusuario'] ?>,
+                        <?php echo $usuarios['estado'] ?>)">
                             INACTIVO
                         </button>
                     <?php
-                    } else if ($usuarios['user_estado'] == 1) {
+                    } else if ($usuarios['estado'] == 1) {
                     ?>
                         <button class="btn btn-success btn-sm" onclick="activarUsuario(
-                            <?php echo $usuarios['id_usuario'] ?>,
-                            <?php echo $usuarios['user_estado'] ?>)">
+                            <?php echo $usuarios['idusuario'] ?>,
+                            <?php echo $usuarios['estado'] ?>)">
                             ACTIVO
                         </button>
                     <?php

@@ -1,6 +1,7 @@
 <div class="sidebar">
     <div class="logo_details">
-      <div class="logo_name"><?php echo $_SESSION['usuario']['nombre'];?></div>
+      <div class="logo_name"><?php echo $_SESSION['usuario']['nombre'];?>
+    <h6><?php echo $_SESSION['usuario']['rol'];?></h6></div>
       <i class="bx bx-menu" id="btn"></i>
     </div>
     <ul class="nav-list">
