@@ -14,7 +14,7 @@
         <title>Inicio de sesión</title>
     </head>
     <body>
-    <img class="wave" src="public/images/login/wave.png">
+        <img class="wave" src="public/images/login/wave.png">
         <div class="container">
             <div class="img">
                 <img src="public/images/login//bg.svg">

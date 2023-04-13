@@ -3,5 +3,5 @@
     $Usuarios = new Usuarios();
     $idusuario = $_POST['idusuario'];
     $estado = $_POST['estado'];
-    echo $Usuarios->activarUsuario($idusuario, $estado);
+    echo $Usuarios->activarusuario($idusuario, $estado);
 ?>

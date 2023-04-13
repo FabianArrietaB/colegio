@@ -3,8 +3,8 @@
         <script src="./../public/bootstrap5/js/bootstrap.bundle.min.js"></script>
         <!-- chart -->
         <script src="./../public/chart/chart.js"></script>
-         <!-- jquery -->
-         <script src="./../public/pnotify/js/jquery.min.js"></script>
+        <!-- jquery -->
+        <script src="./../public/pnotify/js/jquery.min.js"></script>
         <!-- fontawesome -->
         <script src="./../public/fontawesome/js/all.min.js"></script>
         <script src="./../public/fontawesome/js/fontawesome.min.js"></script>
