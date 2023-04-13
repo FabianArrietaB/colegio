@@ -1,12 +1,9 @@
 <?php
     session_start();
-
+    include "../../modelo/usuario.php";
     $usuario = $_POST['usuario'];
     $password = md5($_POST['password']);
-
-    include "../../modelo/usuario.php";
     $Usuarios = new Usuarios();
-
     echo $Usuarios->IngresoUsuario($usuario, $password);
 
 ?>

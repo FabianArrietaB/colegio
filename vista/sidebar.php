@@ -99,11 +99,11 @@
         <span class="tooltip">Order</span>
       </li>
       <li>
-        <a href="#">
+        <a href="usuarios.php">
           <i class="bx bx-cog"></i>
-          <span class="link_name">Settings</span>
+          <span class="link_name">Usuarios</span>
         </a>
-        <span class="tooltip">Settings</span>
+        <span class="tooltip">Usuarios</span>
       </li>
       <?php } ?>
       <li class="profile">
