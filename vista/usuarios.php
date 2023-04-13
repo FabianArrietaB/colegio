@@ -29,11 +29,9 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
-include ("usuarios/crearusuario.php");
-include ("usuarios/editarusuario.php");
-?>
-<?php
-require('footer.php');
+include "usuarios/crearusuario.php";
+include "usuarios/editarusuario.php";
+include "footer.php";
 ?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/usuarios/funciones.js"></script>

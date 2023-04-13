@@ -37,7 +37,7 @@
             <td> <?php
                 if ($usuarios['user_estado'] == 0) {
                 ?>
-                    <button class="btn btn-danger btn-sm" onclick="activarAlumno(
+                    <button class="btn btn-danger btn-sm" onclick="activarUsuario(
                         <?php echo $usuarios['id_usuario'] ?>,
                         <?php echo $usuarios['user_estado'] ?>)">
                             INACTIVO
@@ -45,7 +45,7 @@
                     <?php
                     } else if ($usuarios['user_estado'] == 1) {
                     ?>
-                        <button class="btn btn-success btn-sm" onclick="activarAlumno(
+                        <button class="btn btn-success btn-sm" onclick="activarUsuario(
                             <?php echo $usuarios['id_usuario'] ?>,
                             <?php echo $usuarios['user_estado'] ?>)">
                             ACTIVO

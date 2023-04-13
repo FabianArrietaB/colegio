@@ -1,7 +1,7 @@
 <?php
     include "conexion.php";
 
-    class usuarios extends Conexion {
+    class Usuarios extends Conexion {
 
         public function IngresoUsuario($usuario, $password){
             $conexion = Conexion::conectar();
@@ -25,23 +25,18 @@
 
         public function activarUsuario($idUsuario, $estado){
             $conexion = Conexion::conectar();
-    
             if($estado == 1){
                 $estado = 0;
             }else{
                 $estado = 1;
             }
-    
-            $sql = "UPDATE usuarios 
-                    SET activo = ?
-                    WHERE id_usuarios = ?";
+
+            $sql = "UPDATE usuarios SET user_estado = ? WHERE id_usuario = ?";
             $query = $conexion->prepare($sql);
             $query->bind_param('ii', $estado, $idUsuario);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;
-    
-    
         }
-
     }
+?>
