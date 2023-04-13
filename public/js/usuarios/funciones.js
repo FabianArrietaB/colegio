@@ -44,11 +44,10 @@ function agregarusuario(){
                     text: 'Error al crear!',
                     showConfirmButton: false,
                     timer: 1500
-                  });
+                });
             }
         }
     });
-
     return false;
 }
 
@@ -67,7 +66,6 @@ function detalleusuario(idusuario){
             $('#usuariou').val(respuesta['nombreUsuario']);
             $('#idRolu').val(respuesta['idRol']);
             $('#ubicacionu').val(respuesta['ubicacion']);
-            
         }
     });
 }

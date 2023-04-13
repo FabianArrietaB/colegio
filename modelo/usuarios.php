@@ -66,7 +66,7 @@
                     persona.correo AS correo,
                     persona.telefono AS telefono,
                     persona.fecha_creacion AS fecha FROM
-                usuarios AS usuarios 
+                usuarios AS usuarios
             INNER JOIN
                 roles AS roles ON usuarios.id_rol = roles.id_rol 
             INNER JOIN
