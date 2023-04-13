@@ -93,3 +93,45 @@ function editarusuario(){
     return false;
 }
 
+function eliminarusuario(idusuario){
+    Swal.fire({
+        title: 'Estas seguro de eliminar este Usuario?',
+        text: "una vez eliminado no podra ser restaurado",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, estoy seguro!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                data:"idusuario=" + idusuario,
+                url:"../controlador/usuarios/eliminar.php",
+                success:function(respuesta){
+                    if(respuesta == 1){
+                        $('#tablalistausuarios').load('usuarios/listausuarios.php');
+                            swal.fire({
+                                icon: 'success',
+                                title: 'Usuario Eliminado Exitosamente',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }else{
+                            swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Error al Eliminar!',
+                                showConfirmButton: false,
+                                timer: 1500
+                              });
+                    }
+                }
+            });
+
+
+        }
+    })
+    return false;
+}
+

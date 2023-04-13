@@ -68,7 +68,7 @@
                     <button class="btn btn-warning" type="button"  data-toggle="modal" data-target="#editar" onclick="detalleusuario(<?php echo $mostrar['idusuario'] ?>)">
                         <i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i>
                     </button>
-                    <button class="btn btn-danger" type="button"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>
+                    <button class="btn btn-danger" type="button" onclick="eliminarusuario(<?php echo $mostrar['idReporte']?>)"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>
                 </td>
             </tr>
         <?php } ?>
