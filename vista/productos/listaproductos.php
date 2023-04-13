@@ -1,5 +1,10 @@
 <?php
     session_start();
+    include "../../modelo/conexion.php";
+    $con = new Conexion();
+    $conexion = $con->conectar();
+    $sql = "select * from productos";
+    $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive">
@@ -18,9 +23,6 @@
     </thead>
     <tbody>
     <?php
-        include "../../modelo/conexion.php";
-        $sql = "select * from productos";
-        $query = mysqli_query($conexion, $sql);
         while ($productos = mysqli_fetch_array($query)){
     ?>
         <tr>

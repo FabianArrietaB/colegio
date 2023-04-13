@@ -1,10 +1,8 @@
 <?php
     include "header.php";
     include "sidebar.php";
-    session_start();
-    if (empty($_SESSION['nombre'])) {
-        header('location:login/login.php');
-    }
+    if(isset($_SESSION['usuario']) &&
+    $_SESSION['usuario']['rol'] == 3){
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
@@ -38,3 +36,9 @@ require('footer.php');
 ?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/alumnos/alumnos.js"></script>
+
+<?php
+    }else{
+        header("location:../index.php");
+    }
+?>

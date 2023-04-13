@@ -1,11 +1,12 @@
 <?php
     session_start();
 
-    include "../../modelo/usuario.php";
     $usuario = $_POST['usuario'];
-    $password = sha1($_POST['password']);
-    $usuario = new usuarios();
+    $password = md5($_POST['password']);
 
-    
+    include "../../modelo/usuario.php";
+    $Usuarios = new Usuarios();
+
+    echo $Usuarios->IngresoUsuario($usuario, $password);
 
 ?>

@@ -1,11 +1,14 @@
 <?php
-    include "../header.php";
-    include "../sidebar.php";
+    include "header.php";
+    include "sidebar.php";
+
     if(isset($_SESSION['usuario']) &&
     $_SESSION['usuario']['rol'] == 1 ||
     $_SESSION['usuario']['rol'] == 2||
     $_SESSION['usuario']['rol'] == 3) {
-    $idUsuario = $_SESSION['usuario']['id_usuario'];
+    include "../modelo/conexion.php";
+    $con = new Conexion();
+    $conexion = $con->conectar();
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
@@ -29,7 +32,6 @@
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 30px">
                                                     <?php
-                                                    include "../../modelo/conexion.php";
                                                     $sql=$conexion->query("SELECT * FROM alumnos"); $sql= mysqli_num_rows($sql); echo $sql; 
                                                     ?>
                                                 </span>
@@ -130,10 +132,9 @@
 </section>
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
-<?php require('../footer.php'); ?>
-
+<?php require('footer.php'); ?>
 <?php
     }else{
-        header("../login/login.php");
+        header("../index.php");
     }
 ?>

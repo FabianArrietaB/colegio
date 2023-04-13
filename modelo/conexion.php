@@ -5,7 +5,7 @@
       $usuario = "root";
       $password = "";
       $db = "colegio";
-      $conexion = new mysqli($servidor, $usuario, $password, $db);
+      $conexion = mysqli_connect($servidor, $usuario, $password, $db);
       return $conexion;
    }
 }
