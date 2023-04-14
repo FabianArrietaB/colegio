@@ -100,11 +100,13 @@
             return $respuesta;
         }
 
-        public function editarusuario($datos){
+        public function editaralumno($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE usuarios SET id_rol = ?, user_usuario = ?, user_nombre = ?, user_correo = ?, user_fecupd = ? WHERE id_usuario = ?";
+            $sql = "UPDATE alumnos SET id_grado=' ? ,alu_nombre= ? ,alu_cladoc= ? ,alu_docum e =,`alu_sexo= ? ,
+                    alu_gposan= ? ,alu_factrh= ? ,alu_ciudad= ? ,alu_direcc= ? ,alu_estrat= ? ,alu_telcel= ? ,
+                    alu_correo= ? ,alu_estado= ? ,alu_fecnac=?, alu_fecupd=? WHERE id_alumno = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('issssi', $datos['idRol'], $datos['usuario'], $datos['nombre'], $datos['correo'], $datos['fecha'], $datos['idusuario']);
+            $query->bind_param('issssssssssssssi', $datos['idgradou'], $datos['nombreu'], $datos['claddocu'], $datos['correo'], $datos['fecha'], $datos['idusuario']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;
