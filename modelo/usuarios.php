@@ -37,15 +37,21 @@
             return $respuesta;
         }
 
+        public function cambiocontraseña($datos){
+            $conexion = Conexion::conectar();
+            $sql = "UPDATE usuarios SET user_contra = ? WHERE id_usuario = ?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('si', $datos['password'], $datos['idusuario']);
+            $respuesta = $query->execute();
+            $query->close();
+            return $respuesta;
+        }
+
         public function agregarusuario($datos){
             $conexion = Conexion::conectar();
-            $sql = "INSERT INTO usuarios (id_rol, user_usuario, user_nombre, user_contra, user_correo) VALUES(?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO usuarios (id_rol, user_usuario, user_nombre, user_contra, user_correo, user_fecop) VALUES(?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("issss", $datos['idRol'],
-                                        $datos['usuario'],
-                                        $datos['nombre'],
-                                        $datos['password'],
-                                        $datos['correo']);
+            $query->bind_param("isssss", $datos['idRol'], $datos['usuario'], $datos['nombre'], $datos['password'], $datos['correo'], $datos['fecha']);
             $respuesta = $query->execute();
             return $respuesta;
         }
@@ -71,7 +77,7 @@
                 'usuario'   => $usuario['usuario'],
                 'nombre'    => $usuario['nombre'],
                 'correo'    => $usuario['correo'],
-                'idrol'     => $usuario['idRol'],
+                'idrol'     => $usuario['idrol'],
                 'rol'       => $usuario['rol'],
                 'estado'    => $usuario['estado'],
                 'fecha'     => $usuario['fecha']
@@ -81,24 +87,9 @@
 
         public function editarusuario($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE usuarios SET id_rol = ?, user_usuario = ?, user_nombre = ?, user_contra = ?, user_correo = ? WHERE id_usuario = ?";
+            $sql = "UPDATE usuarios SET id_rol = ?, user_usuario = ?, user_nombre = ?, user_correo = ?, user_fecupd = ? WHERE id_usuario = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('issssi',    $datos['idRol'],
-                                            $datos['usuario'],
-                                            $datos['nombre'],
-                                            $datos['password'],
-                                            $datos['correo']);
-            $respuesta = $query->execute();
-            $query->close();
-            return $respuesta;
-        }
-
-        public function cambiocontraseña($datos){
-            $conexion = Conexion::conectar();
-            $sql = "UPDATE usuarios SET user_contra = ? WHERE id_usuario = ?";
-            $query = $conexion->prepare($sql);
-            $query->bind_param('si',    $datos['password'],
-                                        $datos['idusuario']);
+            $query->bind_param('issssi', $datos['idRol'], $datos['usuario'], $datos['nombre'], $datos['correo'], $datos['fecha'], $datos['idusuario']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;
@@ -106,13 +97,12 @@
 
         public function eliminarusuario($idusuario){
             $conexion = Conexion::conectar();
-            $sql = "DELETE FROM usuarios WHERE idusuario=?";
+            $sql = "DELETE FROM usuarios WHERE id_usuario=?";
             $query = $conexion->prepare($sql);
             $query->bind_param('i', $idusuario);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;
         }
-
     }
 ?>

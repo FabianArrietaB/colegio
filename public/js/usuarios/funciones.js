@@ -30,6 +30,34 @@ function activarusuario(idusuario, estado){
     });
 }
 
+function cambiopassword(){
+    $.ajax({
+        type:"POST",
+        data:$('#formcambiopassword').serialize(),
+        url:"../controlador/usuarios/password.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                $('#password').modal('dispose');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Contraseña Actualizada',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'No se pudo Realizar la Operacion',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+    });
+    return false;
+}
+
 function agregarusuario(){
     $.ajax({
         type: "POST",
@@ -70,9 +98,9 @@ function detalleusuario(idusuario){
             $('#idusuario').val(respuesta['idusuario']);
             $('#nombreu').val(respuesta['nombre']);
             $('#usuariou').val(respuesta['usuario']);
-            $('#fechau').val(respuesta['fecupt']);
+            $('#fechau').val(respuesta['fecha']);
             $('#correou').val(respuesta['correo']);
-            $('#idRolu').val(respuesta['idRol']);
+            $('#idRolu').val(respuesta['idrol']);
             $('#rol').val(respuesta['rol']);
         }
     });
@@ -86,8 +114,8 @@ function editarusuario(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistausuarios').load('usuarios/listausuarios.php');
                 $('#editar').modal('hide');
+                $('#tablalistausuarios').load('usuarios/listausuarios.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Usuario Actualizado Exitosamente',
@@ -103,77 +131,38 @@ function editarusuario(){
                     timer: 1500
                 });
             }
+        console.log(respuesta);
         }
+        
     });
     return false;
 }
 
-function cambiopassword(){
-        $.ajax({
-            type:"POST",
-            data:$('#formcambiopassword').serialize(),
-            url:"../controlador/usuarios/password.php",
-            success:function(respuesta){
-                respuesta = respuesta.trim();
-                if(respuesta == 1){
-                    $('#password').modal('hide');
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Contraseña Actualizada',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                }else{
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'No se pudo Realizar la Operacion',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                }
-            }
-        });
-    return false;
-}
-
-
 function eliminarusuario(idusuario){
-    Swal.fire({
-        title: 'Estas seguro de eliminar este Usuario?',
-        text: "una vez eliminado no podra ser restaurado",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, estoy seguro!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                type: "POST",
-                data:"idusuario=" + idusuario,
-                url:"../controlador/usuarios/eliminar.php",
-                success:function(respuesta){
-                    if(respuesta == 1){
-                        $('#tablalistausuarios').load('usuarios/listausuarios.php');
-                            swal.fire({
-                                icon: 'success',
-                                title: 'Usuario Eliminado Exitosamente',
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }else{
-                            swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Error al Eliminar!',
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }
-                }
-            });
+    $.ajax({
+        type: "POST",
+        data:"idusuario=" + idusuario,
+        url:"../controlador/usuarios/eliminar.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                $('#tablalistausuarios').load('usuarios/listausuarios.php');
+                    swal.fire({
+                        icon: 'success',
+                        title: 'Usuario Eliminado Exitosamente',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+            }else{
+                swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error al Eliminar!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
         }
-    })
-    return false;
+    });
 }
 

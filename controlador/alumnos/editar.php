@@ -1,7 +1,6 @@
 <?php
     $datos = Array(
-        'idusuario' => $_POST['idusuario'],
-        'usuario'   => $_POST['usuariou'],
+        'idalumno' => $_POST['idalumno'],
         'nombre'    => $_POST['nombreu'],
         'correo'    => $_POST['correou'],
         'fecha'     => $_POST['fechau'],

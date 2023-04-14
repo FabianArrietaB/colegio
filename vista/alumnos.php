@@ -30,6 +30,7 @@
 <!-- por ultimo se carga el footer -->
 <?php
 include ("alumnos/crearalumno.php");
+include ("alumnos/crearalumno.php");
 ?>
 <?php
 require('footer.php'); 

@@ -10,10 +10,11 @@
         usuarios.user_correo    AS correo,
         usuarios.id_rol         AS idrol,
         roles.rol_nombre        AS rol,
-        usuarios.user_estado     AS estado,
-        usuarios.user_fecope     AS fecha
+        usuarios.user_estado    AS estado,
+        usuarios.user_fecope    AS fecha
         FROM usuarios AS usuarios
-        INNER JOIN roles AS roles ON usuarios.id_rol = roles.id_rol;";
+        INNER JOIN roles AS roles ON usuarios.id_rol = roles.id_rol
+        ORDER BY usuarios.id_usuario ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio Tabla -->
