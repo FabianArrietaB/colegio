@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!empty($_SESSION["user_estado"])) {
+  header("location:../index.php");
+}
 ?>
 
 <!DOCTYPE html>

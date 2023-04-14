@@ -11,11 +11,20 @@ function activarusuario(idusuario, estado){
             respuesta = respuesta.trim();
             if(respuesta == 1){
                 $('#tablalistausuarios').load("usuarios/listausuarios.php");
-                Swal.fire(
-                    ":D","Operacion con exito!","success"
-                    );
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Operacion Exitosa',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }else{
-                Swal.fire(":(","Fallo al activar!" + respuesta,"Error");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'No se pudo realizar la operacion!',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
             }
         }
     });
@@ -29,7 +38,7 @@ function agregarusuario(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistausuarios').load('tablalistausuarios');
+                $('#tablalistausuarios').load("usuarios/listausuarios.php");
                 $('#frmagregarusuario')[0].reset();
                 Swal.fire({
                     icon: 'success',
@@ -58,12 +67,12 @@ function detalleusuario(idusuario){
         url: "../controlador/usuarios/detalle.php",
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
-            $('#idUsuarios').val(respuesta['idUsuarios']);
+            $('#idusuario').val(respuesta['idusuario']);
             $('#nombreu').val(respuesta['nombrePersona']);
+            $('#usuariou').val(respuesta['nombreUsuario']);
             $('#fechau').val(respuesta['fecha']);
             $('#telefonou').val(respuesta['telefono']);
             $('#correou').val(respuesta['correo']);
-            $('#usuariou').val(respuesta['nombreUsuario']);
             $('#idRolu').val(respuesta['idRol']);
             $('#ubicacionu').val(respuesta['ubicacion']);
         }
@@ -78,16 +87,25 @@ function editarusuario(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistausuarios').load("tablalistausuarios");
-                $('#modalActualizarUsuarios').modal('hide');
-                Swal.fire(":D","Actualizado con exito!","success");
-
+                $('#tablalistausuarios').load("usuarios/listausuarios.php");
+                $('#editar').modal('hide');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Usuario Actualizado Exitosamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }else{
-                Swal.fire(":(","Error al Actualizar!" + respuesta,"Error");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error al Editar!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         }
     });
-
     return false;
 }
 
@@ -100,7 +118,7 @@ function eliminarusuario(idusuario){
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Si, estoy seguro!'
-        }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
                 type: "POST",
@@ -122,14 +140,41 @@ function eliminarusuario(idusuario){
                                 text: 'Error al Eliminar!',
                                 showConfirmButton: false,
                                 timer: 1500
-                              });
-                    }
+                            });
+                        }
                 }
             });
-
-
         }
     })
     return false;
+}
+
+function cambiopassword(){
+    $.ajax({
+        type:"POST",
+        data:$('#formcambiopassword').serialize(),
+        url:"../controlador/usuarios/password.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                $('#password').modal('hide');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Contraseña Actualizada',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'No se pudo Realizar la Operacion',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+    });
+return false;
 }
 

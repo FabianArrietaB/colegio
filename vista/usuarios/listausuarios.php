@@ -18,7 +18,7 @@
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive">
-    <table class="table table-light  text-center">
+    <table class="table table-light text-center">
         <thead>
             <tr>
                 <th scope="col" >Usuario</th>
@@ -39,36 +39,36 @@
             while ($usuarios = mysqli_fetch_array($query)){
         ?>
             <tr>
-                <td> <?php echo $usuarios['usuario']; ?> </td>
-                <td> <?php echo $usuarios['nombre']; ?></td>
-                <td> <?php echo $usuarios['correo']; ?></td>
-                <td> <?php echo $usuarios['rol']; ?></td>
-                <td> <?php echo $usuarios['fecha']; ?></td>
-                <td><?php
+                <td><?php echo $usuarios['usuario'];?></td>
+                <td><?php echo $usuarios['nombre']; ?></td>
+                <td><?php echo $usuarios['correo']; ?></td>
+                <td><?php echo $usuarios['rol'];    ?></td>
+                <td><?php echo $usuarios['fecha'];  ?></td>
+                <td>
+                    <?php
                     if ($usuarios['estado'] == 0) {
                     ?>
                         <button class="btn btn-danger btn-sm" onclick="activarusuario(
-                            <?php echo $usuarios['idusuario'] ?>,
-                            <?php echo $usuarios['estado'] ?>)">
-                            INACTIVO
+                        <?php echo $usuarios['idusuario'] ?>,
+                        <?php echo $usuarios['estado'] ?>)">
+                        INACTIVO
                         </button>
-                    <?php
+                        <?php
                     } else if ($usuarios['estado'] == 1) {
-                    ?>
+                        ?>
                         <button class="btn btn-success btn-sm" onclick="activarusuario(
-                            <?php echo $usuarios['idusuario'] ?>,
-                            <?php echo $usuarios['estado'] ?>)">
-                            ACTIVO
+                        <?php echo $usuarios['idusuario'] ?>,
+                        <?php echo $usuarios['estado'] ?>)">
+                        ACTIVO
                         </button>
                     <?php
                     }
                     ?>
                 </td>
                 <td>
-                    <button class="btn btn-warning" type="button"  data-toggle="modal" data-target="#editar" onclick="detalleusuario(<?php echo $mostrar['idusuario'] ?>)">
-                        <i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i>
-                    </button>
-                    <button class="btn btn-danger" type="button" onclick="eliminarusuario(<?php echo $mostrar['idReporte']?>)"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>
+                    <button type="button" class="btn btn-info"     data-bs-toggle="modal" data-bs-target="#password" onclick="cambiopassword('<?php echo $usuarios['idusuario']?>')"><i class="fa-solid fa-arrows-rotate fa-xl"></i></button>
+                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detalleusuario('<?php echo $usuarios['idusuario']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
+                    <button type="button" class="btn btn-danger"   onclick="eliminarusuario('<?php echo $usuarios['idusuario']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>
                 </td>
             </tr>
         <?php } ?>

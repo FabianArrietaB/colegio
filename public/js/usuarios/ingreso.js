@@ -8,7 +8,13 @@ function ingresar(){
             if(respuesta == 1){
                 window.location.href = "vista/inicio.php";
             }else{
-                swal.fire(":(","Error al entrar!" + respuesta, "error");
+                swal.fire({
+                    icon: 'error',
+                    title: 'Su usuario esta Inactivo',
+                    text: 'Contacte Administrador!',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
             }
         }
     });
