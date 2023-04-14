@@ -1,6 +1,6 @@
 <?php
     include "../../modelo/usuarios.php";
-    $idusuario = $_POST['idusuario'];
     $Usuarios = new Usuarios();
+    $idusuario = $_POST['idusuario'];
     echo json_encode($Usuarios->detalleusuario($idusuario));
 ?>
