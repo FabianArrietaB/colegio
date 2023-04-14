@@ -11,7 +11,6 @@
                     <!-- Formulario (Usuario) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Usuario</legend>
-                        <input type="text" id="idusuario" name="idusuario" hidden>
                         <div class="row">
                             <div class="col-6">
                                 <div class="input-group mb-3">
@@ -52,8 +51,8 @@
                             </div>
                         </div>
                     </fieldset>
-                    <div class="card-footer">
-                        <button class="btn btn-success">Actualizar</button>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-success">Guardar</button>
                     </div>
                 </div>
             </div>

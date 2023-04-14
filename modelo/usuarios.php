@@ -62,14 +62,14 @@
                 usuarios.user_estado    AS estado,
                 usuarios.user_fecope    AS fecha
                 FROM usuarios AS usuarios
-                INNER JOIN roles AS roles ON usuarios.id_rol = roles.id_rol;
+                INNER JOIN roles AS roles ON usuarios.id_rol = roles.id_rol
                 AND usuarios.id_usuario ='$idusuario'";
             $respuesta = mysqli_query($conexion,$sql);
             $usuario = mysqli_fetch_array($respuesta);
             $datos = array(
-                'idusuario' => $usuario['idUsuarios'],
-                'usuario'   => $usuario['nombreUsuario'],
-                'nombre'    => $usuario['nombrePersona'],
+                'idusuario' => $usuario['idusuario'],
+                'usuario'   => $usuario['usuario'],
+                'nombre'    => $usuario['nombre'],
                 'correo'    => $usuario['correo'],
                 'idrol'     => $usuario['idRol'],
                 'rol'       => $usuario['rol'],
@@ -93,6 +93,17 @@
             return $respuesta;
         }
 
+        public function cambiocontraseña($datos){
+            $conexion = Conexion::conectar();
+            $sql = "UPDATE usuarios SET user_contra = ? WHERE id_usuario = ?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('si',    $datos['password'],
+                                        $datos['idusuario']);
+            $respuesta = $query->execute();
+            $query->close();
+            return $respuesta;
+        }
+
         public function eliminarusuario($idusuario){
             $conexion = Conexion::conectar();
             $sql = "DELETE FROM usuarios WHERE idusuario=?";
@@ -103,15 +114,5 @@
             return $respuesta;
         }
 
-        public function cambiocontraseña($datos){
-            $conexion = Conexion::conectar();
-            $sql = "UPDATE usuarios SET user_contra = ? WHERE id_usuario = ?";
-            $query = $conexion->prepare($sql);
-            $query->bind_param('si',    $datos['password'],
-                                        $datos['idUsuarios']);
-            $respuesta = $query->execute();
-            $query->close();
-            return $respuesta;
-        }
     }
 ?>

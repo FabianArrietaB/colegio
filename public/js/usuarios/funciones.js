@@ -4,13 +4,13 @@ $(document).ready(function(){
 
 function activarusuario(idusuario, estado){
     $.ajax({
-        url:"../controlador/usuarios/activar.php",
         type:"POST",
         data:"idusuario=" + idusuario +"&estado=" + estado,
+        url:"../controlador/usuarios/activar.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistausuarios').load("usuarios/listausuarios.php");
+                $('#tablalistausuarios').load('usuarios/listausuarios.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Operacion Exitosa',
@@ -38,7 +38,7 @@ function agregarusuario(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistausuarios').load("usuarios/listausuarios.php");
+                $('#tablalistausuarios').load('usuarios/listausuarios.php');
                 $('#frmagregarusuario')[0].reset();
                 Swal.fire({
                     icon: 'success',
@@ -68,13 +68,12 @@ function detalleusuario(idusuario){
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
             $('#idusuario').val(respuesta['idusuario']);
-            $('#nombreu').val(respuesta['nombrePersona']);
-            $('#usuariou').val(respuesta['nombreUsuario']);
-            $('#fechau').val(respuesta['fecha']);
-            $('#telefonou').val(respuesta['telefono']);
+            $('#nombreu').val(respuesta['nombre']);
+            $('#usuariou').val(respuesta['usuario']);
+            $('#fechau').val(respuesta['fecupt']);
             $('#correou').val(respuesta['correo']);
             $('#idRolu').val(respuesta['idRol']);
-            $('#ubicacionu').val(respuesta['ubicacion']);
+            $('#rol').val(respuesta['rol']);
         }
     });
 }
@@ -87,7 +86,7 @@ function editarusuario(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistausuarios').load("usuarios/listausuarios.php");
+                $('#tablalistausuarios').load('usuarios/listausuarios.php');
                 $('#editar').modal('hide');
                 Swal.fire({
                     icon: 'success',
@@ -108,6 +107,35 @@ function editarusuario(){
     });
     return false;
 }
+
+function cambiopassword(){
+        $.ajax({
+            type:"POST",
+            data:$('#formcambiopassword').serialize(),
+            url:"../controlador/usuarios/password.php",
+            success:function(respuesta){
+                respuesta = respuesta.trim();
+                if(respuesta == 1){
+                    $('#password').modal('hide');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Contraseña Actualizada',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'No se pudo Realizar la Operacion',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            }
+        });
+    return false;
+}
+
 
 function eliminarusuario(idusuario){
     Swal.fire({
@@ -147,34 +175,5 @@ function eliminarusuario(idusuario){
         }
     })
     return false;
-}
-
-function cambiopassword(){
-    $.ajax({
-        type:"POST",
-        data:$('#formcambiopassword').serialize(),
-        url:"../controlador/usuarios/password.php",
-        success:function(respuesta){
-            respuesta = respuesta.trim();
-            if(respuesta == 1){
-                $('#password').modal('hide');
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Contraseña Actualizada',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-
-            }else{
-                Swal.fire({
-                    icon: 'error',
-                    title: 'No se pudo Realizar la Operacion',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }
-        }
-    });
-return false;
 }
 

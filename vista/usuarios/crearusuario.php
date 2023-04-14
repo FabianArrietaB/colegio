@@ -51,7 +51,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <div class="card-footer">
+                    <div class="card-footer text-center">
                         <button class="btn btn-success">Guardar</button>
                     </div>
                 </div>
