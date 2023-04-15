@@ -37,11 +37,11 @@
                             <div class="col-3">
                                 <div class="input-group mb-3">
                                     <select name="idRol" id="idRol" class="form-control input-sm">
-                                    <option selected >Selecione un Rol</option>
-                                    <option value="1">Usuario</option>
-                                    <option value="2">Supervisor</option>
-                                    <option value="3">Administrador</option>
-                                </select>
+                                        <option selected >Selecione un Rol</option>
+                                        <option value="1">Usuario</option>
+                                        <option value="2">Supervisor</option>
+                                        <option value="3">Administrador</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-3">

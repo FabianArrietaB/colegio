@@ -7,12 +7,12 @@
       <li>
         <a href="inicio.php">
           <i class="bx bx-grid-alt"></i>
-          <span class="link_name">Inicio</span>
+            <span class="link_name">Inicio</span>
         </a>
         <span class="tooltip">Inicio</span>
       </li>
       <?php if($_SESSION['usuario']['rol'] == 1) {?>
-        <li>
+      <li>
         <a href="alumnos.php">
           <i class="bx bx-user"></i>
           <span class="link_name">Alumnos</span>
@@ -108,7 +108,7 @@
       <?php } ?>
       <li class="profile">
         <a href="../controlador/usuarios/salir.php">
-        <i class="bx bx-log-out" id="log_out"></i>
+          <i class="bx bx-log-out" id="log_out"></i>
         </a>
       </li>
     </ul>

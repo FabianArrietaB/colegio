@@ -18,12 +18,16 @@
                             </div>
                             <div class="col">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="cladoc" name="cladoc" class="form-control input-sm" placeholder="Ingrese Categoria">
+                                    <select name="idcat" id="idcat" class="form-control input-sm">
+                                        <option selected >Selecione Categoria</option>
+                                        <option value="1">ACTA</option>
+                                        <option value="2">CERTIFICADO</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="docume" name="docume" class="form-control input-sm" placeholder="Ingrese Precio">
+                                    <input type="text" id="precio" name="precio" class="form-control input-sm" placeholder="Ingrese Precio">
                                 </div>
                             </div>
                     </fieldset>

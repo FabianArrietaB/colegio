@@ -31,7 +31,9 @@
 
 <!-- por ultimo se carga el footer -->
 <?php
-require('footer.php'); 
+include "productos/crearproducto.php";
+include "productos/editarproducto.php";
+include "footer.php";
 ?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/productos/productos.js"></script>

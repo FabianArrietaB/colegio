@@ -52,6 +52,7 @@
                 <th>
                     <div class="d-grid gap-2">
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#create"><i class="fa-solid fa-square-plus fa-lg"></i></button>
+                        <button type="button" class="btn btn-danger"   onclick="eliminarreporte('<?php echo $usuarios['idusuario']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>
                     </div>
                 </th>
             </tr>
@@ -91,6 +92,7 @@
                 </td>
                 <td>
                     <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="editaralumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
+                    <button type="button" class="btn btn-danger"   onclick="eliminarreporte('<?php echo $usuarios['idusuario']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>
                 </td>
             </tr>
             <?php } ?>

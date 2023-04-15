@@ -350,15 +350,15 @@ fieldset.group-border {
   box-shadow: 0px 0px 0px 0px #000;
 }
 
-.small input {
-  height: 22px;
-  padding: 2px 5px;
-  font-size: 12px;
-  line-height: 1.5;
-  border-radius: 3px;
-}
-
 /*left align all labels*/
 .form-horizontal .control-label {
   text-align: left !important;
+}
+
+.input-group>.form-control, .input-group>.form-floating, .input-group>.form-select {
+  position: relative !important;
+  flex: 1 1 auto !important;
+  width: 1% !important;
+  min-width: 0 !important;
+  text-transform: uppercase !important;
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-04-2023 a las 04:15:39
+-- Tiempo de generación: 15-04-2023 a las 23:08:21
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -91,11 +91,31 @@ INSERT INTO `alumnos` (`id_alumno`, `id_grado`, `alu_nombre`, `alu_cladoc`, `alu
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `id_categoria` int(11) NOT NULL,
+  `cat_nombre` varchar(45) NOT NULL,
+  `cat_fecope` varchar(45) NOT NULL DEFAULT 'CURRENT_TIMESTAMP()'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id_categoria`, `cat_nombre`, `cat_fecope`) VALUES
+(1, 'ACTA', 'CURRENT_TIMESTAMP()'),
+(2, 'CERTIFICADO', 'CURRENT_TIMESTAMP()');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `empleados`
 --
 
 CREATE TABLE `empleados` (
-  `id` int(11) NOT NULL,
+  `id_empleado` int(11) NOT NULL,
   `emp_nombre` varchar(45) DEFAULT NULL,
   `emp_cladoc` varchar(45) DEFAULT NULL,
   `emp_docume` varchar(45) DEFAULT NULL,
@@ -106,7 +126,7 @@ CREATE TABLE `empleados` (
   `emp_estrat` varchar(45) DEFAULT NULL,
   `emp_correo` varchar(45) DEFAULT NULL,
   `emp_tipcon` varchar(45) DEFAULT NULL,
-  `emp_salario` varchar(45) DEFAULT NULL,
+  `emp_salari` varchar(45) DEFAULT NULL,
   `emp_codces` varchar(45) DEFAULT NULL,
   `emp_codeps` varchar(45) DEFAULT NULL,
   `emp_codpen` varchar(45) DEFAULT NULL,
@@ -127,9 +147,9 @@ CREATE TABLE `empleados` (
 -- Volcado de datos para la tabla `empleados`
 --
 
-INSERT INTO `empleados` (`id`, `emp_nombre`, `emp_cladoc`, `emp_docume`, `emp_cargo`, `emp_telcel`, `emp_ciudad`, `emp_direcc`, `emp_estrat`, `emp_correo`, `emp_tipcon`, `emp_salario`, `emp_codces`, `emp_codeps`, `emp_codpen`, `emp_codarl`, `emp_sexo`, `emp_estciv`, `emp_escola`, `emp_gposan`, `emp_factrh`, `emp_hijos`, `emp_estado`, `emp_fecnac`, `emp_fecope`, `emp_fecupd`) VALUES
+INSERT INTO `empleados` (`id_empleado`, `emp_nombre`, `emp_cladoc`, `emp_docume`, `emp_cargo`, `emp_telcel`, `emp_ciudad`, `emp_direcc`, `emp_estrat`, `emp_correo`, `emp_tipcon`, `emp_salari`, `emp_codces`, `emp_codeps`, `emp_codpen`, `emp_codarl`, `emp_sexo`, `emp_estciv`, `emp_escola`, `emp_gposan`, `emp_factrh`, `emp_hijos`, `emp_estado`, `emp_fecnac`, `emp_fecope`, `emp_fecupd`) VALUES
 (1, 'CARLOS ALBERTO ROCHA TOVAR', 'CEDULA', '574236985', 'PROFESOR MATEMATICAS', '3002548965', 'SANTA MARTA', 'CALLE 17 # 40 - 62', '3', 'crocha@gmail.com', 'FIJO', '1100000', 'PROTECION', 'SURA', 'COLPENSIONES', 'SURA', 'MASCULINO', 'SOLTERO', 'PROFESIONAL', 'O', 'POSITIVO', '1', '1', '1957-06-05', '2023-02-01', '2023-02-01'),
-(2, 'MARIA DEL PILAR', 'Cedula Ciudadania', '125364895', 'PROFESOR DE INFORMATICA', '42563895', 'SANTA MARTA', 'CALLE 43 # 28 - 15', '3', 'MSALES@GMAIL.COM', 'Fijo', '1300000', 'FNA', 'SURA', 'COLPENSIONES', 'SURA', 'Masculino', 'Casado/a', 'Tecnico', 'O', 'Positivo', '2', NULL, '2023-03-17', '2023-03-17', '2023-03-17'),
+(2, 'MARIA DEL PILAR', 'Cedula Ciudadania', '125364895', 'PROFESOR DE INFORMATICA', '42563895', 'SANTA MARTA', 'CALLE 43 # 28 - 15', '3', 'MSALES@GMAIL.COM', 'Fijo', '1300000', 'FNA', 'SURA', 'COLPENSIONES', 'SURA', 'Masculino', 'Casado/a', 'Tecnico', 'O', 'Positivo', '2', '1', '2023-03-17', '2023-03-17', '2023-03-17'),
 (3, 'CONSUELO BAUTISTAS SANCHEZ', 'Cedula Ciudadania', '1564965752', 'PROFESORA DE ETICA', '3024587964', 'SANTA MARTA', 'CALLE 45 # 33 - 250', '3', 'cbautista@outlook.com', 'Fijo', '1350000', 'FNA', 'SURA', 'COLFONDOS', 'SURA', 'Femenino', 'Soltero/a', 'Profesional', 'AB', 'Positivo', '3', '1', '1989-03-01', '2023-03-18', '2023-03-18'),
 (4, 'JULIO JOSE REALEZ CUESTA', 'Cedula Ciudadania', '57421744', 'PROFESOR DE ESTADISTICA', '3003340469', 'SANTA MARTA', 'CALLE 35 # 05 - 14', '2', 'rreales@hotmail.com', 'Fijo', '1500000', 'FNA', 'SURA', 'COLFONDOS', 'SURA', 'Masculino', 'Soltero/a', 'Profesional', 'O', 'Positivo', '2', '1', '1980-04-20', '2023-03-24', '2023-03-24'),
 (5, 'JULIO DEL CASTILLO MARTINEZ', 'Cedula Ciudadania', '57423156', 'PROFESOR DE TELECOMUNICACIONES', '3142054624', 'SABTA MARTA', 'CALLE 43 # 27 - 185', '2', 'jcastillo@misena.com', 'Fijo', '20000000', 'PROTECION', 'SANITAS', 'COLFONDOS', 'SURA', 'Masculino', 'Casado/a', 'Especializacion', 'B', 'Positivo', '3', '1', '1975-02-02', '2023-03-24', '2023-03-24');
@@ -147,6 +167,7 @@ CREATE TABLE `grados` (
   `gra_matric` varchar(45) NOT NULL,
   `gra_pensio` varchar(45) NOT NULL,
   `gra_canalu` bigint(10) NOT NULL,
+  `gra_estado` varchar(45) DEFAULT NULL,
   `gra_fecope` date NOT NULL,
   `gra_fecupd` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -155,19 +176,19 @@ CREATE TABLE `grados` (
 -- Volcado de datos para la tabla `grados`
 --
 
-INSERT INTO `grados` (`id_grado`, `id_empleado`, `gra_nombre`, `gra_matric`, `gra_pensio`, `gra_canalu`, `gra_fecope`, `gra_fecupd`) VALUES
-(1, 0, 'TRANSICION', '1320000', '580000', 25, '2023-02-01', '2023-03-24'),
-(2, 0, 'PRIMERO', '1270000', '480000', 30, '2023-02-01', '2023-02-01'),
-(3, 0, 'SEGUNDO', '1260000', '580000', 30, '2023-02-01', '2023-02-01'),
-(4, 0, 'TERCERO', '1250000', '580000', 30, '2023-02-01', '2023-02-01'),
-(5, 0, 'CUARTO', '1240000', '580000', 30, '2023-02-01', '2023-02-01'),
-(6, 0, 'QUINTO', '1240000', '580000', 30, '2023-02-01', '2023-02-01'),
-(7, 0, 'SEXTO', '1250000', '540000', 30, '2023-02-01', '2023-02-01'),
-(8, 0, 'SEPTIMO', '1222000', '540000', 30, '2023-02-01', '2023-02-01'),
-(9, 0, 'OCTAVO', '1222000', '540000', 30, '2023-02-01', '2023-02-01'),
-(10, 0, 'NOVENO', '1222000', '540000', 30, '2023-02-01', '2023-02-01'),
-(11, 0, 'DECIMO', '1100000', '540000', 30, '2023-02-01', '2023-02-01'),
-(12, 0, 'UNDECIMO', '1100000', '540000', 30, '2023-02-01', '2023-03-24');
+INSERT INTO `grados` (`id_grado`, `id_empleado`, `gra_nombre`, `gra_matric`, `gra_pensio`, `gra_canalu`, `gra_estado`, `gra_fecope`, `gra_fecupd`) VALUES
+(1, 1, 'TRANSICION', '1320000', '580000', 25, '1', '2023-02-01', '2023-03-24'),
+(2, 1, 'PRIMERO', '1270000', '480000', 30, '1', '2023-02-01', '2023-02-01'),
+(3, 1, 'SEGUNDO', '1260000', '580000', 30, '1', '2023-02-01', '2023-02-01'),
+(4, 1, 'TERCERO', '1250000', '580000', 30, '1', '2023-02-01', '2023-02-01'),
+(5, 1, 'CUARTO', '1240000', '580000', 30, '1', '2023-02-01', '2023-02-01'),
+(6, 1, 'QUINTO', '1240000', '580000', 30, '1', '2023-02-01', '2023-02-01'),
+(7, 1, 'SEXTO', '1250000', '540000', 30, '1', '2023-02-01', '2023-02-01'),
+(8, 1, 'SEPTIMO', '1222000', '540000', 30, '1', '2023-02-01', '2023-02-01'),
+(9, 1, 'OCTAVO', '1222000', '540000', 30, '1', '2023-02-01', '2023-02-01'),
+(10, 1, 'NOVENO', '1222000', '540000', 30, '1', '2023-02-01', '2023-02-01'),
+(11, 1, 'DECIMO', '1100000', '540000', 30, '1', '2023-02-01', '2023-02-01'),
+(12, 1, 'UNDECIMO', '1100000', '540000', 30, '1', '2023-02-01', '2023-03-24');
 
 -- --------------------------------------------------------
 
@@ -179,18 +200,19 @@ CREATE TABLE `matriculas` (
   `id_matricula` int(11) NOT NULL,
   `id_alumno` int(11) NOT NULL,
   `id_grado` int(11) NOT NULL,
-  `mat_abono` varchar(45) NOT NULL,
+  `mat_saldo` varchar(45) NOT NULL,
   `mat_detalle` varchar(255) NOT NULL,
-  `mat_fecope` varchar(45) DEFAULT 'CURRENT_TIMESTAMP()'
+  `mat_fecope` datetime DEFAULT current_timestamp(),
+  `mat_valmat` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `matriculas`
 --
 
-INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `mat_abono`, `mat_detalle`, `mat_fecope`) VALUES
-(1, 1, 3, '1222000', 'ABONO A MATRICULA', '2023-02-01'),
-(2, 2, 4, '800000', 'ABONO MATRICULA', '2023-03-23 03:34:44');
+INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `mat_saldo`, `mat_detalle`, `mat_fecope`, `mat_valmat`) VALUES
+(1, 1, 3, '1222000', 'ABONO A MATRICULA', '2023-02-01 00:00:00', ''),
+(2, 2, 4, '800000', 'ABONO MATRICULA', '2023-03-23 03:34:44', '');
 
 -- --------------------------------------------------------
 
@@ -203,19 +225,18 @@ CREATE TABLE `parentezcos` (
   `id_alumno` int(11) NOT NULL,
   `id_acudiente` int(11) NOT NULL,
   `id_grado` int(11) NOT NULL,
-  `par_fecope` date DEFAULT NULL,
-  `par_fecupd` date DEFAULT NULL
+  `par_fecope` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `parentezcos`
 --
 
-INSERT INTO `parentezcos` (`id`, `id_alumno`, `id_acudiente`, `id_grado`, `par_fecope`, `par_fecupd`) VALUES
-(1, 1, 1, 3, '2023-02-01', '2023-02-01'),
-(2, 1, 2, 3, '2023-02-01', '2023-02-01'),
-(3, 2, 3, 4, '2023-02-01', '2023-02-01'),
-(4, 2, 4, 4, '2023-02-01', '2023-02-01');
+INSERT INTO `parentezcos` (`id`, `id_alumno`, `id_acudiente`, `id_grado`, `par_fecope`) VALUES
+(1, 1, 1, 3, '2023-02-01'),
+(2, 1, 2, 3, '2023-02-01'),
+(3, 2, 3, 4, '2023-02-01'),
+(4, 2, 4, 4, '2023-02-01');
 
 -- --------------------------------------------------------
 
@@ -225,28 +246,24 @@ INSERT INTO `parentezcos` (`id`, `id_alumno`, `id_acudiente`, `id_grado`, `par_f
 
 CREATE TABLE `productos` (
   `id_producto` int(11) NOT NULL,
-  `pro_catego` varchar(45) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
   `pro_nombre` varchar(45) NOT NULL,
   `pro_precio` varchar(45) NOT NULL,
   `pro_estado` varchar(45) NOT NULL DEFAULT '1',
-  `pro_fecope` date NOT NULL,
-  `pro_fecupd` date NOT NULL
+  `pro_fecope` date NOT NULL DEFAULT current_timestamp(),
+  `pro_fecupd` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `pro_catego`, `pro_nombre`, `pro_precio`, `pro_estado`, `pro_fecope`, `pro_fecupd`) VALUES
-(1, 'CERTIFIACADO', 'CERTIFICADO ESTUDIANTIL', '50000', '1', '2023-02-01', '2023-02-01'),
-(12, 'CERTIFICADO', 'CERTIFICADO DE NOTA', '35000', '1', '2023-03-07', '2023-03-07'),
-(13, 'CERTIFICADO', 'CERTIFICADO EGRESADO', '55000', '1', '2023-03-07', '2023-03-07'),
-(14, 'ACTAS', 'ACTA DE GRADO', '55000', '1', '2023-03-07', '2023-03-07'),
-(15, 'CERTIFICADO', 'CERTIFICADO LABORAL', '65000', '1', '2023-03-08', '2023-03-17'),
-(18, 'CERTIFIACADO', 'CERTIFICADO ESTUDIANTIL', '10000', '1', '2023-03-09', '2023-03-09'),
-(20, 'CERTIFICADO', 'CERTIFICADO NOTAS GENERALES', '100000', '1', '2023-03-09', '2023-03-09'),
-(23, 'CERTIFICADO', 'CERTIFICADO GENERAL', '15000', '1', '2023-03-17', '2023-03-17'),
-(24, 'ACTAS', 'ACTA DE NOTAS', '25000', '1', '2023-03-24', '2023-03-24');
+INSERT INTO `productos` (`id_producto`, `id_categoria`, `pro_nombre`, `pro_precio`, `pro_estado`, `pro_fecope`, `pro_fecupd`) VALUES
+(1, 2, 'CERTIFICADO ESTUDIANTIL', '50000', '1', '2023-02-01', '2023-02-01'),
+(12, 2, 'CERTIFICADO DE NOTA', '35000', '1', '2023-03-07', '2023-03-07'),
+(13, 2, 'CERTIFICADO EGRESADO', '55000', '1', '2023-03-07', '2023-03-07'),
+(14, 1, 'ACTA DE GRADO', '55000', '1', '2023-03-07', '2023-03-07'),
+(15, 1, '', '', '1', '2023-04-15', '2023-03-17');
 
 -- --------------------------------------------------------
 
@@ -294,7 +311,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `user_usuario`, `user_nombre`, `user_contra`, `user_correo`, `user_estado`, `user_fecope`, `user_fecupd`) VALUES
 (1, 3, 'Admin', 'Administrador', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-14 00:00:00'),
-(2, 2, 'Farrieta', 'Fabian Arrieta', '202cb962ac59075b964b07152d234b70', 'f.arrieta@gmail.com', 1, '2023-02-12 00:00:00', '2023-02-12 00:00:00'),
+(2, 2, 'Farrieta', 'Fabian Arrieta', '202cb962ac59075b964b07152d234b70', 'f.arrieta@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-15 00:00:00'),
 (3, 1, 'Marrieta', 'Michelle Arrieta', '202cb962ac59075b964b07152d234b70', 'm.arrieta@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-14 00:00:00');
 
 -- --------------------------------------------------------
@@ -307,18 +324,19 @@ CREATE TABLE `ventas` (
   `id` int(11) NOT NULL,
   `id_alumno` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
-  `ven_fecope` date NOT NULL DEFAULT current_timestamp()
+  `ven_fecope` date NOT NULL DEFAULT current_timestamp(),
+  `ven_precio` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `ventas`
 --
 
-INSERT INTO `ventas` (`id`, `id_alumno`, `id_producto`, `ven_fecope`) VALUES
-(1, 1, 1, '2023-02-01'),
-(2, 1, 2, '2023-02-01'),
-(3, 2, 1, '2023-03-30'),
-(4, 2, 4, '2023-03-30');
+INSERT INTO `ventas` (`id`, `id_alumno`, `id_producto`, `ven_fecope`, `ven_precio`) VALUES
+(1, 1, 1, '2023-02-01', ''),
+(2, 1, 2, '2023-02-01', ''),
+(3, 2, 1, '2023-03-30', ''),
+(4, 2, 4, '2023-03-30', '');
 
 --
 -- Índices para tablas volcadas
@@ -328,43 +346,43 @@ INSERT INTO `ventas` (`id`, `id_alumno`, `id_producto`, `ven_fecope`) VALUES
 -- Indices de la tabla `acudientes`
 --
 ALTER TABLE `acudientes`
-  ADD PRIMARY KEY (`id_acudiente`),
-  ADD KEY `fkAlumno_idx` (`id_alumno`) USING BTREE;
+  ADD PRIMARY KEY (`id_acudiente`);
 
 --
 -- Indices de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  ADD PRIMARY KEY (`id_alumno`),
-  ADD KEY `fkGrado_idx` (`id_grado`) USING BTREE;
+  ADD PRIMARY KEY (`id_alumno`);
+
+--
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id_categoria`);
 
 --
 -- Indices de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_empleado`);
 
 --
 -- Indices de la tabla `grados`
 --
 ALTER TABLE `grados`
-  ADD PRIMARY KEY (`id_grado`),
-  ADD KEY `fkEmpleado_idx` (`id_empleado`) USING BTREE,
-  ADD KEY `fkGrado_idx` (`id_grado`) USING BTREE;
+  ADD PRIMARY KEY (`id_grado`);
 
 --
 -- Indices de la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  ADD PRIMARY KEY (`id_matricula`),
-  ADD KEY `fkAlumno_idx` (`id_alumno`),
-  ADD KEY `fkGrado_idx` (`id_grado`);
+  ADD PRIMARY KEY (`id_matricula`);
 
 --
 -- Indices de la tabla `parentezcos`
 --
 ALTER TABLE `parentezcos`
-  ADD PRIMARY KEY (`id`,`id_alumno`,`id_acudiente`,`id_grado`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `productos`
@@ -382,16 +400,13 @@ ALTER TABLE `roles`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`),
-  ADD KEY `fkRoles_ix` (`id_rol`) USING BTREE;
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- Indices de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fkAlumno_idx` (`id_alumno`) USING BTREE,
-  ADD KEY `fkProducto_idx` (`id_producto`) USING BTREE;
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -404,10 +419,10 @@ ALTER TABLE `alumnos`
   MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `empleados`
+-- AUTO_INCREMENT de la tabla `categorias`
 --
-ALTER TABLE `empleados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `categorias`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `grados`
@@ -425,7 +440,7 @@ ALTER TABLE `parentezcos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`

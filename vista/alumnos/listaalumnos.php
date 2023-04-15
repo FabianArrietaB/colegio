@@ -1,40 +1,79 @@
 <?php
     session_start();
+    if ($_SESSION['usuario']['rol'] == 3) {
+        include "../../modelo/conexion.php";
+        $con = new Conexion();
+        $conexion = $con->conectar();
+        $sql = "SELECT
+            alumnos.id_alumno   AS idalumno,
+            alumnos.alu_nombre  AS nombre,
+            alumnos.alu_cladoc  AS cladoc,
+            alumnos.alu_docume  AS docume,
+            alumnos.alu_sexo    AS sexo,
+            alumnos.alu_gposan  AS gposan,
+            alumnos.alu_factrh  AS factrh,
+            alumnos.alu_ciudad  AS ciudad,
+            alumnos.alu_direcc  AS direcc,
+            alumnos.alu_estrat  AS estrat,
+            alumnos.alu_telcel  AS celula,
+            alumnos.alu_correo  AS correo,
+            alumnos.alu_estado  AS estado,
+            alumnos.alu_fecope  AS fecha,
+            grados.id_grado     AS idgrado,
+            grados.gra_nombre   AS grado,
+            acudientes.id_acudiente  AS idacudiente,
+            acudientes.acu_nombre AS nombreacu,
+            acudientes.acu_cladoc AS cladocacu,
+            acudientes.acu_docume AS documeacu,
+            acudientes.acu_ciudad AS ciudadacu,
+            acudientes.acu_direcc AS direccacu,
+            acudientes.acu_telcel AS celulaacu,
+            acudientes.acu_correo AS correoacu,
+            acudientes.acu_parent AS parentezc
+            FROM alumnos AS alumnos
+            INNER JOIN acudientes AS acudientes ON alumnos.id_alumno = acudientes.id_alumno
+            INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado
+            ORDER BY alumnos.id_alumno ASC";
+        $query = mysqli_query($conexion, $sql);
+    } else {
+        include "../../modelo/conexion.php";
+        $con = new Conexion();
+        $conexion = $con->conectar();
+        $sql = "SELECT
+            alumnos.id_alumno   AS idalumno,
+            alumnos.alu_nombre  AS nombre,
+            alumnos.alu_cladoc  AS cladoc,
+            alumnos.alu_docume  AS docume,
+            alumnos.alu_sexo    AS sexo,
+            alumnos.alu_gposan  AS gposan,
+            alumnos.alu_factrh  AS factrh,
+            alumnos.alu_ciudad  AS ciudad,
+            alumnos.alu_direcc  AS direcc,
+            alumnos.alu_estrat  AS estrat,
+            alumnos.alu_telcel  AS celula,
+            alumnos.alu_correo  AS correo,
+            alumnos.alu_estado  AS estado,
+            alumnos.alu_fecope  AS fecha,
+            grados.id_grado     AS idgrado,
+            grados.gra_nombre   AS grado,
+            acudientes.id_acudiente  AS idacudiente,
+            acudientes.acu_nombre AS nombreacu,
+            acudientes.acu_cladoc AS cladocacu,
+            acudientes.acu_docume AS documeacu,
+            acudientes.acu_ciudad AS ciudadacu,
+            acudientes.acu_direcc AS direccacu,
+            acudientes.acu_telcel AS celulaacu,
+            acudientes.acu_correo AS correoacu,
+            acudientes.acu_parent AS parentezc
+            FROM alumnos AS alumnos
+            INNER JOIN acudientes AS acudientes ON alumnos.id_alumno = acudientes.id_alumno
+            INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado
+            WHERE alumnos.alu_estado = 1
+            ORDER BY alumnos.id_alumno ASC";
+        $query = mysqli_query($conexion, $sql);
+    }
     //Consulta//
-    include "../../modelo/conexion.php";
-    $con = new Conexion();
-    $conexion = $con->conectar();
-    $sql = "SELECT
-        alumnos.id_alumno   AS idalumno,
-        alumnos.alu_nombre  AS nombre,
-        alumnos.alu_cladoc  AS cladoc,
-        alumnos.alu_docume  AS docume,
-        alumnos.alu_sexo    AS sexo,
-        alumnos.alu_gposan  AS gposan,
-        alumnos.alu_factrh  AS factrh,
-        alumnos.alu_ciudad  AS ciudad,
-        alumnos.alu_direcc  AS direcc,
-        alumnos.alu_estrat  AS estrat,
-        alumnos.alu_telcel  AS celula,
-        alumnos.alu_correo  AS correo,
-        alumnos.alu_estado  AS estado,
-        alumnos.alu_fecope  AS fecha,
-        grados.id_grado     AS idgrado,
-        grados.gra_nombre   AS grado,
-        acudientes.id_acudiente  AS idacudiente,
-        acudientes.acu_nombre AS nombreacu,
-        acudientes.acu_cladoc AS cladocacu,
-        acudientes.acu_docume AS documeacu,
-        acudientes.acu_ciudad AS ciudadacu,
-        acudientes.acu_direcc AS direccacu,
-        acudientes.acu_telcel AS celulaacu,
-        acudientes.acu_correo AS correoacu,
-        acudientes.acu_parent AS parentezc
-        FROM alumnos AS alumnos
-        INNER JOIN acudientes AS acudientes ON alumnos.id_alumno = acudientes.id_alumno
-        INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado
-        ORDER BY alumnos.id_alumno ASC";
-    $query = mysqli_query($conexion, $sql);
+    
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive justify-content-center">
@@ -91,6 +130,7 @@
                 </td>
                 <td>
                     <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="editaralumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
+                    <?php if($_SESSION['usuario']['rol'] == 3) {?> <button type="button" class="btn btn-danger"  onclick="eliminaralumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>  <?php } ?>
                 </td>
             </tr>
             <?php } ?>

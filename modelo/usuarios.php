@@ -46,7 +46,6 @@
             $query->close();
             return $respuesta;
         }
-        
 
         public function agregarusuario($datos){
             $conexion = Conexion::conectar();

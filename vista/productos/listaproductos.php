@@ -6,12 +6,14 @@
     $conexion = $con->conectar();
     $sql = "SELECT
         productos.id_producto   AS idproducto,
-        productos.pro_catego    AS catego,
         productos.pro_nombre    AS nombre,
         productos.pro_precio    AS precio,
         productos.pro_estado    AS estado,
-        productos.pro_fecope    AS fecha
+        productos.pro_fecope    AS fecha,
+        categorias.id_categoria AS idcat,
+        categorias.cat_nombre   AS catego
         FROM productos AS productos
+        INNER JOIN categorias AS categorias ON productos.id_categoria = categorias.id_categoria
         ORDER BY productos.id_producto ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
@@ -61,7 +63,8 @@
                     ?>
                 </td>
             <td>
-                <button class="btn btn-warning" type="button"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
+                <button class="btn btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#editar" onclick="detalleproducto('<?php echo $productos['idproducto']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
+                <?php if($_SESSION['usuario']['rol'] == 3) {?> <button type="button" class="btn btn-danger"  onclick="eliminarproducto('<?php echo $productos['idproducto']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>  <?php } ?>
             </td>
         </tr>
         <?php } ?>
