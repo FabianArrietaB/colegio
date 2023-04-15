@@ -1,16 +1,16 @@
 $(document).ready(function(){
-    $('#tablalistaproductos').load('grados/listaproductos.php');
+    $('#tablalistagrados').load('grados/listagrados.php');
 });
 
-function activarproducto(idproducto, estado){
+function activargrado(idgrado, estado){
     $.ajax({
         type:"POST",
-        data:"idproducto=" + idproducto +"&estado=" + estado,
-        url:"../controlador/productos/activar.php",
+        data:"idgrado=" + idgrado +"&estado=" + estado,
+        url:"../controlador/grados/activar.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistaproductos').load('productos/listaproductos.php');
+                $('#tablalistagrados').load('grados/listagrados.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Operacion Exitosa',

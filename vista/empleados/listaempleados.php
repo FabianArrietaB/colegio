@@ -29,8 +29,8 @@
         empleados.emp_hijos  AS hijos,
         empleados.emp_estado AS estado,
         empleados.emp_fecnac AS fecnac,
-        empleados.emp_fecope AS fecope,
-        FROM empleaodos AS empleados
+        empleados.emp_fecope AS fecope
+        FROM empleados AS empleados
         ORDER BY empleados.id_empleado ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
@@ -40,7 +40,7 @@
         <thead>
             <tr>
                 <th scope="col" >Nombres</th>
-                <th scope="col" >Codigo</th>
+                <th scope="col" >Cargo</th>
                 <th scope="col" >Tipo Documento</th>
                 <th scope="col" >Documento</th>
                 <th scope="col" >Direccion</th>
@@ -60,11 +60,11 @@
         ?>
             <tr>
                 <td> <?php echo $empleados['nombre']; ?> </td>
-                <td> <?php echo $empleados['grado']; ?></td>
+                <td> <?php echo $empleados['cargo']; ?></td>
                 <td> <?php echo $empleados['cladoc']; ?></td>
                 <td> <?php echo $empleados['docume']; ?></td>
                 <td> <?php echo $empleados['direcc']; ?></td>
-                <td> <?php echo $empleados['celula']; ?></td>
+                <td> <?php echo $empleados['telcel']; ?></td>
                 <td> <?php echo $empleados['correo']; ?></td>
                 <td>
                 <?php
@@ -88,7 +88,7 @@
                     ?>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="activarempleado('<?php echo $empleados['idempleado']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
+                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="('<?php echo $empleados['idempleado']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
                 </td>
             </tr>
             <?php } ?>

@@ -20,7 +20,7 @@
         <span class="tooltip">Alumnos</span>
       </li>
       <?php } else if($_SESSION['usuario']['rol'] == 2){?>
-        <li>
+      <li>
         <a href="alumnos.php">
           <i class="bx bx-user"></i>
           <span class="link_name">Alumnos</span>

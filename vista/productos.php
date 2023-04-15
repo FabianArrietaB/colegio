@@ -20,22 +20,16 @@
                     </div>
                 </div>
                 <div class="card-body">
-                   
-                        <div id="tablalistarproductos"></div>
-                    </div>
+                    <div id="tablalistaproductos"></div>
                 </div>
             </div>
-        <!-- /. PAGE INNER  -->
         </div>
+        <!-- /. PAGE INNER  -->
     </div>
 </section>
 <!-- fin del contenido principal -->
 
 <!-- por ultimo se carga el footer -->
-<?php
-    include ("productos/crearproducto.php");
-    include "footer.php";
-?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/productos/productos.js"></script>
 

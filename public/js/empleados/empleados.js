@@ -1,16 +1,16 @@
 $(document).ready(function(){
-    $('#tablalistaproductos').load('grados/listaproductos.php');
+    $('#tablalistaempleados').load('empleados/listaempleados.php');
 });
 
-function activarproducto(idproducto, estado){
+function activarempleado(idempleado, estado){
     $.ajax({
         type:"POST",
-        data:"idproducto=" + idproducto +"&estado=" + estado,
-        url:"../controlador/productos/activar.php",
+        data:"idempleado=" + idempleado +"&estado=" + estado,
+        url:"../controlador/empleados/activar.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistaproductos').load('productos/listaproductos.php');
+                $('#tablalistaempleados').load('empleados/listaempleados.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Operacion Exitosa',
