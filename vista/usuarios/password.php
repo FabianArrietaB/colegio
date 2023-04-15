@@ -1,6 +1,6 @@
 <!-- Formulario (Cambio Contraseña) -->
 <form id="formcambiopassword" method="post" onsubmit="return cambiopassword()">
-    <div class="modal fade" id="password" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal" id="password" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">

@@ -64,46 +64,46 @@
         <span class="tooltip">Alumnos</span>
       </li>
       <li>
-        <a href="#">
-          <i class="bx bx-chat"></i>
-          <span class="link_name">Acudientes</span>
+        <a href="empleados.php">
+          <i class='bx bxs-user-account'></i>
+          <span class="link_name">Empleados</span>
         </a>
-        <span class="tooltip">Acudientes</span>
+        <span class="tooltip">Empleados</span>
       </li>
       <li>
-        <a href="#">
-          <i class="bx bx-pie-chart-alt-2"></i>
+        <a href="grados.php">
+          <i class='bx bx-chalkboard'></i>
           <span class="link_name">Grados</span>
         </a>
         <span class="tooltip">Grados</span>
       </li>
       <li>
         <a href="productos.php">
-          <i class="bx bx-pie-chart-alt-2"></i>
+        <i class='bx bxl-product-hunt' ></i>
           <span class="link_name">Productos</span>
         </a>
         <span class="tooltip">Productos</span>
       </li>
       <li>
-        <a href="#">
+        <a href="reportes.php">
           <i class="bx bx-folder"></i>
           <span class="link_name">Reportes</span>
         </a>
         <span class="tooltip">Reportes</span>
       </li>
       <li>
-        <a href="#">
-          <i class="bx bx-cart-alt"></i>
-          <span class="link_name">Order</span>
-        </a>
-        <span class="tooltip">Order</span>
-      </li>
-      <li>
         <a href="usuarios.php">
-          <i class="bx bx-cog"></i>
+          <i class='bx bx-user-circle'></i>
           <span class="link_name">Usuarios</span>
         </a>
         <span class="tooltip">Usuarios</span>
+      </li>
+      <li>
+        <a href="estadisticas.php">
+          <i class="bx bx-pie-chart-alt-2"></i>
+          <span class="link_name">Estadisticas</span>
+        </a>
+        <span class="tooltip">Esadisticas</span>
       </li>
       <?php } ?>
       <li class="profile">

@@ -1,6 +1,6 @@
 <!-- Formulario (Agregar) -->
 <form id="frmeditarusuario" method="post" onsubmit="return editarusuario()">
-    <div class="modal fade" id="editar" tabindex="-1" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal" id="editar" tabindex="-1" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">

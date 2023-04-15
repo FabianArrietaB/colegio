@@ -38,7 +38,7 @@ function cambiopassword(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#password').modal('dispose');
+                $('#password').modal('hide');
                 Swal.fire({
                     icon: 'success',
                     title: 'Contraseña Actualizada',
@@ -66,6 +66,7 @@ function agregarusuario(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
+                console.log(respuesta)
                 $('#tablalistausuarios').load('usuarios/listausuarios.php');
                 $('#frmagregarusuario')[0].reset();
                 Swal.fire({

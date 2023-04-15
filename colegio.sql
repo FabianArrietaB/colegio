@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-04-2023 a las 01:59:32
+-- Tiempo de generación: 15-04-2023 a las 04:15:39
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -29,8 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `acudientes` (
   `id_acudiente` int(11) NOT NULL,
-  `id_alumno` varchar(45) NOT NULL,
-  `acu_grado` varchar(45) NOT NULL,
+  `id_alumno` int(11) NOT NULL,
   `acu_nombre` varchar(45) NOT NULL,
   `acu_cladoc` varchar(45) NOT NULL,
   `acu_docume` varchar(45) NOT NULL,
@@ -47,12 +46,12 @@ CREATE TABLE `acudientes` (
 -- Volcado de datos para la tabla `acudientes`
 --
 
-INSERT INTO `acudientes` (`id_acudiente`, `id_alumno`, `acu_grado`, `acu_nombre`, `acu_cladoc`, `acu_docume`, `acu_ciudad`, `acu_direcc`, `acu_telcel`, `acu_correo`, `acu_parent`, `acu_fecope`, `acu_fecupd`) VALUES
-(1, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'CUARTO', 'FABIAN ANDRES ARRIETA BLANCO', 'CEDULA', '1045689957', 'SANTA MARTA', 'CLL 43 # 27 - 161', '3013996994', 'f.arrieta@outlook.com', 'PADRE', '2023-02-01', '2023-02-01'),
-(2, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'CUARTO', 'ANGIE MICHELLE BOLAÑO GRANADOS', 'CEDULA', '1082569852', 'BARRANQUILLA', 'CLL 41 # 9E - 15', '3154684165', 'mbolaños@gmail.com', 'MADRE', '2023-02-01', '2023-02-01'),
-(3, 'SAMUEL JOSE SILVA BANCO', 'QUINTO', 'EDER EDARDO SILVA BLANCO', 'CEDULA CIUDADANIA', '1023569847', 'BARRANQUILLA', 'CALLE 41 # 33 - 210', '3025478965', 'ESILVA@GMAIL.COM', 'PADRE', '2023-02-28', '2023-02-28'),
-(4, 'SAMUEL JOSE SILVA BANCO', 'QUINTO', 'MAITE GOMEZ ORTEGON', 'CEDULA CIUDADANIA', '123685947', 'BARRANQUILLA', 'CALLE 41 # 33 - 50', '3201248965', 'MGOMEZ@GMAIL.COM', 'MADRE', '2023-02-28', '2023-02-28'),
-(5, 'SANTIAGO ANDRES PERALTA BLANCO', 'SEGUNDO', 'WILLIAM PERALTA RUIZ', 'Cedula Ciudadania', '1042563895', 'SANTA MARTA', 'CALLE 15 # 27 - 165', '0', 'wperalta@gmail.com', 'Padre', '2023-03-23', '2023-03-23');
+INSERT INTO `acudientes` (`id_acudiente`, `id_alumno`, `acu_nombre`, `acu_cladoc`, `acu_docume`, `acu_ciudad`, `acu_direcc`, `acu_telcel`, `acu_correo`, `acu_parent`, `acu_fecope`, `acu_fecupd`) VALUES
+(1, 1, 'FABIAN ANDRES ARRIETA BLANCO', 'CEDULA', '1045689957', 'SANTA MARTA', 'CLL 43 # 27 - 161', '3013996994', 'f.arrieta@outlook.com', 'PADRE', '2023-02-01', '2023-02-01'),
+(2, 1, 'ANGIE MICHELLE BOLAÑO GRANADOS', 'CEDULA', '1082569852', 'BARRANQUILLA', 'CLL 41 # 9E - 15', '3154684165', 'mbolaños@gmail.com', 'MADRE', '2023-02-01', '2023-02-01'),
+(3, 2, 'EDER EDARDO SILVA BLANCO', 'CEDULA CIUDADANIA', '1023569847', 'BARRANQUILLA', 'CALLE 41 # 33 - 210', '3025478965', 'ESILVA@GMAIL.COM', 'PADRE', '2023-02-28', '2023-02-28'),
+(4, 2, 'MAITE GOMEZ ORTEGON', 'CEDULA CIUDADANIA', '123685947', 'BARRANQUILLA', 'CALLE 41 # 33 - 50', '3201248965', 'MGOMEZ@GMAIL.COM', 'MADRE', '2023-02-28', '2023-02-28'),
+(5, 3, 'WILLIAM PERALTA RUIZ', 'Cedula Ciudadania', '1042563895', 'SANTA MARTA', 'CALLE 15 # 27 - 165', '0', 'wperalta@gmail.com', 'Padre', '2023-03-23', '2023-03-23');
 
 -- --------------------------------------------------------
 
@@ -62,7 +61,7 @@ INSERT INTO `acudientes` (`id_acudiente`, `id_alumno`, `acu_grado`, `acu_nombre`
 
 CREATE TABLE `alumnos` (
   `id_alumno` int(11) NOT NULL,
-  `alu_grado` varchar(45) NOT NULL,
+  `id_grado` int(11) NOT NULL,
   `alu_nombre` varchar(45) NOT NULL,
   `alu_cladoc` varchar(45) NOT NULL,
   `alu_docume` varchar(45) NOT NULL,
@@ -77,18 +76,17 @@ CREATE TABLE `alumnos` (
   `alu_estado` varchar(45) NOT NULL DEFAULT '1',
   `alu_fecnac` date NOT NULL,
   `alu_fecope` date NOT NULL,
-  `alu_fecupd` date NOT NULL
+  `alu_fecupd` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `alumnos`
 --
 
-INSERT INTO `alumnos` (`id_alumno`, `alu_grado`, `alu_nombre`, `alu_cladoc`, `alu_docume`, `alu_sexo`, `alu_gposan`, `alu_factrh`, `alu_ciudad`, `alu_direcc`, `alu_estrat`, `alu_telcel`, `alu_correo`, `alu_estado`, `alu_fecnac`, `alu_fecope`, `alu_fecupd`) VALUES
-(1, 'CUARTO', 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'Tarjeta de Identidad', '1043526895', 'Femenino', 'O', 'Positivo', 'BARRANQUILLA', 'CLL 41 # 9E - 15', '3', '3183508869', 'michellearrieta@gmail.com', '1', '2013-10-14', '2023-02-01', '2023-03-17'),
-(2, 'QUINTO', 'SAMUEL JOSE SILVA BANCO', 'Tarjeta de Identidad', '1023654896', 'Masculino', 'O', 'Positivo', 'BARRANQUILLA', 'CALLE 41 # 33 - 50', '3', '302145689', 'SSILVA@GMAIL.COM', '1', '2012-07-29', '2023-02-28', '2023-03-17'),
-(3, 'PRIMERO', 'SANTIAGO ANDRES PERALTA BLANCO', 'Tarjeta de Identidad', '1043578965', 'Masculino', 'O', 'Positivo', 'SANTA MARTA', 'CALLE 43 # 27 - 161 CASA 48', '3', '3017357970', 'speralta@gmail.com', '1', '2014-11-16', '2023-03-23', '2023-03-23'),
-(4, 'SEGUNDO', 'SAMIR JOSE REALEZ FERNANDEZZ', 'Tarjeta de Identidad', '1045876952', 'Masculino', 'A', 'Negativo', 'SANTA MARTA', 'CALLE 43 # 27 - 161', '3', '3235489632', 'srealesz@gmail.com', '1', '2013-10-12', '2023-03-24', '2023-03-24');
+INSERT INTO `alumnos` (`id_alumno`, `id_grado`, `alu_nombre`, `alu_cladoc`, `alu_docume`, `alu_sexo`, `alu_gposan`, `alu_factrh`, `alu_ciudad`, `alu_direcc`, `alu_estrat`, `alu_telcel`, `alu_correo`, `alu_estado`, `alu_fecnac`, `alu_fecope`, `alu_fecupd`) VALUES
+(1, 3, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'Tarjeta de Identidad', '1043526895', 'Femenino', 'O', 'Positivo', 'BARRANQUILLA', 'CLL 41 # 9E - 15', '3', '3183508869', 'michellearrieta@gmail.com', '1', '2013-10-14', '2023-02-01', '2023-03-17'),
+(2, 4, 'SAMUEL JOSE SILVA BANCO', 'Tarjeta de Identidad', '1023654896', 'Masculino', 'O', 'Positivo', 'BARRANQUILLA', 'CALLE 41 # 33 - 50', '3', '302145689', 'SSILVA@GMAIL.COM', '1', '2012-07-29', '2023-02-28', '2023-03-17'),
+(3, 1, 'SANTIAGO ANDRES PERALTA BLANCO', 'Tarjeta de Identidad', '1043578965', 'Masculino', 'O', 'Positivo', 'SANTA MARTA', 'CALLE 43 # 27 - 161 CASA 48', '3', '3017357970', 'speralta@gmail.com', '1', '2014-11-16', '2023-03-23', '2023-03-23');
 
 -- --------------------------------------------------------
 
@@ -144,32 +142,32 @@ INSERT INTO `empleados` (`id`, `emp_nombre`, `emp_cladoc`, `emp_docume`, `emp_ca
 
 CREATE TABLE `grados` (
   `id_grado` int(11) NOT NULL,
-  `gra_nombre` varchar(45) DEFAULT NULL,
-  `gra_matric` varchar(45) DEFAULT NULL,
-  `gra_pensio` varchar(45) DEFAULT NULL,
-  `gra_canalu` bigint(10) DEFAULT NULL,
-  `gra_dirgrp` varchar(45) DEFAULT NULL,
-  `gra_fecope` date DEFAULT NULL,
-  `gra_fecupd` date DEFAULT NULL
+  `id_empleado` int(11) NOT NULL,
+  `gra_nombre` varchar(45) NOT NULL,
+  `gra_matric` varchar(45) NOT NULL,
+  `gra_pensio` varchar(45) NOT NULL,
+  `gra_canalu` bigint(10) NOT NULL,
+  `gra_fecope` date NOT NULL,
+  `gra_fecupd` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `grados`
 --
 
-INSERT INTO `grados` (`id_grado`, `gra_nombre`, `gra_matric`, `gra_pensio`, `gra_canalu`, `gra_dirgrp`, `gra_fecope`, `gra_fecupd`) VALUES
-(1, 'TRANSICION', '1320000', '580000', 25, 'NINGUNO', '2023-02-01', '2023-03-24'),
-(2, 'PRIMERO', '1270000', '480000', 30, 'NINGUNO', '2023-02-01', '2023-02-01'),
-(3, 'SEGUNDO', '1260000', '580000', 30, 'NINGUNO', '2023-02-01', '2023-02-01'),
-(4, 'TERCERO', '1250000', '580000', 30, 'NINGUNO', '2023-02-01', '2023-02-01'),
-(5, 'CUARTO', '1240000', '580000', 30, 'NINGUNO', '2023-02-01', '2023-02-01'),
-(6, 'QUINTO', '1240000', '580000', 30, 'NINGUNO', '2023-02-01', '2023-02-01'),
-(7, 'SEXTO', '1250000', '540000', 30, 'NINGUNO', '2023-02-01', '2023-02-01'),
-(8, 'SEPTIMO', '1222000', '540000', 30, 'NINGUNO', '2023-02-01', '2023-02-01'),
-(9, 'OCTAVO', '1222000', '540000', 30, 'NINGUNO', '2023-02-01', '2023-02-01'),
-(10, 'NOVENO', '1222000', '540000', 30, 'NINGUNO', '2023-02-01', '2023-02-01'),
-(11, 'DECIMO', '1100000', '540000', 30, 'NINGUNO', '2023-02-01', '2023-02-01'),
-(12, 'UNDECIMO', '1100000', '540000', 30, 'NINGUNO', '2023-02-01', '2023-03-24');
+INSERT INTO `grados` (`id_grado`, `id_empleado`, `gra_nombre`, `gra_matric`, `gra_pensio`, `gra_canalu`, `gra_fecope`, `gra_fecupd`) VALUES
+(1, 0, 'TRANSICION', '1320000', '580000', 25, '2023-02-01', '2023-03-24'),
+(2, 0, 'PRIMERO', '1270000', '480000', 30, '2023-02-01', '2023-02-01'),
+(3, 0, 'SEGUNDO', '1260000', '580000', 30, '2023-02-01', '2023-02-01'),
+(4, 0, 'TERCERO', '1250000', '580000', 30, '2023-02-01', '2023-02-01'),
+(5, 0, 'CUARTO', '1240000', '580000', 30, '2023-02-01', '2023-02-01'),
+(6, 0, 'QUINTO', '1240000', '580000', 30, '2023-02-01', '2023-02-01'),
+(7, 0, 'SEXTO', '1250000', '540000', 30, '2023-02-01', '2023-02-01'),
+(8, 0, 'SEPTIMO', '1222000', '540000', 30, '2023-02-01', '2023-02-01'),
+(9, 0, 'OCTAVO', '1222000', '540000', 30, '2023-02-01', '2023-02-01'),
+(10, 0, 'NOVENO', '1222000', '540000', 30, '2023-02-01', '2023-02-01'),
+(11, 0, 'DECIMO', '1100000', '540000', 30, '2023-02-01', '2023-02-01'),
+(12, 0, 'UNDECIMO', '1100000', '540000', 30, '2023-02-01', '2023-03-24');
 
 -- --------------------------------------------------------
 
@@ -178,26 +176,21 @@ INSERT INTO `grados` (`id_grado`, `gra_nombre`, `gra_matric`, `gra_pensio`, `gra
 --
 
 CREATE TABLE `matriculas` (
-  `id` int(11) NOT NULL,
-  `mat_nomalu` varchar(100) NOT NULL,
-  `mat_grado` varchar(45) NOT NULL,
-  `mat_valmat` varchar(45) NOT NULL,
+  `id_matricula` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `id_grado` int(11) NOT NULL,
   `mat_abono` varchar(45) NOT NULL,
   `mat_detalle` varchar(255) NOT NULL,
-  `mat_fecope` varchar(45) DEFAULT NULL,
-  `mat_fecupd` varchar(45) DEFAULT NULL
+  `mat_fecope` varchar(45) DEFAULT 'CURRENT_TIMESTAMP()'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `matriculas`
 --
 
-INSERT INTO `matriculas` (`id`, `mat_nomalu`, `mat_grado`, `mat_valmat`, `mat_abono`, `mat_detalle`, `mat_fecope`, `mat_fecupd`) VALUES
-(1, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'OCTAVO', '1222000', '1222000', 'ABONO A MATRICULA', '2023-02-01', '2023-03-27 02:12:38'),
-(2, 'SANTIAGO ANDRES PERALTA BLANCO', 'SEGUNDO', '1200000', '800000', 'ABONO MATRICULA', '2023-03-23 03:34:44', '2023-03-23 03:34:44'),
-(3, 'SAMIR JOSE REALEZ FERNANDEZZ', 'SEGUNDO', '1250000', '1000000', 'ABONO A MTRICULA', '2023-03-24 00:13:51', '2023-03-27 02:13:44'),
-(5, 'SAMIR JOSE REALEZ FERNANDEZZ', 'SEGUNDO', '1250000', '1000000', 'ABONO A MTRICULA', '2023-03-27 02:13:44', '2023-03-27 02:20:56'),
-(6, 'SAMIR JOSE REALEZ FERNANDEZZ', 'SEGUNDO', '1250000', '1000000', 'ABONO A MTRICULA', '2023-03-27 02:20:56', '2023-03-27 02:20:56');
+INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `mat_abono`, `mat_detalle`, `mat_fecope`) VALUES
+(1, 1, 3, '1222000', 'ABONO A MATRICULA', '2023-02-01'),
+(2, 2, 4, '800000', 'ABONO MATRICULA', '2023-03-23 03:34:44');
 
 -- --------------------------------------------------------
 
@@ -300,12 +293,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `user_usuario`, `user_nombre`, `user_contra`, `user_correo`, `user_estado`, `user_fecope`, `user_fecupd`) VALUES
-(1, 3, 'Admin', 'Administrador', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', 1, '2023-02-12 00:00:00', '2023-02-12 00:00:00'),
+(1, 3, 'Admin', 'Administrador', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-14 00:00:00'),
 (2, 2, 'Farrieta', 'Fabian Arrieta', '202cb962ac59075b964b07152d234b70', 'f.arrieta@gmail.com', 1, '2023-02-12 00:00:00', '2023-02-12 00:00:00'),
-(3, 1, 'Marrieta', 'Michelle Arrieta', '202cb962ac59075b964b07152d234b70', 'm.arrieta@gmail.com', 1, '2023-02-12 00:00:00', '2023-02-12 00:00:00'),
-(6, 1, 'Ssilva', 'Samuel Silva', '202cb962ac59075b964b07152d234b70', 'ssilva@gmail.com', 1, '0000-00-00 00:00:00', '2023-04-13 16:58:13'),
-(7, 1, 'speralta', 'Santiago Peralta', '202cb962ac59075b964b07152d234b70', 'speralta@outlook.com', 1, '0000-00-00 00:00:00', '2023-04-13 17:11:36'),
-(8, 0, '', '', 'd41d8cd98f00b204e9800998ecf8427e', '', 1, '0000-00-00 00:00:00', '2023-04-13 17:12:43');
+(3, 1, 'Marrieta', 'Michelle Arrieta', '202cb962ac59075b964b07152d234b70', 'm.arrieta@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-14 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -316,23 +306,19 @@ INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `user_usuario`, `user_nombre`, `
 CREATE TABLE `ventas` (
   `id` int(11) NOT NULL,
   `id_alumno` int(11) NOT NULL,
-  `ven_nomalu` varchar(45) NOT NULL,
-  `ven_nompro` varchar(45) NOT NULL,
-  `ven_propre` varchar(45) NOT NULL,
-  `ven_grado` varchar(45) NOT NULL,
-  `ven_fecope` date DEFAULT NULL,
-  `ven_fecupd` date DEFAULT NULL
+  `id_producto` int(11) NOT NULL,
+  `ven_fecope` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `ventas`
 --
 
-INSERT INTO `ventas` (`id`, `id_alumno`, `ven_nomalu`, `ven_nompro`, `ven_propre`, `ven_grado`, `ven_fecope`, `ven_fecupd`) VALUES
-(1, 1, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'CERTIFICADO ESTUADIANTIL', '50000', 'OCTAVO', '2023-02-01', '2023-02-01'),
-(2, 1, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'CERTIFICADO NOTAS', '45000', 'OCTAVO', '2023-02-01', '2023-02-01'),
-(3, 0, 'SAMUEL JOSE SILVA BLANCO', 'CERTIFICADO DE NOTAS', '25000', 'QUINTO', '2023-03-30', '2023-03-30'),
-(4, 0, 'SAMUEL JOSE SILVA BLANCO', 'ACTA DE GRADO', '50000', 'QUINTO', '2023-03-30', '2023-03-30');
+INSERT INTO `ventas` (`id`, `id_alumno`, `id_producto`, `ven_fecope`) VALUES
+(1, 1, 1, '2023-02-01'),
+(2, 1, 2, '2023-02-01'),
+(3, 2, 1, '2023-03-30'),
+(4, 2, 4, '2023-03-30');
 
 --
 -- Índices para tablas volcadas
@@ -342,13 +328,15 @@ INSERT INTO `ventas` (`id`, `id_alumno`, `ven_nomalu`, `ven_nompro`, `ven_propre
 -- Indices de la tabla `acudientes`
 --
 ALTER TABLE `acudientes`
-  ADD PRIMARY KEY (`id_acudiente`);
+  ADD PRIMARY KEY (`id_acudiente`),
+  ADD KEY `fkAlumno_idx` (`id_alumno`) USING BTREE;
 
 --
 -- Indices de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  ADD PRIMARY KEY (`id_alumno`);
+  ADD PRIMARY KEY (`id_alumno`),
+  ADD KEY `fkGrado_idx` (`id_grado`) USING BTREE;
 
 --
 -- Indices de la tabla `empleados`
@@ -360,13 +348,17 @@ ALTER TABLE `empleados`
 -- Indices de la tabla `grados`
 --
 ALTER TABLE `grados`
-  ADD PRIMARY KEY (`id_grado`);
+  ADD PRIMARY KEY (`id_grado`),
+  ADD KEY `fkEmpleado_idx` (`id_empleado`) USING BTREE,
+  ADD KEY `fkGrado_idx` (`id_grado`) USING BTREE;
 
 --
 -- Indices de la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_matricula`),
+  ADD KEY `fkAlumno_idx` (`id_alumno`),
+  ADD KEY `fkGrado_idx` (`id_grado`);
 
 --
 -- Indices de la tabla `parentezcos`
@@ -390,13 +382,16 @@ ALTER TABLE `roles`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD KEY `fkRoles_ix` (`id_rol`) USING BTREE;
 
 --
 -- Indices de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  ADD PRIMARY KEY (`id`,`id_alumno`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fkAlumno_idx` (`id_alumno`) USING BTREE,
+  ADD KEY `fkProducto_idx` (`id_producto`) USING BTREE;
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -421,12 +416,6 @@ ALTER TABLE `grados`
   MODIFY `id_grado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT de la tabla `matriculas`
---
-ALTER TABLE `matriculas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT de la tabla `parentezcos`
 --
 ALTER TABLE `parentezcos`
@@ -448,7 +437,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

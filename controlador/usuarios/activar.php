@@ -1,7 +1,7 @@
 <?php
     include "../../modelo/usuarios.php";
-    $Alumnos   = new Alumnos();
-    $idalumno  = $_POST['idalumno'];
+    $Usuario   = new Usuarios();
+    $idusuario  = $_POST['idusuario'];
     $estado     = $_POST['estado'];
-    echo $Alumnos->activarusuario($idalumno, $estado);
+    echo $Usuario->activarusuario($idusuario, $estado);
 ?>
