@@ -320,7 +320,7 @@ body{
   justify-content: center;
 }
 
-.table-striped{
+table{
   justify-content: center !important;
   align-items: center !important;
 }

@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div id="tablalistaproductos"></div>
+                    <div id="tablalistarproductos"></div>
                 </div>
             </div>
         </div>
@@ -30,6 +30,9 @@
 <!-- fin del contenido principal -->
 
 <!-- por ultimo se carga el footer -->
+<?php
+require('footer.php'); 
+?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/productos/productos.js"></script>
 

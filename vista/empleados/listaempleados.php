@@ -36,7 +36,7 @@
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive justify-content-center">
-    <table class="table table-light align-middle">
+    <table class="table table-light text-center">
         <thead>
             <tr>
                 <th scope="col" >Nombres</th>

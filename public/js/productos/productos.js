@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#tablalistaproductos').load('grados/listaproductos.php');
+    $('#tablalistarproductos').load('productos/listaproductos.php');
 });
 
 function activarproducto(idproducto, estado){
@@ -10,7 +10,7 @@ function activarproducto(idproducto, estado){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistaproductos').load('productos/listaproductos.php');
+                $('#tablalistarproductos').load('productos/listaproductos.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Operacion Exitosa',
