@@ -29,10 +29,10 @@
                 <th scope="col" >Director Grupo</th>
                 <th scope="col" >Matricula</th>
                 <th scope="col" >Pension</th>
+                <th scope="col" >Estado</th>
                 <th>
                     <div class="d-grid gap-2">
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#create"><i class="fa-solid fa-square-plus fa-lg"></i></button>
-                        <?php if($_SESSION['usuario']['rol'] == 3) {?> <button type="button" class="btn btn-danger"  onclick="eliminaralumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>  <?php } ?>
                     </div>
                 </th>
             </tr>
@@ -69,7 +69,8 @@
                     ?>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="editargrado('<?php echo $grados['idgrado']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
+                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detallegrado('<?php echo $grados['idgrado']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
+                    <?php if($_SESSION['usuario']['rol'] == 3) {?> <button type="button" class="btn btn-danger"  onclick="eliminargrado('<?php echo $grados['idgrado']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>  <?php } ?>
                 </td>
             </tr>
             <?php } ?>

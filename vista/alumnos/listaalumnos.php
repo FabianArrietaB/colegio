@@ -73,7 +73,6 @@
         $query = mysqli_query($conexion, $sql);
     }
     //Consulta//
-    
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive justify-content-center">

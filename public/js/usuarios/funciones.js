@@ -39,6 +39,7 @@ function cambiopassword(){
             respuesta = respuesta.trim();
             if(respuesta == 1){
                 $('#password').modal('hide');
+                $('#tablalistausuarios').load('usuarios/listausuarios.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Contraseña Actualizada',
