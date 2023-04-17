@@ -5,13 +5,13 @@
     $con = new Conexion();
     $conexion = $con->conectar();
     $sql = "SELECT
-        empleados.id_empleado AS idempleado,-
-        empleados.emp_nombre AS nombre,-
-        empleados.emp_cladoc AS cladoc,-
-        empleados.emp_docume AS docume,-
+        empleados.id_empleado AS idempleado,
+        empleados.emp_nombre AS nombre,
+        empleados.emp_cladoc AS cladoc,
+        empleados.emp_docume AS docume,
         empleados.emp_cargo  AS  cargo,
-        empleados.emp_telcel AS telcel,-
-        empleados.emp_ciudad AS ciudad,-
+        empleados.emp_telcel AS telcel,
+        empleados.emp_ciudad AS ciudad,
         empleados.emp_direcc AS direcc,
         empleados.emp_estrat AS estrat,
         empleados.emp_correo AS correo,
@@ -21,12 +21,12 @@
         empleados.emp_codeps AS codeps,
         empleados.emp_codpen AS conpen,
         empleados.emp_codarl AS codarl,
-        empleados.emp_sexo   AS   sexo,-
+        empleados.emp_sexo   AS   sexo,
         empleados.emp_estciv AS estciv,
         empleados.emp_escola AS escola,
         empleados.emp_gposan AS gposan,
         empleados.emp_factrh AS factrh,
-        empleados.emp_hijos  AS hijos,
+        empleados.emp_hijos  AS hijos,-
         empleados.emp_estado AS estado,
         empleados.emp_fecnac AS fecnac,
         empleados.emp_fecope AS fecope
