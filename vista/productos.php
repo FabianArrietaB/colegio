@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div id="tablalistarproductos"></div>
+                    <div id="tablalistaproductos"></div>
                 </div>
             </div>
         </div>

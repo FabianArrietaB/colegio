@@ -20,9 +20,29 @@
 
         public function agregarempleado($datos){
             $conexion = Conexion::conectar();
-            $sql = "INSERT INTO empleados (emp_nombre, emp_cladoc, emp_docume, emp_cargo, emp_telcel, emp_ciudad,
-            emp_direcc, emp_estrat, emp_correo, emp_tipcon, emp_salari, emp_codces, emp_codeps, emp_codpen, emp_codarl,
-            emp_sexo, emp_estciv, emp_escola, emp_gposan, emp_factrh, emp_hijos, emp_fecnac)
+            $sql = "INSERT INTO empleados (
+                emp_nombre,
+                emp_cladoc,
+                emp_docume,
+                emp_cargo,
+                mp_telcel,
+                mp_ciudad,
+                emp_direcc,
+                emp_estrat,
+                emp_correo,
+                emp_tipcon,
+                emp_salari,
+                emp_codces,
+                emp_codeps,
+                emp_codpen,
+                emp_codarl,
+                emp_sexo,
+                emp_estciv,
+                emp_escola,
+                emp_gposan,
+                emp_factrh,
+                emp_hijos,
+                emp_fecnac)
             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             $query = $conexion->prepare($sql);
             $query->bind_param("sssssssssssssssssssssss", $datos['nombre'], $datos['cladoc'], $datos['docume'], $datos['cargo'], $datos['telcel']

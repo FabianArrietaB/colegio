@@ -38,7 +38,8 @@ function agregarempleado(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistarempleados').load('empleados/listaempleados.php');
+                console.log(respuesta);
+                $('#tablalistaempleados').load('empleados/listaempleados.php');
                 $('#frmagregarempleado')[0].reset();
                 Swal.fire({
                     icon: 'success',
@@ -102,7 +103,7 @@ function editarempleado(){
             respuesta = respuesta.trim();
             if(respuesta == 1){
                 $('#editar').modal('hide');
-                $('#tablalistarempleados').load('empleados/listaempleados.php');
+                $('#tablalistaempleados').load('empleados/listaempleados.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Empleado Actualizado Exitosamente',
@@ -131,7 +132,7 @@ function eliminarempleado(idempleado){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistarempleados').load('empleados/listaempleados.php');
+                $('#tablalistaempleados').load('empleados/listaempleados.php');
                     swal.fire({
                         icon: 'success',
                         title: 'Empleado Eliminado Exitosamente',
