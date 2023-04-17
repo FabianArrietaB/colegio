@@ -20,12 +20,12 @@
 
         public function agregarempleado($datos){
             $conexion = Conexion::conectar();
-            $sql = 'INSERT INTO empleados (emp_nombre, emp_cladoc, emp_docume, emp_cargo, emp_telcel, emp_ciudad,
+            $sql = "INSERT INTO empleados (emp_nombre, emp_cladoc, emp_docume, emp_cargo, emp_telcel, emp_ciudad,
             emp_direcc, emp_estrat, emp_correo, emp_tipcon, emp_salari, emp_codces, emp_codeps, emp_codpen, emp_codarl,
             emp_sexo, emp_estciv, emp_escola, emp_gposan, emp_factrh, emp_hijos, emp_fecnac)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param('sssssssssssssssssssssss', $datos['nombre'], $datos['cladoc'], $datos['docume'], $datos['cargo'], $datos['telcel']
+            $query->bind_param("sssssssssssssssssssssss", $datos['nombre'], $datos['cladoc'], $datos['docume'], $datos['cargo'], $datos['telcel']
             , $datos['ciudad'], $datos['direcc'], $datos['estrat'], $datos['correo'], $datos['tipcon'], $datos['salari'], $datos['codces'], $datos['codeps']
             , $datos['conpen'], $datos['codarl'], $datos['sexo'], $datos['estciv'], $datos['escola'], $datos['gposan'], $datos['factrh'], $datos['hijos'], $datos['fecnac']);
             $respuesta = $query->execute();
@@ -34,7 +34,7 @@
 
         public function detalleempleado($idempleado){
             $conexion = Conexion::conectar();
-            $sql "SELECT
+            $sql ="SELECT
                 empleados.id_empleado AS idempleado,
                 empleados.emp_nombre AS nombre,
                 empleados.emp_cladoc AS cladoc,
@@ -56,7 +56,7 @@
                 empleados.emp_escola AS escola,
                 empleados.emp_gposan AS gposan,
                 empleados.emp_factrh AS factrh,
-                empleados.emp_hijos  AS hijos,-
+                empleados.emp_hijos  AS hijos,
                 empleados.emp_estado AS estado,
                 empleados.emp_fecnac AS fecnac,
                 empleados.emp_fecope AS fecope
@@ -100,7 +100,7 @@
             $query = $conexion->prepare($sql);
             $query->bind_param('ssssssssssssssssssssssssi', $datos['nombre'], $datos['cladoc'], $datos['docume'], $datos['cargo'], $datos['telcel']
             , $datos['ciudad'], $datos['direcc'], $datos['estrat'], $datos['correo'], $datos['tipcon'], $datos['salari'], $datos['codces'], $datos['codeps']
-            , $datos['conpen'], $datos['codarl'], $datos['sexo'], $datos['estciv'], $datos['escola'], $datos['gposan'], $datos['factrh'], $datos['hijos'], $datos['fecnac'], $adtos['idempleado']);
+            , $datos['conpen'], $datos['codarl'], $datos['sexo'], $datos['estciv'], $datos['escola'], $datos['gposan'], $datos['factrh'], $datos['hijos'], $datos['fecnac'], $datos['idempleado']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

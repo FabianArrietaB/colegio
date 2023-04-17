@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="nombreu" name="nombreu" class="form-control input-sm" placeholder="Ingrese Nombre" >
+                                    <input type="text" id="nombreu" name="nombreu" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-3">
@@ -29,12 +29,12 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="documeu" name="documeu" class="form-control input-sm" placeholder="Ingrese Documento">
+                                    <input type="text" id="documeu" name="documeu" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="date" id="fecnacu" name="fecnacu" class="form-control input-sm" placeholder="Fecha Nacimiento">
+                                    <input type="date" id="fecnacu" name="fecnacu" class="form-control input-sm">
                                 </div>
                             </div>
                         </div>
@@ -109,17 +109,17 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="telcelu" name="telcelu" class="form-control input-sm" placeholder="Ingrese Telefono">
+                                    <input type="text" id="telcelu" name="telcelu" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="ciudadu" name="ciudadu" class="form-control input-sm" placeholder="Ingrese Ciudad">
+                                    <input type="text" id="ciudadu" name="ciudadu" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-5">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="direccu" name="direccu" class="form-control input-sm" placeholder="Direccion">
+                                    <input type="text" id="direccu" name="direccu" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-2">
@@ -139,12 +139,12 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="correou" name="correou" class="form-control input-sm" placeholder="Ingrese Correo" >
+                                    <input type="text" id="correou" name="correou" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="cargou" name="cargou" class="form-control input-sm" placeholder="Ingrese Cargo">
+                                    <input type="text" id="cargou" name="cargou" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-3">
@@ -159,7 +159,7 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="salariu" name="salariu" class="form-control input-sm" placeholder="Ingrese Salario">
+                                    <input type="text" id="salariu" name="salariu" class="form-control input-sm">
                                 </div>
                             </div>
 
@@ -167,22 +167,27 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="codepsu" name="codepsu" class="form-control input-sm" placeholder="Ingrese EPS">
+                                    <input type="text" id="codepsu" name="codepsu" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="codarlu" name="codarlu" class="form-control input-sm" placeholder="Ingrese ARL">
+                                    <input type="text" id="codarlu" name="codarlu" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="conpenu" name="conpenu" class="form-control input-sm" placeholder="Fondo Pension">
+                                    <input type="text" id="conpenu" name="conpenu" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="codces" id="codcesu" name="documeu" class="form-control input-sm" placeholder="Cesantias">
+                                    <input type="codces" id="codcesu" name="documeu" class="form-control input-sm" >
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="input-group mb-3">
+                                    <input type="date" id="fechau" name="fechau" class="form-control input-sm" placeholder="Cesantias">
                                 </div>
                             </div>
                         </div>
