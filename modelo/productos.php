@@ -56,7 +56,7 @@
 
         public function editarproducto($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE productos SET id_categoria = ?, pro_nombre = ?, pro_precio = ?, pro_fecope = ? WHERE id_producto = ?";
+            $sql = "UPDATE productos SET id_categoria = ?, pro_nombre = ?, pro_precio = ?, pro_fecupd = ? WHERE id_producto = ?";
             $query = $conexion->prepare($sql);
             $query->bind_param('isssi', $datos['idcat'], $datos['nombre'], $datos['precio'], $datos['fecha'], $datos['idproducto']);
             $respuesta = $query->execute();

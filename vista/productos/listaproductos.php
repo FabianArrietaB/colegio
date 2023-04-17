@@ -61,7 +61,7 @@
                     <?php
                     }
                     ?>
-                </td>
+            </td>
             <td>
                 <button class="btn btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#editar" onclick="detalleproducto('<?php echo $productos['idproducto']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
                 <?php if($_SESSION['usuario']['rol'] == 3) {?> <button type="button" class="btn btn-danger"  onclick="eliminarproducto('<?php echo $productos['idproducto']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>  <?php } ?>

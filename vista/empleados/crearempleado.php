@@ -1,5 +1,5 @@
 <!-- Formulario (Agregar) -->
-<form id="frmagregarempleado" method="post" onsubmit="return agregarmpleado()">
+<form id="frmagregarempleado" method="post" onsubmit="return agregarempleado()">
     <div class="modal fade" id="create" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
             <div class="modal-content">
