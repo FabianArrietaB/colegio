@@ -67,25 +67,41 @@
                 <td> <?php echo $empleados['telcel']; ?></td>
                 <td> <?php echo $empleados['correo']; ?></td>
                 <td>
-                    <?php
-                        if ($empleados['estado'] == 0) {
-                    ?>
-                        <button class="btn btn-danger btn-sm" onclick="activarempleado(
-                        <?php echo $empleados['idempleado'] ?>,
-                        <?php echo $empleados['estado'] ?>)">
-                            INACTIVO
-                        </button>
-                    <?php } else if ($empleados['estado'] == 1) { ?>
-                        <button class="btn btn-success btn-sm" onclick="activarempleado(
-                        <?php echo $empleados['idempleado'] ?>,
-                        <?php echo $empleados['estado'] ?>)">
-                            ACTIVO
-                        </button>
-                    <?php } ?>
+                <?php
+                    if ($empleados['estado'] == 0) {
+                ?>
+                    <button class="btn btn-danger btn-sm" onclick="activarempleado(
+                    <?php echo $empleados['idempleado'] ?>,
+                    <?php echo $empleados['estado'] ?>)">
+                        INACTIVO
+                    </button>
+                <?php
+                } else if ($empleados['estado'] == 1) {
+                ?>
+                    <button class="btn btn-success btn-sm" onclick="activarempleado(
+                    <?php echo $empleados['idempleado'] ?>,
+                    <?php echo $empleados['estado'] ?>)">
+                        ACTIVO
+                    </button>
+                <?php
+                }
+                ?>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="('<?php echo $empleados['idempleado']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
-                    <?php if($_SESSION['usuario']['rol'] == 3) { ?> <button type="button" class="btn btn-danger" onclick="eliminarempleado('<?php echo $empleados['idempleado']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button><?php } ?>
+                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar"
+                        onclick="detalleempleado('<?php echo $empleados['idempleado']?>')">
+                        <i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i>
+                    </button>
+                    <?php
+                        if($_SESSION['usuario']['rol'] == 3) {
+                    ?>
+                        <button type="button" class="btn btn-danger" onclick="eliminarempleado(
+                        '<?php echo $empleados['idempleado']?>')">
+                        <i class="fa-regular fa-trash-can fa-beat fa-xl"></i>
+                        </button>
+                    <?php
+                    }
+                    ?>
                 </td>
             </tr>
             <?php } ?>
