@@ -191,7 +191,7 @@
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="codces" id="codces" name="docume" class="form-control input-sm" placeholder="Cesantias">
+                                    <input type="text" id="codces" name="codces" class="form-control input-sm" placeholder="Cesantias">
                                 </div>
                             </div>
                         </div>

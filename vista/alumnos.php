@@ -31,11 +31,9 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
-include ("alumnos/crearalumno.php");
-include ("alumnos/crearalumno.php");
-?>
-<?php
-require('footer.php'); 
+include "alumnos/crearalumno.php";
+include "alumnos/editaralumno.php";
+include "footer.php";
 ?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/alumnos/alumnos.js"></script>

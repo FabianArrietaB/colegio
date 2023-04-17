@@ -18,7 +18,7 @@
             return $respuesta;
         }
 
-        public function eliminarusuario($idalumno){
+        public function eliminaralumno($idalumno){
             $conexion = Conexion::conectar();
             $sql = "DELETE FROM alumnos WHERE id_alumno=?";
             $query = $conexion->prepare($sql);
@@ -57,9 +57,11 @@
                 acudientes.acu_correo AS correoacu,
                 acudientes.acu_parent AS parentezc
                 FROM alumnos AS alumnos
-                INNER JOIN acudientes AS acudientes ON alumnos.id_alumno = acudientes.id_alumno
-                INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado
-                AND alumnos.id_alumno  ='$idalumno'";
+                INNER JOIN acudientes AS acudientes
+                ON alumnos.id_alumno = acudientes.id_alumno
+                INNER JOIN grados AS grados
+                ON grados.id_grado = alumnos.id_grado
+                WHERE alumnos.id_alumno  ='$idalumno'";
             $respuesta = mysqli_query($conexion,$sql);
             $alumno = mysqli_fetch_array($respuesta);
             $datos = array(

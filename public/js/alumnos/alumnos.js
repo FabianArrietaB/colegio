@@ -96,9 +96,6 @@ function detallealumno(idalumno){
     });
 }
 
-
-
-
 function editaralumno(){
     $.ajax({
         type: "POST",
@@ -127,4 +124,32 @@ function editaralumno(){
         }
     });
     return false;
+}
+
+function eliminaralumno(idalumno){
+    $.ajax({
+        type: "POST",
+        data:"idalumno=" + idalumno,
+        url:"../controlador/alumnos/eliminar.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
+                    swal.fire({
+                        icon: 'success',
+                        title: 'Alumno Eliminado Exitosamente',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+            }else{
+                swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error al Eliminar!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+    });
 }

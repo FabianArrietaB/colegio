@@ -32,7 +32,7 @@
 <?php
 include "empleados/crearempleado.php";
 include "empleados/editarempleado.php";
-require('footer.php');
+include "footer.php";
 ?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/empleados/empleados.js"></script>

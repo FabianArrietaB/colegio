@@ -25,8 +25,8 @@
                 emp_cladoc,
                 emp_docume,
                 emp_cargo,
-                mp_telcel,
-                mp_ciudad,
+                emp_telcel,
+                emp_ciudad,
                 emp_direcc,
                 emp_estrat,
                 emp_correo,
@@ -43,11 +43,31 @@
                 emp_factrh,
                 emp_hijos,
                 emp_fecnac)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("sssssssssssssssssssssss", $datos['nombre'], $datos['cladoc'], $datos['docume'], $datos['cargo'], $datos['telcel']
-            , $datos['ciudad'], $datos['direcc'], $datos['estrat'], $datos['correo'], $datos['tipcon'], $datos['salari'], $datos['codces'], $datos['codeps']
-            , $datos['conpen'], $datos['codarl'], $datos['sexo'], $datos['estciv'], $datos['escola'], $datos['gposan'], $datos['factrh'], $datos['hijos'], $datos['fecnac']);
+            $query->bind_param("sssssssssssssssssssss",
+                                $datos['nombre'],
+                                $datos['cladoc'],
+                                $datos['docume'],
+                                $datos['cargo'],
+                                $datos['telcel'],
+                                $datos['ciudad'],
+                                $datos['direcc'],
+                                $datos['estrat'],
+                                $datos['correo'],
+                                $datos['tipcon'],
+                                $datos['salari'],
+                                $datos['codces'],
+                                $datos['codeps'],
+                                $datos['conpen'],
+                                $datos['codarl'],
+                                $datos['sexo'],
+                                $datos['estciv'],
+                                $datos['escola'],
+                                $datos['gposan'],
+                                $datos['factrh'],
+                                $datos['hijos'],
+                                $datos['fecnac']);
             $respuesta = $query->execute();
             return $respuesta;
         }
@@ -114,13 +134,55 @@
 
         public function editarempleado($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE empleados SET emp_nombre = ?, emp_cladoc = ?, emp_docume = ?, emp_cargo = ?, emp_telcel = ?, emp_ciudad = ?,
-            emp_direcc = ?, emp_estrat = ?, emp_correo = ?, emp_tipcon = ?, emp_salari = ?, emp_codces = ?, emp_codeps = ?, emp_codpen = ?, emp_codarl = ?,
-            emp_sexo = ?, emp_estciv = ?, emp_escola = ?, emp_gposan = ?, emp_factrh = ?, emp_hijos = ?, emp_fecnac = ?, emo_fechup = ? WHERE id_empleado = ?";
+            $sql = "UPDATE empleados SET emp_nombre = ?,
+                                        emp_cladoc = ?,
+                                        emp_docume = ?,
+                                        emp_cargo = ?,
+                                        emp_telcel = ?,
+                                        emp_ciudad = ?,
+                                        emp_direcc = ?,
+                                        emp_estrat = ?,
+                                        emp_correo = ?,
+                                        emp_tipcon = ?,
+                                        emp_salari = ?,
+                                        emp_codces = ?,
+                                        emp_codeps = ?,
+                                        emp_codpen = ?,
+                                        emp_codarl = ?,
+                                        emp_sexo = ?,
+                                        emp_estciv = ?,
+                                        emp_escola = ?,
+                                        emp_gposan = ?,
+                                        emp_factrh = ?,
+                                        emp_hijos = ?,
+                                        emp_fecnac = ?,
+                                        emp_fechup = ? WHERE id_empleado = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('ssssssssssssssssssssssssi', $datos['nombre'], $datos['cladoc'], $datos['docume'], $datos['cargo'], $datos['telcel']
-            , $datos['ciudad'], $datos['direcc'], $datos['estrat'], $datos['correo'], $datos['tipcon'], $datos['salari'], $datos['codces'], $datos['codeps']
-            , $datos['conpen'], $datos['codarl'], $datos['sexo'], $datos['estciv'], $datos['escola'], $datos['gposan'], $datos['factrh'], $datos['hijos'], $datos['fecnac'], $datos['idempleado']);
+            $query->bind_param('ssssssssssssssssssssssssi',
+                                                        $datos['nombre'],
+                                                        $datos['cladoc'],
+                                                        $datos['docume'],
+                                                        $datos['cargo'],
+                                                        $datos['telcel'],
+                                                        $datos['ciudad'],
+                                                        $datos['direcc'],
+                                                        $datos['estrat'],
+                                                        $datos['correo'],
+                                                        $datos['tipcon'],
+                                                        $datos['salari'],
+                                                        $datos['codces'],
+                                                        $datos['codeps'],
+                                                        $datos['conpen'],
+                                                        $datos['codarl'],
+                                                        $datos['sexo'],
+                                                        $datos['estciv'],
+                                                        $datos['escola'],
+                                                        $datos['gposan'],
+                                                        $datos['factrh'],
+                                                        $datos['hijos'],
+                                                        $datos['fecnac'],
+                                                        $datos['fecha'],
+                                                        $datos['idempleado']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;
