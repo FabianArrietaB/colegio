@@ -21,7 +21,6 @@
         "gposan" => $_POST['gposanu'],
         "factrh" => $_POST['factrhu'],
         "hijos"  => $_POST['hijosu'],
-        "fecha"  => $_POST['fechau'],
         );
     include "../../modelo/empleados.php";
     $Empleados   = new Empleados();

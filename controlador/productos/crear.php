@@ -1,7 +1,7 @@
 <?php
    $datos = array(
    "nombre" => $_POST['nombre'],
-   "idcat" => $_POST['idcat'],
+   "idcat"  => $_POST['idcat'],
    "precio" => $_POST['precio'],
    );
 

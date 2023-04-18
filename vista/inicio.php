@@ -9,6 +9,21 @@
     include "../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
+    $sql = "SELECT
+        matriculas.id_matricula AS idmatricula,
+        matriculas.mat_saldo AS saldo,
+        matriculas.mat_detalle AS detalle,
+        matriculas.mat_valmat AS matricula,
+        matriculas.mat_fecope AS fecha,
+        matriculas.id_alumno AS idalumno,
+        alumnos.alu_nombre AS nombre,
+        matriculas.id_grado AS idgrado,
+        grados.gra_nombre AS grado
+        FROM matriculas AS matriculas
+        INNER JOIN alumnos AS alumnos ON matriculas.id_alumno = alumnos.id_alumno
+        INNER JOIN grados AS grados ON matriculas.id_grado = grados.id_grado
+        ORDER BY matriculas.id_matricula ASC";
+    $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
@@ -106,21 +121,27 @@
                                     <th>Grado</th>
                                     <th>Valor Matricula</th>
                                     <th>Saldo Anterior</th>
+                                    <th>Detalle</th>
                                     <th>Fecha Ultimo Pago</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                    while ($matriculas = mysqli_fetch_array($query)){
+                                ?>
                                 <tr>
-                                    <td>MICHELLE ANDREA ARRIETA BLANCO</td>
-                                    <td>Tercero</td>
-                                    <td>$1200000</td>
-                                    <td>$800000</td>
-                                    <td>23 Febrero 2023</td>
+                                    <td><?php echo $matriculas['nombre'];?></td>
+                                    <td><?php echo $matriculas['grado'];?></td>
+                                    <td><?php echo $matriculas['matricula'];?></td>
+                                    <td><?php echo $matriculas['saldo'];?></td>
+                                    <td><?php echo $matriculas['detalle'];?></td>
+                                    <td><?php echo $matriculas['fecha'];?></td>
                                     <td>
                                         <input name="" id="" class="btn btn-success" type="button" value="Tomar Pago">
                                     </td>
                                 </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
@@ -133,6 +154,8 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php require('footer.php'); ?>
+<!-- carga ficheros javascript -->
+<script src="../public/js/matriculas/matriculas.js"></script>
 <?php
     }else{
         header("../index.php");

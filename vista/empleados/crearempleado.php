@@ -43,7 +43,7 @@
                                 <div class="input-group mb-3">
                                     <select name="sexo" id="sexo" class="form-control input-sm">
                                         <option selected >Sexo</option>
-                                        <option value="MASCULINO">Masulino</option>
+                                        <option value="MASCULINO">Masculino</option>
                                         <option value="FEMENINO">Femenino</option>
                                     </select>
                                 </div>
@@ -54,8 +54,8 @@
                                         <option selected >Tipo Sangre</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
-                                        <option value="B">AB</option>
-                                        <option value="B">O</option>
+                                        <option value="AB">AB</option>
+                                        <option value="O">O</option>
                                     </select>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                     <select name="estciv" id="estciv" class="form-control input-sm">
                                         <option selected >ESTADO CIVIL</option>
                                         <option value="SOLTERO/A">SOLTERO/A</option>
-                                        <option value="CASADO/A">CASADO/</option>
+                                        <option value="CASADO/A">CASADO/A</option>
                                         <option value="UNION LIBRE">UNION LIBRE</option>
                                         <option value="DIVORCIADO/A">DIVORCIADO/A</option>
                                         <option value="VIUDO/A">VIUDO/A</option>

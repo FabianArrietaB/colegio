@@ -34,50 +34,51 @@
                 emp_nombre,
                 emp_cladoc,
                 emp_docume,
-                emp_cargo,
+                emp_fecnac,
+                emp_sexo,
+                emp_gposan,
+                emp_factrh,
+                emp_estciv,
+                emp_escola,
+                emp_hijos,
                 emp_telcel,
                 emp_ciudad,
                 emp_direcc,
                 emp_estrat,
                 emp_correo,
+                emp_cargo,
                 emp_tipcon,
                 emp_salari,
-                emp_codces,
                 emp_codeps,
-                emp_codpen,
                 emp_codarl,
-                emp_sexo,
-                emp_estciv,
-                emp_escola,
-                emp_gposan,
-                emp_factrh,
-                emp_hijos,
-                emp_fecnac)
-                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                emp_codpen,
+                emp_codces)
+                VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("sssssssssssssssssssss",
+            $query->bind_param("ssssssssssssssssssssss",
                                 $datos['nombre'],
                                 $datos['cladoc'],
                                 $datos['docume'],
-                                $datos['cargo'],
+                                $datos['fecnac'],
+                                $datos['sexo'],
+                                $datos['gposan'],
+                                $datos['factrh'],
+                                $datos['estciv'],
+                                $datos['escola'],
+                                $datos['hijos'],
                                 $datos['telcel'],
                                 $datos['ciudad'],
                                 $datos['direcc'],
                                 $datos['estrat'],
                                 $datos['correo'],
+                                $datos['cargo'],
                                 $datos['tipcon'],
                                 $datos['salari'],
-                                $datos['codces'],
                                 $datos['codeps'],
-                                $datos['conpen'],
                                 $datos['codarl'],
-                                $datos['sexo'],
-                                $datos['estciv'],
-                                $datos['escola'],
-                                $datos['gposan'],
-                                $datos['factrh'],
-                                $datos['hijos'],
-                                $datos['fecnac']);
+                                $datos['conpen'],
+                                $datos['codces'],
+                            );
             $respuesta = $query->execute();
             return $respuesta;
         }
@@ -200,6 +201,5 @@
             return $respuesta;
         }
 
-        
     }
 ?>

@@ -30,6 +30,34 @@ function activarempleado(idempleado, estado){
     });
 }
 
+function eliminarempleado(idempleado){
+    $.ajax({
+        type: "POST",
+        data:"idempleado=" + idempleado,
+        url:"../controlador/empleados/eliminar.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                $('#tablalistaempleados').load('empleados/listaempleados.php');
+                    swal.fire({
+                        icon: 'success',
+                        title: 'Empleado Eliminado Exitosamente',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+            }else{
+                swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error al Eliminar!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+    });
+}
+
 function agregarempleado(){
     $.ajax({
         type: "POST",
@@ -126,30 +154,3 @@ function editarempleado(){
     return false;
 }
 
-function eliminarempleado(idempleado){
-    $.ajax({
-        type: "POST",
-        data:"idempleado=" + idempleado,
-        url:"../controlador/empleados/eliminar.php",
-        success:function(respuesta){
-            respuesta = respuesta.trim();
-            if(respuesta == 1){
-                $('#tablalistaempleados').load('empleados/listaempleados.php');
-                    swal.fire({
-                        icon: 'success',
-                        title: 'Empleado Eliminado Exitosamente',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-            }else{
-                swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Error al Eliminar!',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }
-        }
-    });
-}

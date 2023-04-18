@@ -6,7 +6,6 @@
         'iddir'   => $_POST['iddiru'],
         'matric'  => $_POST['matricu'],
         'pensio'  => $_POST['pensiou'],
-        'fecha'   => $_POST['fechau'],
     );
     include "../../modelo/grados.php";
     $Grados = new Grados();
