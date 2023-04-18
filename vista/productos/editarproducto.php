@@ -10,7 +10,7 @@
                 <d class="modal-body">
                     <!-- Formulario (Estudiante) -->
                     <fieldset class="group-border">
-                        <legend class="group-border">Informacion Procduto</legend>
+                        <legend class="group-border">Informacion Producto</legend>
                             <input type="text" id="idproducto" name="idproducto" hidden>
                             <div class="col">
                                 <div class="input-group mb-3">

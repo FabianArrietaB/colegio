@@ -11,8 +11,8 @@
                     <!-- Formulario (Estudiante) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Empleado</legend>
-                        <input type="text" id="idempleado" name="idempleado" hidden>
                         <div class="row">
+                            <input type="text" id="idempleado" name="idempleado" hidden>
                             <div class="col-4">
                                 <div class="input-group mb-3">
                                     <input type="text" id="nombreu" name="nombreu" class="form-control input-sm">
@@ -183,11 +183,6 @@
                             <div class="col-3">
                                 <div class="input-group mb-3">
                                     <input type="codces" id="codcesu" name="documeu" class="form-control input-sm" >
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="input-group mb-3">
-                                    <input type="date" id="fechau" name="fechau" class="form-control input-sm" placeholder="Cesantias">
                                 </div>
                             </div>
                         </div>
