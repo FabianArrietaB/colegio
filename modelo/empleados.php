@@ -18,6 +18,16 @@
             return $respuesta;
         }
 
+        public function eliminarempleado($idempleado){
+            $conexion = Conexion::conectar();
+            $sql = "DELETE FROM empleados WHERE id_empleado=?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('i', $idempleado);
+            $respuesta = $query->execute();
+            $query->close();
+            return $respuesta;
+        }
+
         public function agregarempleado($datos){
             $conexion = Conexion::conectar();
             $sql = "INSERT INTO empleados (
@@ -75,31 +85,31 @@
         public function detalleempleado($idempleado){
             $conexion = Conexion::conectar();
             $sql ="SELECT
-                empleados.id_empleado AS idempleado,
-                empleados.emp_nombre AS nombre,
-                empleados.emp_cladoc AS cladoc,
-                empleados.emp_docume AS docume,
-                empleados.emp_cargo  AS  cargo,
-                empleados.emp_telcel AS telcel,
-                empleados.emp_ciudad AS ciudad,
-                empleados.emp_direcc AS direcc,
-                empleados.emp_estrat AS estrat,
-                empleados.emp_correo AS correo,
-                empleados.emp_tipcon AS tipcon,
-                empleados.emp_salari AS salari,
-                empleados.emp_codces AS codces,
-                empleados.emp_codeps AS codeps,
-                empleados.emp_codpen AS conpen,
-                empleados.emp_codarl AS codarl,
-                empleados.emp_sexo   AS   sexo,
-                empleados.emp_estciv AS estciv,
-                empleados.emp_escola AS escola,
-                empleados.emp_gposan AS gposan,
-                empleados.emp_factrh AS factrh,
-                empleados.emp_hijos  AS hijos,
-                empleados.emp_estado AS estado,
-                empleados.emp_fecnac AS fecnac,
-                empleados.emp_fecope AS fecope
+                empleados.id_empleado   AS idempleado,
+                empleados.emp_nombre    AS nombre,
+                empleados.emp_cladoc    AS cladoc,
+                empleados.emp_docume    AS docume,
+                empleados.emp_cargo     AS cargo,
+                empleados.emp_telcel    AS telcel,
+                empleados.emp_ciudad    AS ciudad,
+                empleados.emp_direcc    AS direcc,
+                empleados.emp_estrat    AS estrat,
+                empleados.emp_correo    AS correo,
+                empleados.emp_tipcon    AS tipcon,
+                empleados.emp_salari    AS salari,
+                empleados.emp_codces    AS codces,
+                empleados.emp_codeps    AS codeps,
+                empleados.emp_codpen    AS codpen,
+                empleados.emp_codarl    AS codarl,
+                empleados.emp_sexo      AS sexo,
+                empleados.emp_estciv    AS estciv,
+                empleados.emp_escola    AS escola,
+                empleados.emp_gposan    AS gposan,
+                empleados.emp_factrh    AS factrh,
+                empleados.emp_hijos     AS hijos,
+                empleados.emp_estado    AS estado,
+                empleados.emp_fecnac    AS fecnac,
+                empleados.emp_fecope    AS fecha,
                 FROM empleados AS empleados
                 WHERE empleados.id_empleado ='$idempleado'";
             $respuesta = mysqli_query($conexion,$sql);
@@ -110,7 +120,7 @@
             'cladoc' => $empleados['cladoc'],
             'docume' => $empleados['docume'],
             'cargo'  => $empleados['cargo'],
-            'telcel'  => $empleados['telcel'],
+            'telcel' => $empleados['telcel'],
             'ciudad' => $empleados['ciudad'],
             'direcc' => $empleados['direcc'],
             'estrat' => $empleados['estrat'],
@@ -121,13 +131,14 @@
             'codeps' => $empleados['codeps'],
             'conpen' => $empleados['conpen'],
             'codarl' => $empleados['codarl'],
-            'sexo' => $empleados['sexo'],
+            'sexo'   => $empleados['sexo'],
             'estciv' => $empleados['estciv'],
             'escola' => $empleados['escola'],
             'gposan' => $empleados['gposan'],
             'factrh' => $empleados['factrh'],
-            'hijos' => $empleados['hijos'],
+            'hijos'  => $empleados['hijos'],
             'fecnac' => $empleados['fecnac'],
+            'fecha'  => $empleados['fecha'],
             );
             return $datos;
         }
@@ -137,7 +148,7 @@
             $sql = "UPDATE empleados SET emp_nombre = ?,
                                         emp_cladoc = ?,
                                         emp_docume = ?,
-                                        emp_cargo = ?,
+                                        emp_cargo  = ?,
                                         emp_telcel = ?,
                                         emp_ciudad = ?,
                                         emp_direcc = ?,
@@ -149,16 +160,17 @@
                                         emp_codeps = ?,
                                         emp_codpen = ?,
                                         emp_codarl = ?,
-                                        emp_sexo = ?,
+                                        emp_sexo   = ?,
                                         emp_estciv = ?,
                                         emp_escola = ?,
                                         emp_gposan = ?,
                                         emp_factrh = ?,
-                                        emp_hijos = ?,
+                                        emp_hijos  = ?,
                                         emp_fecnac = ?,
-                                        emp_fechup = ? WHERE id_empleado = ?";
+                                        emp_fechup = ?
+                                        WHERE id_empleado = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('ssssssssssssssssssssssssi',
+            $query->bind_param('sssssssssssssssssssssssi',
                                                         $datos['nombre'],
                                                         $datos['cladoc'],
                                                         $datos['docume'],
@@ -188,14 +200,6 @@
             return $respuesta;
         }
 
-        public function eliminarempleado($idempleado){
-            $conexion = Conexion::conectar();
-            $sql = "DELETE FROM empleados WHERE id_empleado=?";
-            $query = $conexion->prepare($sql);
-            $query->bind_param('i', $idempleado);
-            $respuesta = $query->execute();
-            $query->close();
-            return $respuesta;
-        }
+        
     }
 ?>

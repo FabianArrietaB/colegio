@@ -90,6 +90,8 @@ function detalleempleado(idempleado){
             $('#gposanu').val(respuesta['gposan']);
             $('#factrhu').val(respuesta['factrh']);
             $('#hijosu').val(respuesta['hijos']);
+            $('#fecnacu').val(respuesta['fecnac']);
+            $('#fechau').val(respuesta['fecha']);
         }
     });
 }

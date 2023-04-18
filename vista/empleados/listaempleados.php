@@ -70,7 +70,7 @@
                 <?php
                     if ($empleados['estado'] == 0) {
                 ?>
-                    <button class="btn btn-danger btn-sm" onclick="activarproducto(
+                    <button class="btn btn-danger btn-sm" onclick="activarempleado(
                         <?php echo $empleados['idempleado'] ?>,
                         <?php echo $empleados['estado'] ?>)">
                             INACTIVO
@@ -78,7 +78,7 @@
                     <?php
                     } else if ($empleados['estado'] == 1) {
                     ?>
-                        <button class="btn btn-success btn-sm" onclick="activarproducto(
+                        <button class="btn btn-success btn-sm" onclick="activarempleado(
                             <?php echo $empleados['idempleado'] ?>,
                             <?php echo $empleados['estado'] ?>)">
                             ACTIVO

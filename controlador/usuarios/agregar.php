@@ -3,8 +3,8 @@
    "usuario"    => $_POST['usuario'],
    "nombre"     => $_POST['nombre'],
    "password"   => md5($_POST['password']),
-   "idRol"      => $_POST['idRol'],
    "correo"     => $_POST['correo'],
+   "idRol"      => $_POST['idRol'],
    "fecha"      => $_POST['fecha'],
    );
 

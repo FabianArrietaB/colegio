@@ -73,6 +73,5 @@
             $query->close();
             return $respuesta;
         }
-
     }
 ?>
