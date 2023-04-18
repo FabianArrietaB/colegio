@@ -1,4 +1,4 @@
-<!-- Formulario (Agregar) -->
+<!-- Formulario (Editar) -->
 <form id="frmeditarproducto" method="post" onsubmit="return editarproducto()">
     <div class="modal fade" id="editar" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -8,7 +8,7 @@
                     <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <d class="modal-body">
-                    <!-- Formulario (Estudiante) -->
+                    <!-- Formulario (Producto) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Producto</legend>
                             <input type="text" id="idproducto" name="idproducto" hidden>
@@ -39,4 +39,4 @@
         </div>
     </div>
 </form>
-<!-- Fin Formulario (Agregar, Modificar) -->
+<!-- Fin Formulario (Editar) -->

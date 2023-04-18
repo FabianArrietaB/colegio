@@ -8,7 +8,7 @@
                     <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <d class="modal-body">
-                    <!-- Formulario (Estudiante) -->
+                    <!-- Formulario (Empleado) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Empleado</legend>
                         <div class="row">
@@ -195,4 +195,4 @@
         </div>
     </div>
 </form>
-<!-- Fin Formulario (Agregar, Modificar) -->
+<!-- Fin Formulario (Agregar) -->
