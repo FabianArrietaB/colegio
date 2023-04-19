@@ -168,7 +168,7 @@
                     emp_fecnac = ?
                     WHERE id_empleado = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('sssssssssssssssssssssi',
+            $query->bind_param('ssssssssssssssssssssssi',
                                                         $datos['nombre'],
                                                         $datos['cladoc'],
                                                         $datos['docume'],
