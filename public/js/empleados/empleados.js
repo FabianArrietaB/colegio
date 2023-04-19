@@ -66,7 +66,6 @@ function agregarempleado(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                console.log(respuesta);
                 $('#tablalistaempleados').load('empleados/listaempleados.php');
                 $('#frmagregarempleado')[0].reset();
                 Swal.fire({
@@ -100,26 +99,25 @@ function detalleempleado(idempleado){
             $('#nombreu').val(respuesta['nombre']);
             $('#cladocu').val(respuesta['cladoc']);
             $('#documeu').val(respuesta['docume']);
-            $('#cargou').val(respuesta['cargo']);
+            $('#fecnacu').val(respuesta['fecnac']);
+            $('#sexou').val(respuesta['sexo']);
+            $('#factrhu').val(respuesta['factrh']);
+            $('#gposanu').val(respuesta['gposan']);
+            $('#estcivu').val(respuesta['estciv']);
+            $('#escolau').val(respuesta['escola']);
+            $('#hijosu').val(respuesta['hijos']);
             $('#telcelu').val(respuesta['telcel']);
             $('#ciudadu').val(respuesta['ciudad']);
             $('#direccu').val(respuesta['direcc']);
             $('#estratu').val(respuesta['estrat']);
             $('#correou').val(respuesta['correo']);
+            $('#cargou').val(respuesta['cargo']);
             $('#tipconu').val(respuesta['tipcon']);
             $('#salariu').val(respuesta['salari']);
-            $('#codcesu').val(respuesta['codces']);
             $('#codepsu').val(respuesta['codeps']);
-            $('#conpenu').val(respuesta['conpen']);
             $('#codarlu').val(respuesta['codarl']);
-            $('#sexou').val(respuesta['sexo']);
-            $('#estcivu').val(respuesta['estciv']);
-            $('#escolau').val(respuesta['escola']);
-            $('#gposanu').val(respuesta['gposan']);
-            $('#factrhu').val(respuesta['factrh']);
-            $('#hijosu').val(respuesta['hijos']);
-            $('#fecnacu').val(respuesta['fecnac']);
-            $('#fechau').val(respuesta['fecha']);
+            $('#conpenu').val(respuesta['conpen']);
+            $('#codcesu').val(respuesta['codces']);
         }
     });
 }

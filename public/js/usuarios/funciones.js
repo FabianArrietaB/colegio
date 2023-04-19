@@ -100,7 +100,6 @@ function detalleusuario(idusuario){
             $('#idusuario').val(respuesta['idusuario']);
             $('#nombreu').val(respuesta['nombre']);
             $('#usuariou').val(respuesta['usuario']);
-            $('#fechau').val(respuesta['fecha']);
             $('#correou').val(respuesta['correo']);
             $('#idRolu').val(respuesta['idrol']);
             $('#rol').val(respuesta['rol']);

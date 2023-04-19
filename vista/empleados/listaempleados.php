@@ -28,8 +28,7 @@
         empleados.emp_factrh    AS factrh,
         empleados.emp_hijos     AS hijos,
         empleados.emp_estado    AS estado,
-        empleados.emp_fecnac    AS fecnac,
-        empleados.emp_fecope    AS fecha
+        empleados.emp_fecnac    AS fecnac
         FROM empleados AS empleados
         ORDER BY empleados.id_empleado ASC";
     $query = mysqli_query($conexion, $sql);

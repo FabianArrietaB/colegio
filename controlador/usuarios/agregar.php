@@ -5,7 +5,6 @@
    "password"   => md5($_POST['password']),
    "correo"     => $_POST['correo'],
    "idRol"      => $_POST['idRol'],
-   "fecha"      => $_POST['fecha'],
    );
 
    include "../../modelo/usuarios.php";

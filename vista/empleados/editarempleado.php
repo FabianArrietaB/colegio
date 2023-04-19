@@ -182,7 +182,7 @@
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="codces" id="codcesu" name="documeu" class="form-control input-sm" >
+                                    <input type="text" id="codcesu" name="codcesu" class="form-control input-sm" >
                                 </div>
                             </div>
                         </div>

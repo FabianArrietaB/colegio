@@ -46,8 +46,7 @@
                 grados.gra_pensio   AS pensio,
                 grados.gra_canalu   AS canalu,
                 grados.gra_estado   AS estado,
-                grados.gra_fecope   AS fecha,
-                empleados.id_empleado   AS idempleado,
+                empleados.id_empleado   AS iddir,
                 empleados.emp_nombre    AS nompro
                 FROM grados AS grados
                 INNER JOIN empleados AS empleados
@@ -61,18 +60,17 @@
             'matric' => $grados['matric'],
             'pensio' => $grados['pensio'],
             'canalu' => $grados['canalu'],
-            'idempleado' => $grados['idempleado'],
+            'iddir' => $grados['iddir'],
             'nompro' => $grados['nompro'],
-            'fecha' => $grados['fecha']
             );
             return $datos;
         }
 
         public function editargrado($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE grados SET id_empleado = ?, gra_nombre = ?, gra_matric = ?, gra_pensio = ?, gra_canalu = ?, gra_fecupd = ? WHERE id_grado = ?";
+            $sql = "UPDATE grados SET id_empleado = ?, gra_nombre = ?, gra_matric = ?, gra_pensio = ?, gra_canalu = ? WHERE id_grado = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('isssssi', $datos['iddir'], $datos['nombre'], $datos['matric'], $datos['pensio'],  $datos['canalu'], $datos['fecha'], $datos['idgrado']);
+            $query->bind_param('isssssi', $datos['iddir'], $datos['nombre'], $datos['matric'], $datos['pensio'],  $datos['canalu'], $datos['idgrado']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

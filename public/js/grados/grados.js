@@ -74,7 +74,6 @@ function detallegrado(idgrado){
             $('#pensiou').val(respuesta['pensio']);
             $('#canaluu').val(respuesta['canalu']);
             $('#iddiru').val(respuesta['iddir']);
-            $('#fechau').val(respuesta['fecha']);
         }
     });
 }

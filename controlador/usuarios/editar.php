@@ -4,7 +4,7 @@
         'usuario'   => $_POST['usuariou'],
         'nombre'    => $_POST['nombreu'],
         'correo'    => $_POST['correou'],
-        'idRol'     => $_POST['idRolu'],
+        'idrol'     => $_POST['idrolu'],
     );
     include "../../modelo/usuarios.php";
     $Usuarios = new Usuarios();

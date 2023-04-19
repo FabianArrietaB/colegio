@@ -12,7 +12,7 @@
         grados.gra_canalu       AS canalu,
         grados.gra_fecope       AS fecha,
         grados.gra_estado       AS estado,
-        empleados.id_empleado   AS idempleado,
+        empleados.id_empleado   AS iddir,
         empleados.emp_nombre    AS nompro
         FROM grados AS grados
         INNER JOIN empleados AS empleados ON grados.id_empleado = empleados.id_empleado

@@ -43,11 +43,6 @@
                                     <input type="text" id="pensiou" name="pensiou" class="form-control input-sm" placeholder="Ingrese Precio">
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <input type="date" id="fechau" name="fechau" class="form-control input-sm">
-                                </div>
-                            </div>
                     </fieldset>
                         <div class="card-footer">
                         <button class="btn btn-success">Actualizar</button>

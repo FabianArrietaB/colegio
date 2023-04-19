@@ -31,28 +31,28 @@
         public function agregarempleado($datos){
             $conexion = Conexion::conectar();
             $sql = "INSERT INTO empleados (
-                emp_nombre,
-                emp_cladoc,
-                emp_docume,
-                emp_fecnac,
-                emp_sexo,
-                emp_gposan,
-                emp_factrh,
-                emp_estciv,
-                emp_escola,
-                emp_hijos,
-                emp_telcel,
-                emp_ciudad,
-                emp_direcc,
-                emp_estrat,
-                emp_correo,
-                emp_cargo,
-                emp_tipcon,
-                emp_salari,
-                emp_codeps,
-                emp_codarl,
-                emp_codpen,
-                emp_codces)
+                    emp_nombre,
+                    emp_cladoc,
+                    emp_docume,
+                    emp_fecnac,
+                    emp_sexo,
+                    emp_gposan,
+                    emp_factrh,
+                    emp_estciv,
+                    emp_escola,
+                    emp_hijos,
+                    emp_telcel,
+                    emp_ciudad,
+                    emp_direcc,
+                    emp_estrat,
+                    emp_correo,
+                    emp_cargo,
+                    emp_tipcon,
+                    emp_salari,
+                    emp_codeps,
+                    emp_codarl,
+                    emp_codpen,
+                    emp_codces)
                 VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
             $query->bind_param("ssssssssssssssssssssss",
@@ -86,14 +86,14 @@
         public function detalleempleado($idempleado){
             $conexion = Conexion::conectar();
             $sql ="SELECT
-                empleados.id_empleado   AS idempleado,
+                empleados.id_empleado AS idempleado,
                 empleados.emp_nombre    AS nombre,
                 empleados.emp_cladoc    AS cladoc,
                 empleados.emp_docume    AS docume,
-                empleados.emp_fecnac    AS fecnac,
+                empleados.emp_fecnac    AS fecnac
                 empleados.emp_sexo      AS sexo,
-                empleados.emp_gposan    AS gposan,
                 empleados.emp_factrh    AS factrh,
+                empleados.emp_gposan    AS gposan,
                 empleados.emp_estciv    AS estciv,
                 empleados.emp_escola    AS escola,
                 empleados.emp_hijos     AS hijos,
@@ -124,51 +124,51 @@
             'factrh' => $empleados['factrh'],
             'estciv' => $empleados['estciv'],
             'escola' => $empleados['escola'],
-            'hijos'  => $empleados['hijos'],
+            'hijos"' => $empleados['hijos'],
             'telcel' => $empleados['telcel'],
             'ciudad' => $empleados['ciudad'],
             'direcc' => $empleados['direcc'],
             'estrat' => $empleados['estrat'],
             'correo' => $empleados['correo'],
-            'tipcon' => $empleados['tipcon'],
             'cargo'  => $empleados['cargo'],
+            'tipcon' => $empleados['tipcon'],
             'salari' => $empleados['salari'],
             'codeps' => $empleados['codeps'],
             'codarl' => $empleados['codarl'],
             'conpen' => $empleados['conpen'],
-            'codces' => $empleados['codces']
+            'codces' => $empleados['codces'],
             );
-            return $datos;
+        return $datos;
         }
 
         public function editarempleado($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE empleados SET emp_nombre = ?,
-                                        emp_cladoc = ?,
-                                        emp_docume = ?,
-                                        emp_cargo  = ?,
-                                        emp_telcel = ?,
-                                        emp_ciudad = ?,
-                                        emp_direcc = ?,
-                                        emp_estrat = ?,
-                                        emp_correo = ?,
-                                        emp_tipcon = ?,
-                                        emp_salari = ?,
-                                        emp_codces = ?,
-                                        emp_codeps = ?,
-                                        emp_codpen = ?,
-                                        emp_codarl = ?,
-                                        emp_sexo   = ?,
-                                        emp_estciv = ?,
-                                        emp_escola = ?,
-                                        emp_gposan = ?,
-                                        emp_factrh = ?,
-                                        emp_hijos  = ?,
-                                        emp_fecnac = ?,
-                                        emp_fechup = ?
-                                        WHERE id_empleado = ?";
+            $sql = "UPDATE empleados SET
+                    emp_nombre = ?,
+                    emp_cladoc = ?,
+                    emp_docume = ?,
+                    emp_cargo  = ?,
+                    emp_telcel = ?,
+                    emp_ciudad = ?,
+                    emp_direcc = ?,
+                    emp_estrat = ?,
+                    emp_correo = ?,
+                    emp_tipcon = ?,
+                    emp_salari = ?,
+                    emp_codces = ?,
+                    emp_codeps = ?,
+                    emp_codpen = ?,
+                    emp_codarl = ?,
+                    emp_sexo   = ?,
+                    emp_estciv = ?,
+                    emp_escola = ?,
+                    emp_gposan = ?,
+                    emp_factrh = ?,
+                    emp_hijos =  ?,
+                    emp_fecnac = ?
+                    WHERE id_empleado = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('sssssssssssssssssssssssi',
+            $query->bind_param('sssssssssssssssssssssi',
                                                         $datos['nombre'],
                                                         $datos['cladoc'],
                                                         $datos['docume'],
@@ -191,7 +191,6 @@
                                                         $datos['factrh'],
                                                         $datos['hijos'],
                                                         $datos['fecnac'],
-                                                        $datos['fecha'],
                                                         $datos['idempleado']);
             $respuesta = $query->execute();
             $query->close();

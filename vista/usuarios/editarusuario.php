@@ -1,4 +1,4 @@
-<!-- Formulario (Agregar) -->
+<!-- Formulario (Editar) -->
 <form id="frmeditarusuario" method="post" onsubmit="return editarusuario()">
     <div class="modal fade" id="editar" tabindex="-1" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="dialog">
@@ -36,16 +36,11 @@
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <select name="idRolu" id="idRolu" class="form-control input-sm">
+                                    <select name="idrolu" id="idrolu" class="form-control input-sm">
                                     <option value="1">Usuario</option>
                                     <option value="2">Supervisor</option>
                                     <option value="3">Administrador</option>
                                 </select>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="input-group mb-3">
-                                    <input type="date" id="fechau" name="fechau" class="form-control input-sm">
                                 </div>
                             </div>
                         </div>
@@ -58,4 +53,4 @@
         </div>
     </div>
 </form>
-<!-- Fin Formulario (Agregar, Modificar) -->
+<!-- Fin Formulario (Editar) -->
