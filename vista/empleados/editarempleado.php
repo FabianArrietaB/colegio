@@ -20,7 +20,7 @@
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <select name="cladocu" id="cladocu" class="form-control input-sm">
+                                    <select id="cladocu" name="cladocu" class="form-control input-sm">
                                         <option value="CEDULA">Cedula</option>
                                         <option value="CEDULA EXTRANEJERIA">Cedula Extrangeria</option>
                                         <option value="PASAPORTE">Pasaporte</option>
@@ -162,7 +162,6 @@
                                     <input type="text" id="salariu" name="salariu" class="form-control input-sm">
                                 </div>
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col-3">

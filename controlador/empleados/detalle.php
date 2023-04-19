@@ -1,6 +1,6 @@
 <?php
     include "../../modelo/empleados.php";
-    $Empleados   = new Empleados();
+    $Empleado   = new Empleados();
     $idempleado = $_POST['idempleado'];
-    echo json_encode($Empleados->detalleempleado($idempleado));
+    echo json_encode($Empleado->detalleempleado($idempleado));
 ?>
