@@ -241,7 +241,7 @@
                                     <input type="text" id="grado" name="grado" class="form-control input-sm" placeholder="Ingrese Grado" >
                                 </div>
                             </div>
-                            <div class="col-2">
+                            <div class="col-3">
                                 <div class="input-group mb-3">
                                     <input type="text" id="matric" name="matric" class="form-control input-sm" placeholder="Matricula">
                                 </div>
@@ -251,35 +251,9 @@
                                     <input type="text" id="pensio" name="pensio" class="form-control input-sm" placeholder="Ingrese Pension">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
+                            <div class="col-3">
                                 <div class="input-group mb-3">
                                     <input type="text" id="abono" name="abono" class="form-control input-sm" placeholder="Abono Matricula">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="detall" name="detall" class="form-control input-sm" placeholder="Direccion">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                            <div class="input-group mb-3">
-                                    <select name="estpad" id="estpad" class="form-control input-sm">
-                                        <option selected >ESTRATO</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="MAS">MAS</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="corpad" name="corpad" class="form-control input-sm" placeholder="Ingrese Correo" >
                                 </div>
                             </div>
                         </div>
