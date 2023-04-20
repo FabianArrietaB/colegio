@@ -101,8 +101,8 @@ function detalleempleado(idempleado){
             $('#documeu').val(respuesta['docume']);
             $('#fecnacu').val(respuesta['fecnac']);
             $('#sexou').val(respuesta['sexo']);
-            $('#factrhu').val(respuesta['factrh']);
             $('#gposanu').val(respuesta['gposan']);
+            $('#factrhu').val(respuesta['factrh']);
             $('#estcivu').val(respuesta['estciv']);
             $('#escolau').val(respuesta['escola']);
             $('#hijosu').val(respuesta['hijos']);
@@ -116,7 +116,7 @@ function detalleempleado(idempleado){
             $('#salariu').val(respuesta['salari']);
             $('#codepsu').val(respuesta['codeps']);
             $('#codarlu').val(respuesta['codarl']);
-            $('#conpenu').val(respuesta['conpen']);
+            $('#codpenu').val(respuesta['codpen']);
             $('#codcesu').val(respuesta['codces']);
         }
     });
@@ -129,6 +129,7 @@ function editarempleado(){
         url: "../controlador/empleados/editar.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
+            console.log(respuesta)
             if(respuesta == 1){
                 $('#editar').modal('hide');
                 $('#tablalistaempleados').load('empleados/listaempleados.php');
@@ -151,4 +152,3 @@ function editarempleado(){
     });
     return false;
 }
-

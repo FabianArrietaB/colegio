@@ -30,7 +30,6 @@ function activaralumno(idalumno, estado){
     });
 }
 
-
 function eliminaralumno(idalumno){
     $.ajax({
         type: "POST",

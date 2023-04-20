@@ -6,8 +6,8 @@
         "docume" => $_POST['documeu'],
         "fecnac" => $_POST['fecnacu'],
         "sexo"   => $_POST['sexou'],
-        "factrh" => $_POST['factrhu'],
         "gposan" => $_POST['gposanu'],
+        "factrh" => $_POST['factrhu'],
         "estciv" => $_POST['estcivu'],
         "escola" => $_POST['escolau'],
         "hijos"  => $_POST['hijosu'],
@@ -21,7 +21,7 @@
         "salari" => $_POST['salariu'],
         "codeps" => $_POST['codepsu'],
         "codarl" => $_POST['codarlu'],
-        "conpen" => $_POST['conpenu'],
+        "codpen" => $_POST['codpenu'],
         "codces" => $_POST['codcesu'],
     );
     include "../../modelo/empleados.php";

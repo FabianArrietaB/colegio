@@ -18,6 +18,16 @@
             return $respuesta;
         }
 
+        public function eliminargrado($idgrado){
+            $conexion = Conexion::conectar();
+            $sql = "DELETE FROM grados WHERE id_grado=?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('i', $idgrado);
+            $respuesta = $query->execute();
+            $query->close();
+            return $respuesta;
+        }
+
         public function agregargrado($datos){
             $conexion = Conexion::conectar();
             $sql = "INSERT INTO grados (
@@ -71,16 +81,6 @@
             $sql = "UPDATE grados SET id_empleado = ?, gra_nombre = ?, gra_matric = ?, gra_pensio = ?, gra_canalu = ? WHERE id_grado = ?";
             $query = $conexion->prepare($sql);
             $query->bind_param('isssssi', $datos['iddir'], $datos['nombre'], $datos['matric'], $datos['pensio'],  $datos['canalu'], $datos['idgrado']);
-            $respuesta = $query->execute();
-            $query->close();
-            return $respuesta;
-        }
-
-        public function eliminargrado($idgrado){
-            $conexion = Conexion::conectar();
-            $sql = "DELETE FROM grados WHERE id_grado=?";
-            $query = $conexion->prepare($sql);
-            $query->bind_param('i', $idgrado);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

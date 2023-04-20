@@ -52,8 +52,8 @@
                                     <select name="gposanu" id="gposanu" class="form-control input-sm">
                                         <option value="A">A</option>
                                         <option value="B">B</option>
-                                        <option value="B">AB</option>
-                                        <option value="B">O</option>
+                                        <option value="AB">AB</option>
+                                        <option value="O">O</option>
                                     </select>
                                 </div>
                             </div>
@@ -176,7 +176,7 @@
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="conpenu" name="conpenu" class="form-control input-sm">
+                                    <input type="text" id="codpenu" name="codpenu" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-3">
