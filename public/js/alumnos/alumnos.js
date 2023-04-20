@@ -57,3 +57,33 @@ function eliminaralumno(idalumno){
         }
     });
 }
+
+function agregaralumno(){
+    $.ajax({
+        type: "POST",
+        data: $('#frmagregaralumno').serialize(),
+        url: "../controlador/alumnos/crear.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
+                $('#frmagregaralumno')[0].reset();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Alumno Creado Exitosamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'No se pudo realizar la operacion!',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        }
+    });
+    return false;
+}

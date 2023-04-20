@@ -76,7 +76,7 @@
                                 $datos['salari'],
                                 $datos['codeps'],
                                 $datos['codarl'],
-                                $datos['conpen'],
+                                $datos['codpen'],
                                 $datos['codces'],
                             );
             $respuesta = $query->execute();

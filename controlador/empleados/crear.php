@@ -20,7 +20,7 @@
       "salari" => $_POST['salari'],
       "codeps" => $_POST['codeps'],
       "codarl" => $_POST['codarl'],
-      "conpen" => $_POST['conpen'],
+      "codpen" => $_POST['codpen'],
       "codces" => $_POST['codces'],
    );
    include "../../modelo/empleados.php";

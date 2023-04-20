@@ -7,7 +7,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Agregar Grado</h5>
                     <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <d class="modal-body">
+                <div class="modal-body">
                     <!-- Formulario (Estudiante) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Grado</legend>

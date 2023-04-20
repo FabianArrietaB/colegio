@@ -7,7 +7,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Agregar Empleado</h5>
                     <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <d class="modal-body">
+                <div class="modal-body">
                     <!-- Formulario (Empleado) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Empleado</legend>
@@ -186,7 +186,7 @@
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="conpen" name="conpen" class="form-control input-sm" placeholder="Fondo Pension">
+                                    <input type="text" id="codpen" name="codpen" class="form-control input-sm" placeholder="Fondo Pension">
                                 </div>
                             </div>
                             <div class="col-3">
