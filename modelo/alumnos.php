@@ -28,7 +28,7 @@
             return $respuesta;
         }
 
-        public function agregaralumnos($datos){
+        public function agregaralumno($datos){
             $conexion = Conexion::conectar();
             $idacudiente = self::agregarpadre($datos);
             $idacudiente = self::agregarmadre($datos);
@@ -92,9 +92,9 @@
                                     $datos['nompad'],
                                     $datos['cldopa'],
                                     $datos['docpad'],
-                                    $datos['telpad'],
                                     $datos['ciupad'],
                                     $datos['dirpad'],
+                                    $datos['telpad'],
                                     $datos['estpad'],
                                     $datos['corpad'],
                                     $datos['parpad'],);

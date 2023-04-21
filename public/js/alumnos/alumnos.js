@@ -65,6 +65,7 @@ function agregaralumno(){
         url: "../controlador/alumnos/crear.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
+            console.log(respuesta)
             if(respuesta == 1){
                 $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
                 $('#frmagregaralumno')[0].reset();
