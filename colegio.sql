@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2023 a las 00:40:23
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Tiempo de generación: 21-04-2023 a las 05:00:59
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -139,7 +139,7 @@ CREATE TABLE `empleados` (
   `emp_factrh` varchar(45) NOT NULL,
   `emp_hijos` varchar(45) NOT NULL,
   `emp_estado` int(11) DEFAULT 1,
-  `emp_fecnac` date NOT NULL,
+  `emp_fecnac` datetime NOT NULL,
   `emp_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
   `emp_fecupd` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -149,7 +149,8 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`id_empleado`, `emp_nombre`, `emp_cladoc`, `emp_docume`, `emp_cargo`, `emp_telcel`, `emp_ciudad`, `emp_direcc`, `emp_estrat`, `emp_correo`, `emp_tipcon`, `emp_salari`, `emp_codces`, `emp_codeps`, `emp_codpen`, `emp_codarl`, `emp_sexo`, `emp_estciv`, `emp_escola`, `emp_gposan`, `emp_factrh`, `emp_hijos`, `emp_estado`, `emp_fecnac`, `emp_fecope`, `emp_fecupd`) VALUES
-(1, 'CARLOS ALBERTO ROCHA TOVAR', 'CEDULA', '574236985', 'PROFESOR MATEMATICAS', '3002548965', 'SANTA MARTA', 'CALLE 17 # 40 - 62', '3', 'crocha@gmail.com', 'FIJO', '1100000', 'PROTECION', 'SURA', 'COLPENSIONES', 'SURA', 'MASCULINO', 'SOLTERO', 'PROFESIONAL', 'O', 'POSITIVO', '1', 1, '1957-06-05', '2023-02-01 05:00:00', '2023-02-01 05:00:00');
+(1, 'CARLOS ALBERTO ROCHA TOVAR', 'CEDULA', '574236985', 'PROFESOR MATEMATICAS', '3002548965', 'SANTA MARTA', 'CALLE 17 # 40 - 62', '3', 'crocha@gmail.com', 'FIJO', '1100000', 'PROTECION', 'SURA', 'COLPENSIONES', 'SURA', 'MASCULINO', 'SOLTERO/A', 'PROFESIONAL', 'O', 'POSITIVO', '1', 1, '0000-00-00 00:00:00', '2023-02-01 05:00:00', '2023-04-20 03:09:40'),
+(7, 'ADARRAGA BERDUGO LAURA VANESSA', 'CEDULA', '1007900088', 'recursos humanos', '3002950772', 'santa marta', 'MZA 8 CASA 15 MINUTO DE DIOS', '2', 'lauraadarraga5@gmail.com', 'FIJO', '1450000', 'PORVENIR', 'COOSALUD', 'COLPENSIONES', 'SURAMERICANA', 'FEMENINO', 'SOLTERO/A', 'TECNICO', 'B', 'POSITIVO', '2', 1, '0000-00-00 00:00:00', '2023-04-19 02:36:25', '2023-04-20 03:32:28');
 
 -- --------------------------------------------------------
 
@@ -185,7 +186,7 @@ INSERT INTO `grados` (`id_grado`, `id_empleado`, `gra_nombre`, `gra_matric`, `gr
 (9, 1, 'OCTAVO', '1222000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
 (10, 1, 'NOVENO', '1222000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
 (11, 1, 'DECIMO', '1100000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
-(12, 1, 'UNDECIMO', '1100000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-03-24 05:00:00');
+(12, 1, 'UNDECIMO', '1100000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-04-19 00:51:14');
 
 -- --------------------------------------------------------
 
@@ -244,6 +245,7 @@ INSERT INTO `parentezcos` (`id`, `id_alumno`, `id_acudiente`, `id_grado`, `par_f
 CREATE TABLE `productos` (
   `id_producto` int(11) NOT NULL,
   `id_categoria` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `pro_nombre` varchar(45) NOT NULL,
   `pro_precio` varchar(45) NOT NULL,
   `pro_estado` int(11) NOT NULL DEFAULT 1,
@@ -255,12 +257,12 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `id_categoria`, `pro_nombre`, `pro_precio`, `pro_estado`, `pro_fecope`, `pro_fecupd`) VALUES
-(1, 2, 'CERTIFICADO ESTUDIANTIL', '50000', 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
-(12, 2, 'CERTIFICADO DE NOTA', '35000', 1, '2023-03-07 05:00:00', '2023-03-07 05:00:00'),
-(13, 2, 'CERTIFICADO EGRESADO', '55000', 1, '2023-03-07 05:00:00', '2023-03-07 05:00:00'),
-(14, 1, 'ACTA DE GRADO', '55000', 1, '2023-03-07 05:00:00', '2023-03-07 05:00:00'),
-(28, 2, 'certificado general', '65000', 1, '0000-00-00 00:00:00', '2023-04-18 22:30:28');
+INSERT INTO `productos` (`id_producto`, `id_categoria`, `id_usuario`, `pro_nombre`, `pro_precio`, `pro_estado`, `pro_fecope`, `pro_fecupd`) VALUES
+(1, 2, 0, 'CERTIFICADO ESTUDIANTIL', '50000', 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
+(12, 2, 0, 'CERTIFICADO DE NOTA', '35000', 1, '2023-03-07 05:00:00', '2023-03-07 05:00:00'),
+(13, 2, 0, 'CERTIFICADO EGRESADO', '55000', 1, '2023-03-07 05:00:00', '2023-03-07 05:00:00'),
+(14, 1, 0, 'ACTA DE GRADO', '55000', 1, '2023-03-07 05:00:00', '2023-03-07 05:00:00'),
+(28, 2, 0, 'certificado general', '65000', 1, '0000-00-00 00:00:00', '2023-04-18 22:30:28');
 
 -- --------------------------------------------------------
 
@@ -430,7 +432,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `grados`
