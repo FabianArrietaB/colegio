@@ -28,11 +28,11 @@
         <span class="tooltip">Alumnos</span>
       </li>
       <li>
-        <a href="#">
-          <i class="bx bx-chat"></i>
-          <span class="link_name">Acudientes</span>
+        <a href="empleados.php">
+          <i class='bx bxs-user-account'></i>
+          <span class="link_name">Empleados</span>
         </a>
-        <span class="tooltip">Acudientes</span>
+        <span class="tooltip">Empleados</span>
       </li>
       <li>
         <a href="#">
@@ -85,18 +85,18 @@
         <span class="tooltip">Productos</span>
       </li>
       <li>
-        <a href="reportes.php">
-          <i class="bx bx-folder"></i>
-          <span class="link_name">Reportes</span>
-        </a>
-        <span class="tooltip">Reportes</span>
-      </li>
-      <li>
         <a href="usuarios.php">
           <i class='bx bx-user-circle'></i>
           <span class="link_name">Usuarios</span>
         </a>
         <span class="tooltip">Usuarios</span>
+      </li>
+      <li>
+        <a href="reportes.php">
+          <i class="bx bx-folder"></i>
+          <span class="link_name">Reportes</span>
+        </a>
+        <span class="tooltip">Reportes</span>
       </li>
       <li>
         <a href="estadisticas.php">

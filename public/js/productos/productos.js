@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#tablalistarproductos').load('productos/listaproductos.php');
+    $('#tablalistaproductos').load('productos/listaproductos.php');
 });
 
 function activarproducto(idproducto, estado){
@@ -10,7 +10,7 @@ function activarproducto(idproducto, estado){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistarproductos').load('productos/listaproductos.php');
+                $('#tablalistaproductos').load('productos/listaproductos.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Operacion Exitosa',
@@ -38,7 +38,7 @@ function agregarproducto(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistarproductos').load('productos/listaproductos.php');
+                $('#tablalistaproductos').load('productos/listaproductos.php');
                 $('#frmagregarproducto')[0].reset();
                 Swal.fire({
                     icon: 'success',
@@ -84,7 +84,7 @@ function editarproducto(){
             respuesta = respuesta.trim();
             if(respuesta == 1){
                 $('#editar').modal('hide');
-                $('#tablalistarproductos').load('productos/listaproductos.php');
+                $('#tablalistaproductos').load('productos/listaproductos.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Producto Actualizado Exitosamente',
@@ -113,7 +113,7 @@ function eliminarproducto(idproducto){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistarproductos').load('productos/listaproductos.php');
+                $('#tablalistaproductos').load('productos/listaproductos.php');
                     swal.fire({
                         icon: 'success',
                         title: 'Producto Eliminado Exitosamente',

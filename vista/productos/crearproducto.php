@@ -7,7 +7,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
                     <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <d class="modal-body">
+                <div class="modal-body">
                     <!-- Formulario (Estudiante) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Procduto</legend>
@@ -31,9 +31,9 @@
                                 </div>
                             </div>
                     </fieldset>
-                        <div class="card-footer">
+                    <div class="card-footer">
                         <button class="btn btn-success">Guardar</button>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>

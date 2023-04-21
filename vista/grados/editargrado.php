@@ -1,5 +1,5 @@
 <!-- Formulario (Agregar) -->
-<form id="frmeditarproducto" method="post" onsubmit="return editargrado()">
+<form id="frmeditargrado" method="post" onsubmit="return editargrado()">
     <div class="modal fade" id="editar" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -11,7 +11,7 @@
                     <!-- Formulario (Estudiante) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Grado</legend>
-                            <input type="text" id="idproducto" name="idproducto" hidden>
+                            <input type="text" id="idgrado" name="idgrado" hidden>
                             <div class="col">
                                 <div class="input-group mb-3">
                                     <input type="text" id="nombreu" name="nombreu" class="form-control input-sm" placeholder="Ingrese Nombre" >
@@ -25,8 +25,11 @@
                             <div class="col">
                                 <div class="input-group mb-3">
                                     <select name="iddiru" id="iddiru" class="form-control input-sm">
-                                        <option selected >Selecione Categoria</option>
-                                        <option value="<?php echo $grados['idempleado']; ?>"><?php echo $grados['nompro']; ?></option>
+                                        <option value="1">CARLOS ALBERTO ROCHA TOVAR</option>
+                                        <option value="2">MARIA DEL PILAR</option>
+                                        <option value="3">CONSUELO BAUTISTAS SANCHEZ</option>
+                                        <option value="4">JULIO JOSE REALEZ CUESTA</option>
+                                        <option value="5">JULIO DEL CASTILLO MARTINEZ</option>
                                     </select>
                                 </div>
                             </div>
@@ -38,11 +41,6 @@
                             <div class="col">
                                 <div class="input-group mb-3">
                                     <input type="text" id="pensiou" name="pensiou" class="form-control input-sm" placeholder="Ingrese Precio">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <input type="date" id="fechau" name="fechau" class="form-control input-sm">
                                 </div>
                             </div>
                     </fieldset>

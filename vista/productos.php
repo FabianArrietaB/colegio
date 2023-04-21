@@ -2,7 +2,8 @@
     include "header.php";
     include "sidebar.php";
     if(isset($_SESSION['usuario']) &&
-    $_SESSION['usuario']['rol'] == 3){
+    $_SESSION['usuario']['rol'] == 3||
+    $_SESSION['usuario']['rol'] == 2 ){
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
@@ -20,7 +21,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div id="tablalistarproductos"></div>
+                    <div id="tablalistaproductos"></div>
                 </div>
             </div>
         </div>

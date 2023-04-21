@@ -7,6 +7,6 @@
         'idRol'     => $_POST['idRolu'],
     );
     include "../../modelo/usuarios.php";
-    $Usuarios = new Usuarios();
-    echo $Usuarios->editarusuario($datos);
+    $Alumnos = new Alumnos();
+    echo $Alumnos->editaralumno($datos);
 ?>

@@ -4,7 +4,6 @@
         'nombre'     => $_POST['nombreu'],
         'idcat'      => $_POST['idcatu'],
         'precio'     => $_POST['preciou'],
-        'fecha'      => $_POST['fechau'],
     );
     include "../../modelo/productos.php";
     $Productos = new Productos();

@@ -12,29 +12,29 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Usuario</legend>
                         <div class="row">
-                            <div class="col-3">
-                                <div class="input-group mb-3">
-                                    <input placeholder="Ingrese Usuario" type="text" id="usuario" name="usuario" class="form-control input-sm">
-                                </div>
-                            </div>
                             <div class="col-6">
                                 <div class="input-group mb-3">
                                     <input placeholder="Ingrese Nombre Completo" type="text" id="nombre" name="nombre" class="form-control input-sm">
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <div class="input-group mb-3">
-                                    <input placeholder="Ingrese Contraseña" type="text" id="password" name="password" class="form-control input-sm">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-6">
                                 <div class="input-group mb-3">
                                     <input placeholder="Ingrese Correo" type="text" id="correo" name="correo" class="form-control input-sm" >
                                 </div>
                             </div>
-                            <div class="col-3">
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="input-group mb-3">
+                                    <input placeholder="Ingrese Usuario" type="text" id="usuario" name="usuario" class="form-control input-sm">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group mb-3">
+                                    <input placeholder="Ingrese Contraseña" type="text" id="password" name="password" class="form-control input-sm">
+                                </div>
+                            </div>
+                            <div class="col-4">
                                 <div class="input-group mb-3">
                                     <select name="idRol" id="idRol" class="form-control input-sm">
                                         <option selected >Selecione un Rol</option>
@@ -42,11 +42,6 @@
                                         <option value="2">Supervisor</option>
                                         <option value="3">Administrador</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="input-group mb-3">
-                                    <input type="date" id="fecha" name="fecha" class="form-control input-sm">
                                 </div>
                             </div>
                         </div>

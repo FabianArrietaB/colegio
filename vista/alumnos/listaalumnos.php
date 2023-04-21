@@ -4,7 +4,7 @@
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
-        $sql = "SELECT
+        $sql = "SELECT DISTINCT
             alumnos.id_alumno   AS idalumno,
             alumnos.alu_nombre  AS nombre,
             alumnos.alu_cladoc  AS cladoc,
@@ -20,26 +20,17 @@
             alumnos.alu_estado  AS estado,
             alumnos.alu_fecope  AS fecha,
             grados.id_grado     AS idgrado,
-            grados.gra_nombre   AS grado,
-            acudientes.id_acudiente  AS idacudiente,
-            acudientes.acu_nombre AS nombreacu,
-            acudientes.acu_cladoc AS cladocacu,
-            acudientes.acu_docume AS documeacu,
-            acudientes.acu_ciudad AS ciudadacu,
-            acudientes.acu_direcc AS direccacu,
-            acudientes.acu_telcel AS celulaacu,
-            acudientes.acu_correo AS correoacu,
-            acudientes.acu_parent AS parentezc
+            grados.gra_nombre   AS grado
             FROM alumnos AS alumnos
             INNER JOIN acudientes AS acudientes ON alumnos.id_alumno = acudientes.id_alumno
-            INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado
+            INNER JOIN grados AS grados ON alumnos.id_grado = grados.id_grado
             ORDER BY alumnos.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     } else {
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
-        $sql = "SELECT
+        $sql = "SELECT DISTINCT
             alumnos.id_alumno   AS idalumno,
             alumnos.alu_nombre  AS nombre,
             alumnos.alu_cladoc  AS cladoc,
@@ -54,17 +45,10 @@
             alumnos.alu_correo  AS correo,
             alumnos.alu_estado  AS estado,
             alumnos.alu_fecope  AS fecha,
+            acudientes.id_acudiente AS idacudiente,
+            acudientes.acu_nombre As nomacu,
             grados.id_grado     AS idgrado,
-            grados.gra_nombre   AS grado,
-            acudientes.id_acudiente  AS idacudiente,
-            acudientes.acu_nombre AS nombreacu,
-            acudientes.acu_cladoc AS cladocacu,
-            acudientes.acu_docume AS documeacu,
-            acudientes.acu_ciudad AS ciudadacu,
-            acudientes.acu_direcc AS direccacu,
-            acudientes.acu_telcel AS celulaacu,
-            acudientes.acu_correo AS correoacu,
-            acudientes.acu_parent AS parentezc
+            grados.gra_nombre   AS grado
             FROM alumnos AS alumnos
             INNER JOIN acudientes AS acudientes ON alumnos.id_alumno = acudientes.id_alumno
             INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado

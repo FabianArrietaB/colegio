@@ -34,7 +34,6 @@
                 productos.pro_nombre    AS nombre,
                 productos.pro_precio    AS precio,
                 productos.pro_estado    AS estado,
-                productos.pro_fecope    AS fecha,
                 categorias.id_categoria AS idcat,
                 categorias.cat_nombre   AS catego
                 FROM productos AS productos
@@ -49,16 +48,15 @@
             'precio' => $productos['precio'],
             'idcat' => $productos['idcat'],
             'catego' => $productos['catego'],
-            'fecha' => $productos['fecha']
             );
             return $datos;
         }
 
         public function editarproducto($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE productos SET id_categoria = ?, pro_nombre = ?, pro_precio = ?, pro_fecope = ? WHERE id_producto = ?";
+            $sql = "UPDATE productos SET id_categoria = ?, pro_nombre = ?, pro_precio = ? WHERE id_producto = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('isssi', $datos['idcat'], $datos['nombre'], $datos['precio'], $datos['fecha'], $datos['idproducto']);
+            $query->bind_param('issi', $datos['idcat'], $datos['nombre'], $datos['precio'], $datos['idproducto']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;
@@ -73,6 +71,5 @@
             $query->close();
             return $respuesta;
         }
-
     }
 ?>

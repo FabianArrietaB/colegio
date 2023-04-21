@@ -67,6 +67,7 @@ function agregarusuario(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
+                console.log(respuesta);
                 $('#tablalistausuarios').load('usuarios/listausuarios.php');
                 $('#frmagregarusuario')[0].reset();
                 Swal.fire({
@@ -99,7 +100,6 @@ function detalleusuario(idusuario){
             $('#idusuario').val(respuesta['idusuario']);
             $('#nombreu').val(respuesta['nombre']);
             $('#usuariou').val(respuesta['usuario']);
-            $('#fechau').val(respuesta['fecha']);
             $('#correou').val(respuesta['correo']);
             $('#idRolu').val(respuesta['idrol']);
             $('#rol').val(respuesta['rol']);

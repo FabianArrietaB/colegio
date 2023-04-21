@@ -2,7 +2,8 @@
     include "header.php";
     include "sidebar.php";
     if(isset($_SESSION['usuario']) &&
-    $_SESSION['usuario']['rol'] == 3){
+    $_SESSION['usuario']['rol'] == 3 ||
+    $_SESSION['usuario']['rol'] == 2 ){
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
@@ -29,7 +30,9 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
-require('footer.php');
+include "empleados/crearempleado.php";
+include "empleados/editarempleado.php";
+include "footer.php";
 ?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/empleados/empleados.js"></script>

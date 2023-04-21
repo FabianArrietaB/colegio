@@ -18,7 +18,7 @@
             return $respuesta;
         }
 
-        public function eliminarusuario($idalumno){
+        public function eliminaralumno($idalumno){
             $conexion = Conexion::conectar();
             $sql = "DELETE FROM alumnos WHERE id_alumno=?";
             $query = $conexion->prepare($sql);
@@ -28,89 +28,131 @@
             return $respuesta;
         }
 
-        public function detallealumno($idalumno){
+        public function agregaralumnos($datos){
             $conexion = Conexion::conectar();
-            $sql ="SELECT
-                alumnos.id_alumno   AS idalumno,
-                alumnos.alu_nombre  AS nombre,
-                alumnos.alu_cladoc  AS cladoc,
-                alumnos.alu_docume  AS docume,
-                alumnos.alu_sexo    AS sexo,
-                alumnos.alu_gposan  AS gposan,
-                alumnos.alu_factrh  AS factrh,
-                alumnos.alu_ciudad  AS ciudad,
-                alumnos.alu_direcc  AS direcc,
-                alumnos.alu_estrat  AS estrat,
-                alumnos.alu_telcel  AS celula,
-                alumnos.alu_correo  AS correo,
-                alumnos.alu_estado  AS estado,
-                alumnos.alu_fecope  AS fecha,
-                grados.id_grado     AS idgrado,
-                grados.gra_nombre   AS grado,
-                acudientes.id_acudiente  AS idacudiente,
-                acudientes.acu_nombre AS nombreacu,
-                acudientes.acu_cladoc AS cladocacu,
-                acudientes.acu_docume AS documeacu,
-                acudientes.acu_ciudad AS ciudadacu,
-                acudientes.acu_direcc AS direccacu,
-                acudientes.acu_telcel AS celulaacu,
-                acudientes.acu_correo AS correoacu,
-                acudientes.acu_parent AS parentezc
-                FROM alumnos AS alumnos
-                INNER JOIN acudientes AS acudientes ON alumnos.id_alumno = acudientes.id_alumno
-                INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado
-                AND alumnos.id_alumno  ='$idalumno'";
-            $respuesta = mysqli_query($conexion,$sql);
-            $alumno = mysqli_fetch_array($respuesta);
-            $datos = array(
-                'idalumno' => $alumno['idalumno'],
-                'nombre'   => $alumno['nombre'],
-                'cladoc'   => $alumno['cladoc'],
-                'docume'   => $alumno['docume'],
-                'sexo'     => $alumno['sexo'],
-                'gposan'   => $alumno['gposan'],
-                'factrh'   => $alumno['factrh'],
-                'ciudad'   => $alumno['ciudad'],
-                'estrat'   => $alumno['estrat'],
-                'celula'   => $alumno['celula'],
-                'correo'   => $alumno['correo'],
-                'estado'   => $alumno['estado'],
-                'fecha'    => $alumno['fecha'],
-                'idgrado'  => $alumno['idgrado'],
-                'grado'       => $alumno['grado'],
-                'idacudiente' => $alumno['idacudiente'],
-                'nombreacu'   => $alumno['nombreacu'],
-                'cladocacu'   => $alumno['cladocacu'],
-                'documeacu'   => $alumno['documeacu'],
-                'ciudadacu'   => $alumno['ciudadacu'],
-                'direccacu'   => $alumno['direccacu'],
-                'celulaacu'   => $alumno['celulaacu'],
-                'correoacu'   => $alumno['correoacu'],
-                'parentezc'   => $alumno['parentezc'],
-            );
-            return $datos;
-        }
-
-        public function agregaralumno($datos){
-            $conexion = Conexion::conectar();
-            $sql = "INSERT INTO alumnos (id_rol, user_usuario, user_nombre, user_contra, user_correo, user_fecop) VALUES(?, ?, ?, ?, ?, ?)";
+            $idacudiente = self::agregarpadre($datos);
+            $idacudiente = self::agregarmadre($datos);
+            $idacudiente = self::agregarmatricula($datos);
+            if ($idacudiente > 0) {
+                $sql = "INSERT INTO empleados (
+                    id_grado,
+                    alu_nombre,
+                    alu_cladoc,
+                    alu_docume,
+                    alu_sexo,
+                    alu_gposan,
+                    alu_factrh,
+                    alu_ciudad,
+                    alu_direcc,
+                    alu_estrat,
+                    alu_telcel,
+                    alu_correo,
+                    alu_estado,
+                    alu_fecnac)
+                VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param("isssss", $datos['idRol'], $datos['usuario'], $datos['nombre'], $datos['password'], $datos['correo'], $datos['fecha']);
+            $query->bind_param("isssssssssssss",
+                                $datos['idgrado'],
+                                $datos['nombre'],
+                                $datos['cladoc'],
+                                $datos['docume'],
+                                $datos['fecnac'],
+                                $datos['sexo'],
+                                $datos['gposan'],
+                                $datos['factrh'],
+                                $datos['telcel'],
+                                $datos['ciudad'],
+                                $datos['direcc'],
+                                $datos['estrat'],
+                                $datos['correo'],
+                            );
             $respuesta = $query->execute();
             return $respuesta;
+            } else {
+                return 0;
+            }
         }
 
-        public function editaralumno($datos){
+        public function agregarpadre($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE alumnos SET id_grado=' ? ,alu_nombre= ? ,alu_cladoc= ? ,alu_docum e =,`alu_sexo= ? ,
-                    alu_gposan= ? ,alu_factrh= ? ,alu_ciudad= ? ,alu_direcc= ? ,alu_estrat= ? ,alu_telcel= ? ,
-                    alu_correo= ? ,alu_estado= ? ,alu_fecnac=?, alu_fecupd=? WHERE id_alumno = ?";
+            $sql = "INSERT INTO acudientes(
+                    id_alumno,
+                    acu_nombre,
+                    acu_cladoc,
+                    acu_docume,
+                    acu_ciudad,
+                    acu_direcc,
+                    acu_telcel,
+                    acu_correo,
+                    acu_parent)
+                    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param('issssssssssssssi', $datos['idgradou'], $datos['nombreu'], $datos['claddocu'], $datos['correo'], $datos['fecha'], $datos['idusuario']);
+            $query->bind_param("issssssss",
+                                    $datos['idalumno'],
+                                    $datos['nompad'],
+                                    $datos['cldopa'],
+                                    $datos['docpad'],
+                                    $datos['telpad'],
+                                    $datos['ciupad'],
+                                    $datos['dirpad'],
+                                    $datos['estpad'],
+                                    $datos['corpad'],
+                                    $datos['parpad'],);
             $respuesta = $query->execute();
+            $idacudiente = mysqli_insert_id($conexion);
             $query->close();
+            return $idacudiente;
+        }
+
+        public function agregarmadre($datos){
+            $conexion = Conexion::conectar();
+            $sql = "INSERT INTO acudientes(
+                    id_alumno,
+                    acu_nombre,
+                    acu_cladoc,
+                    acu_docume,
+                    acu_ciudad,
+                    acu_direcc,
+                    acu_telcel,
+                    acu_correo,
+                    acu_parent)
+                    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $query = $conexion->prepare($sql);
+            $query->bind_param("issssssss",  
+                                    $datos['idalumno'],
+                                    $datos['nommad'],
+                                    $datos['cldoma'],
+                                    $datos['docmad'],
+                                    $datos['telmad'],
+                                    $datos['ciumad'],
+                                    $datos['dirmad'],
+                                    $datos['estmad'],
+                                    $datos['cormad'],
+                                    $datos['parmad'],
+                    );
+            $respuesta = $query->execute();
             return $respuesta;
         }
 
+        public function agregarmatricula($datos){
+            $conexion = Conexion::conectar();
+            $sql = "INSERT INTO matriculas(
+                    id_alumno,
+                    id_grado,
+                    mat_valmat,
+                    mat_saldo,
+                    mat_detalle)
+                    VALUES(?, ?, ?, ?, ?)";
+            $query = $conexion->prepare($sql);
+            $query->bind_param("iisss",
+                                    $datos['idalumno'],
+                                    $datos['idgrado'],
+                                    $datos['matric'],
+                                    $datos['pensio'],
+                                    $datos['abono'],
+                    );
+            $respuesta = $query->execute();
+            return $respuesta;
+        }
     }
 ?>
