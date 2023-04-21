@@ -20,10 +20,11 @@
                             <div class="col-3">
                                 <div class="input-group mb-3">
                                     <select name="cladoc" id="cladoc" class="form-control input-sm">
-                                        <option selected >Selecione Tipo Documento Grupo</option>
-                                        <option value="CEDULA">Cedula</option>
-                                        <option value="CEDULA EXTRANEJERIA">Cedula Extrangeria</option>
-                                        <option value="PASAPORTE">Pasaporte</option>
+                                        <option selected >TIPO DOCUMENTO</option>
+                                        <option value="TARJETA IDENTIDAD">TARJETA IDENTIDAD</option>
+                                        <option value="CEDULA">CEDULA</option>
+                                        <option value="CEDULA EXTRANEJERIA">CEDULA EXTRANEJERIA</option>
+                                        <option value="PASAPORTE">PASAPORTE</option>
                                     </select>
                                 </div>
                             </div>
@@ -42,16 +43,16 @@
                             <div class="col-2">
                                 <div class="input-group mb-3">
                                     <select name="sexo" id="sexo" class="form-control input-sm">
-                                        <option selected >Sexo</option>
-                                        <option value="MASCULINO">Masculino</option>
-                                        <option value="FEMENINO">Femenino</option>
+                                        <option selected >SEXO</option>
+                                        <option value="MASCULINO">MASCULINO</option>
+                                        <option value="FEMENINO">FEMENINO</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group mb-3">
                                     <select name="gposan" id="gposan" class="form-control input-sm">
-                                        <option selected >Tipo Sangre</option>
+                                        <option selected >TIPO SANGRE</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="AB">AB</option>
@@ -120,10 +121,10 @@
                             <div class="col-3">
                                 <div class="input-group mb-3">
                                     <select name="cldoma" id="cldoma" class="form-control input-sm">
-                                        <option selected >Selecione Tipo Documento Grupo</option>
-                                        <option value="CEDULA">Cedula</option>
-                                        <option value="CEDULA EXTRANEJERIA">Cedula Extrangeria</option>
-                                        <option value="PASAPORTE">Pasaporte</option>
+                                        <option selected >TIPO DOCUMENTO</option>
+                                        <option value="CEDULA">CEDULA</option>
+                                        <option value="CEDULA EXTRANEJERIA">CEDULA EXTRANGERIA</option>
+                                        <option value="PASAPORTE">PASAPORTE</option>
                                     </select>
                                 </div>
                             </div>
@@ -183,10 +184,10 @@
                             <div class="col-3">
                                 <div class="input-group mb-3">
                                     <select name="cldopa" id="cldopa" class="form-control input-sm">
-                                        <option selected >Selecione Tipo Documento Grupo</option>
-                                        <option value="CEDULA">Cedula</option>
-                                        <option value="CEDULA EXTRANEJERIA">Cedula Extrangeria</option>
-                                        <option value="PASAPORTE">Pasaporte</option>
+                                        <option selected >TIPO DOCUMENTO</option>
+                                        <option value="CEDULA">CEDULA</option>
+                                        <option value="CEDULA EXTRANEJERIA">CEDULA EXTRANGERIA</option>
+                                        <option value="PASAPORTE">PASAPORTE</option>
                                     </select>
                                 </div>
                             </div>
