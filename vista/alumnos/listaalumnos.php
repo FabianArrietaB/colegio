@@ -4,7 +4,7 @@
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
-        $sql = "SELECT
+        $sql = "SELECT DISTINCT
             alumnos.id_alumno   AS idalumno,
             alumnos.alu_nombre  AS nombre,
             alumnos.alu_cladoc  AS cladoc,
@@ -22,14 +22,15 @@
             grados.id_grado     AS idgrado,
             grados.gra_nombre   AS grado
             FROM alumnos AS alumnos
-            INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado
+            INNER JOIN acudientes AS acudientes ON alumnos.id_alumno = acudientes.id_alumno
+            INNER JOIN grados AS grados ON alumnos.id_grado = grados.id_grado
             ORDER BY alumnos.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     } else {
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
-        $sql = "SELECT
+        $sql = "SELECT DISTINCT
             alumnos.id_alumno   AS idalumno,
             alumnos.alu_nombre  AS nombre,
             alumnos.alu_cladoc  AS cladoc,
@@ -47,6 +48,7 @@
             grados.id_grado     AS idgrado,
             grados.gra_nombre   AS grado
             FROM alumnos AS alumnos
+            INNER JOIN acudientes AS acudientes ON alumnos.id_alumno = acudientes.id_alumno
             INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado
             WHERE alumnos.alu_estado = 1
             ORDER BY alumnos.id_alumno ASC";

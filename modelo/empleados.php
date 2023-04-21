@@ -78,7 +78,7 @@
                                 $datos['codarl'],
                                 $datos['codpen'],
                                 $datos['codces'],
-                            );
+                    );
             $respuesta = $query->execute();
             return $respuesta;
         }

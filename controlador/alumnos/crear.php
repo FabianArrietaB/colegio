@@ -1,5 +1,7 @@
 <?php
    $datos = array(
+      "idalumno" => $_POST['idalumno'],
+      "idgrado" => $_POST['idgrado'],
       "nombre" => $_POST['nombre'],
       "cladoc" => $_POST['cladoc'],
       "docume" => $_POST['docume'],
@@ -12,6 +14,28 @@
       "direcc" => $_POST['direcc'],
       "estrat" => $_POST['estrat'],
       "correo" => $_POST['correo'],
+      "parmad" => $_POST['parmad'],
+      "nommad" => $_POST['nommad'],
+      "cldoma" => $_POST['cldoma'],
+      "docmad" => $_POST['docmad'],
+      "telmad" => $_POST['telmad'],
+      "ciumad" => $_POST['ciumad'],
+      "dirmad" => $_POST['dirmad'],
+      "estmad" => $_POST['estmad'],
+      "cormad" => $_POST['cormad'],
+      "parpad" => $_POST['parpad'],
+      "nompad" => $_POST['nompad'],
+      "cldopa" => $_POST['cldopa'],
+      "docpad" => $_POST['docpad'],
+      "telpad" => $_POST['telpad'],
+      "ciupad" => $_POST['ciupad'],
+      "dirpad" => $_POST['dirpad'],
+      "estpad" => $_POST['estpad'],
+      "corpad" => $_POST['corpad'],
+      "grado" => $_POST['grado'],
+      "matric" => $_POST['matric'],
+      "pensio" => $_POST['pensio'],
+      "abono" => $_POST['abono'],
    );
    include "../../modelo/alumnos.php";
    $Alumnos   = new Alumnos();
