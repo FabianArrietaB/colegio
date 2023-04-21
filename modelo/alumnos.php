@@ -30,7 +30,11 @@
 
         public function agregaralumnos($datos){
             $conexion = Conexion::conectar();
-            $sql = "INSERT INTO empleados (
+            $idacudiente = self::agregarpadre($datos);
+            $idacudiente = self::agregarmadre($datos);
+            $idacudiente = self::agregarmatricula($datos);
+            if ($idacudiente > 0) {
+                $sql = "INSERT INTO empleados (
                     id_grado,
                     alu_nombre,
                     alu_cladoc,
@@ -48,7 +52,7 @@
                 VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
             $query = $conexion->prepare($sql);
             $query->bind_param("isssssssssssss",
-                                $datos['grado'],
+                                $datos['idgrado'],
                                 $datos['nombre'],
                                 $datos['cladoc'],
                                 $datos['docume'],
@@ -64,6 +68,9 @@
                             );
             $respuesta = $query->execute();
             return $respuesta;
+            } else {
+                return 0;
+            }
         }
 
         public function agregarpadre($datos){
@@ -80,20 +87,21 @@
                     acu_parent)
                     VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("issssssss",  
+            $query->bind_param("issssssss",
                                     $datos['idalumno'],
-                                    $datos['parpad'],
+                                    $datos['nompad'],
                                     $datos['cldopa'],
                                     $datos['docpad'],
                                     $datos['telpad'],
                                     $datos['ciupad'],
                                     $datos['dirpad'],
                                     $datos['estpad'],
-                                    $datos['corpad']);
+                                    $datos['corpad'],
+                                    $datos['parpad'],);
             $respuesta = $query->execute();
-            $idPersona = mysqli_insert_id($conexion);
+            $idacudiente = mysqli_insert_id($conexion);
             $query->close();
-            return $idPersona;
+            return $idacudiente;
         }
 
         public function agregarmadre($datos){
@@ -112,7 +120,7 @@
             $query = $conexion->prepare($sql);
             $query->bind_param("issssssss",  
                                     $datos['idalumno'],
-                                    $datos['parmad'],
+                                    $datos['nommad'],
                                     $datos['cldoma'],
                                     $datos['docmad'],
                                     $datos['telmad'],
@@ -120,6 +128,7 @@
                                     $datos['dirmad'],
                                     $datos['estmad'],
                                     $datos['cormad'],
+                                    $datos['parmad'],
                     );
             $respuesta = $query->execute();
             return $respuesta;
@@ -145,6 +154,5 @@
             $respuesta = $query->execute();
             return $respuesta;
         }
-
     }
 ?>

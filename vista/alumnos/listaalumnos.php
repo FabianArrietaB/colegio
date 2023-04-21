@@ -45,6 +45,8 @@
             alumnos.alu_correo  AS correo,
             alumnos.alu_estado  AS estado,
             alumnos.alu_fecope  AS fecha,
+            acudientes.id_acudiente AS idacudiente,
+            acudientes.acu_nombre As nomacu,
             grados.id_grado     AS idgrado,
             grados.gra_nombre   AS grado
             FROM alumnos AS alumnos

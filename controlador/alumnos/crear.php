@@ -1,7 +1,6 @@
 <?php
    $datos = array(
       "idalumno" => $_POST['idalumno'],
-      "idgrado" => $_POST['idgrado'],
       "nombre" => $_POST['nombre'],
       "cladoc" => $_POST['cladoc'],
       "docume" => $_POST['docume'],
@@ -32,7 +31,7 @@
       "dirpad" => $_POST['dirpad'],
       "estpad" => $_POST['estpad'],
       "corpad" => $_POST['corpad'],
-      "grado" => $_POST['grado'],
+      "idgrado" => $_POST['idgrado'],
       "matric" => $_POST['matric'],
       "pensio" => $_POST['pensio'],
       "abono" => $_POST['abono'],

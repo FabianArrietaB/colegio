@@ -239,7 +239,21 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="grado" name="grado" class="form-control input-sm" placeholder="Ingrese Grado" >
+                                <select name="idgrado" id="idgrado" class="form-control input-sm">
+                                        <option selected >GRADO</option>
+                                        <option value="1">TRANSICION</option>
+                                        <option value="2">PRIMERO</option>
+                                        <option value="3">SEGUNDO</option>
+                                        <option value="4">TERCERO</option>
+                                        <option value="5">CUARTO</option>
+                                        <option value="6">QUINTO</option>
+                                        <option value="7">SEXTO</option>
+                                        <option value="8">SEPTIMO</option>
+                                        <option value="9">OCTAVO</option>
+                                        <option value="10">NOVENO</option>
+                                        <option value="11">DECIMO</option>
+                                        <option value="12">UNDECIMO</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-3">
