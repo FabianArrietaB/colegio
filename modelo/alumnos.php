@@ -41,7 +41,7 @@
             $conexion = Conexion::conectar();
             $sql = "INSERT INTO acudientes( id_alumno, acu_nombre, acu_cladoc, acu_docume, acu_ciudad, acu_direcc, acu_telcel, acu_correo, acu_parent) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("issssssss", $datos['idalumno'], $datos['nompad'], $datos['cldopa'], $datos['docpad'], $datos['telpad'], $datos['ciupad'], $datos['dirpad'], $datos['estpad'], $datos['corpad'], $datos['parpad'],);
+            $query->bind_param("issssssss", $datos['idalumno'], $datos['nompad'], $datos['cldopa'], $datos['docpad'], $datos['ciupad'], $datos['dirpad'], $datos['telpad'], $datos['corpad'], $datos['parpad'],);
             $respuesta = $query->execute();
             $idacudiente = mysqli_insert_id($conexion);
             $query->close();
@@ -52,7 +52,7 @@
             $conexion = Conexion::conectar();
             $sql = "INSERT INTO acudientes( id_alumno, acu_nombre, acu_cladoc, acu_docume, acu_ciudad, acu_direcc, acu_telcel, acu_correo, acu_parent) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("issssssss", $datos['idalumno'], $datos['nommad'], $datos['cldoma'], $datos['docmad'], $datos['ciumad'], $datos['dirmad'], $datos['telmad'], $datos['estmad'], $datos['cormad'], $datos['parmad'],);
+            $query->bind_param("issssssss", $datos['idalumno'], $datos['nommad'], $datos['cldoma'], $datos['docmad'], $datos['ciumad'], $datos['dirmad'], $datos['telmad'], $datos['cormad'], $datos['parmad'],);
             $respuesta = $query->execute();
             return $respuesta;
         }
