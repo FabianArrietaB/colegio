@@ -11,8 +11,8 @@
                     <!-- Formulario (Alumno) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Alumno</legend>
-                        <input type="text" id="idalumno" name="idalumno" hidden>
                         <div class="row">
+                        <input type="text" id="idalumno" name="idalumno" hidden>
                             <div class="col-4">
                                 <div class="input-group mb-3">
                                     <input type="text" id="nombre" name="nombre" class="form-control input-sm" placeholder="Ingrese Nombre" >
@@ -270,6 +270,13 @@
                             <div class="col-3">
                                 <div class="input-group mb-3">
                                     <input type="text" id="abono" name="abono" class="form-control input-sm" placeholder="Abono Matricula">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="input-group mb-3">
+                                    <input type="text" id="detall" name="detall" class="form-control input-sm" placeholder="Abono Matricula">
                                 </div>
                             </div>
                         </div>

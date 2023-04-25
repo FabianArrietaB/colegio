@@ -35,6 +35,7 @@
       "matric" => $_POST['matric'],
       "pensio" => $_POST['pensio'],
       "abono" => $_POST['abono'],
+      "detall" => $_POST['detall'],
    );
    include "../../modelo/alumnos.php";
    $Alumnos   = new Alumnos();
