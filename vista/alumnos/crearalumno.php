@@ -11,6 +11,7 @@
                     <!-- Formulario (Alumno) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Alumno</legend>
+                        <input type="text" id="idalumno" name="idalumno" hidden>
                         <div class="row">
                             <div class="col-4">
                                 <div class="input-group mb-3">
@@ -111,7 +112,6 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Madre</legend>
                         <div class="row">
-                            <input type="text" id="idalumno" name="idalumno" hidden>
                             <input type="text" id="parmad" name="parmad" value="MADRE" hidden>
                             <div class="col-4">
                                 <div class="input-group mb-3">

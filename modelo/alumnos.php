@@ -28,11 +28,20 @@
             return $respuesta;
         }
 
-        public function agregaralumnos($datos){
+        public function agregaralumno($datos){
             $conexion = Conexion::conectar();
-            $sql1 = "INSERT INTO empleados (id_grado, alu_nombre, alu_cladoc, alu_docume, alu_sexo, alu_gposan, alu_factrh, alu_ciudad, alu_direcc, alu_estrat, alu_telcel, alu_correo, alu_fecnac) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
-            $query = $conexion->prepare($sql1);
+            $sql = "INSERT INTO alumnos (id_grado, alu_nombre, alu_cladoc, alu_docume, alu_sexo, alu_gposan, alu_factrh, alu_ciudad, alu_direcc, alu_estrat, alu_telcel, alu_correo, alu_fecnac) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $query = $conexion->prepare($sql);
             $query->bind_param("isssssssssssss", $datos['idgrado'], $datos['nombre'], $datos['cladoc'], $datos['docume'], $datos['sexo'], $datos['gposan'], $datos['factrh'], $datos['ciudad'], $datos['direcc'], $datos['estrat'], $datos['telcel'], $datos['correo'], $datos['fecnac']);
+            $respuesta = $query->execute();
+            return $respuesta;
+        }
+
+        public function agregarmadre($datos){
+            $conexion = Conexion::conectar();
+            $sql = "INSERT INTO acudientes( id_alumno, acu_nombre, acu_cladoc, acu_docume, acu_ciudad, acu_direcc, acu_telcel, acu_correo, acu_parent) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $query = $conexion->prepare($sql);
+            $query->bind_param("issssssss", $datos['idalumno'], $datos['nommad'], $datos['cldoma'], $datos['docmad'], $datos['ciumad'], $datos['dirmad'], $datos['telmad'], $datos['cormad'], $datos['parmad'],);
             $respuesta = $query->execute();
             return $respuesta;
         }
@@ -46,15 +55,6 @@
             $idacudiente = mysqli_insert_id($conexion);
             $query->close();
             return $idacudiente;
-        }
-
-        public function agregarmadre($datos){
-            $conexion = Conexion::conectar();
-            $sql = "INSERT INTO acudientes( id_alumno, acu_nombre, acu_cladoc, acu_docume, acu_ciudad, acu_direcc, acu_telcel, acu_correo, acu_parent) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            $query = $conexion->prepare($sql);
-            $query->bind_param("issssssss", $datos['idalumno'], $datos['nommad'], $datos['cldoma'], $datos['docmad'], $datos['ciumad'], $datos['dirmad'], $datos['telmad'], $datos['cormad'], $datos['parmad'],);
-            $respuesta = $query->execute();
-            return $respuesta;
         }
 
         public function agregarmatricula($datos){
