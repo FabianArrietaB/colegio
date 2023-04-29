@@ -1,6 +1,5 @@
 <?php
    $datos = array(
-      "idalumno" => $_POST['idalumno'],
       "nombre" => $_POST['nombre'],
       "cladoc" => $_POST['cladoc'],
       "docume" => $_POST['docume'],
