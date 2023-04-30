@@ -12,7 +12,6 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Alumno</legend>
                         <div class="row">
-                        <input type="text" id="idalumno" name="idalumno" hidden>
                             <div class="col-4">
                                 <div class="input-group mb-3">
                                     <input type="text" id="nombre" name="nombre" class="form-control input-sm" placeholder="Ingrese Nombre" >

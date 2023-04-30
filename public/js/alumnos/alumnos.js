@@ -88,3 +88,73 @@ function agregaralumno(){
     });
     return false;
 }
+
+function detallealumno(idalumno){
+    $.ajax({
+        type: "POST",
+        data: "idalumno=" + idalumno,
+        url: "../controlador/alumnos/detalle.php",
+        success: function(respuesta){
+            respuesta = jQuery.parseJSON(respuesta);
+            $('#idalumno').val(respuesta['idalumno']);
+            $('#nombreu').val(respuesta['nombre']);
+            $('#cladocu').val(respuesta['cladoc']);
+            $('#documeu').val(respuesta['docume']);
+            $('#fecnacu').val(respuesta['fecnac']);
+            $('#sexou').val(respuesta['sexo']);
+            $('#gposanu').val(respuesta['gposan']);
+            $('#factrhu').val(respuesta['factrh']);
+            $('#telcelu').val(respuesta['telcel']);
+            $('#ciudadu').val(respuesta['ciudad']);
+            $('#direccu').val(respuesta['direcc']);
+            $('#estratu').val(respuesta['estrat']);
+            $('#correou').val(respuesta['correo']);
+            $('#nommadu').val(respuesta['nommad']);
+            $('#cldomau').val(respuesta['cldoma']);
+            $('#cargou').val(respuesta['docmad']);
+            $('#docmad').val(respuesta['telmad']);
+            $('#ciumadu').val(respuesta['ciumad']);
+            $('#dirmadu').val(respuesta['dirmad']);
+            $('#cormadu').val(respuesta['cormad']);
+            $('#nompadu').val(respuesta['nompad']);
+            $('#cldopau').val(respuesta['cldopa']);
+            $('#docpadu').val(respuesta['docpad']);
+            $('#telpadu').val(respuesta['telpad']);
+            $('#ciupadu').val(respuesta['ciupad']);
+            $('#dirpadu').val(respuesta['dirpad']);
+            $('#corpadu').val(respuesta['corpad']);
+            $('#idgradou').val(respuesta['idgrado']);
+        }
+    });
+}
+
+function editaralumno(){
+    $.ajax({
+        type: "POST",
+        data: $('#frmeditaralumno').serialize(),
+        url: "../controlador/alumnos/editar.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            console.log(respuesta)
+            if(respuesta == 1){
+                $('#editar').modal('hide');
+                $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Alumno Actualizado Exitosamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error al Editar!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+    });
+    return false;
+}

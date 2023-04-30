@@ -108,7 +108,6 @@
                 empleados.emp_gposan    AS gposan,
                 empleados.emp_factrh    AS factrh,
                 empleados.emp_hijos     AS hijos,
-                empleados.emp_estado    AS estado,
                 empleados.emp_fecnac    AS fecnac
                 FROM empleados AS empleados
                 WHERE empleados.id_empleado='$idempleado'";
