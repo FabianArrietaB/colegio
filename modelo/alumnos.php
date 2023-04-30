@@ -41,16 +41,27 @@
             $query = $conexion->prepare($insertmadre);
             $query->bind_param("issssssss", $idalumno, $datos['nommad'], $datos['cldoma'], $datos['docmad'], $datos['ciumad'], $datos['dirmad'], $datos['telmad'], $datos['cormad'], $datos['parmad'],);
             $respuesta = $query->execute();
-            $insertpadre = "INSERT INTO acudientes( id_alumno, acu_nombre, acu_cladoc, acu_docume, acu_ciudad, acu_direcc, acu_telcel, acu_correo, acu_parent) 
+            $insertpadre = "INSERT INTO acudientes( id_alumno, acu_nombre, acu_cladoc, acu_docume, acu_ciudad, acu_direcc, acu_telcel, acu_correo, acu_parent)
                             VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($insertpadre);
             $query->bind_param("issssssss", $idalumno, $datos['nompad'], $datos['cldopa'], $datos['docpad'], $datos['ciupad'], $datos['dirpad'], $datos['telpad'], $datos['corpad'], $datos['parpad'],);
             $respuesta = $query->execute();
-            $insertmatricula = "INSERT INTO matriculas( id_alumno, id_grado, mat_valmat, mat_pensio, mat_saldo, mat_detalle) VALUES(?, ?, ?, ?, ?, ?)";
-            $query = $conexion->prepare($insertmatricula);
-            $query->bind_param("iissss",$idalumno, $datos['idgrado'], $datos['matric'], $datos['pensio'], $datos['abono'],$datos['detall'],);
-            $respuesta = $query->execute();
+                if ($respuesta > 0) {
+                    $idacudiente = mysqli_insert_id($conexion);
+                    $insertparentezco = "INSERT INTO parentezcos( id_alumno, id_acudiente, id_grado)
+                                VALUES(?, ?, ?)";
+                    $query = $conexion->prepare($insertparentezco);
+                    $query->bind_param("iii",$idalumno, $idacudiente, $datos['idgrado'],);
+                    $respuesta = $query->execute();
+                    $insertmatricula = "INSERT INTO matriculas( id_alumno, id_grado, mat_valmat, mat_pensio, mat_saldo, mat_detalle)
+                                VALUES(?, ?, ?, ?, ?, ?)";
+                    $query = $conexion->prepare($insertmatricula);
+                    $query->bind_param("iissss",$idalumno, $datos['idgrado'], $datos['matric'], $datos['pensio'], $datos['abono'],$datos['detall'],);
+                    $respuesta = $query->execute();
+                }
             return $respuesta;
         }
+
+        
     }
 ?>
