@@ -65,7 +65,6 @@ function agregaralumno(){
         url: "../controlador/alumnos/crear.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
-            console.log(respuesta)
             if(respuesta == 1){
                 $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
                 $('#frmagregaralumno')[0].reset();
@@ -109,20 +108,6 @@ function detallealumno(idalumno){
             $('#direccu').val(respuesta['direcc']);
             $('#estratu').val(respuesta['estrat']);
             $('#correou').val(respuesta['correo']);
-            $('#nommadu').val(respuesta['nommad']);
-            $('#cldomau').val(respuesta['cldoma']);
-            $('#cargou').val(respuesta['docmad']);
-            $('#docmad').val(respuesta['telmad']);
-            $('#ciumadu').val(respuesta['ciumad']);
-            $('#dirmadu').val(respuesta['dirmad']);
-            $('#cormadu').val(respuesta['cormad']);
-            $('#nompadu').val(respuesta['nompad']);
-            $('#cldopau').val(respuesta['cldopa']);
-            $('#docpadu').val(respuesta['docpad']);
-            $('#telpadu').val(respuesta['telpad']);
-            $('#ciupadu').val(respuesta['ciupad']);
-            $('#dirpadu').val(respuesta['dirpad']);
-            $('#corpadu').val(respuesta['corpad']);
             $('#idgradou').val(respuesta['idgrado']);
         }
     });
@@ -135,8 +120,8 @@ function editaralumno(){
         url: "../controlador/alumnos/editar.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
-            console.log(respuesta)
             if(respuesta == 1){
+                console.log(respuesta)
                 $('#editar').modal('hide');
                 $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
                 Swal.fire({

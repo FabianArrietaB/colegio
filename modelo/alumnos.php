@@ -64,7 +64,7 @@
 
         public function detallealumno($idalumno){
             $conexion = Conexion::conectar();
-            $sql ="SELECT DISTINCT
+            $sql ="SELECT
                 alumnos.id_alumno   AS idalumno,
                 alumnos.alu_nombre  AS nombre,
                 alumnos.alu_cladoc  AS cladoc,
@@ -78,13 +78,8 @@
                 alumnos.alu_telcel  AS telcel,
                 alumnos.alu_correo  AS correo,
                 alumnos.alu_fecope  AS fecha,
-                acudientes.id_acudiente AS idacudiente,
-                acudientes.acu_nombre As nomacu,
-                grados.id_grado     AS idgrado,
-                grados.gra_nombre   AS grado
+                alumnos.id_grado    AS idgrado
                 FROM alumnos AS alumnos
-                INNER JOIN acudientes AS acudientes ON alumnos.id_alumno = acudientes.id_alumno
-                INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado
                 WHERE alumnos.id_alumno = '$idalumno'";
             $respuesta = mysqli_query($conexion,$sql);
             $alumno = mysqli_fetch_array($respuesta);
@@ -102,6 +97,7 @@
             'telcel' => $alumno['telcel'],
             'correo' => $alumno['correo'],
             'fecnac' => $alumno['fecnac'],
+            'idgrado' => $alumno['idgrado'],
             );
             return $datos;
         }
@@ -118,7 +114,7 @@
                     alu_factrh = ?,
                     alu_ciudad = ?,
                     alu_direcc = ?,
-                    alu_estrat  = ?,
+                    alu_estrat = ?,
                     alu_telcel = ?,
                     alu_correo = ?,
                     alu_fecnac = ?
@@ -132,13 +128,13 @@
                                 $datos['sexo'],
                                 $datos['gposan'],
                                 $datos['factrh'],
-                                $datos['telcel'],
                                 $datos['ciudad'],
                                 $datos['direcc'],
                                 $datos['estrat'],
+                                $datos['telcel'],
                                 $datos['correo'],
                                 $datos['fecnac'],
-                                $datos['idempleado']);
+                                $datos['idalumno']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

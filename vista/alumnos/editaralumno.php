@@ -103,126 +103,6 @@
                             </div>
                         </div>
                     </fieldset>
-                    <!-- Formulario (Madre) -->
-                    <fieldset class="group-border">
-                        <legend class="group-border">Informacion Madre</legend>
-                        <div class="row">
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="nommadu" name="nommadu" class="form-control input-sm" placeholder="Ingrese Nombre" >
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="input-group mb-3">
-                                    <select name="cldomau" id="cldomau" class="form-control input-sm">
-                                        <option value="CEDULA">CEDULA</option>
-                                        <option value="CEDULA EXTRANEJERIA">CEDULA EXTRANGERIA</option>
-                                        <option value="PASAPORTE">PASAPORTE</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="docmadu" name="docmadu" class="form-control input-sm" placeholder="Ingrese Documento">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="telmadu" name="telmadu" class="form-control input-sm" placeholder="Ingrese Telefono">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="ciumadu" name="ciumadu" class="form-control input-sm" placeholder="Ingrese Ciudad">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="dirmadu" name="dirmadu" class="form-control input-sm" placeholder="Direccion">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                            <div class="input-group mb-3">
-                                    <select name="estmadu" id="estmadu" class="form-control input-sm">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="MAS">MAS</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="cormadu" name="cormadu" class="form-control input-sm" placeholder="Ingrese Correo" >
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <!-- Formulario (Padre) -->
-                    <fieldset class="group-border">
-                        <legend class="group-border">Informacion Padre</legend>
-                        <div class="row">
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="nompadu" name="nompadu" class="form-control input-sm" placeholder="Ingrese Nombre" >
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="input-group mb-3">
-                                    <select name="cldopau" id="cldopau" class="form-control input-sm">
-                                        <option value="CEDULA">CEDULA</option>
-                                        <option value="CEDULA EXTRANEJERIA">CEDULA EXTRANGERIA</option>
-                                        <option value="PASAPORTE">PASAPORTE</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="docpadu" name="docpadu" class="form-control input-sm" placeholder="Ingrese Documento">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="telpadu" name="telpadu" class="form-control input-sm" placeholder="Ingrese Telefono">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="ciupadu" name="ciupadu" class="form-control input-sm" placeholder="Ingrese Ciudad">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="dirpadu" name="dirpadu" class="form-control input-sm" placeholder="Direccion">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                            <div class="input-group mb-3">
-                                    <select name="estpadu" id="estpadu" class="form-control input-sm">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="MAS">MAS</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="corpadu" name="corpadu" class="form-control input-sm" placeholder="Ingrese Correo" >
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
                     <!-- Formulario (Grado) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Grado</legend>
@@ -230,7 +110,6 @@
                             <div class="col-3">
                                 <div class="input-group mb-3">
                                 <select name="idgradou" id="idgradou" class="form-control input-sm">
-                                        <option selected >GRADO</option>
                                         <option value="1">TRANSICION</option>
                                         <option value="2">PRIMERO</option>
                                         <option value="3">SEGUNDO</option>

@@ -129,7 +129,6 @@ function editarempleado(){
         url: "../controlador/empleados/editar.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
-            console.log(respuesta)
             if(respuesta == 1){
                 $('#editar').modal('hide');
                 $('#tablalistaempleados').load('empleados/listaempleados.php');
