@@ -36,7 +36,7 @@
             $query->bind_param("issssssssssss", $datos['idgrado'], $datos['nombre'], $datos['cladoc'], $datos['docume'], $datos['sexo'], $datos['gposan'], $datos['factrh'], $datos['ciudad'], $datos['direcc'], $datos['estrat'], $datos['telcel'], $datos['correo'], $datos['fecnac'],);
             $respuesta = $query->execute();
             $idalumno = mysqli_insert_id($conexion);
-            $insertmadre = "INSERT INTO acudientes( id_alumno, acu_nombre, acu_cladoc, acu_docume, acu_ciudad, acu_direcc, acu_telcel, acu_correo, acu_parent) 
+            $insertmadre = "INSERT INTO acudientes( id_alumno, acu_nombre, acu_cladoc, acu_docume, acu_ciudad, acu_direcc, acu_telcel, acu_correo, acu_parent)
                             VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($insertmadre);
             $query->bind_param("issssssss", $idalumno, $datos['nommad'], $datos['cldoma'], $datos['docmad'], $datos['ciumad'], $datos['dirmad'], $datos['telmad'], $datos['cormad'], $datos['parmad'],);
