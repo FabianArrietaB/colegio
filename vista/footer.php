@@ -1,6 +1,7 @@
         <script src="./../public/bootstrap5/js/popper.min.js" ></script>
         <script src="./../public/bootstrap5/js/bootstrap.min.js"></script>
         <script src="./../public/bootstrap5/js/bootstrap.bundle.min.js"></script>
+        <script src="./../public/bootstrap5/js/popper.min.js"></script>
         <!-- chart -->
         <script src="./../public/chart/chart.js"></script>
         <!-- jquery -->

@@ -1,6 +1,6 @@
 <!-- Formulario (Agregar) -->
 <form id="frmagregaralumno" method="post" onsubmit="return agregaralumno()">
-    <div class="modal fade" id="create" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="create" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="false">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -233,7 +233,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <!-- Formulario (Padre) -->
+                    <!-- Formulario (Grado) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Grado</legend>
                         <div class="row">

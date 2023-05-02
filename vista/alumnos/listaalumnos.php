@@ -56,7 +56,6 @@
             ORDER BY alumnos.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     }
-    //Consulta//
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive justify-content-center">
@@ -113,7 +112,6 @@
                 </td>
                 <td>
                     <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detallealumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
-                    <button type="button" class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#padres" onclick="detalleacuiente('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-circle-info fa-beat fa-xl"></i></button>
                     <?php if($_SESSION['usuario']['rol'] == 3) {?> <button type="button" class="btn btn-danger"  onclick="eliminaralumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>  <?php } ?>
                 </td>
             </tr>

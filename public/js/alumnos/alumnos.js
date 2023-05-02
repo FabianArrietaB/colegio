@@ -103,10 +103,10 @@ function detallealumno(idalumno){
             $('#sexou').val(respuesta['sexo']);
             $('#gposanu').val(respuesta['gposan']);
             $('#factrhu').val(respuesta['factrh']);
-            $('#telcelu').val(respuesta['telcel']);
             $('#ciudadu').val(respuesta['ciudad']);
             $('#direccu').val(respuesta['direcc']);
             $('#estratu').val(respuesta['estrat']);
+            $('#telcelu').val(respuesta['telcel']);
             $('#correou').val(respuesta['correo']);
             $('#idgradou').val(respuesta['idgrado']);
         }
