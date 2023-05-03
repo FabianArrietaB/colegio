@@ -377,3 +377,7 @@ fieldset.group-border {
 margin-top: -20px;
 font-size: 15px;
 }
+
+.hiddenRow {
+  padding: 0 !important;
+}
