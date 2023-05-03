@@ -143,3 +143,16 @@ function editaralumno(){
     });
     return false;
 }
+
+function tablapadres(idalumno){
+    $.ajax({
+        type: "POST",
+        data: "idalumno=" + idalumno,
+        url: "../controlador/alumnos/detallepadre.php",
+        success:function(respuesta){
+            respuesta = jQuery.parseJSON(respuesta);
+            console.log(respuesta)
+        }
+    });
+}
+

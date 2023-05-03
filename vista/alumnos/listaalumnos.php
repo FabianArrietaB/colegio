@@ -76,10 +76,8 @@
             </tr>
         </thead>
         <tbody>
-        <?php
-            while ($alumnos = mysqli_fetch_array($query)){
-        ?>
-            <tr>
+        <?php while ($alumnos = mysqli_fetch_array($query)){ ?>
+            <tr data-bs-toggle="modal" data-bs-target="#padres" onclick="tablapadres('<?php echo $alumnos['idalumno']?>')" >
                 <td> <?php echo $alumnos['nombre']; ?> </td>
                 <td> <?php echo $alumnos['grado']; ?></td>
                 <td> <?php echo $alumnos['cladoc']; ?></td>
@@ -88,32 +86,18 @@
                 <td> <?php echo $alumnos['celula']; ?></td>
                 <td> <?php echo $alumnos['correo']; ?></td>
                 <td>
-                <?php
-                    if ($alumnos['estado'] == 0) {
-                ?>
-                    <button class="btn btn-danger btn-sm" onclick="activaralumno(
-                        <?php echo $alumnos['idalumno'] ?>,
-                        <?php echo $alumnos['estado'] ?>)">
-                            INACTIVO
-                        </button>
-                    <?php
-                    } else if ($alumnos['estado'] == 1) {
-                    ?>
-                        <button class="btn btn-success btn-sm" onclick="activaralumno(
-                            <?php echo $alumnos['idalumno'] ?>,
-                            <?php echo $alumnos['estado'] ?>)">
-                            ACTIVO
-                        </button>
-                    <?php
-                    }
-                    ?>
+                    <?php if ($alumnos['estado'] == 0) { ?>
+                        <button class="btn btn-danger btn-sm" onclick="activaralumno(<?php echo $alumnos['idalumno'] ?>, <?php echo $alumnos['estado'] ?>)">INACTIVO</button>
+                    <?php } else if ($alumnos['estado'] == 1) { ?>
+                        <button class="btn btn-success btn-sm" onclick="activaralumno(<?php echo $alumnos['idalumno'] ?>, <?php echo $alumnos['estado'] ?>)">ACTIVO</button>
+                    <?php } ?>
                 </td>
                 <td>
                     <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detallealumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
                     <?php if($_SESSION['usuario']['rol'] == 3) {?> <button type="button" class="btn btn-danger"  onclick="eliminaralumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>  <?php } ?>
                 </td>
             </tr>
-            <?php } ?>
+        <?php } ?>
         </tbody>
     </table>
 </div>
