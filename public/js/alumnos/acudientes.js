@@ -8,7 +8,6 @@ function detalleacudiente(idacudiente){
         data: "idacudiente=" + idacudiente,
         url: "../controlador/alumnos/detallepadre.php",
         success: function(respuesta){
-            console.log(respuesta)
             respuesta = jQuery.parseJSON(respuesta);
             $('#idacudiente').val(respuesta['idacudiente']);
             $('#idalumno').val(respuesta['idalumno']);
