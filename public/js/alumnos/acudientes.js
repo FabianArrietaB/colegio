@@ -8,8 +8,11 @@ function detalleacudiente(idacudiente){
         data: "idacudiente=" + idacudiente,
         url: "../controlador/alumnos/detallepadre.php",
         success: function(respuesta){
+            console.log(respuesta)
             respuesta = jQuery.parseJSON(respuesta);
             $('#idacudiente').val(respuesta['idacudiente']);
+            $('#idalumno').val(respuesta['idalumno']);
+            $('#nomaluu').val(respuesta['nomalu']);
             $('#nombreu').val(respuesta['nombre']);
             $('#cladocu').val(respuesta['cladoc']);
             $('#documeu').val(respuesta['docume']);
@@ -18,8 +21,6 @@ function detalleacudiente(idacudiente){
             $('#estratu').val(respuesta['estrat']);
             $('#telcelu').val(respuesta['telcel']);
             $('#correou').val(respuesta['correo']);
-            $('#nomaluu').val(respuesta['nomalu']);
-            $('#gradou').val(respuesta['grado']);
         }
     });
 }
@@ -32,7 +33,6 @@ function editaracudiente(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                console.log(respuesta)
                 $('#padre').modal('hide');
                 $('#tablalistaacudientes').load('alumnos/listaacudientes.php');
                 Swal.fire({

@@ -45,14 +45,14 @@
             $respuesta = $query->execute();
             $idalumno = mysqli_insert_id($conexion);
             $insertmadre = "INSERT INTO acudientes( id_alumno, acu_nombre, acu_cladoc, acu_docume, acu_ciudad, acu_direcc, acu_estrat, acu_telcel, acu_correo, acu_parent)
-                            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($insertmadre);
-            $query->bind_param("issssssss", $idalumno, $datos['nommad'], $datos['cldoma'], $datos['docmad'], $datos['ciumad'], $datos['estmad'], $datos['telmad'], $datos['cormad'], $datos['parmad'],);
+            $query->bind_param("isssssssss", $idalumno, $datos['nommad'], $datos['cldoma'], $datos['docmad'], $datos['ciumad'], $datos['dirmad'], $datos['estmad'], $datos['telmad'], $datos['cormad'], $datos['parmad'],);
             $respuesta = $query->execute();
             $insertpadre = "INSERT INTO acudientes( id_alumno, acu_nombre, acu_cladoc, acu_docume, acu_ciudad, acu_direcc, acu_estrat, acu_telcel, acu_correo, acu_parent)
-                            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($insertpadre);
-            $query->bind_param("issssssss", $idalumno, $datos['nompad'], $datos['cldopa'], $datos['docpad'], $datos['ciupad'], $datos['estpad'], $datos['dirpad'], $datos['telpad'], $datos['corpad'], $datos['parpad'],);
+            $query->bind_param("isssssssss", $idalumno, $datos['nompad'], $datos['cldopa'], $datos['docpad'], $datos['ciupad'], $datos['dirpad'], $datos['estpad'], $datos['telpad'], $datos['corpad'], $datos['parpad'],);
             $respuesta = $query->execute();
                 if ($respuesta > 0) {
                     $idacudiente = mysqli_insert_id($conexion);
@@ -160,8 +160,6 @@
             acudientes.acu_estrat  AS estrat,
             acudientes.acu_telcel  AS telcel,
             acudientes.acu_correo  AS correo,
-            acudientes.acu_estado  AS estado,
-            acudientes.acu_fecope  AS fecha,
             alumnos.id_alumno      AS idalumno,
             alumnos.alu_nombre     AS nomalu,
             grados.id_grado        AS idgrado,
@@ -169,26 +167,55 @@
             FROM acudientes AS acudientes
             INNER JOIN alumnos AS alumnos ON acudientes.id_alumno = alumnos.id_alumno
             INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado
-            WHERE alumnos.id_alumno = '$idacudiente'";
+            WHERE acudientes.id_acudiente = '$idacudiente'";
             $respuesta = mysqli_query($conexion,$sql);
-            $alumno = mysqli_fetch_array($respuesta);
+            $acudiente = mysqli_fetch_array($respuesta);
             $datos = array(
-                'idacudiente' => $alumno['idacudiente'],
-                'nombre' => $alumno['nombre'],
-                'cladoc' => $alumno['cladoc'],
-                'docume' => $alumno['docume'],
-                'sexo' => $alumno['sexo'],
-                'gposan' => $alumno['gposan'],
-                'factrh' => $alumno['factrh'],
-                'ciudad' => $alumno['ciudad'],
-                'direcc' => $alumno['direcc'],
-                'estrat' => $alumno['estrat'],
-                'telcel' => $alumno['telcel'],
-                'correo' => $alumno['correo'],
-                'nomalu' => $alumno['nomalu'],
-                'grado' => $alumno['grado'],
+                'idacudiente' => $acudiente['idacudiente'],
+                'idalumno' => $acudiente['idalumno'],
+                'idgrado' => $acudiente['idgrado'],
+                'nomalu' => $acudiente['nomalu'],
+                'nombre' => $acudiente['nombre'],
+                'cladoc' => $acudiente['cladoc'],
+                'docume' => $acudiente['docume'],
+                'ciudad' => $acudiente['ciudad'],
+                'direcc' => $acudiente['direcc'],
+                'estrat' => $acudiente['estrat'],
+                'telcel' => $acudiente['telcel'],
+                'correo' => $acudiente['correo'],
+                'grado' => $acudiente['grado'],
             );
             return $datos;
+        }
+
+        public function editaracudiente($datos){
+            $conexion = Conexion::conectar();
+            $sql = "UPDATE acudientes SET
+                    id_alumno = ?,
+                    acu_nombre = ?,
+                    acu_cladoc = ?,
+                    acu_docume = ?,
+                    acu_ciudad = ?,
+                    acu_direcc = ?,
+                    acu_estrat = ?,
+                    acu_telcel = ?,
+                    acu_correo = ?
+                    WHERE id_acudiente = ?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('issssssssi',
+                                $datos['idalumno'],
+                                $datos['nombre'],
+                                $datos['cladoc'],
+                                $datos['docume'],
+                                $datos['ciudad'],
+                                $datos['direcc'],
+                                $datos['estrat'],
+                                $datos['telcel'],
+                                $datos['correo'],
+                                $datos['idacudiente']);
+            $respuesta = $query->execute();
+            $query->close();
+            return $respuesta;
         }
     }
 ?>

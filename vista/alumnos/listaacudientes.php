@@ -58,9 +58,9 @@
     <table class="table table-light text-center">
         <thead>
             <tr>
+                <th scope="col" >Alumno</th>
+                <th scope="col" >Grado</th>
                 <th scope="col" >Nombres</th>
-                <th scope="col" >Tipo Documento</th>
-                <th scope="col" >Documento</th>
                 <th scope="col" >Direccion</th>
                 <th scope="col" >Celular</th>
                 <th scope="col" >Correo</th>
@@ -77,9 +77,9 @@
             while ($acudientes = mysqli_fetch_array($query)){
         ?>
             <tr>
+                <td> <?php echo $acudientes['nomalu']; ?> </td>
+                <td> <?php echo $acudientes['grado']; ?> </td>
                 <td> <?php echo $acudientes['nombre']; ?> </td>
-                <td> <?php echo $acudientes['cladoc']; ?></td>
-                <td> <?php echo $acudientes['docume']; ?></td>
                 <td> <?php echo $acudientes['direcc']; ?></td>
                 <td> <?php echo $acudientes['telcel']; ?></td>
                 <td> <?php echo $acudientes['correo']; ?></td>
@@ -105,8 +105,8 @@
                     ?>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detalleacudiente('<?php echo $acudientes['idacudiente']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
-                    <?php if($_SESSION['usuario']['rol'] == 3) {?> <button type="button" class="btn btn-danger"  onclick="eliminaracu('<?php echo $acudientes['idacudiente']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>  <?php } ?>
+                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#padre" onclick="detalleacudiente('<?php echo $acudientes['idacudiente']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
+                    <?php if($_SESSION['usuario']['rol'] == 3) {?> <button type="button" class="btn btn-danger"  onclick="eliminaracudiente('<?php echo $acudientes['idacudiente']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>  <?php } ?>
                 </td>
             </tr>
             <?php } ?>
