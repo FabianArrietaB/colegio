@@ -152,6 +152,17 @@ function tablapadres(idalumno){
         success:function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
             console.log(respuesta)
+            var html = '';
+            var i;
+            for (i = 0; i < data.length; i++) {
+            html += '<tr>' +
+            '<td>'+$respuesta['nombre']+'</td>'+
+            '<td>'+$respuesta['direcc']+'</td>'+
+            '<td>'+$respuesta['telcel']+'</td>'+
+            '<td>'+$respuesta['correo']+'</td>'+
+            '</tr>';
+        }
+        $('#tblpadres').html(html);
         }
     });
 }
