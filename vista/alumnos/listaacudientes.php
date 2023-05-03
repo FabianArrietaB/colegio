@@ -54,6 +54,7 @@
     }
 ?>
 <!-- inicio Tabla -->
+
 <div class="table-responsive justify-content-center">
     <table class="table table-light text-center">
         <thead>
