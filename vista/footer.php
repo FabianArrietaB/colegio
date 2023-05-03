@@ -15,6 +15,5 @@
         <!-- sweet alert -->
         <script src="./../public/sweetalert2/sweetalert2.all.min.js"></script>
         <script src="./../public/js/app.js"></script>
-        <script src="./../public/js/alumnos/alumnos.js"></script>
     </body>
 </html>
