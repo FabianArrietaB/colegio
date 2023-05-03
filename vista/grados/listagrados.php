@@ -1,6 +1,7 @@
 <?php
     session_start();
     //Consulta//
+    if ($_SESSION['usuario']['rol'] == 3) {
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
@@ -18,6 +19,26 @@
         INNER JOIN empleados AS empleados ON grados.id_empleado = empleados.id_empleado
         ORDER BY grados.id_grado ASC";
     $query = mysqli_query($conexion, $sql);
+} else {
+    include "../../modelo/conexion.php";
+    $con = new Conexion();
+    $conexion = $con->conectar();
+    $sql = "SELECT
+        grados.id_grado         AS idgrado,
+        grados.gra_nombre       AS nombre,
+        grados.gra_matric       AS matric,
+        grados.gra_pensio       AS pensio,
+        grados.gra_canalu       AS canalu,
+        grados.gra_fecope       AS fecha,
+        grados.gra_estado       AS estado,
+        empleados.id_empleado   AS iddir,
+        empleados.emp_nombre    AS nompro
+        FROM grados AS grados
+        INNER JOIN empleados AS empleados ON grados.id_empleado = empleados.id_empleado
+        WHERE grados.id_grado = 1
+        ORDER BY grados.id_grado ASC";
+    $query = mysqli_query($conexion, $sql);
+    }
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive justify-content-center">

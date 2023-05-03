@@ -1,6 +1,7 @@
 <?php
     session_start();
     //Consulta//
+    if ($_SESSION['usuario']['rol'] == 3) {
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
@@ -16,6 +17,24 @@
         INNER JOIN categorias AS categorias ON productos.id_categoria = categorias.id_categoria
         ORDER BY productos.id_producto ASC";
     $query = mysqli_query($conexion, $sql);
+} else {
+    include "../../modelo/conexion.php";
+    $con = new Conexion();
+    $conexion = $con->conectar();
+    $sql = "SELECT
+        productos.id_producto   AS idproducto,
+        productos.pro_nombre    AS nombre,
+        productos.pro_precio    AS precio,
+        productos.pro_estado    AS estado,
+        productos.pro_fecope    AS fecha,
+        categorias.id_categoria AS idcat,
+        categorias.cat_nombre   AS catego
+        FROM productos AS productos
+        INNER JOIN categorias AS categorias ON productos.id_categoria = categorias.id_categoria
+        WHERE productos.id_producto = 1
+        ORDER BY productos.id_producto ASC";
+    $query = mysqli_query($conexion, $sql);
+}
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive">

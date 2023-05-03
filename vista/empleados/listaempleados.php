@@ -1,6 +1,6 @@
 <?php
     session_start();
-    //Consulta//
+    if ($_SESSION['usuario']['rol'] == 3) {
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
@@ -32,6 +32,40 @@
         FROM empleados AS empleados
         ORDER BY empleados.id_empleado ASC";
     $query = mysqli_query($conexion, $sql);
+} else {
+    include "../../modelo/conexion.php";
+    $con = new Conexion();
+    $conexion = $con->conectar();
+    $sql = "SELECT
+        empleados.id_empleado AS idempleado,
+        empleados.emp_nombre    AS nombre,
+        empleados.emp_cladoc    AS cladoc,
+        empleados.emp_docume    AS docume,
+        empleados.emp_cargo     AS cargo,
+        empleados.emp_telcel    AS telcel,
+        empleados.emp_ciudad    AS ciudad,
+        empleados.emp_direcc    AS direcc,
+        empleados.emp_estrat    AS estrat,
+        empleados.emp_correo    AS correo,
+        empleados.emp_tipcon    AS tipcon,
+        empleados.emp_salari    AS salari,
+        empleados.emp_codces    AS codces,
+        empleados.emp_codeps    AS codeps,
+        empleados.emp_codpen    AS codpen,
+        empleados.emp_codarl    AS codarl,
+        empleados.emp_sexo      AS sexo,
+        empleados.emp_estciv    AS estciv,
+        empleados.emp_escola    AS escola,
+        empleados.emp_gposan    AS gposan,
+        empleados.emp_factrh    AS factrh,
+        empleados.emp_hijos     AS hijos,
+        empleados.emp_estado    AS estado,
+        empleados.emp_fecnac    AS fecnac
+        FROM empleados AS empleados
+        WHERE empleados.emp_estado = 1
+        ORDER BY empleados.id_empleado ASC";
+    $query = mysqli_query($conexion, $sql);
+    }
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive">

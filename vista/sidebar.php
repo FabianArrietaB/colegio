@@ -28,8 +28,8 @@
         <span class="tooltip">Alumnos</span>
       </li>
       <li>
-        <a href="alumnos.php">
-          <i class="bx bx-users"></i>
+        <a href="acudientes.php">
+          <i class='bx bx-group'></i>
           <span class="link_name">Acudientes</span>
         </a>
         <span class="tooltip">Acudientes</span>
