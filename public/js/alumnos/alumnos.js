@@ -154,12 +154,11 @@ function tablapadres(idalumno){
             var html = '';
             var i;
             for (i = 0; i < respuesta.length; i++) {
-            html += '<tr>' +
-            '<td>' + respuesta[i].nombre + '</td>' +
-            '<td>' + respuesta[i].direcc + '</td>' +
-            '<td>' + respuesta[i].telcel + '</td>' +
-            '<td>' + respuesta[i].correo + '</td>' +
-            '</tr>';
+            html += '<tr>';
+            html += '<td>' + respuesta[i]['nombre'] + '</td>';
+            html += '<td>' + respuesta[i]['direcc'] + '</td>';
+            html += '<td>' + respuesta[i]['telcel'] + '</td>';
+            html += '<td>' + respuesta[i]['correo'] + '</td>';
             }
         $('#tblpadres').html(html);
         },
