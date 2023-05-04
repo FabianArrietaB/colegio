@@ -121,7 +121,6 @@ function editaralumno(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                console.log(respuesta)
                 $('#editar').modal('hide');
                 $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
                 Swal.fire({
@@ -151,16 +150,6 @@ function tablapadres(idalumno){
         dataType: "JSON",
         success: function (respuesta) {
             console.log(respuesta)
-            var html = '';
-            var i;
-            for (i = 0; i < respuesta.length; i++) {
-            html += '<tr>';
-            html += '<td>' + respuesta[i]['nombre'] + '</td>';
-            html += '<td>' + respuesta[i]['direcc'] + '</td>';
-            html += '<td>' + respuesta[i]['telcel'] + '</td>';
-            html += '<td>' + respuesta[i]['correo'] + '</td>';
-            }
-        $('#tblpadres').html(html);
         },
     });
 }

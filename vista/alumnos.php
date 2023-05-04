@@ -17,7 +17,9 @@
                             <h4>Lista Alumnos</h4>
                         </div>
                         <div class="col-3 border-primary">
-                            <input class="form-control me-xl-2" type="search" placeholder="Search">
+                            <form action="" method="POST">
+                                <input class="form-control me-xl-2" type="search" placeholder="Buscar" name="campo" id="campo">
+                            </form>
                         </div>
                     </div>
                 </div>

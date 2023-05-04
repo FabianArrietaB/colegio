@@ -220,30 +220,25 @@
 
         public function tablapadres($idalumno){
             $conexion = Conexion::conectar();
-            $sql ="SELECT
-            acudientes.id_acudiente AS idacudiente,
-            acudientes.acu_nombre  AS nombre,
-            acudientes.acu_cladoc  AS cladoc,
-            acudientes.acu_docume  AS docume,
-            acudientes.acu_ciudad  AS ciudad,
-            acudientes.acu_direcc  AS direcc,
-            acudientes.acu_estrat  AS estrat,
-            acudientes.acu_telcel  AS telcel,
-            acudientes.acu_correo  AS correo,
-            alumnos.id_alumno      AS idalumno,
-            alumnos.alu_nombre     AS nomalu,
-            grados.id_grado        AS idgrado,
-            grados.gra_nombre      AS grado
-            FROM acudientes AS acudientes
-            INNER JOIN alumnos AS alumnos ON acudientes.id_alumno = alumnos.id_alumno
-            INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado
-            WHERE acudientes.id_alumno = '$idalumno'";
+            $sql ="SELECT DISTINCT
+            ac.id_alumno   AS idalumno,
+            ac.acu_nombre  AS nombre,
+            ac.acu_cladoc  AS cladoc,
+            ac.acu_docume  AS docume,
+            ac.acu_ciudad  AS ciudad,
+            ac.acu_direcc  AS direcc,
+            ac.acu_estrat  AS estrat,
+            ac.acu_telcel  AS telcel,
+            ac.acu_correo  AS correo,
+            a.id_alumno    AS idalumno,
+            a.alu_nombre   AS nomalu
+            FROM acudientes AS ac
+            INNER JOIN alumnos AS a ON ac.id_alumno = a.id_alumno
+            WHERE ac.id_alumno = '$idalumno'";
             $respuesta = mysqli_query($conexion,$sql);
             $acudiente = mysqli_fetch_array($respuesta);
             $datos = array(
-                'idacudiente' => $acudiente['idacudiente'],
                 'idalumno' => $acudiente['idalumno'],
-                'idgrado' => $acudiente['idgrado'],
                 'nomalu' => $acudiente['nomalu'],
                 'nombre' => $acudiente['nombre'],
                 'cladoc' => $acudiente['cladoc'],
@@ -253,7 +248,6 @@
                 'estrat' => $acudiente['estrat'],
                 'telcel' => $acudiente['telcel'],
                 'correo' => $acudiente['correo'],
-                'grado' => $acudiente['grado'],
             );
             return $datos;
         }
