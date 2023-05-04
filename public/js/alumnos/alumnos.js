@@ -146,24 +146,23 @@ function editaralumno(){
 
 function tablapadres(idalumno){
     $.ajax({
-        type: "POST",
-        data: "idalumno=" + idalumno,
-        url: "../controlador/alumnos/detallepadre.php",
-        success:function(respuesta){
-            respuesta = jQuery.parseJSON(respuesta);
+        type: "GET",
+        url: "../controlador/alumnos/tablapadres.php?idalumno="+idalumno,
+        dataType: "JSON",
+        success: function (respuesta) {
             console.log(respuesta)
             var html = '';
             var i;
-            for (i = 0; i < data.length; i++) {
+            for (i = 0; i < respuesta.length; i++) {
             html += '<tr>' +
-            '<td>'+$respuesta['nombre']+'</td>'+
-            '<td>'+$respuesta['direcc']+'</td>'+
-            '<td>'+$respuesta['telcel']+'</td>'+
-            '<td>'+$respuesta['correo']+'</td>'+
+            '<td>' + respuesta[i].nombre + '</td>' +
+            '<td>' + respuesta[i].direcc + '</td>' +
+            '<td>' + respuesta[i].telcel + '</td>' +
+            '<td>' + respuesta[i].correo + '</td>' +
             '</tr>';
-        }
+            }
         $('#tblpadres').html(html);
-        }
+        },
     });
 }
 
