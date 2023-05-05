@@ -220,7 +220,7 @@
 
         public function tablapadres($idalumno){
             $conexion = Conexion::conectar();
-            $sql ="SELECT DISTINCT
+            $sql ="SELECT
             ac.id_alumno   AS idalumno,
             ac.acu_nombre  AS nombre,
             ac.acu_cladoc  AS cladoc,
@@ -229,17 +229,13 @@
             ac.acu_direcc  AS direcc,
             ac.acu_estrat  AS estrat,
             ac.acu_telcel  AS telcel,
-            ac.acu_correo  AS correo,
-            a.id_alumno    AS idalumno,
-            a.alu_nombre   AS nomalu
+            ac.acu_correo  AS correo
             FROM acudientes AS ac
-            INNER JOIN alumnos AS a ON ac.id_alumno = a.id_alumno
             WHERE ac.id_alumno = '$idalumno'";
             $respuesta = mysqli_query($conexion,$sql);
             $acudiente = mysqli_fetch_array($respuesta);
             $datos = array(
                 'idalumno' => $acudiente['idalumno'],
-                'nomalu' => $acudiente['nomalu'],
                 'nombre' => $acudiente['nombre'],
                 'cladoc' => $acudiente['cladoc'],
                 'docume' => $acudiente['docume'],
