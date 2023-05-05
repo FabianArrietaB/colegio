@@ -64,8 +64,7 @@
                 usuarios.user_nombre    AS nombre,
                 usuarios.user_correo    AS correo,
                 usuarios.id_rol         AS idrol,
-                roles.rol_nombre        AS rol,
-                usuarios.user_estado    AS estado,
+                roles.rol_nombre        AS rol
                 FROM usuarios AS usuarios
                 INNER JOIN roles AS roles ON usuarios.id_rol = roles.id_rol
                 AND usuarios.id_usuario ='$idusuario'";
@@ -78,7 +77,6 @@
                 'correo'    => $usuario['correo'],
                 'idrol'     => $usuario['idrol'],
                 'rol'       => $usuario['rol'],
-                'estado'    => $usuario['estado'],
             );
             return $datos;
         }

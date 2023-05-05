@@ -13,7 +13,7 @@
       </li>
       <?php if($_SESSION['usuario']['rol'] == 1) {?>
       <li>
-        <a href="alumnos.php">
+        <a href="vistaalumno.php">
           <i class="bx bx-user"></i>
           <span class="link_name">Alumnos</span>
         </a>
@@ -28,13 +28,6 @@
         <span class="tooltip">Alumnos</span>
       </li>
       <li>
-        <a href="acudientes.php">
-          <i class='bx bx-group'></i>
-          <span class="link_name">Acudientes</span>
-        </a>
-        <span class="tooltip">Acudientes</span>
-      </li>
-      <li>
         <a href="empleados.php">
           <i class='bx bxs-user-account'></i>
           <span class="link_name">Empleados</span>
@@ -42,8 +35,8 @@
         <span class="tooltip">Empleados</span>
       </li>
       <li>
-        <a href="#">
-          <i class="bx bx-pie-chart-alt-2"></i>
+        <a href="grados.php">
+          <i class='bx bx-chalkboard'></i>
           <span class="link_name">Grados</span>
         </a>
         <span class="tooltip">Grados</span>
@@ -56,7 +49,7 @@
         <span class="tooltip">Productos</span>
       </li>
       <li>
-        <a href="#">
+        <a href="reportes.php">
           <i class="bx bx-folder"></i>
           <span class="link_name">Reportes</span>
         </a>
@@ -69,13 +62,6 @@
           <span class="link_name">Alumnos</span>
         </a>
         <span class="tooltip">Alumnos</span>
-      </li>
-      <li>
-        <a href="acudientes.php">
-          <i class='bx bx-group'></i>
-          <span class="link_name">Acudientes</span>
-        </a>
-        <span class="tooltip">Acudientes</span>
       </li>
       <li>
         <a href="empleados.php">

@@ -17,6 +17,18 @@
                             </tr>
                         </thead>
                         <tbody id="tblpadres">
+                            <tr>
+                                <td>EDER EDUARDO SILVA BLANCO</td>
+                                <td>CALLE 41 # 33 - 210</td>
+                                <td>31054702123</td>
+                                <td>ESILVA@GMAIL.COM</td>
+                            </tr>
+                            <tr>
+                                <td>KAROL MAITE GOMEZ ORTEGON</td>
+                                <td>CALLE 43 # 33 - 195	</td>
+                                <td>3012892452</td>
+                                <td>KAROLG@GMAIL.COM</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
