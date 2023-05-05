@@ -159,7 +159,7 @@ function tablapadres(idalumno){
                 tbHtml += '<td>'+respuesta[i].telcel+'</td>';
                 tbHtml += '</tr>';
             }
-            $('#tblpadres').html(tbHtml);
+            document.getElementById('tblpadres').innerHTML = tbHtml;
         }
     });
 }
