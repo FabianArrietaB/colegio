@@ -76,7 +76,7 @@
             </tr>
         </thead>
         <tbody>
-        <?php while ($alumnos = mysqli_fetch_array($query)){ ?>
+        <?php while ($alumnos = mysqli_fetch_array($query)) { ?>
             <tr>
                 <td data-bs-toggle="modal" data-bs-target="#padres" onclick="tablapadres('<?php echo $alumnos['idalumno']?>')"> <?php echo $alumnos['nombre']; ?> </td>
                 <td> <?php echo $alumnos['grado']; ?></td>

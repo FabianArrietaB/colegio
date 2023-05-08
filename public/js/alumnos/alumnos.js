@@ -147,19 +147,15 @@ function tablapadres(idalumno){
     $.ajax({
         type: "GET",
         url: "../controlador/alumnos/tablapadres.php?idalumno="+idalumno,
-        dataType: "JSON",
-        success: function (respuesta) {
-            console.log(respuesta)
-            var tbHtml='';
-            for(var i=0; i<respuesta.length; i++){
-                tbHtml += '<tr>';
-                tbHtml += '<td>'+respuesta[i].nombre+'</td>';
-                tbHtml += '<td>'+respuesta[i].direcc+'</td>';
-                tbHtml += '<td>'+respuesta[i].correo+'</td>';
-                tbHtml += '<td>'+respuesta[i].telcel+'</td>';
-                tbHtml += '</tr>';
-            }
-            document.getElementById('tblpadres').innerHTML = tbHtml;
+        datatype: "JSON",
+        success: (respuesta)=> {
+            $.each(respuesta, (index, item) => {
+                var tdData =
+                '<tr><td>' + respuesta[index].nombre + '</td>' +
+                '<td>' + respuesta[index].correo + '</td></tr>';
+                  $('#tblpadres').append(tdData); // Pegamos la fila a la tabla
+
+            });
         }
     });
 }
