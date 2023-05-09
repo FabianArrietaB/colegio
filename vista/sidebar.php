@@ -28,6 +28,13 @@
         <span class="tooltip">Alumnos</span>
       </li>
       <li>
+        <a href="acudientes.php">
+          <i class='bx bxs-user-rectangle'></i>
+          <span class="link_name">Acudientes</span>
+        </a>
+        <span class="tooltip">Acudientes</span>
+      </li>
+      <li>
         <a href="empleados.php">
           <i class='bx bxs-user-account'></i>
           <span class="link_name">Empleados</span>
@@ -62,6 +69,13 @@
           <span class="link_name">Alumnos</span>
         </a>
         <span class="tooltip">Alumnos</span>
+      </li>
+      <li>
+        <a href="acudientes.php">
+          <i class='bx bxs-user-rectangle'></i>
+          <span class="link_name">Acudientes</span>
+        </a>
+        <span class="tooltip">Acudientes</span>
       </li>
       <li>
         <a href="empleados.php">

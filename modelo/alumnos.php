@@ -218,34 +218,5 @@
             return $respuesta;
         }
 
-        public function tablapadres($idalumno){
-            $conexion = Conexion::conectar();
-            $sql ="SELECT
-            ac.id_alumno   AS idalumno,
-            ac.acu_nombre  AS nombre,
-            ac.acu_cladoc  AS cladoc,
-            ac.acu_docume  AS docume,
-            ac.acu_ciudad  AS ciudad,
-            ac.acu_direcc  AS direcc,
-            ac.acu_estrat  AS estrat,
-            ac.acu_telcel  AS telcel,
-            ac.acu_correo  AS correo
-            FROM acudientes AS ac
-            WHERE ac.id_alumno = '$idalumno'";
-            $respuesta = mysqli_query($conexion,$sql);
-            $acudiente = mysqli_fetch_array($respuesta);
-            $datos = array(
-                'idalumno' => $acudiente['idalumno'],
-                'nombre' => $acudiente['nombre'],
-                'cladoc' => $acudiente['cladoc'],
-                'docume' => $acudiente['docume'],
-                'ciudad' => $acudiente['ciudad'],
-                'direcc' => $acudiente['direcc'],
-                'estrat' => $acudiente['estrat'],
-                'telcel' => $acudiente['telcel'],
-                'correo' => $acudiente['correo'],
-            );
-            return $datos;
-        }
     }
 ?>

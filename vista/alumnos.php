@@ -35,8 +35,6 @@
 <?php
 include "alumnos/crearalumno.php";
 include "alumnos/editaralumno.php";
-include "alumnos/editaracudiente.php";
-include "alumnos/listaacudientes.php";
 include "footer.php";
 ?>
 <!-- carga ficheros javascript -->

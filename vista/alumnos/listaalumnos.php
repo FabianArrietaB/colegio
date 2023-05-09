@@ -4,54 +4,50 @@
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
-        $sql = "SELECT DISTINCT
-            alumnos.id_alumno   AS idalumno,
-            alumnos.alu_nombre  AS nombre,
-            alumnos.alu_cladoc  AS cladoc,
-            alumnos.alu_docume  AS docume,
-            alumnos.alu_sexo    AS sexo,
-            alumnos.alu_gposan  AS gposan,
-            alumnos.alu_factrh  AS factrh,
-            alumnos.alu_ciudad  AS ciudad,
-            alumnos.alu_direcc  AS direcc,
-            alumnos.alu_estrat  AS estrat,
-            alumnos.alu_telcel  AS celula,
-            alumnos.alu_correo  AS correo,
-            alumnos.alu_estado  AS estado,
-            alumnos.alu_fecope  AS fecha,
-            grados.id_grado     AS idgrado,
-            grados.gra_nombre   AS grado
-            FROM alumnos AS alumnos
-            INNER JOIN acudientes AS acudientes ON alumnos.id_alumno = acudientes.id_alumno
-            INNER JOIN grados AS grados ON alumnos.id_grado = grados.id_grado
-            ORDER BY alumnos.id_alumno ASC";
+        $sql = "SELECT
+        a.id_alumno as idalumno,
+        a.alu_nombre as nombre,
+        a.alu_cladoc as cladoc,
+        a.alu_docume as docume,
+        a.alu_sexo as sexo,
+        a.alu_gposan as gposan,
+        a.alu_factrh as factrh,
+        a.alu_ciudad as ciudad,
+        a.alu_direcc as direcc,
+        a.alu_estrat as estrat,
+        a.alu_telcel as telcel,
+        a.alu_correo as correo,
+        a.alu_estado as estado,
+        a.alu_fecnac as fecnac,
+        g.gra_nombre as grado
+        FROM alumnos as a
+        INNER JOIN grados as g ON a.id_grado = g.id_grado
+        ORDER BY a.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     } else {
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
-        $sql = "SELECT DISTINCT
-            alumnos.id_alumno   AS idalumno,
-            alumnos.alu_nombre  AS nombre,
-            alumnos.alu_cladoc  AS cladoc,
-            alumnos.alu_docume  AS docume,
-            alumnos.alu_sexo    AS sexo,
-            alumnos.alu_gposan  AS gposan,
-            alumnos.alu_factrh  AS factrh,
-            alumnos.alu_ciudad  AS ciudad,
-            alumnos.alu_direcc  AS direcc,
-            alumnos.alu_estrat  AS estrat,
-            alumnos.alu_telcel  AS celula,
-            alumnos.alu_correo  AS correo,
-            alumnos.alu_estado  AS estado,
-            alumnos.alu_fecope  AS fecha,
-            grados.id_grado     AS idgrado,
-            grados.gra_nombre   AS grado
-            FROM alumnos AS alumnos
-            INNER JOIN acudientes AS acudientes ON alumnos.id_alumno = acudientes.id_alumno
-            INNER JOIN grados AS grados ON alumnos.id_grado = grados.id_grado
-            WHERE alumnos.alu_estado = 1
-            ORDER BY alumnos.id_alumno ASC";
+        $sql = "SELECT
+            a.id_alumno as idalumno,
+            a.alu_nombre as nombre,
+            a.alu_cladoc as cladoc,
+            a.alu_docume as docume,
+            a.alu_sexo as sexo,
+            a.alu_gposan as gposan,
+            a.alu_factrh as factrh,
+            a.alu_ciudad as ciudad,
+            a.alu_direcc as direcc,
+            a.alu_estrat as estrat,
+            a.alu_telcel as telcel,
+            a.alu_correo as correo,
+            a.alu_estado as estado,
+            a.alu_fecnac as fecnac,
+            g.gra_nombre as grado
+            FROM alumnos as a
+            INNER JOIN grados as g ON a.id_grado = g.id_grado
+            WHERE a.alu_estado = 1
+            ORDER BY a.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     }
 ?>
@@ -78,12 +74,12 @@
         <tbody>
         <?php while ($alumnos = mysqli_fetch_array($query)) { ?>
             <tr>
-                <td data-bs-toggle="modal" data-bs-target="#padres" onclick="tablapadres('<?php echo $alumnos['idalumno']?>')"> <?php echo $alumnos['nombre']; ?> </td>
+                <td> <?php echo $alumnos['nombre']; ?> </td>
                 <td> <?php echo $alumnos['grado']; ?></td>
                 <td> <?php echo $alumnos['cladoc']; ?></td>
                 <td> <?php echo $alumnos['docume']; ?></td>
                 <td> <?php echo $alumnos['direcc']; ?></td>
-                <td> <?php echo $alumnos['celula']; ?></td>
+                <td> <?php echo $alumnos['telcel']; ?></td>
                 <td> <?php echo $alumnos['correo']; ?></td>
                 <td>
                     <?php if ($alumnos['estado'] == 0) { ?>

@@ -143,20 +143,3 @@ function editaralumno(){
     return false;
 }
 
-function tablapadres(idalumno){
-    $.ajax({
-        type: "GET",
-        url: "../controlador/alumnos/tablapadres.php?idalumno="+idalumno,
-        datatype: "JSON",
-        success: (respuesta)=> {
-            $.each(respuesta, (index, item) => {
-                var tdData =
-                '<tr><td>' + respuesta[index].nombre + '</td>' +
-                '<td>' + respuesta[index].correo + '</td></tr>';
-                  $('#tblpadres').append(tdData); // Pegamos la fila a la tabla
-
-            });
-        }
-    });
-}
-
