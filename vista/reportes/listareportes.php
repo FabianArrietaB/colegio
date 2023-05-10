@@ -3,7 +3,6 @@
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
-    $idusuario = $_SESSION['usuario']['id'];
     $sql = "SELECT
         s.id_solicitud      AS idsolicitud,
         s.id_usuario        AS idusuario,
@@ -35,7 +34,11 @@
         <tbody>
         <?php while ($reportes = mysqli_fetch_array($query)) { ?>
             <tr>
-                <td><?php echo $reportes['tiposolicitud']; ?></td>
+                <td><?php if ($reportes['tiposolicitud'] == 1) { ?>
+                        <span">SOLICITUD</span>
+                    <?php } else if ($reportes['tiposolicitud'] == 2) { ?>
+                        <span >REPORTE</span>
+                    <?php } ?></td>
                 <td><?php echo $reportes['detalle']; ?></td>
                 <td>
                     <?php if ($reportes['estado'] == 0) { ?>

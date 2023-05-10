@@ -12,10 +12,11 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Alumno</legend>
                         <input type="text" id="idsolicitud" name="idsolicitud" hidden>
+                        <input type="text" id="idusuario" name="idusuario" hidden>
                         <div class="row">
                             <div class="col-8">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="nombreu" name="nombreu" class="form-control input-sm" placeholder="Ingrese Nombre Completo" >
+                                <input disabled type="text" class="form-control input-sm" value="<?php echo $_SESSION['usuario']['nombre'];?>">
                                 </div>
                             </div>
                             <div class="col-4">
@@ -39,13 +40,13 @@
                             </div>
                         </div>
                     </fieldset>
-                    <!-- Formulario (Madre) -->
+                    <!-- Formulario (Solicitud) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Solicitud</legend>
                         <div class="row">
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <select name="tiposolicitud" id="tiposolicitud" class="form-control input-sm">
+                                    <select name="tiposolicitudu" id="tiposolicitudu" class="form-control input-sm">
                                         <option selected >TIPO SOLICITUD</option>
                                         <option value="1">SOLICITUD</option>
                                         <option value="2">REPORTE</option>
@@ -54,7 +55,7 @@
                             </div>
                             <div class="col-9">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="detalle" name="detalle" class="form-control input-sm" placeholder="Ingrese Su Solictud">
+                                    <input type="text" id="detalleu" name="detalleu" class="form-control input-sm" placeholder="Ingrese Su Solictud">
                                 </div>
                             </div>
                         </div>

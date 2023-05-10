@@ -5,9 +5,9 @@
 
         public function crearsolicitud($datos){
             $conexion = Conexion::conectar();
-            $sql = "INSERT INTO solicitudes (id_alumno, id_grado, rep_tipo, rep_detalle) VALUES(?, ?, ?, ?)";
+            $sql = "INSERT INTO solicitudes (id_usuario, id_grado, rep_tipo, rep_detalle) VALUES(?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("iis", $datos['idcat'], $datos['idgrado'], $datos['tiposolicitud'], $datos['detalle']);
+            $query->bind_param("iiss", $datos['idusuario'], $datos['idgrado'], $datos['tiposolicitud'], $datos['detalle']);
             $respuesta = $query->execute();
             return $respuesta;
         }

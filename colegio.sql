@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2023 a las 04:34:36
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 11-05-2023 a las 00:20:54
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -275,9 +275,38 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id_rol`, `rol_nombre`, `rol_descripcion`) VALUES
-(1, 'Usuario', 'Es un Usuario'),
-(2, 'Supervisor', 'Es un Surpervisor'),
-(3, 'Administrador', 'Es un Administrador');
+(1, 'Alumno', 'Es un Alumno'),
+(2, 'Docente', 'Es un Docente'),
+(3, 'Supervisor', 'Es un Surpervisor'),
+(4, 'Administrador', 'Es un Administrador');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `solicitudes`
+--
+
+CREATE TABLE `solicitudes` (
+  `id_solicitud` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_grado` int(11) NOT NULL,
+  `id_empleado` int(11) DEFAULT 0,
+  `rep_tipo` varchar(45) DEFAULT NULL,
+  `rep_detalle` varchar(45) NOT NULL,
+  `rep_estado` varchar(45) NOT NULL DEFAULT '0',
+  `rep_solucion` varchar(45) DEFAULT '0',
+  `rep_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
+  `rep_fecupd` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `solicitudes`
+--
+
+INSERT INTO `solicitudes` (`id_solicitud`, `id_usuario`, `id_grado`, `id_empleado`, `rep_tipo`, `rep_detalle`, `rep_estado`, `rep_solucion`, `rep_fecope`, `rep_fecupd`) VALUES
+(1, 3, 4, 0, '1', 'CERTIFICADO NOTAS', '0', '0', '2023-05-11 02:01:19', '2023-05-11 02:01:19'),
+(3, 3, 4, 0, '2', 'SILLA MAL ESTADO', '0', '0', '2023-05-11 02:01:19', '2023-05-11 02:01:19'),
+(4, 3, 4, 0, '2', 'TABLERO MAL ESTADO', '0', '0', '2023-05-11 02:01:19', '2023-05-11 02:01:19');
 
 -- --------------------------------------------------------
 
@@ -302,8 +331,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `user_usuario`, `user_nombre`, `user_contra`, `user_correo`, `user_estado`, `user_fecope`, `user_fecupd`) VALUES
-(1, 3, 'Admin', 'Administrador', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-14 00:00:00'),
-(2, 2, 'Farrieta', 'Fabian Arrieta', '202cb962ac59075b964b07152d234b70', 'f.arrieta@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-15 00:00:00'),
+(1, 4, 'Admin', 'Administrador', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-14 00:00:00'),
+(2, 3, 'Farrieta', 'Fabian Arrieta', '202cb962ac59075b964b07152d234b70', 'f.arrieta@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-15 00:00:00'),
 (3, 1, 'Marrieta', 'Michelle Arrieta', '202cb962ac59075b964b07152d234b70', 'm.arrieta@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-14 00:00:00');
 
 -- --------------------------------------------------------
@@ -379,6 +408,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id_rol`);
 
 --
+-- Indices de la tabla `solicitudes`
+--
+ALTER TABLE `solicitudes`
+  ADD PRIMARY KEY (`id_solicitud`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -446,7 +481,13 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `solicitudes`
+--
+ALTER TABLE `solicitudes`
+  MODIFY `id_solicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

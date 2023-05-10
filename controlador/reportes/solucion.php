@@ -1,11 +1,13 @@
 <?php
     $datos = Array(
-        'idgrado' => $_POST['idgrado'],
-        'nombre'  => $_POST['nombreu'],
-        'canalu'  => $_POST['canaluu'],
-        'iddir'   => $_POST['iddiru'],
-        'matric'  => $_POST['matricu'],
-        'pensio'  => $_POST['pensiou'],
+        'idsolicitud' => $_POST['idsolicitud'],
+        'idusuario'  => $_POST['idusuario'],
+        'idgrado'  => $_POST['idgrado'],
+        'idempleado'   => $_SESSION['usuario']['id'],
+        'tiposolicitud'  => $_POST['tiposolicitudu'],
+        'detalle'  => $_POST['detalleu'],
+        'estado'  => $_POST['estadoo'],
+        'solucion'  => $_POST['solucionu'],
     );
     include "../../modelo/reportes.php";
     $Reportes = new Reportes();

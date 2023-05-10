@@ -10,11 +10,11 @@
                 <div class="modal-body">
                     <!-- Formulario (Alumno) -->
                     <fieldset class="group-border">
-                        <legend class="group-border">Informacion Alumno</legend>
+                        <legend class="group-border">Informacion Usuario</legend>
                         <div class="row">
                             <div class="col-8">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="nombre" name="nombre" class="form-control input-sm" placeholder="Ingrese Nombre Completo" >
+                                    <input disabled type="text" class="form-control input-sm" value="<?php echo $_SESSION['usuario']['nombre'];?>">
                                 </div>
                             </div>
                             <div class="col-4">
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <!-- Formulario (Madre) -->
+                    <!-- Formulario (Solicitud) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Solicitud</legend>
                         <div class="row">

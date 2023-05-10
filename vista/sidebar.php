@@ -13,7 +13,7 @@
       </li>
       <?php if($_SESSION['usuario']['rol'] == 1) {?>
       
-      <?php } else if($_SESSION['usuario']['rol'] == 2){?>
+      <?php } else if($_SESSION['usuario']['rol'] == 3){?>
       <li>
         <a href="alumnos.php">
           <i class="bx bx-user"></i>
@@ -63,7 +63,7 @@
         </a>
         <span class="tooltip">Reportes</span>
       </li>
-      <?php } else if($_SESSION['usuario']['rol'] == 3){?>
+      <?php } else if($_SESSION['usuario']['rol'] == 4){?>
       <li>
         <a href="alumnos.php">
           <i class="bx bx-user"></i>
