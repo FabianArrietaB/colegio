@@ -9,6 +9,7 @@
     include "../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
+    
     $sql = "SELECT
         matriculas.id_matricula AS idmatricula,
         matriculas.mat_saldo AS saldo,
