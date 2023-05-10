@@ -1,29 +1,26 @@
 <?php
     include "header.php";
     include "sidebar.php";
-
     if(isset($_SESSION['usuario']) &&
-    $_SESSION['usuario']['rol'] == 1 ||
-    $_SESSION['usuario']['rol'] == 2||
-    $_SESSION['usuario']['rol'] == 3) {
+    $_SESSION['usuario']['rol'] == 3||
+    $_SESSION['usuario']['rol'] == 4) {
     include "../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
-    
     $sql = "SELECT
-        matriculas.id_matricula AS idmatricula,
-        matriculas.mat_saldo AS saldo,
-        matriculas.mat_detalle AS detalle,
-        matriculas.mat_valmat AS matricula,
-        matriculas.mat_fecope AS fecha,
-        matriculas.id_alumno AS idalumno,
-        alumnos.alu_nombre AS nombre,
-        matriculas.id_grado AS idgrado,
-        grados.gra_nombre AS grado
-        FROM matriculas AS matriculas
-        INNER JOIN alumnos AS alumnos ON matriculas.id_alumno = alumnos.id_alumno
-        INNER JOIN grados AS grados ON matriculas.id_grado = grados.id_grado
-        ORDER BY matriculas.id_matricula ASC";
+        m.id_matricula AS idmatricula,
+        m.mat_saldo AS saldo,
+        m.mat_detalle AS detalle,
+        m.mat_valmat AS matricula,
+        m.mat_fecope AS fecha,
+        m.id_alumno AS idalumno,
+        a.alu_nombre AS nombre,
+        m.id_grado AS idgrado,
+        g.gra_nombre AS grado
+        FROM matriculas AS m
+        INNER JOIN alumnos AS a ON m.id_alumno = a.id_alumno
+        INNER JOIN grados AS g ON m.id_grado = g.id_grado
+        ORDER BY m.id_matricula ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio del contenido principal -->
@@ -157,8 +154,49 @@
 <?php require('footer.php'); ?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/pagos/pagos.js"></script>
+<?php }else if($_SESSION['usuario']['rol'] == 1){ ?>
+<!-- inicio del contenido principal -->
+<section class="home-section">
+    <div class="container-fluid">
+        <div class="page-content">
+            <div class="card border-primary">
+                <div class="card-header text-center">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a class="btn btn-lg btn-success btn-block mb-3" data-bs-toggle="modal" data-bs-target="#reporte">
+                                <div class="row">
+                                    <div class="col-3 text-center"><i class="fa-solid fa-notes-medical fa-2x"></i></div>
+                                    <div class="col-9 text-center pt-1"><strong>CREAR REPORTE</strong></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card border-primary">
+                <div class="card-header text-center">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Mis Reportes</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="tablalistareportes"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- fin del contenido principal -->
+<!-- por ultimo se carga el footer -->
 <?php
-    }else{
+include "reportes/crearsolicitud.php";
+include "footer.php";
+?>
+<!-- carga ficheros javascript -->
+<script src="../public/js/reportes/reportes.js"></script>
+<?php }else{
         header("../index.php");
     }
 ?>

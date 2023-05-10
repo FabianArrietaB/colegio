@@ -1,0 +1,13 @@
+<?php
+    $datos = Array(
+        'idgrado' => $_POST['idgrado'],
+        'nombre'  => $_POST['nombreu'],
+        'canalu'  => $_POST['canaluu'],
+        'iddir'   => $_POST['iddiru'],
+        'matric'  => $_POST['matricu'],
+        'pensio'  => $_POST['pensiou'],
+    );
+    include "../../modelo/reportes.php";
+    $Reportes = new Reportes();
+    echo $Reportes->solucion($datos);
+?>

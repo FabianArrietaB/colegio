@@ -1,7 +1,7 @@
 <?php
     session_start();
     //Consulta//
-    if ($_SESSION['usuario']['rol'] == 3) {
+    if ($_SESSION['usuario']['rol'] == 4) {
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
@@ -95,7 +95,7 @@
                         <i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i>
                     </button>
                     <?php
-                        if($_SESSION['usuario']['rol'] == 3) {
+                        if($_SESSION['usuario']['rol'] == 4) {
                     ?>
                         <button type="button" class="btn btn-danger" onclick="eliminargrado(
                         '<?php echo $grados['idgrado']?>')">

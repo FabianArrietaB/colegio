@@ -1,25 +1,25 @@
 <?php
     session_start();
-    if ($_SESSION['usuario']['rol'] == 3) {
+    if ($_SESSION['usuario']['rol'] == 4) {
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
         $sql = "SELECT
-        a.id_alumno as idalumno,
-        a.alu_nombre as nombre,
-        a.alu_cladoc as cladoc,
-        a.alu_docume as docume,
-        a.alu_sexo as sexo,
-        a.alu_gposan as gposan,
-        a.alu_factrh as factrh,
-        a.alu_ciudad as ciudad,
-        a.alu_direcc as direcc,
-        a.alu_estrat as estrat,
-        a.alu_telcel as telcel,
-        a.alu_correo as correo,
-        a.alu_estado as estado,
-        a.alu_fecnac as fecnac,
-        g.gra_nombre as grado
+            a.id_alumno as idalumno,
+            a.alu_nombre as nombre,
+            a.alu_cladoc as cladoc,
+            a.alu_docume as docume,
+            a.alu_sexo as sexo,
+            a.alu_gposan as gposan,
+            a.alu_factrh as factrh,
+            a.alu_ciudad as ciudad,
+            a.alu_direcc as direcc,
+            a.alu_estrat as estrat,
+            a.alu_telcel as telcel,
+            a.alu_correo as correo,
+            a.alu_estado as estado,
+            a.alu_fecnac as fecnac,
+            g.gra_nombre as grado
         FROM alumnos as a
         INNER JOIN grados as g ON a.id_grado = g.id_grado
         ORDER BY a.id_alumno ASC";
@@ -90,7 +90,7 @@
                 </td>
                 <td>
                     <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detallealumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
-                    <?php if($_SESSION['usuario']['rol'] == 3) {?> <button type="button" class="btn btn-danger"  onclick="eliminaralumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>  <?php } ?>
+                    <?php if($_SESSION['usuario']['rol'] == 4) {?> <button type="button" class="btn btn-danger"  onclick="eliminaralumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>  <?php } ?>
                 </td>
             </tr>
         <?php } ?>

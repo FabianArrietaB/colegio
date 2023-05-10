@@ -12,13 +12,7 @@
         <span class="tooltip">Inicio</span>
       </li>
       <?php if($_SESSION['usuario']['rol'] == 1) {?>
-      <li>
-        <a href="vistaalumno.php">
-          <i class="bx bx-user"></i>
-          <span class="link_name">Alumnos</span>
-        </a>
-        <span class="tooltip">Alumnos</span>
-      </li>
+      
       <?php } else if($_SESSION['usuario']['rol'] == 2){?>
       <li>
         <a href="alumnos.php">
@@ -40,6 +34,13 @@
           <span class="link_name">Empleados</span>
         </a>
         <span class="tooltip">Empleados</span>
+      </li>
+      <li>
+        <a href="solicitudes.php">
+          <i class='bx bxs-copy-alt'></i>
+          <span class="link_name">Solicitudes</span>
+        </a>
+        <span class="tooltip">Solicitudes</span>
       </li>
       <li>
         <a href="grados.php">
@@ -83,6 +84,13 @@
           <span class="link_name">Empleados</span>
         </a>
         <span class="tooltip">Empleados</span>
+      </li>
+      <li>
+        <a href="solicitudes.php">
+          <i class='bx bxs-copy-alt'></i>
+          <span class="link_name">Solicitudes</span>
+        </a>
+        <span class="tooltip">Solicitudes</span>
       </li>
       <li>
         <a href="grados.php">

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if ($_SESSION['usuario']['rol'] == 3) {
+    if ($_SESSION['usuario']['rol'] == 4) {
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
@@ -81,7 +81,7 @@
                     <?php } ?>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#padre" onclick="detalleacudiente('<?php echo $acudientes['idacudiente']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
+                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#padre" onclick="detalleacudiente('<?php echo $acudientes['idacudiente']?>')"><i class="fa-solid fa-pen-to-square fa-xl"></i></button>
                 </td>
             </tr>
         <?php } ?>
