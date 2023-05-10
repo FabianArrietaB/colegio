@@ -55,15 +55,14 @@
             $query->bind_param("isssssssss", $idalumno, $datos['nompad'], $datos['cldopa'], $datos['docpad'], $datos['ciupad'], $datos['dirpad'], $datos['estpad'], $datos['telpad'], $datos['corpad'], $datos['parpad'],);
             $respuesta = $query->execute();
                 if ($respuesta > 0) {
-                    $idacudiente = mysqli_insert_id($conexion);
-                    $insertparentezco = "INSERT INTO parentezcos( id_alumno, id_acudiente, id_grado)
-                                VALUES(?, ?, ?)";
-                    $query = $conexion->prepare($insertparentezco);
-                    $query->bind_param("iii",$idalumno, $idacudiente, $datos['idgrado'],);
-                    $respuesta = $query->execute();
                     $insertmatricula = "INSERT INTO matriculas( id_alumno, id_grado, mat_valmat, mat_pensio, mat_saldo, mat_detalle)
                                 VALUES(?, ?, ?, ?, ?, ?)";
                     $query = $conexion->prepare($insertmatricula);
+                    $query->bind_param("iissss",$idalumno, $datos['idgrado'], $datos['matric'], $datos['pensio'], $datos['abono'],$datos['detall'],);
+                    $respuesta = $query->execute();
+                    $insertauditoria = "INSERT INTO auditorias( id_alumno, id_grado, aud_valor, aud_restante, aud_detalle)
+                                VALUES(?, ?, ?, ?, ?, ?)";
+                    $query = $conexion->prepare($insertauditoria);
                     $query->bind_param("iissss",$idalumno, $datos['idgrado'], $datos['matric'], $datos['pensio'], $datos['abono'],$datos['detall'],);
                     $respuesta = $query->execute();
                 }

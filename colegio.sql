@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-05-2023 a las 05:14:04
+-- Tiempo de generación: 10-05-2023 a las 04:34:36
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -49,10 +49,8 @@ CREATE TABLE `acudientes` (
 --
 
 INSERT INTO `acudientes` (`id_acudiente`, `id_alumno`, `acu_nombre`, `acu_cladoc`, `acu_docume`, `acu_ciudad`, `acu_direcc`, `acu_estrat`, `acu_telcel`, `acu_correo`, `acu_parent`, `acu_estado`, `acu_fecope`, `acu_fecupd`) VALUES
-(1, 1, 'KAROL MAITE GOMEZ ORTEGON', 'CEDULA', '1002458964', 'BARRANQUILLA', 'calle 41 # 33 - 115', '3', '3152034587', 'CGOMEZ@GMAIL.COM', 'MADRE', 1, '2023-05-03 01:41:47', '2023-05-03 03:17:25'),
-(2, 1, 'EDER EDUARDO SILVA BLANCO', 'CEDULA', '1045689547', 'BARRANQUILLA', 'CALLE 41 # 33 - 210', '3', '3102457896', 'esilva@gmail.com', 'PADRE', 1, '2023-05-03 01:41:47', '2023-05-03 03:17:25'),
-(3, 2, 'angie michelle bolaños grandadoz', 'CEDULA', '1002155147', 'BARRANQUILLA', 'CARRERA 8E # 41 - 65', '2', '3154684165', 'sagian@gmail.com', 'MADRE', 1, '2023-05-04 03:11:15', '2023-05-04 03:11:15'),
-(4, 2, 'fabian andres arrieta blanco', 'CEDULA', '1045689957', 'santa marta', 'calle 43 # 27 - 161 ', '3', '3013996994', 'f.arrieta@outlook.com', 'PADRE', 1, '2023-05-04 03:11:15', '2023-05-04 03:11:15');
+(1, 1, 'ANGIE MICHELLE BOLAÑOS GRANADOZ', 'CEDULA', '1002521463', 'BARRANQUILLA', 'CARRERA 8E # 51 - 52', '3', '3152458574', 'SAGIAN16@GMAIL.COM', 'MADRE', 1, '2023-05-10 02:01:19', '2023-05-10 02:01:19'),
+(2, 1, 'FABIAN ANDRES ARRIETA BLANCO', 'CEDULA', '1045689957', 'SANTA MARTA', 'CALLE 41 # 33 - 210', '3', '3013996994', 'F.ARRIETA@OUTLOOK.COM', 'PADRE', 1, '2023-05-10 02:01:19', '2023-05-10 02:01:19');
 
 -- --------------------------------------------------------
 
@@ -85,8 +83,30 @@ CREATE TABLE `alumnos` (
 --
 
 INSERT INTO `alumnos` (`id_alumno`, `id_grado`, `alu_nombre`, `alu_cladoc`, `alu_docume`, `alu_sexo`, `alu_gposan`, `alu_factrh`, `alu_ciudad`, `alu_direcc`, `alu_estrat`, `alu_telcel`, `alu_correo`, `alu_estado`, `alu_fecnac`, `alu_fecope`, `alu_fecupd`) VALUES
-(1, 5, 'SAMUEL JOSE SILVA BLANCO', 'TARJETA IDENTIDAD', '1043568941', 'MASCULINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CALLE 43 # 33 - 195', '3', '300000000', 'SSILVA@GMAIL.COM', 1, '2012-06-26', '2023-05-03 01:41:47', '2023-05-03 03:17:25'),
-(2, 4, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'TARJETA IDENTIDAD', '1043463797', 'FEMENINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CARRERA 8E # 41 - 65', '2', '3152192962', 'marrieta@gmail.com', 1, '2013-10-14', '2023-05-04 03:11:15', '2023-05-04 03:11:15');
+(1, 4, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'TARJETA IDENTIDAD', '1043215785', 'MASCULINO', 'O', 'FACTOR RH', 'BARRANQUILLA', 'CARRERA 8E # 51 - 52', '3', '3152458574', 'MICHELLEARRIETA46@GMAIL.COM', 1, '2013-10-14', '2023-05-10 02:01:19', '2023-05-10 02:01:19');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `auditorias`
+--
+
+CREATE TABLE `auditorias` (
+  `id_auditoria` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `id_grado` int(11) NOT NULL,
+  `aud_valor` varchar(45) NOT NULL,
+  `aud_restante` varchar(45) DEFAULT NULL,
+  `aud_detalle` varchar(45) DEFAULT NULL,
+  `aud_fecope` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `auditorias`
+--
+
+INSERT INTO `auditorias` (`id_auditoria`, `id_alumno`, `id_grado`, `aud_valor`, `aud_restante`, `aud_detalle`, `aud_fecope`) VALUES
+(1, 1, 1, '1250000', '250000', 'ABONO MATRICULA', '2023-05-10 02:01:19');
 
 -- --------------------------------------------------------
 
@@ -148,7 +168,7 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`id_empleado`, `emp_nombre`, `emp_cladoc`, `emp_docume`, `emp_cargo`, `emp_telcel`, `emp_ciudad`, `emp_direcc`, `emp_estrat`, `emp_correo`, `emp_tipcon`, `emp_salari`, `emp_codces`, `emp_codeps`, `emp_codpen`, `emp_codarl`, `emp_sexo`, `emp_estciv`, `emp_escola`, `emp_gposan`, `emp_factrh`, `emp_hijos`, `emp_estado`, `emp_fecnac`, `emp_fecope`, `emp_fecupd`) VALUES
-(1, 'CARLOS ALBERTO ROCHA TOVAR', 'CEDULA', '574236985', 'PROFESOR MATEMATICAS', '3002548965', 'SANTA MARTA', 'CALLE 17 # 40 - 62', '3', 'crocha@gmail.com', 'FIJO', '1100000', 'PROTECION', 'SURA', 'COLPENSIONES', 'SURA', 'MASCULINO', 'SOLTERO/A', 'PROFESIONAL', 'O', 'POSITIVO', '1', 1, '0000-00-00 00:00:00', '2023-02-01 05:00:00', '2023-05-03 01:44:25');
+(1, 'CARLOS ALBERTO ROCHA TOVAR', 'CEDULA', '574236985', 'PROFESOR MATEMATICAS', '3002548965', 'SANTA MARTA', 'CALLE 17 # 40 - 62', '3', 'crocha@gmail.com', 'FIJO', '1100000', 'PROTECION', 'SURA', 'COLPENSIONES', 'SURA', 'MASCULINO', 'SOLTERO/A', 'PROFESIONAL', 'O', 'POSITIVO', '1', 1, '0000-00-00 00:00:00', '2023-02-01 05:00:00', '2023-05-05 00:20:13');
 
 -- --------------------------------------------------------
 
@@ -184,7 +204,7 @@ INSERT INTO `grados` (`id_grado`, `id_empleado`, `gra_nombre`, `gra_matric`, `gr
 (9, 1, 'OCTAVO', '1222000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
 (10, 1, 'NOVENO', '1222000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
 (11, 1, 'DECIMO', '1100000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
-(12, 1, 'UNDECIMO', '1100000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-04-19 00:51:14');
+(12, 1, 'UNDECIMO', '1100000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-05-05 00:34:05');
 
 -- --------------------------------------------------------
 
@@ -208,30 +228,7 @@ CREATE TABLE `matriculas` (
 --
 
 INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `mat_valmat`, `mat_pensio`, `mat_saldo`, `mat_detalle`, `mat_fecope`) VALUES
-(1, 1, 5, '1250000', '580000', '1000000', 'ABONO DE MATRICULA', '2023-05-03 01:41:47'),
-(2, 2, 4, '1250000', '450000', '1250000', 'matricula completa', '2023-05-04 03:11:15');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `parentezcos`
---
-
-CREATE TABLE `parentezcos` (
-  `id` int(11) NOT NULL,
-  `id_alumno` int(11) NOT NULL,
-  `id_acudiente` int(11) NOT NULL,
-  `id_grado` int(11) NOT NULL,
-  `par_fecope` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `parentezcos`
---
-
-INSERT INTO `parentezcos` (`id`, `id_alumno`, `id_acudiente`, `id_grado`, `par_fecope`) VALUES
-(1, 1, 2, 5, '2023-05-03 01:41:47'),
-(2, 2, 4, 4, '2023-05-04 03:11:15');
+(1, 1, 4, '1250000', '580000', '1000000', 'ABONO MATRICULA', '2023-05-10 02:01:19');
 
 -- --------------------------------------------------------
 
@@ -255,11 +252,11 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `id_categoria`, `id_usuario`, `pro_nombre`, `pro_precio`, `pro_estado`, `pro_fecope`, `pro_fecupd`) VALUES
-(1, 2, 0, 'CERTIFICADO ESTUDIANTIL', '50000', 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
+(1, 2, 0, 'CERTIFICADO ESTUDIANTIL', '50000', 1, '2023-02-01 05:00:00', '2023-05-05 00:20:41'),
 (12, 2, 0, 'CERTIFICADO DE NOTA', '35000', 1, '2023-03-07 05:00:00', '2023-03-07 05:00:00'),
 (13, 2, 0, 'CERTIFICADO EGRESADO', '55000', 1, '2023-03-07 05:00:00', '2023-03-07 05:00:00'),
 (14, 1, 0, 'ACTA DE GRADO', '55000', 1, '2023-03-07 05:00:00', '2023-03-07 05:00:00'),
-(28, 2, 0, 'certificado general', '65000', 1, '0000-00-00 00:00:00', '2023-04-18 22:30:28');
+(28, 1, 0, 'CERTIFICADO GENERAL NOTAS', '65000', 1, '0000-00-00 00:00:00', '2023-05-05 00:34:51');
 
 -- --------------------------------------------------------
 
@@ -340,6 +337,12 @@ ALTER TABLE `alumnos`
   ADD PRIMARY KEY (`id_alumno`);
 
 --
+-- Indices de la tabla `auditorias`
+--
+ALTER TABLE `auditorias`
+  ADD PRIMARY KEY (`id_auditoria`);
+
+--
 -- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
@@ -362,12 +365,6 @@ ALTER TABLE `grados`
 --
 ALTER TABLE `matriculas`
   ADD PRIMARY KEY (`id_matricula`);
-
---
--- Indices de la tabla `parentezcos`
---
-ALTER TABLE `parentezcos`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `productos`
@@ -401,13 +398,19 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `acudientes`
 --
 ALTER TABLE `acudientes`
-  MODIFY `id_acudiente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_acudiente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `auditorias`
+--
+ALTER TABLE `auditorias`
+  MODIFY `id_auditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -431,13 +434,7 @@ ALTER TABLE `grados`
 -- AUTO_INCREMENT de la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  MODIFY `id_matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `parentezcos`
---
-ALTER TABLE `parentezcos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`

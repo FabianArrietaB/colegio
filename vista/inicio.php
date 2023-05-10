@@ -114,7 +114,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-light">
+                        <table class="table table-light text-center"">
                             <thead class="thead-light">
                                 <tr>
                                     <th>Nombre Alumno</th>
@@ -155,7 +155,7 @@
 <!-- por ultimo se carga el footer -->
 <?php require('footer.php'); ?>
 <!-- carga ficheros javascript -->
-<script src="../public/js/matriculas/matriculas.js"></script>
+<script src="../public/js/pagos/pagos.js"></script>
 <?php
     }else{
         header("../index.php");
