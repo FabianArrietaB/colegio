@@ -30,54 +30,18 @@
         public function pagomatricula($datos){
             $conexion = Conexion::conectar();
             $sql = "UPDATE matriculas SET
-                    emp_nombre = ?,
-                    emp_cladoc = ?,
-                    emp_docume = ?,
-                    emp_fecnac = ?,
-                    emp_sexo   = ?,
-                    emp_gposan = ?,
-                    emp_factrh = ?,
-                    emp_estciv = ?,
-                    emp_escola = ?,
-                    emp_hijos  = ?,
-                    emp_telcel = ?,
-                    emp_ciudad = ?,
-                    emp_direcc = ?,
-                    emp_estrat = ?,
-                    emp_correo = ?,
-                    emp_cargo  = ?,
-                    emp_tipcon = ?,
-                    emp_salari = ?,
-                    emp_codeps = ?,
-                    emp_codarl = ?,
-                    emp_codpen = ?,
-                    emp_codces = ?
-                    WHERE id_empleado = ?";
+                    id_grado = ?,
+                    mat_valmat = ?,
+                    mat_saldo = ?,
+                    mat_detall   = ?,
+                    WHERE id_alumno = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('ssssssssssssssssssssssi',
-                                $datos['nombre'],
-                                $datos['cladoc'],
-                                $datos['docume'],
-                                $datos['fecnac'],
-                                $datos['sexo'],
-                                $datos['gposan'],
-                                $datos['factrh'],
-                                $datos['estciv'],
-                                $datos['escola'],
-                                $datos['hijos'],
-                                $datos['telcel'],
-                                $datos['ciudad'],
-                                $datos['direcc'],
-                                $datos['estrat'],
-                                $datos['correo'],
-                                $datos['cargo'],
-                                $datos['tipcon'],
-                                $datos['salari'],
-                                $datos['codeps'],
-                                $datos['codarl'],
-                                $datos['codpen'],
-                                $datos['codces'],
-                                $datos['idempleado']);
+            $query->bind_param('iisssi',
+                                $datos['idgrado'],
+                                $datos['matricula'],
+                                $datos['abono'],
+                                $datos['detall'],
+                                $datos['idalumno']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;
