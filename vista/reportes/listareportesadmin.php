@@ -60,7 +60,7 @@ $query = mysqli_query($conexion, $sql);
                 <td><?php echo $reportes['fecoperacion']; ?></td>
                 <td><?php echo $reportes['fecsolucion']; ?></td>
                 <td>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#solucion" onclick="detallesolicitud('<?php echo $reportes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button>
+                    <?php if ($reportes['estado'] == 0) { ?><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#solucion" onclick="detallesolicitud('<?php echo $reportes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button> <?php } ?>
                 </td>
             </tr>
         <?php } ?>
