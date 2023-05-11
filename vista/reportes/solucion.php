@@ -21,7 +21,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <select name="tiposolicitudu" id="tiposolicitudu" class="form-control input-sm">
+                                    <select disabled name="tiposolicitudu" id="tiposolicitudu" class="form-control input-sm">
                                         <option value="1">SOLICITUD</option>
                                         <option value="2">REPORTE</option>
                                     </select>
@@ -29,7 +29,7 @@
                             </div>
                             <div class="col-9">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="detalleu" name="detalleu" class="form-control input-sm" placeholder="Ingrese Su Solictud">
+                                    <input disabled type="text" id="detalleu" name="detalleu" class="form-control input-sm" placeholder="Ingrese Su Solictud">
                                 </div>
                             </div>
                         </div>

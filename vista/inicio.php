@@ -1,3 +1,4 @@
+<!-- Vista Admin y Supervisro -->
 <?php
     include "header.php";
     include "sidebar.php";
@@ -154,6 +155,7 @@
 <?php require('footer.php'); ?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/pagos/pagos.js"></script>
+<!-- Vista Alumno -->
 <?php }else if($_SESSION['usuario']['rol'] == 1){ ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">

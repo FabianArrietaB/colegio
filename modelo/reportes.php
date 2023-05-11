@@ -59,18 +59,14 @@
             $conexion = Conexion::conectar();
             $sql = "UPDATE solicitudes SET
                                 id_empleado = ?,
-                                rep_tipo = ?,
-                                rep_detalle = ?,
                                 rep_estado = ?,
                                 rep_solucion = ?
                                 WHERE id_solicitud = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('issssi',
+            $query->bind_param('issi',
                                 $datos['idempleado'],
-                                $datos['tiposolicitud'],
-                                $datos['detalle'],
                                 $datos['estado'],
-                                $datos['solucion'], 
+                                $datos['solucion'],
                                 $datos['idsolicitud']);
             $respuesta = $query->execute();
             $query->close();

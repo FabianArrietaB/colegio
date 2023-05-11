@@ -1,7 +1,7 @@
 <?php
     include "header.php";
     include "sidebar.php";
-    if(isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 3){
+    if(isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 4){
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">

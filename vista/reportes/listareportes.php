@@ -3,6 +3,7 @@
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
+    $idusuario = $_SESSION['usuario']['id'];
     $sql = "SELECT
         s.id_solicitud      AS idsolicitud,
         s.id_usuario        AS idusuario,
@@ -28,7 +29,6 @@
                 <th>Tipo</th>
                 <th>Detalle</th>
                 <th>Estado</th>
-                <th>Encargado</th>
                 <th>Respuesta</th>
                 <th></th>
             </tr>
@@ -44,24 +44,20 @@
                 <td><?php echo $reportes['detalle']; ?></td>
                 <td>
                     <?php if ($reportes['estado'] == 0) { ?>
-                        <span">ABIERTO</span>
+                        <span class="badge text-bg-success">ABIERTO</span>
                     <?php } else if ($reportes['estado'] == 1) { ?>
-                        <span >CERRADO</span>
+                        <span class="badge text-bg-danger">CERRADO</span>
                     <?php } ?>
                 </td>
-                <td>
-                    <?php if ($reportes['idempleado'] == 0) { ?>
-                        <span">NO ASIGNADO</span>
-                    <?php } else { ?>
-                        <?php echo $reportes['usuario']; ?>
-                    <?php } ?>
+               
                 <td><?php if ($reportes['solucion'] == 0) { ?>
                         <span">SIN RESPUESTA</span>
                     <?php } else { ?>
                         <?php echo $reportes['solucion']; ?>
                     <?php } ?>
+                </td>
                 <td>
-                    <button type="button" class="btn btn-danger"  onclick="eliminarsolicitud('<?php echo $reportes['idsolicitud']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>
+                <?php if ($reportes['estado'] == 0) { ?><button type="button" class="btn btn-danger"  onclick="eliminarsolicitud('<?php echo $reportes['idsolicitud']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button><?php } ?>
                 </td>
             </tr>
         <?php } ?>

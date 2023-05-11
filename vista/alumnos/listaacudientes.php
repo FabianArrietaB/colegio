@@ -69,9 +69,8 @@
                 <td> <?php echo $acudientes['nomalu']; ?> </td>
                 <td> <?php echo $acudientes['grado']; ?></td>
                 <td> <?php echo $acudientes['nombre']; ?></td>
-                <td> <?php echo $acudientes['docume']; ?></td>
-                <td> <?php echo $acudientes['telcel']; ?></td>
                 <td> <?php echo $acudientes['direcc']; ?></td>
+                <td> <?php echo $acudientes['telcel']; ?></td>
                 <td> <?php echo $acudientes['correo']; ?></td>
                 <td>
                     <?php if ($acudientes['estado'] == 0) { ?>

@@ -52,9 +52,9 @@ $query = mysqli_query($conexion, $sql);
                 <td><?php echo $reportes['detalle']; ?></td>
                 <td>
                     <?php if ($reportes['estado'] == 0) { ?>
-                        <span">ABIERTO</span>
+                        <span class="badge text-bg-success">ABIERTO</span>
                     <?php } else if ($reportes['estado'] == 1) { ?>
-                        <span >CERRADO</span>
+                        <span class="badge text-bg-danger">CERRADO</span>
                     <?php } ?>
                 </td>
                 <td><?php echo $reportes['fecoperacion']; ?></td>

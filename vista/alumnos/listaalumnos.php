@@ -57,9 +57,7 @@
         <thead>
             <tr>
                 <th scope="col" >Nombres</th>
-                <th scope="col" >Codigo</th>
-                <th scope="col" >Tipo Documento</th>
-                <th scope="col" >Documento</th>
+                <th scope="col" >Grado</th>
                 <th scope="col" >Direccion</th>
                 <th scope="col" >Celular</th>
                 <th scope="col" >Correo</th>
@@ -76,8 +74,6 @@
             <tr>
                 <td> <?php echo $alumnos['nombre']; ?> </td>
                 <td> <?php echo $alumnos['grado']; ?></td>
-                <td> <?php echo $alumnos['cladoc']; ?></td>
-                <td> <?php echo $alumnos['docume']; ?></td>
                 <td> <?php echo $alumnos['direcc']; ?></td>
                 <td> <?php echo $alumnos['telcel']; ?></td>
                 <td> <?php echo $alumnos['correo']; ?></td>
