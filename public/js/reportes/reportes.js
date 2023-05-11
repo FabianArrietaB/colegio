@@ -93,7 +93,6 @@ function solucion(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                console.log(respuesta)
                 $('#solucion').modal('hide');
                 $('#tablalistareportesadmin').load('reportes/listareportesadmin.php');
                 Swal.fire({

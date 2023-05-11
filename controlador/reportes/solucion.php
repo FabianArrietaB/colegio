@@ -1,8 +1,7 @@
 <?php
+    session_start();
     $datos = Array(
         'idsolicitud'   => $_POST['idsolicitud'],
-        'idusuario'     => $_POST['idusuario'],
-        'idgrado'       => $_POST['idgradou'],
         'idempleado'    => $_SESSION['usuario']['id'],
         'tiposolicitud' => $_POST['tiposolicitudu'],
         'detalle'       => $_POST['detalleu'],

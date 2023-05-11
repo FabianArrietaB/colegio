@@ -54,7 +54,7 @@ $query = mysqli_query($conexion, $sql);
                     <?php if ($reportes['estado'] == 0) { ?>
                         <span">ABIERTO</span>
                     <?php } else if ($reportes['estado'] == 1) { ?>
-                        <span >CERRAO</span>
+                        <span >CERRADO</span>
                     <?php } ?>
                 </td>
                 <td><?php echo $reportes['fecoperacion']; ?></td>

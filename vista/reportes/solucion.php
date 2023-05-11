@@ -13,7 +13,6 @@
                             <div class="col-8">
                                 <div class="input-group mb-3">
                                     <input type="text" id="idsolicitud" name="idsolicitud" hidden>
-                                    <input type="text" id="idusuario" name="idusuario" hidden>
                                 </div>
                             </div>
                     <!-- Formulario (Solicitud) -->

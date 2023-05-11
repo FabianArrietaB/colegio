@@ -57,9 +57,21 @@
 
         public function solucion($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE solicitudes SET id_usuario = ?, id_grado = ?, id_empleado = ?, rep_tipo = ?, rep_detalle = ?, rep_estado = ?, rep_solucion = ? WHERE id_solicitud = ?";
+            $sql = "UPDATE solicitudes SET
+                                id_empleado = ?,
+                                rep_tipo = ?,
+                                rep_detalle = ?,
+                                rep_estado = ?,
+                                rep_solucion = ?
+                                WHERE id_solicitud = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('iiissssi', $datos['idusuario'], $datos['idgrado'], $datos['idempleado'], $datos['tiposolicitud'], $datos['detalle'], $datos['estado'], $datos['solucion'], $datos['idsolicitud']);
+            $query->bind_param('issssi',
+                                $datos['idempleado'],
+                                $datos['tiposolicitud'],
+                                $datos['detalle'],
+                                $datos['estado'],
+                                $datos['solucion'], 
+                                $datos['idsolicitud']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

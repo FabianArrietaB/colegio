@@ -9,12 +9,14 @@
         s.id_grado          AS idgrado,
         g.gra_nombre        AS grado,
         s.id_empleado       AS idempleado,
+        u.user_nombre       AS usuario,
         s.rep_tipo          AS tiposolicitud,
         s.rep_detalle       AS detalle,
         s.rep_solucion      AS solucion,
         s.rep_estado        AS estado
     FROM solicitudes AS s
     INNER JOIN grados as g ON s.id_grado = g.id_grado
+    INNER JOIN usuarios as u ON u.id_usuario = s.id_empleado
     ORDER BY s.id_solicitud ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
@@ -44,14 +46,14 @@
                     <?php if ($reportes['estado'] == 0) { ?>
                         <span">ABIERTO</span>
                     <?php } else if ($reportes['estado'] == 1) { ?>
-                        <span >CERRAO</span>
+                        <span >CERRADO</span>
                     <?php } ?>
                 </td>
                 <td>
                     <?php if ($reportes['idempleado'] == 0) { ?>
                         <span">NO ASIGNADO</span>
                     <?php } else { ?>
-                        <?php echo $reportes['idempleado']; ?>
+                        <?php echo $reportes['usuario']; ?>
                     <?php } ?>
                 <td><?php if ($reportes['solucion'] == 0) { ?>
                         <span">SIN RESPUESTA</span>
