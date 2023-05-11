@@ -30,7 +30,7 @@ function activarusuario(idusuario, estado){
     });
 }
 
-function cambiopassword(){
+function cambiocontraseña(){
     $.ajax({
         type:"POST",
         data:$('#formcambiopassword').serialize(),
@@ -38,8 +38,6 @@ function cambiopassword(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#password').modal('hide');
-                $('#tablalistausuarios').load('usuarios/listausuarios.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Contraseña Actualizada',
@@ -102,7 +100,6 @@ function detalleusuario(idusuario){
             $('#usuariou').val(respuesta['usuario']);
             $('#correou').val(respuesta['correo']);
             $('#idRolu').val(respuesta['idrol']);
-            $('#rol').val(respuesta['rol']);
         }
     });
 }
@@ -115,7 +112,6 @@ function editarusuario(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#editar').modal('hide');
                 $('#tablalistausuarios').load('usuarios/listausuarios.php');
                 Swal.fire({
                     icon: 'success',
@@ -134,7 +130,6 @@ function editarusuario(){
             }
         console.log(respuesta);
         }
-        
     });
     return false;
 }

@@ -67,7 +67,7 @@
                 roles.rol_nombre        AS rol
                 FROM usuarios AS usuarios
                 INNER JOIN roles AS roles ON usuarios.id_rol = roles.id_rol
-                AND usuarios.id_usuario ='$idusuario'";
+                WHERE usuarios.id_usuario ='$idusuario'";
             $respuesta = mysqli_query($conexion,$sql);
             $usuario = mysqli_fetch_array($respuesta);
             $datos = array(
@@ -85,7 +85,7 @@
             $conexion = Conexion::conectar();
             $sql = "UPDATE usuarios SET id_rol = ?, user_usuario = ?, user_nombre = ?, user_correo = ? WHERE id_usuario = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('issssi', $datos['idrol'], $datos['usuario'], $datos['nombre'], $datos['correo'], $datos['idusuario']);
+            $query->bind_param('isssi', $datos['idrol'], $datos['usuario'], $datos['nombre'], $datos['correo'], $datos['idusuario']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

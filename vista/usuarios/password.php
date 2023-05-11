@@ -1,6 +1,6 @@
 <!-- Formulario (Cambio Contraseña) -->
-<form id="formcambiopassword" method="post" onsubmit="return cambiopassword()">
-    <div class="modal fade" id="password" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<form id="formcambiopassword" method="post" onsubmit="return cambiocontraseña()">
+    <div class="modal fade" id="password" tabindex="-1" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -22,7 +22,7 @@
                         </div>
                     </fieldset>
                     <div class="card-footer text-center">
-                        <button class="btn btn-warning">Cambiar</button>
+                        <button class="btn btn-warning" data-bs-dismiss="modal" data-bs-target="editar">Cambiar</button>
                     </div>
                 </div>
             </div>
