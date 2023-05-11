@@ -30,6 +30,7 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
+include ("reportes/solucion.php");
 include "footer.php";
 ?>
 <!-- carga ficheros javascript -->

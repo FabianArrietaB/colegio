@@ -25,20 +25,18 @@
         public function detallesolicitud($idsolicitud){
             $conexion = Conexion::conectar();
             $sql ="SELECT
-                s.id_solicitud      AS idsolicitud,
-                s.id_usuario        AS idusuario,
-                u.user_nombre       AS usuario,
-                s.id_grado          AS idgrado,
-                g.gra_nombre        AS grado,
-                s.id_empleado       AS idempleado,
-                e.emp_nombre        AS empleado,
-                s.rep_tipo          AS tiposolicitud,
-                s.rep_detalle       AS detalle,
-                s.rep_estado        AS estado,
-                s.rep_solucion      AS solucion
+                    s.id_solicitud      AS idsolicitud,
+                    s.id_usuario        AS idusuario,
+                    s.id_grado          AS idgrado,
+                    s.id_empleado       AS idempleado,
+                    s.rep_tipo          AS tiposolicitud,
+                    s.rep_detalle       AS detalle,
+                    s.rep_solucion      AS solucion,
+                    s.rep_estado        AS estado,
+                    g.gra_nombre        AS grado,
+                    u.user_nombre       AS usuario
                 FROM solicitudes AS s
                 INNER JOIN usuarios AS u ON s.id_usuario = u.id_usuario
-                INNER JOIN empleados AS e ON g.id_empleado = e.id_empleado
                 INNER JOIN grados as g ON s.id_grado = g.id_grado
                 WHERE s.id_solicitud ='$idsolicitud'";
             $respuesta = mysqli_query($conexion,$sql);
@@ -50,8 +48,9 @@
             'idempleado' => $solicitud['idempleado'],
             'tiposolicitud' => $solicitud['tiposolicitud'],
             'detalle' => $solicitud['detalle'],
-            'estado' => $solicitud['estado'],
             'solucion' => $solicitud['solucion'],
+            'estado' => $solicitud['estado'],
+            'usuario' => $solicitud['usuario'],
             );
             return $datos;
         }

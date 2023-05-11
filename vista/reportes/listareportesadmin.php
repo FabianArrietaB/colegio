@@ -32,8 +32,6 @@ $query = mysqli_query($conexion, $sql);
                 <th>Tipo</th>
                 <th>Detalle</th>
                 <th>Estado</th>
-                <th>Encargado</th>
-                <th>Respuesta</th>
                 <th>Fecha Creacion</th>
                 <th>Fecha Respuesta</th>
                 <th></th>
@@ -59,22 +57,10 @@ $query = mysqli_query($conexion, $sql);
                         <span >CERRAO</span>
                     <?php } ?>
                 </td>
-                <td>
-                    <?php if ($reportes['idempleado'] == 0) { ?>
-                        <span">NO ASIGNADO</span>
-                    <?php } else { ?>
-                        <?php echo $reportes['idempleado']; ?>
-                    <?php } ?>
-                <td><?php if ($reportes['solucion'] == 0) { ?>
-                        <span">SIN RESPUESTA</span>
-                    <?php } else { ?>
-                        <?php echo $reportes['solucion']; ?>
-                    <?php } ?>
-                </td>
                 <td><?php echo $reportes['fecoperacion']; ?></td>
                 <td><?php echo $reportes['fecsolucion']; ?></td>
                 <td>
-                    <button type="button" class="btn btn-success"  onclick="detallesolicitud('<?php echo $reportes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#solucion" onclick="detallesolicitud('<?php echo $reportes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button>
                 </td>
             </tr>
         <?php } ?>

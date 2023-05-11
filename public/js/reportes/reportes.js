@@ -73,13 +73,17 @@ function detallesolicitud(idsolicitud){
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
             $('#idsolicitud').val(respuesta['idsolicitud']);
-            $('#nombreu').val(respuesta['nombre']);
-            $('#idgradou').val(respuesta['catego']);
+            $('#idusuario').val(respuesta['idusuario']);
+            $('#idgradou').val(respuesta['idgrado']);
+            $('#idempleado').val(respuesta['idempleado']);
+            $('#usuariou').val(respuesta['usuario']);
             $('#tiposolicitudu').val(respuesta['tiposolicitud']);
+            $('#detalleu').val(respuesta['detalle']);
+            $('#solucionu').val(respuesta['solucion']);
+            $('#estadou').val(respuesta['estado']);
         }
     });
 }
-
 
 function solucion(){
     $.ajax({
@@ -89,11 +93,12 @@ function solucion(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
+                console.log(respuesta)
+                $('#solucion').modal('hide');
                 $('#tablalistareportesadmin').load('reportes/listareportesadmin.php');
-                $('#frmsolicitud')[0].reset();
                 Swal.fire({
                     icon: 'success',
-                    title: 'Solucion Registrada Exitosamente',
+                    title: 'Solucion Actualizada Exitosamente',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -101,9 +106,9 @@ function solucion(){
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'No se pudo realizar la operacion!',
+                    text: 'Error al Editar!',
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 1500
                 });
             }
         }

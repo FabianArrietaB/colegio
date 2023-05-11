@@ -31,8 +31,6 @@
 <?php
 include ("alumnos/crearalumno.php");
 include ("alumnos/crearalumno.php");
-?>
-<?php
 require('footer.php'); 
 ?>
 <!-- carga ficheros javascript -->
