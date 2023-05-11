@@ -1,5 +1,5 @@
 <!-- Formulario (Pago) -->
-<form id="frmapago" method="POST" onsubmit="return pago()">
+<form id="frmapago" method="POST" onsubmit="return detallematricula()">
     <div class="modal fade" id="pago" tabindex="-1" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -10,16 +10,29 @@
                 <div class="modal-body">
                     <!-- Formulario (Usuario) -->
                     <fieldset class="group-border">
-                        <legend class="group-border">Informacion Usuario</legend>
+                        <legend class="group-border">Informacion Alumno</legend>
                         <div class="row">
                             <div class="col-6">
                                 <div class="input-group mb-3">
-                                    <input placeholder="Ingrese Nombre Completo" type="text" id="nombre" name="nombre" class="form-control input-sm">
+                                    <input type="text" id="nombreu" name="nombreu" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="input-group mb-3">
-                                    <input placeholder="Ingrese Correo" type="text" id="correo" name="correo" class="form-control input-sm" >
+                                    <select name="idgradou" id="idgradou" class="form-control input-sm">
+                                        <option value="1">TRANSICION</option>
+                                        <option value="2">PRIMERO</option>
+                                        <option value="3">SEGUNDO</option>
+                                        <option value="4">TERCERO</option>
+                                        <option value="5">CUARTO</option>
+                                        <option value="6">QUINTO</option>
+                                        <option value="7">SEXTO</option>
+                                        <option value="8">SEPTIMO</option>
+                                        <option value="9">OCTAVO</option>
+                                        <option value="10">NOVENO</option>
+                                        <option value="11">DECIMO</option>
+                                        <option value="12">UNDECIMO</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

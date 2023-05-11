@@ -1,4 +1,20 @@
 
+function detallematricula(idalumno){
+    $.ajax({
+        type: "POST",
+        data: "idalumno=" + idalumno,
+        url: "../controlador/grados/detalle.php",
+        success: function(respuesta){
+            respuesta = jQuery.parseJSON(respuesta);
+            $('#idalumno').val(respuesta['idalumno']);
+            $('#nombreu').val(respuesta['nombre']);
+            $('#matriculau').val(respuesta['matricula']);
+            $('#canaluu').val(respuesta['canalu']);
+            $('#iddiru').val(respuesta['iddir']);
+        }
+    });
+}
+
 function pagomatricula(){
     $.ajax({
         type: "POST",
@@ -7,7 +23,6 @@ function pagomatricula(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#editar').modal('hide');
                 $('#tablalistagrados').load('grados/listagrados.php');
                 Swal.fire({
                     icon: 'success',

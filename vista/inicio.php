@@ -310,7 +310,7 @@
                                     <td><?php echo $matriculas['detalle'];?></td>
                                     <td><?php echo $matriculas['fecha'];?></td>
                                     <td>
-                                        <input class="btn btn-success" type="button" value="Tomar Pago" data-bs-toggle="modal" data-bs-target="#pago">
+                                        <input class="btn btn-success" type="button" value="Tomar Pago" data-bs-toggle="modal" data-bs-target="#pago" onclick="detallematricula('<?php echo $matriculas['idalumno']?>')">
                                     </td>
                                 </tr>
                                 <?php } ?>

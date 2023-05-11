@@ -109,7 +109,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                <select name="idgradou" id="idgradou" class="form-control input-sm">
+                                    <select name="idgradou" id="idgradou" class="form-control input-sm">
                                         <option value="1">TRANSICION</option>
                                         <option value="2">PRIMERO</option>
                                         <option value="3">SEGUNDO</option>

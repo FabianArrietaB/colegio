@@ -14,15 +14,15 @@
                 FROM matriculas AS mat
                 INNER JOIN alumnos as a ON m.id_alumno = a.id_alumno
                 INNER JOIN grados as g ON m.id_grado = g.id_grado
-                WHERE empleados.id_empleado='$idalumno'";
+                WHERE m.id_alumno ='$idalumno'";
             $respuesta = mysqli_query($conexion,$sql);
-            $empleado = mysqli_fetch_array($respuesta);
+            $matricula = mysqli_fetch_array($respuesta);
             $datos = array(
-            'idalumno' => $empleado['idalumno'],
-            'idgrado' => $empleado['idgrado'],
-            'matricula' => $empleado['matricula'],
-            'abono' => $empleado['abono'],
-            'grado' => $empleado['grado'],
+            'idalumno' => $matricula['idalumno'],
+            'idgrado' => $matricula['idgrado'],
+            'matricula' => $matricula['matricula'],
+            'abono' => $matricula['abono'],
+            'grado' => $matricula['grado'],
             );
             return $datos;
         }
