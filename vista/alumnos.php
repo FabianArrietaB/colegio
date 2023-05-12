@@ -4,7 +4,9 @@
     if(isset($_SESSION['usuario']) &&
     $_SESSION['usuario']['rol'] == 4 ||
     $_SESSION['usuario']['rol'] == 3 ){
-?> ){
+    include "../modelo/conexion.php";
+    $con = new Conexion();
+    $conexion = $con->conectar();
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">

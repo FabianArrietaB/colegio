@@ -25,11 +25,13 @@
                             <div class="col">
                                 <div class="input-group mb-3">
                                     <select name="iddiru" id="iddiru" class="form-control input-sm">
-                                        <option value="1">CARLOS ALBERTO ROCHA TOVAR</option>
-                                        <option value="2">MARIA DEL PILAR</option>
-                                        <option value="3">CONSUELO BAUTISTAS SANCHEZ</option>
-                                        <option value="4">JULIO JOSE REALEZ CUESTA</option>
-                                        <option value="5">JULIO DEL CASTILLO MARTINEZ</option>
+                                    <?php
+                                        $sql="SELECT e.id_empleado as idempleado, e.emp_nombre as empleado FROM empleados as e WHERE e.emp_estado = 1";
+                                        $respuesta = mysqli_query($conexion, $sql);
+                                        while($empleado = mysqli_fetch_array($respuesta)) {
+                                        ?>
+                                        <option value="<?php echo $empleado['idempleado']?>"><?php echo $empleado['empleado'];?></option>
+                                        <?php }?>
                                     </select>
                                 </div>
                             </div>

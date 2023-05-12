@@ -110,18 +110,13 @@
                             <div class="col-3">
                                 <div class="input-group mb-3">
                                     <select name="idgradou" id="idgradou" class="form-control input-sm">
-                                        <option value="1">TRANSICION</option>
-                                        <option value="2">PRIMERO</option>
-                                        <option value="3">SEGUNDO</option>
-                                        <option value="4">TERCERO</option>
-                                        <option value="5">CUARTO</option>
-                                        <option value="6">QUINTO</option>
-                                        <option value="7">SEXTO</option>
-                                        <option value="8">SEPTIMO</option>
-                                        <option value="9">OCTAVO</option>
-                                        <option value="10">NOVENO</option>
-                                        <option value="11">DECIMO</option>
-                                        <option value="12">UNDECIMO</option>
+                                        <?php
+                                            $sql="SELECT g.id_grado as idgrado, g.gra_nombre as grado FROM grados as g WHERE g.gra_estado = 1";
+                                            $respuesta = mysqli_query($conexion, $sql);
+                                            while($grado = mysqli_fetch_array($respuesta)) {
+                                        ?>
+                                            <option value="<?php echo $grado['idgrado']?>"><?php echo $grado['grado'];?></option>
+                                        <?php }?>
                                     </select>
                                 </div>
                             </div>

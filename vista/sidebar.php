@@ -127,6 +127,13 @@
         </a>
         <span class="tooltip">Esadisticas</span>
       </li>
+      <li>
+        <a href="estadisticas.php">
+        <i class='bx bx-cog' ></i>
+          <span class="link_name">Configuracion</span>
+        </a>
+        <span class="tooltip">Configuracion</span>
+      </li>
       <?php } ?>
       <li class="profile">
         <a href="../controlador/usuarios/salir.php">

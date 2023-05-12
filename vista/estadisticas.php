@@ -29,7 +29,10 @@
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 30px">
                                                     <?php
-                                                        $sql=$conexion->query("SELECT * FROM empleados"); $sql= mysqli_num_rows($sql); echo $sql;
+                                                        $sql=$conexion->query("SELECT SUM(ven_precio) as 'precio' from ventas");
+                                                        $data = mysqli_fetch_array($sql);
+                                                        $precio = $data['precio'];
+                                                        echo '$'. $precio;
                                                     ?>
                                                 </span>
                                             </div>
@@ -45,20 +48,30 @@
                             <div class="card border-success text-white bg-primary mb-3">
                                 <div class="card-header">
                                     <div class="row">
-                                        <div class="col-sm-4">
-                                            <i class="fa fa-graduation-cap fa-3x"></i>
-                                        </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-2">
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 30px">
                                                     <?php
-                                                        $sql=$conexion->query("SELECT * FROM alumnos"); $sql= mysqli_num_rows($sql); echo $sql; 
+                                                        $sql=$conexion->query("SELECT * FROM alumnos WHERE alu_estado = 0"); $sql= mysqli_num_rows($sql); echo $sql;
                                                     ?>
                                                 </span>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class="float-sm-right">Total de Estudiantes</div>
+                                        <div class="col-sm-8">
+                                            <i class="fa fa-graduation-cap fa-3x"></i>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="float-sm-right">&nbsp;
+                                                <span style="font-size: 30px">
+                                                    <?php
+                                                        $sql=$conexion->query("SELECT * FROM alumnos WHERE alu_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql; 
+                                                    ?>
+                                                </span>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="float-sm-right">Estudiantes</div>
                                     </div>
                                 </div>
                             </div>
@@ -68,50 +81,70 @@
                             <div class="card text-white bg-info mb-3">
                                 <div class="card-header">
                                     <div class="row">
-                                        <div class="col-sm-4">
-                                            <i class="fa fa-users fa-3x"></i>
-                                        </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-2">
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 30px">
                                                     <?php
-                                                        $sql=$conexion->query("SELECT * FROM usuarios"); $sql= mysqli_num_rows($sql); echo $sql;
+                                                        $sql=$conexion->query("SELECT * FROM usuarios WHERE user_estado = 0"); $sql= mysqli_num_rows($sql); echo $sql;
                                                     ?>
                                                 </span>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class="float-sm-right">Total de Usuarios</div>
+                                        <div class="col-sm-8">
+                                            <i class="fa fa-users fa-3x"></i>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="float-sm-right">&nbsp;
+                                                <span style="font-size: 30px">
+                                                    <?php
+                                                        $sql=$conexion->query("SELECT * FROM usuarios WHERE user_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql;
+                                                    ?>
+                                                </span>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="float-sm-right">Usuarios</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Numero Empleados -->
                         <div class="col-sm-2">
-                            <div class="card text-white bg-warning mb-3">
+                            <div class="card border-success text-white bg-primary mb-3">
                                 <div class="card-header">
                                     <div class="row">
-                                        <div class="col-sm-4">
-                                            <i class="fa fa-users fa-3x"></i>
-                                        </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-2">
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 30px">
                                                     <?php
-                                                        $sql=$conexion->query("SELECT * FROM empleados"); $sql= mysqli_num_rows($sql); echo $sql;
+                                                        $sql=$conexion->query("SELECT * FROM empleados WHERE emp_estado = 0"); $sql= mysqli_num_rows($sql); echo $sql;
                                                     ?>
                                                 </span>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class="float-sm-right">Total de Empleados</div>
+                                        <div class="col-sm-8">
+                                            <i class="fa fa-users fa-3x"></i>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="float-sm-right">&nbsp;
+                                                <span style="font-size: 30px">
+                                                    <?php
+                                                        $sql=$conexion->query("SELECT * FROM empleados WHERE emp_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql;
+                                                    ?>
+                                                </span>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="float-sm-right">Empleados</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Numero Ventas -->
                         <div class="col-sm-3">
-                            <div class="card border-info text-white bg-success mb-3">
+                            <div class="card border-danger text-white bg-warning mb-3">
                                 <div class="card-header">
                                     <div class="row">
                                         <div class="col-sm-4">
@@ -120,14 +153,17 @@
                                         <div class="col-sm-8">
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 30px">
-                                                    <?php
-                                                        $sql=$conexion->query("SELECT * FROM empleados"); $sql= mysqli_num_rows($sql); echo $sql;
+                                                <?php
+                                                        $sql=$conexion->query("SELECT SUM(mat_valmat) as 'matricula' from matriculas WHERE mat_saldo = 0");
+                                                        $data = mysqli_fetch_array($sql);
+                                                        $matricula = $data['matricula'];
+                                                        echo '$'. $matricula;
                                                     ?>
                                                 </span>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class="float-sm-right">Total de Ingresos</div>
+                                        <div class="float-sm-right">Total Matriculas</div>
                                     </div>
                                 </div>
                             </div>
