@@ -128,7 +128,7 @@
         <span class="tooltip">Esadisticas</span>
       </li>
       <li>
-        <a href="estadisticas.php">
+        <a href="config.php">
         <i class='bx bx-cog' ></i>
           <span class="link_name">Configuracion</span>
         </a>
