@@ -285,38 +285,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-light text-center"">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>Nombre Alumno</th>
-                                    <th>Grado</th>
-                                    <th>Valor Matricula</th>
-                                    <th>Saldo Anterior</th>
-                                    <th>Detalle</th>
-                                    <th>Fecha Ultimo Pago</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                    while ($matriculas = mysqli_fetch_array($query)){
-                                ?>
-                                <tr>
-                                    <td><?php echo $matriculas['nombre'];?></td>
-                                    <td><?php echo $matriculas['grado'];?></td>
-                                    <td><?php echo $matriculas['matricula'];?></td>
-                                    <td><?php echo $matriculas['saldo'];?></td>
-                                    <td><?php echo $matriculas['detalle'];?></td>
-                                    <td><?php echo $matriculas['fecha'];?></td>
-                                    <td>
-                                        <input class="btn btn-success" type="button" value="Tomar Pago" data-bs-toggle="modal" data-bs-target="#pago" onclick="detallematricula('<?php echo $matriculas['idalumno']?>')">
-                                    </td>
-                                </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
+                    <div id="tablalistapagos"></div>
                 </div>
             </div>
             <!-- /. PAGE INNER  -->

@@ -45,7 +45,7 @@
                             </div>
                     </fieldset>
                         <div class="card-footer">
-                        <button class="btn btn-success">Actualizar</button>
+                        <button class="btn btn-success" data-bs-dismiss="modal">Actualizar</button>
                         </div>
                 </div>
             </div>

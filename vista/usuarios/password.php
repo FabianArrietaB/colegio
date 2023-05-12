@@ -22,7 +22,7 @@
                         </div>
                     </fieldset>
                     <div class="card-footer text-center">
-                        <button class="btn btn-warning" data-bs-dismiss="modal" data-bs-target="editar">Cambiar</button>
+                        <button class="btn btn-warning" data-bs-dismiss="modal">Cambiar</button>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,6 @@
+$(document).ready(function(){
+    $('#tablalistapagos').load('pagos/listapagos.php');
+});
 
 function detallematricula(idalumno){
     $.ajax({

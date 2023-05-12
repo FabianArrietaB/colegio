@@ -82,7 +82,7 @@
                     </fieldset>
                     </fieldset>
                     <div class="card-footer text-center">
-                        <button class="btn btn-success">Guardar</button>
+                        <button class="btn btn-success" data-bs-dismiss="modal">Guardar</button>
                     </div>
                 </div>
             </div>
