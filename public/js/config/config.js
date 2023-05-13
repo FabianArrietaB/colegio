@@ -2,27 +2,32 @@ $(document).ready(function(){
     $('#config').load('config/dashboard.php');
 });
 
-$(document).ready(() => {
-    let url = location.href.replace(/\/$/, "");
-    if (location.hash) {
-      const hash = url.split("#");
-      $('#myTab a[href="#'+hash[1]+'"]').tab("show");
-      url = location.href.replace(/\/#/, "#");
-      history.replaceState(null, null, url);
-      setTimeout(() => {
-        $(window).scrollTop(0);
-      }, 400);
-    } 
-    
-    $('a[data-toggle="tab"]').on("click", function() {
-      let newUrl;
-      const hash = $(this).attr("href");
-      if(hash == "#home") {
-        newUrl = url.split("#")[0];
-      } else {
-        newUrl = url.split("#")[0] + hash;
+function agregarparafiscal(){
+  $.ajax({
+      type: "POST",
+      data: $('#frmagregarparafiscal').serialize(),
+      url: "../controlador/config/crearparafiscal.php",
+      success:function(respuesta){
+          respuesta = respuesta.trim();
+          if(respuesta == 1){
+              $('#parametros').load('config/parafiscales.php');
+              $('#frmagregarparafiscal')[0].reset();
+              Swal.fire({
+                  icon: 'success',
+                  title: 'Agregado Exitosamente',
+                  showConfirmButton: false,
+                  timer: 1500
+              });
+          }else{
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'No se pudo realizar la operacion!',
+                  showConfirmButton: false,
+                  timer: 2000
+              });
+          }
       }
-      newUrl += "/";
-      history.replaceState(null, null, newUrl);
-    });
   });
+  return false;
+}

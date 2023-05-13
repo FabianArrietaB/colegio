@@ -2,6 +2,9 @@
     include "header.php";
     include "sidebar.php";
     if(isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 4){
+    include "../modelo/conexion.php";
+    $con = new Conexion();
+    $conexion = $con->conectar();
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
@@ -25,6 +28,10 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
+include "config/empresa.php";
+include "config/parafiscales.php";
+include "config/seguridad.php";
+include "config/sedes.php";
 include "footer.php";
 ?>
 <!-- carga ficheros javascript -->

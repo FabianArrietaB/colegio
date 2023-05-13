@@ -1,22 +1,67 @@
-<ul class="nav nav-mytabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Datos Empresa</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false">Datos Nomina</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="city-attractions-tab" data-toggle="tab" href="#city-attractions" role="tab" aria-controls="city-attractions" aria-selected="false">Seguridad</a>
-  </li>
-</ul>
-<div class="tab-content mytab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <H4>Empresa</H4>
-  </div>
-  <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
-  <H4>Nomina</H4>
-  </div>
-  <div class="tab-pane fade" id="city-attractions" role="tabpanel" aria-labelledby="city-attractions-tab">
-  <H4>Seguridad</H4>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 text-center"">
+      <a data-bs-toggle="modal" data-bs-target="#empresa">
+        <div class="card border-danger text-white bg-primary mb-3">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-sm-12">
+                <i class="fa-solid fa-hotel fa-3x"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="float-sm-right">Perfil Empresa</div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-3 text-center"">
+      <a data-bs-toggle="modal" data-bs-target="#parametros">
+        <div class="card border-danger text-white bg-primary mb-3">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-sm-12">
+              <i class="fa-solid fa-percent fa-3x"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="float-sm-right">Parametros</div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-3 text-center"">
+      <a data-bs-toggle="modal" data-bs-target="#seguridad">
+        <div class="card border-danger text-white bg-primary mb-3">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-sm-12">
+              <i class="fa-solid fa-shield-halved fa-3x"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="float-sm-right">Seguridad</div>
+          </div>
+        </div>
+      </a>
+    </div><div class="col-sm-3 text-center"">
+      <a data-bs-toggle="modal" data-bs-target="#sedes">
+        <div class="card border-danger text-white bg-primary mb-3">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-sm-12">
+              <i class="fa-regular fa-object-ungroup fa-3x"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="float-sm-right">Sedes</div>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
