@@ -32,6 +32,7 @@ include "config/empresa.php";
 include "config/parafiscales.php";
 include "config/seguridad.php";
 include "config/sedes.php";
+include "config/pais.php";
 include "footer.php";
 ?>
 <!-- carga ficheros javascript -->

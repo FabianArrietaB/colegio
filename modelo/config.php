@@ -27,5 +27,14 @@
             return $respuesta;
         }
 
+        public function agregarpais($datos){
+            $conexion = Conexion::conectar();
+            $sql = "INSERT INTO pais (pais_nombre) VALUES(?)";
+            $query = $conexion->prepare($sql);
+            $query->bind_param("s", $datos['nombre']);
+            $respuesta = $query->execute();
+            return $respuesta;
+        }
+
     }
 ?>

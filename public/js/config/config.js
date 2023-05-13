@@ -10,7 +10,6 @@ function agregarparafiscal(){
       success:function(respuesta){
           respuesta = respuesta.trim();
           if(respuesta == 1){
-              $('#parametros').load('config/parafiscales.php');
               $('#frmagregarparafiscal')[0].reset();
               Swal.fire({
                   icon: 'success',
@@ -31,3 +30,33 @@ function agregarparafiscal(){
   });
   return false;
 }
+
+function agregarpais(){
+    $.ajax({
+        type: "POST",
+        data: $('#frmagregarpais').serialize(),
+        url: "../controlador/config/crearpais.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Agregado Exitosamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                $('#parametros').load('config/parafiscales.php');
+                $('#frmagregarparafiscal')[0].reset();
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'No se pudo realizar la operacion!',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        }
+    });
+    return false;
+  }

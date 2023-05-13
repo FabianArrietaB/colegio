@@ -17,6 +17,7 @@
         FROM matriculas AS m
         INNER JOIN alumnos AS a ON m.id_alumno = a.id_alumno
         INNER JOIN grados AS g ON m.id_grado = g.id_grado
+        WHERE m.mat_saldo > 0
         ORDER BY m.id_matricula ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
