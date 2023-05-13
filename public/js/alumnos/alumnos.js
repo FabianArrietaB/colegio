@@ -1,6 +1,19 @@
 $(document).ready(function(){
     $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
+    $('#filtro').keyup(function() {obtenerAlumno()})
 });
+
+function obtenerAlumno(){
+    const filtro = $('#filtro').val(); 
+    $.ajax({
+        type:"POST",
+        data:{ filtro, tipo : 'html'},
+        url: `http://metrocosta.ddns.net:8080/metropolis/api/inventarios/proveedor/list`,
+        success:function(respuesta){
+            document.getElementById('TablaModalProveedores').innerHTML=respuesta;
+        }
+    });
+}
 
 function activaralumno(idalumno, estado){
     $.ajax({

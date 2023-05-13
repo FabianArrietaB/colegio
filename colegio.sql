@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2023 a las 00:20:54
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Tiempo de generación: 13-05-2023 a las 04:38:38
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -61,6 +61,7 @@ INSERT INTO `acudientes` (`id_acudiente`, `id_alumno`, `acu_nombre`, `acu_cladoc
 CREATE TABLE `alumnos` (
   `id_alumno` int(11) NOT NULL,
   `id_grado` int(11) NOT NULL,
+  `id_operador` int(11) NOT NULL,
   `alu_nombre` varchar(45) NOT NULL,
   `alu_cladoc` varchar(45) NOT NULL,
   `alu_docume` varchar(45) NOT NULL,
@@ -82,8 +83,8 @@ CREATE TABLE `alumnos` (
 -- Volcado de datos para la tabla `alumnos`
 --
 
-INSERT INTO `alumnos` (`id_alumno`, `id_grado`, `alu_nombre`, `alu_cladoc`, `alu_docume`, `alu_sexo`, `alu_gposan`, `alu_factrh`, `alu_ciudad`, `alu_direcc`, `alu_estrat`, `alu_telcel`, `alu_correo`, `alu_estado`, `alu_fecnac`, `alu_fecope`, `alu_fecupd`) VALUES
-(1, 4, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'TARJETA IDENTIDAD', '1043215785', 'MASCULINO', 'O', 'FACTOR RH', 'BARRANQUILLA', 'CARRERA 8E # 51 - 52', '3', '3152458574', 'MICHELLEARRIETA46@GMAIL.COM', 1, '2013-10-14', '2023-05-10 02:01:19', '2023-05-10 02:01:19');
+INSERT INTO `alumnos` (`id_alumno`, `id_grado`, `id_operador`, `alu_nombre`, `alu_cladoc`, `alu_docume`, `alu_sexo`, `alu_gposan`, `alu_factrh`, `alu_ciudad`, `alu_direcc`, `alu_estrat`, `alu_telcel`, `alu_correo`, `alu_estado`, `alu_fecnac`, `alu_fecope`, `alu_fecupd`) VALUES
+(1, 4, 0, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'TARJETA IDENTIDAD', '1043215785', 'MASCULINO', 'O', 'FACTOR RH', 'BARRANQUILLA', 'CARRERA 8E # 51 - 52', '3', '3152458574', 'MICHELLEARRIETA46@GMAIL.COM', 1, '2013-10-14', '2023-05-10 02:01:19', '2023-05-10 02:01:19');
 
 -- --------------------------------------------------------
 
@@ -168,7 +169,7 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`id_empleado`, `emp_nombre`, `emp_cladoc`, `emp_docume`, `emp_cargo`, `emp_telcel`, `emp_ciudad`, `emp_direcc`, `emp_estrat`, `emp_correo`, `emp_tipcon`, `emp_salari`, `emp_codces`, `emp_codeps`, `emp_codpen`, `emp_codarl`, `emp_sexo`, `emp_estciv`, `emp_escola`, `emp_gposan`, `emp_factrh`, `emp_hijos`, `emp_estado`, `emp_fecnac`, `emp_fecope`, `emp_fecupd`) VALUES
-(1, 'CARLOS ALBERTO ROCHA TOVAR', 'CEDULA', '574236985', 'PROFESOR MATEMATICAS', '3002548965', 'SANTA MARTA', 'CALLE 17 # 40 - 62', '3', 'crocha@gmail.com', 'FIJO', '1100000', 'PROTECION', 'SURA', 'COLPENSIONES', 'SURA', 'MASCULINO', 'SOLTERO/A', 'PROFESIONAL', 'O', 'POSITIVO', '1', 1, '0000-00-00 00:00:00', '2023-02-01 05:00:00', '2023-05-05 00:20:13');
+(1, 'CARLOS ALBERTO ROCHA TOVAR', 'CEDULA', '574236985', 'PROFESOR MATEMATICAS', '3002548965', 'SANTA MARTA', 'CALLE 17 # 40 - 62', '3', 'crocha@gmail.com', 'FIJO', '1100000', '9', '5', '1', '2', 'MASCULINO', 'SOLTERO/A', 'PROFESIONAL', 'O', 'POSITIVO', '1', 1, '0000-00-00 00:00:00', '2023-02-01 05:00:00', '2023-05-13 02:25:03');
 
 -- --------------------------------------------------------
 
@@ -233,6 +234,60 @@ INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `mat_valmat`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `pais`
+--
+
+CREATE TABLE `pais` (
+  `id_pais` int(11) NOT NULL,
+  `pais_nombre` varchar(45) NOT NULL,
+  `pais_fecope` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pais`
+--
+
+INSERT INTO `pais` (`id_pais`, `pais_nombre`, `pais_fecope`) VALUES
+(1, 'ALEMANIA', '2023-02-01 05:00:00'),
+(2, 'BRASIL', '2023-02-01 05:00:00'),
+(3, 'COLOMBIA', '2023-02-01 05:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `parafiscales`
+--
+
+CREATE TABLE `parafiscales` (
+  `id_parafiscales` int(11) NOT NULL,
+  `par_nombre` varchar(45) NOT NULL,
+  `par_fecope` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `parafiscales`
+--
+
+INSERT INTO `parafiscales` (`id_parafiscales`, `par_nombre`, `par_fecope`) VALUES
+(1, 'ALIANSALUD ENTIDAD PROMOTORA DE SALUD S.A.', '2023-05-13 01:27:08'),
+(2, 'CAPITAL SALUD', '2023-05-13 01:27:08'),
+(3, 'COMPENSAR   E.P.S.', '2023-05-13 01:27:08'),
+(4, 'FAMISANAR LTDA. ', '2023-05-13 01:27:08'),
+(5, 'NUEVA EPS S.A.', '2023-05-13 01:27:08'),
+(6, 'SANITAS S.A.', '2023-05-13 01:27:08'),
+(7, 'SALUD TOTAL S.A.  E.P.S.', '2023-05-13 01:27:08'),
+(8, 'SALUDVIDA S.A. E.P.S', '2023-05-13 01:27:08'),
+(9, 'SAVIA SALUD EPS', '2023-05-13 01:27:08'),
+(10, 'PROTECCION', '2023-05-13 01:27:08'),
+(11, 'PORVENIR', '2023-05-13 01:27:08'),
+(12, 'COLFONDOS', '2023-05-13 01:27:08'),
+(13, 'OLD MUTUAL', '2023-05-13 01:27:08'),
+(14, 'COLPENSIONES', '2023-05-13 01:27:08'),
+(15, '', '2023-05-13 02:34:28');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `productos`
 --
 
@@ -283,20 +338,46 @@ INSERT INTO `roles` (`id_rol`, `rol_nombre`, `rol_descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `sedes`
+--
+
+CREATE TABLE `sedes` (
+  `id_sedes` int(11) NOT NULL,
+  `id_tipo` int(11) NOT NULL,
+  `id_operador` int(11) DEFAULT NULL,
+  `sed_razsoc` varchar(45) NOT NULL,
+  `sed_nombre` varchar(45) NOT NULL,
+  `sed_nit` varchar(45) NOT NULL,
+  `sed_correo` varchar(45) NOT NULL,
+  `sed_telcel` varchar(45) NOT NULL,
+  `sed_direcc` varchar(45) NOT NULL,
+  `sed_tipper` varchar(45) NOT NULL,
+  `sed_regime` varchar(45) NOT NULL,
+  `sed_pais` varchar(45) NOT NULL,
+  `sed_depart` varchar(45) NOT NULL,
+  `sed_muni` varchar(45) NOT NULL,
+  `sed_estado` varchar(45) NOT NULL DEFAULT '1',
+  `sed_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
+  `sed_fecupd` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `solicitudes`
 --
 
 CREATE TABLE `solicitudes` (
   `id_solicitud` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_grado` int(11) NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  `id_grado` int(11) DEFAULT NULL,
   `id_empleado` int(11) DEFAULT 0,
   `rep_tipo` varchar(45) DEFAULT NULL,
-  `rep_detalle` varchar(45) NOT NULL,
-  `rep_estado` varchar(45) NOT NULL DEFAULT '0',
+  `rep_detalle` varchar(45) DEFAULT NULL,
+  `rep_estado` varchar(45) DEFAULT '0',
   `rep_solucion` varchar(45) DEFAULT '0',
   `rep_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
-  `rep_fecupd` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `rep_fecupd` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -304,9 +385,10 @@ CREATE TABLE `solicitudes` (
 --
 
 INSERT INTO `solicitudes` (`id_solicitud`, `id_usuario`, `id_grado`, `id_empleado`, `rep_tipo`, `rep_detalle`, `rep_estado`, `rep_solucion`, `rep_fecope`, `rep_fecupd`) VALUES
-(1, 3, 4, 0, '1', 'CERTIFICADO NOTAS', '0', '0', '2023-05-11 02:01:19', '2023-05-11 02:01:19'),
-(3, 3, 4, 0, '2', 'SILLA MAL ESTADO', '0', '0', '2023-05-11 02:01:19', '2023-05-11 02:01:19'),
-(4, 3, 4, 0, '2', 'TABLERO MAL ESTADO', '0', '0', '2023-05-11 02:01:19', '2023-05-11 02:01:19');
+(1, 3, 5, 1, '1', 'CERTIFICADO NOTAS', '1', 'SE PROCEDE A GENERAR CERTIFICADO FECHA ENTREG', '2023-05-11 02:01:19', '2023-05-11 03:47:15'),
+(3, 3, 5, 1, '2', 'SILLA MAL ESTADO', '1', 'SE  PROCEDE HACER LA REVISION', '2023-05-11 02:01:19', '2023-05-12 01:33:29'),
+(4, 3, 5, 1, '2', 'TABLERO MAL ESTADO', '1', 'SE  PROCEDE HACER LA REVISION', '2023-05-11 02:01:19', '2023-05-12 01:34:36'),
+(5, 3, 5, 0, '1', 'CERTIFICADO ESTUDIANTIL', '0', '0', '2023-05-11 00:18:57', '2023-05-11 03:46:44');
 
 -- --------------------------------------------------------
 
@@ -321,7 +403,7 @@ CREATE TABLE `usuarios` (
   `user_nombre` varchar(100) NOT NULL,
   `user_contra` varchar(255) NOT NULL,
   `user_correo` varchar(45) NOT NULL,
-  `user_estado` int(11) NOT NULL DEFAULT 1,
+  `user_estado` int(11) NOT NULL DEFAULT 0,
   `user_fecope` datetime NOT NULL,
   `user_fecupd` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -396,6 +478,18 @@ ALTER TABLE `matriculas`
   ADD PRIMARY KEY (`id_matricula`);
 
 --
+-- Indices de la tabla `pais`
+--
+ALTER TABLE `pais`
+  ADD PRIMARY KEY (`id_pais`);
+
+--
+-- Indices de la tabla `parafiscales`
+--
+ALTER TABLE `parafiscales`
+  ADD PRIMARY KEY (`id_parafiscales`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -406,6 +500,12 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id_rol`);
+
+--
+-- Indices de la tabla `sedes`
+--
+ALTER TABLE `sedes`
+  ADD PRIMARY KEY (`id_sedes`);
 
 --
 -- Indices de la tabla `solicitudes`
@@ -472,6 +572,18 @@ ALTER TABLE `matriculas`
   MODIFY `id_matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de la tabla `pais`
+--
+ALTER TABLE `pais`
+  MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `parafiscales`
+--
+ALTER TABLE `parafiscales`
+  MODIFY `id_parafiscales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -484,10 +596,16 @@ ALTER TABLE `roles`
   MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT de la tabla `sedes`
+--
+ALTER TABLE `sedes`
+  MODIFY `id_sedes` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `solicitudes`
 --
 ALTER TABLE `solicitudes`
-  MODIFY `id_solicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_solicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
