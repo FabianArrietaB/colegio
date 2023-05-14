@@ -10,10 +10,10 @@ function detallematricula(idalumno){
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
             $('#idalumno').val(respuesta['idalumno']);
-            $('#nombreu').val(respuesta['nombre']);
+            $('#nomaluu').val(respuesta['nomalu']);
+            $('#idgradou').val(respuesta['idgrado']);
             $('#matriculau').val(respuesta['matricula']);
-            $('#canaluu').val(respuesta['canalu']);
-            $('#iddiru').val(respuesta['iddir']);
+            $('#saldou').val(respuesta['saldo']);
         }
     });
 }
@@ -26,10 +26,12 @@ function pagomatricula(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistagrados').load('grados/listagrados.php');
+                $('#pago').modal('hide');
+                $('#tablalistapagos').load('pagos/listapagos.php');
+                $('#frmpagomatricula')[0].reset();
                 Swal.fire({
                     icon: 'success',
-                    title: 'grado Actualizado Exitosamente',
+                    title: 'Pago Realizado Exitosamente',
                     showConfirmButton: false,
                     timer: 1500
                 });

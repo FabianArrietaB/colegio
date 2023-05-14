@@ -1,10 +1,10 @@
 <!-- Formulario (Pago) -->
-<form id="frmapago" method="POST" onsubmit="return detallematricula()">
+<form id="frmpagomatricula" method="POST" onsubmit="return pagomatricula()">
     <div class="modal fade" id="pago" tabindex="-1" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Crear Usuario</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tomar pago</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -12,50 +12,54 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Alumno</legend>
                         <div class="row">
-                            <div class="col-6">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="nombreu" name="nombreu" class="form-control input-sm">
+                            <input type="text" id="idalumno" name="idalumno" hidden>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Nombre Estudiante</label>
+                                    <input type="text" id="nomaluu" name="nombreu" class="form-control input-sm">
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="input-group mb-3">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Grado</label>
                                     <select name="idgradou" id="idgradou" class="form-control input-sm">
-                                        <option value="1">TRANSICION</option>
-                                        <option value="2">PRIMERO</option>
-                                        <option value="3">SEGUNDO</option>
-                                        <option value="4">TERCERO</option>
-                                        <option value="5">CUARTO</option>
-                                        <option value="6">QUINTO</option>
-                                        <option value="7">SEXTO</option>
-                                        <option value="8">SEPTIMO</option>
-                                        <option value="9">OCTAVO</option>
-                                        <option value="10">NOVENO</option>
-                                        <option value="11">DECIMO</option>
-                                        <option value="12">UNDECIMO</option>
+                                        <?php
+                                            $sql="SELECT g.id_grado as idgrado, g.gra_nombre as grado FROM grados as g WHERE g.gra_estado = 1";
+                                            $respuesta = mysqli_query($conexion, $sql);
+                                            while($grado = mysqli_fetch_array($respuesta)) {
+                                        ?>
+                                            <option value="<?php echo $grado['idgrado']?>"><?php echo $grado['grado'];?></option>
+                                        <?php }?>
                                     </select>
                                 </div>
                             </div>
                         </div>
+                    </fieldset>
+                    <fieldset class="group-border">
+                        <legend class="group-border">Informacion Matricula</legend>
                         <div class="row">
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <input placeholder="Ingrese Usuario" type="text" id="usuario" name="usuario" class="form-control input-sm">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Valor Matricula</label>
+                                    <input type="text" id="matriculau" name="matriculau" class="form-control input-sm">
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <input placeholder="Ingrese Contraseña" type="text" id="password" name="password" class="form-control input-sm">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Valor Restante</label>
+                                    <input type="text" id="saldou" name="saldou" class="form-control input-sm">
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <select name="idRol" id="idRol" class="form-control input-sm">
-                                        <option selected >Selecione un Rol</option>
-                                        <option value="1">Alumno</option>
-                                        <option value="2">Docente</option>
-                                        <option value="3">Supervisor</option>
-                                        <option value="4">Administrador</option>
-                                    </select>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Valor Abono</label>
+                                    <input type="text" id="abonou" name="abonou" class="form-control input-sm">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Observacion</label>
+                                    <input type="text" id="detallu" name="detallu" class="form-control input-sm">
                                 </div>
                             </div>
                         </div>

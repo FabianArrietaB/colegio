@@ -2,27 +2,27 @@
     include "conexion.php";
     class Pagos extends Conexion {
 
-        public function detallematricula($idalumno){
+        public function detallematricula($idmatricula){
             $conexion = Conexion::conectar();
             $sql ="SELECT
-                m.id_alumno as idalumno,
-                m.id_grado as idgrado,
+                m.id_matricula as idmatricula
                 m.mat_valmat as matricula,
-                m.mat_saldo as abono,
+                m.mat_saldo as saldo,
+                m.id_alumno as idalumno,
                 a.alu_nombre as nomalu,
-                g.gra_nombre as grado
-                FROM matriculas AS mat
+                m.id_grado as idgrado
+                FROM matriculas AS m
                 INNER JOIN alumnos as a ON m.id_alumno = a.id_alumno
-                INNER JOIN grados as g ON m.id_grado = g.id_grado
-                WHERE m.id_alumno ='$idalumno'";
+                WHERE m.id_matricula ='$idmatricula'";
             $respuesta = mysqli_query($conexion,$sql);
             $matricula = mysqli_fetch_array($respuesta);
             $datos = array(
+            'idmatricula' => $matricula['idmatricula'],
             'idalumno' => $matricula['idalumno'],
+            'nomalu' => $matricula['nomalu'],
             'idgrado' => $matricula['idgrado'],
             'matricula' => $matricula['matricula'],
-            'abono' => $matricula['abono'],
-            'grado' => $matricula['grado'],
+            'saldo' => $matricula['saldo'],
             );
             return $datos;
         }
@@ -30,18 +30,16 @@
         public function pagomatricula($datos){
             $conexion = Conexion::conectar();
             $sql = "UPDATE matriculas SET
-                    id_grado = ?,
                     mat_valmat = ?,
                     mat_saldo = ?,
                     mat_detall   = ?,
-                    WHERE id_alumno = ?";
+                    WHERE idmatricula = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('iisssi',
-                                $datos['idgrado'],
+            $query->bind_param('sssi',
                                 $datos['matricula'],
                                 $datos['abono'],
                                 $datos['detall'],
-                                $datos['idalumno']);
+                                $datos['idmatricula']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;
