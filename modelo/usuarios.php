@@ -37,16 +37,6 @@
             return $respuesta;
         }
 
-        public function cambiocontraseña($datos){
-            $conexion = Conexion::conectar();
-            $sql = "UPDATE usuarios SET user_contra = ? WHERE id_usuario = ?";
-            $query = $conexion->prepare($sql);
-            $query->bind_param('si', $datos['password'], $datos['idusuario']);
-            $respuesta = $query->execute();
-            $query->close();
-            return $respuesta;
-        }
-
         public function agregarusuario($datos){
             $conexion = Conexion::conectar();
             $sql = "INSERT INTO usuarios (id_rol, user_usuario, user_nombre, user_contra, user_correo) VALUES( ?, ?, ?, ?, ?)";
@@ -63,6 +53,7 @@
                 usuarios.user_usuario   AS usuario,
                 usuarios.user_nombre    AS nombre,
                 usuarios.user_correo    AS correo,
+                usuarios.user_contra    AS password,
                 usuarios.id_rol         AS idrol,
                 roles.rol_nombre        AS rol
                 FROM usuarios AS usuarios
@@ -75,6 +66,7 @@
                 'usuario'   => $usuario['usuario'],
                 'nombre'    => $usuario['nombre'],
                 'correo'    => $usuario['correo'],
+                'password'  => $usuario['password'],
                 'idrol'     => $usuario['idrol'],
                 'rol'       => $usuario['rol'],
             );
@@ -83,9 +75,9 @@
 
         public function editarusuario($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE usuarios SET id_rol = ?, user_usuario = ?, user_nombre = ?, user_correo = ? WHERE id_usuario = ?";
+            $sql = "UPDATE usuarios SET id_rol = ?, user_usuario = ?, user_nombre = ?, user_correo = ?, user_contra = ? WHERE id_usuario = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('isssi', $datos['idrol'], $datos['usuario'], $datos['nombre'], $datos['correo'], $datos['idusuario']);
+            $query->bind_param('issssi', $datos['idrol'], $datos['usuario'], $datos['nombre'], $datos['correo'], $datos['password'], $datos['idusuario']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

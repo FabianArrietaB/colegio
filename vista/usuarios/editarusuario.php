@@ -17,14 +17,19 @@
                                 </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="input-group mb-3">
                                     <input type="text" id="nombreu" name="nombreu" class="form-control input-sm">
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 <div class="input-group mb-3">
                                     <input type="text" id="usuariou" name="usuariou" class="form-control input-sm">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" id="passwordu" name="passwordu" class="form-control input-sm" placeholder="Nueva Contraseña">
                                 </div>
                             </div>
                         </div>
@@ -34,7 +39,7 @@
                                     <input type="text" id="correou" name="correou" class="form-control input-sm" >
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-6">
                                 <div class="input-group mb-3">
                                     <select name="idrolu" id="idrolu" class="form-control input-sm">
                                     <option value="1">Alumno</option>

@@ -62,9 +62,9 @@
                     $query->bind_param("iissss",$idalumno, $datos['idgrado'], $datos['matric'], $datos['pensio'], $saldo ,$datos['detall'],);
                     $respuesta = $query->execute();
                     $insertauditoria = "INSERT INTO auditorias(id_alumno, id_grado, aud_valor, aud_abono, aud_detalle)
-                                VALUES(?, ?, ?, ?, ?, ?)";
+                                VALUES(?, ?, ?, ?, ?)";
                     $query = $conexion->prepare($insertauditoria);
-                    $query->bind_param("iissss",$idalumno, $datos['idgrado'], $datos['matric'], $datos['pensio'], $datos['abono'],$datos['detall'],);
+                    $query->bind_param("iisss",$idalumno, $datos['idgrado'], $datos['matric'], $datos['abono'],$datos['detall'],);
                     $respuesta = $query->execute();
                 }
             return $respuesta;
