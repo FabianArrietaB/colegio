@@ -182,7 +182,7 @@
                                             $sql="SELECT p.id_parafiscales as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
                                             $respuesta = mysqli_query($conexion, $sql);
                                             while($parafiscales = mysqli_fetch_array($respuesta)) {
-                                            ?>
+                                        ?>
                                             <option value="<?php echo $parafiscales['idparafiscal']?>"><?php echo $parafiscales['nombre'];?></option>
                                         <?php }?>
                                     </select>

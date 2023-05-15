@@ -4,6 +4,7 @@
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
+        $balance = 0;
         $sql = "SELECT
             a.id_alumno as idalumno,
             a.alu_nombre as nombre,

@@ -247,7 +247,7 @@
                                             while($grado = mysqli_fetch_array($respuesta)) {
                                         ?>
                                             <option value="<?php echo $grado['idgrado']?>"><?php echo $grado['grado'];?></option>
-                                        <?php }?>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -268,12 +268,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-3">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="abono" name="abono" class="form-control input-sm" placeholder="Restante">
-                                </div>
-                            </div>
-                            <div class="col-9">
+                            <div class="col-12">
                                 <div class="input-group mb-3">
                                     <input type="text" id="detall" name="detall" class="form-control input-sm" placeholder="Observacion">
                                 </div>

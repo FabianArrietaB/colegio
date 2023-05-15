@@ -58,9 +58,10 @@
                     $insertmatricula = "INSERT INTO matriculas( id_alumno, id_grado, mat_valmat, mat_pensio, mat_saldo, mat_detalle)
                                 VALUES(?, ?, ?, ?, ?, ?)";
                     $query = $conexion->prepare($insertmatricula);
-                    $query->bind_param("iissss",$idalumno, $datos['idgrado'], $datos['matric'], $datos['pensio'], $datos['abono'],$datos['detall'],);
+                    $saldo = $datos['matric']-$datos['abono'];
+                    $query->bind_param("iissss",$idalumno, $datos['idgrado'], $datos['matric'], $datos['pensio'], $saldo ,$datos['detall'],);
                     $respuesta = $query->execute();
-                    $insertauditoria = "INSERT INTO auditorias( id_alumno, id_grado, aud_valor, aud_restante, aud_detalle)
+                    $insertauditoria = "INSERT INTO auditorias(id_alumno, id_grado, aud_valor, aud_abono, aud_detalle)
                                 VALUES(?, ?, ?, ?, ?, ?)";
                     $query = $conexion->prepare($insertauditoria);
                     $query->bind_param("iissss",$idalumno, $datos['idgrado'], $datos['matric'], $datos['pensio'], $datos['abono'],$datos['detall'],);
@@ -216,6 +217,5 @@
             $query->close();
             return $respuesta;
         }
-
     }
 ?>
