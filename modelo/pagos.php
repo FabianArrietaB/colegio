@@ -29,15 +29,9 @@
 
         public function pagomatricula($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE matriculas SET
-                            mat_saldo = ?,
-                            mat_detalle = ?
-                            WHERE id_matricula = ?";
+            $sql = "UPDATE matriculas SET mat_saldo = ?, mat_detalle = ? WHERE id_matricula = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('ssi',
-                                $datos['balance'],
-                                $datos['detall'],
-                                $datos['idmatricula']);
+            $query->bind_param('ssi', $datos['balance'], $datos['detall'], $datos['idmatricula']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

@@ -60,7 +60,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Valor Despues Abono</label>
-                                    <input type="text" id="balanceu" name="balanceu" value="<?php echo ['balanceu']?>" class="form-control input-sm">
+                                    <input type="text" id="balanceu" name="balanceu" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-12">
