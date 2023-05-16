@@ -51,6 +51,27 @@
             return $datos;
         }
 
+        public function ventas($datos){
+            $conexion = Conexion::conectar();
+            $sql = "INSERT INTO ventas (id_alumno, id_producto, id_operador, ven_precio) VALUES(?, ?, ?, ?)";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('iiis',
+                                $datos['idalumno'],
+                                $datos['idproducto'],
+                                $datos['idoperador'],
+                                $datos['precio']);
+            $respuesta = $query->execute();
+            if ($respuesta > 0) {
+                $idventa = mysqli_insert_id($conexion);
+                $insertventa = "INSERT INTO solicitudes(id_venta)
+                            VALUES(?)";
+                $query = $conexion->prepare($insertventa);
+                $query->bind_param("i",$idventa);
+                $respuesta = $query->execute();
+            }
+            return $respuesta;
+        }
+
         public function solucion($datos){
             $conexion = Conexion::conectar();
             $sql = "UPDATE solicitudes SET

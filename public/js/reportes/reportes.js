@@ -84,27 +84,6 @@ function detallesolicitud(idsolicitud){
     });
 }
 
-function detalleventa(idsolicitud){
-    $.ajax({
-        type: "POST",
-        data: "idsolicitud=" + idsolicitud,
-        url: "../controlador/reportes/detalle.php",
-        success: function(respuesta){
-            console.log(respuesta)
-            respuesta = jQuery.parseJSON(respuesta);
-            $('#idsolicitud').val(respuesta['idsolicitud']);
-            $('#idusuario').val(respuesta['idusuario']);
-            $('#idgradou').val(respuesta['idgrado']);
-            $('#idempleado').val(respuesta['idempleado']);
-            $('#usuariou').val(respuesta['usuario']);
-            $('#tiposolicitudu').val(respuesta['tiposolicitud']);
-            $('#detalleu').val(respuesta['detalle']);
-            $('#estadou').val(respuesta['estado']);
-            $('#idventau').val(respuesta['idventa']);
-        }
-    });
-}
-
 function solucion(){
     $.ajax({
         type: "POST",
@@ -118,6 +97,36 @@ function solucion(){
                 Swal.fire({
                     icon: 'success',
                     title: 'Solucion Actualizada Exitosamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error al Editar!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+    });
+    return false;
+}
+
+function ventas(){
+    $.ajax({
+        type: "POST",
+        data: $('#frmventas').serialize(),
+        url: "../controlador/reportes/ventas.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                $('#ventas').modal('hide');
+                $('#tablalistareportesadmin').load('reportes/listareportesadmin.php');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Venta Realizada Exitosamente',
                     showConfirmButton: false,
                     timer: 1500
                 });
