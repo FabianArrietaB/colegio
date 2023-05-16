@@ -33,11 +33,9 @@
                     s.rep_detalle       AS detalle,
                     s.rep_solucion      AS solucion,
                     s.rep_estado        AS estado,
-                    g.gra_nombre        AS grado,
                     u.user_nombre       AS usuario
                 FROM solicitudes AS s
                 INNER JOIN usuarios AS u ON s.id_usuario = u.id_usuario
-                INNER JOIN grados as g ON s.id_grado = g.id_grado
                 WHERE s.id_solicitud ='$idsolicitud'";
             $respuesta = mysqli_query($conexion,$sql);
             $solicitud = mysqli_fetch_array($respuesta);

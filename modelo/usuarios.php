@@ -66,7 +66,6 @@
                 'usuario'   => $usuario['usuario'],
                 'nombre'    => $usuario['nombre'],
                 'correo'    => $usuario['correo'],
-                'password'  => $usuario['password'],
                 'idrol'     => $usuario['idrol'],
                 'rol'       => $usuario['rol'],
             );

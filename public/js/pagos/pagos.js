@@ -2,13 +2,18 @@ $(document).ready(function(){
     $('#tablalistapagos').load('pagos/listapagos.php');
 });
 
-function detallematricula(idalumno){
+function resta(saldou, abonou){
+    return saldou - abonou;
+}
+
+function detallematricula(idmatricula){
     $.ajax({
         type: "POST",
-        data: "idalumno=" + idalumno,
-        url: "../controlador/grados/detalle.php",
+        data: "idmatricula=" + idmatricula,
+        url: "../controlador/pagos/detalle.php",
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
+            $('#idmatricula').val(respuesta['idmatricula']);
             $('#idalumno').val(respuesta['idalumno']);
             $('#nomaluu').val(respuesta['nomalu']);
             $('#idgradou').val(respuesta['idgrado']);
@@ -22,13 +27,13 @@ function pagomatricula(){
     $.ajax({
         type: "POST",
         data: $('#frmpagomatricula').serialize(),
-        url: "../controlador/pagos/pago.php",
+        url: "../controlador/pagos/pagos.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
+            console.log(respuesta)
             if(respuesta == 1){
-                $('#pago').modal('hide');
-                $('#tablalistapagos').load('pagos/listapagos.php');
                 $('#frmpagomatricula')[0].reset();
+                $('#tablalistapagos').load('pagos/listapagos.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Pago Realizado Exitosamente',

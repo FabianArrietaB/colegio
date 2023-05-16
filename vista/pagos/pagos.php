@@ -1,5 +1,5 @@
 <!-- Formulario (Pago) -->
-<form id="frmpagomatricula" method="POST" onsubmit="return pagomatricula()">
+<form id="frmpagomatricula" method="post" onsubmit="return pagomatricula()">
     <div class="modal fade" id="pago" tabindex="-1" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -12,17 +12,18 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Alumno</legend>
                         <div class="row">
+                            <input type="text" id="idmatricula" name="idmatricula" hidden>
                             <input type="text" id="idalumno" name="idalumno" hidden>
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Estudiante</label>
-                                    <input type="text" id="nomaluu" name="nombreu" class="form-control input-sm">
+                                    <input type="text" id="nomaluu" name="nomaluu" class="form-control input-sm" disabled>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Grado</label>
-                                    <select name="idgradou" id="idgradou" class="form-control input-sm">
+                                    <select name="idgradou" id="idgradou" class="form-control input-sm" disabled>
                                         <?php
                                             $sql="SELECT g.id_grado as idgrado, g.gra_nombre as grado FROM grados as g WHERE g.gra_estado = 1";
                                             $respuesta = mysqli_query($conexion, $sql);
@@ -41,19 +42,25 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Valor Matricula</label>
-                                    <input type="text" id="matriculau" name="matriculau" class="form-control input-sm">
+                                    <input type="text" id="matriculau" name="matriculau" class="form-control input-sm" disabled>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label class="form-label">Valor Restante</label>
-                                    <input type="text" id="saldou" name="saldou" class="form-control input-sm">
+                                    <label class="form-label">Saldo Anterior</label>
+                                    <input type="text" id="saldou" name="saldou" value="saldou" onchange="resta()" onkeyup="resta()" class="form-control input-sm" disabled>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Valor Despues Abono</label>
+                                    <input type="text" id="balance" name="balance" value="resta" readonly="readonly" class="form-control input-sm" disabled>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Valor Abono</label>
-                                    <input type="text" id="abonou" name="abonou" class="form-control input-sm">
+                                    <input type="text" id="abonou" name="abonou" value="0" onchange="resta()" onkeyup="resta()" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -65,7 +72,7 @@
                         </div>
                     </fieldset>
                     <div class="card-footer text-center">
-                        <button class="btn btn-success">Guardar</button>
+                        <button class="btn btn-success" data-bs-dismiss="modal">Guardar</button>
                     </div>
                 </div>
             </div>

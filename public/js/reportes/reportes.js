@@ -79,7 +79,6 @@ function detallesolicitud(idsolicitud){
             $('#usuariou').val(respuesta['usuario']);
             $('#tiposolicitudu').val(respuesta['tiposolicitud']);
             $('#detalleu').val(respuesta['detalle']);
-            $('#solucionu').val(respuesta['solucion']);
             $('#estadou').val(respuesta['estado']);
         }
     });

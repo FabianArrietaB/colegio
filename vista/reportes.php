@@ -16,7 +16,7 @@
                 <div class="card-header text-center">
                     <div class="row">
                         <div class="col-9">
-                            <h4>Lista Alumnos</h4>
+                            <h4>Lista Reportes</h4>
                         </div>
                         <div class="col-3 border-primary">
                             <input class="form-control me-xl-2" type="search" placeholder="Search">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div id="tablalistaalumnos"></div>
+                    <div id="tablalistareportesadmin"></div>
                 </div>
             </div>
         </div>
@@ -33,12 +33,12 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
-include ("alumnos/crearalumno.php");
-include ("alumnos/crearalumno.php");
-require('footer.php'); 
+include "reportes/crearsolicitud.php";
+include "reportes/solucion.php";
+require('footer.php');
 ?>
 <!-- carga ficheros javascript -->
-<script src="../public/js/alumnos/alumnos.js"></script>
+<script src="../public/js/reportes/reportes.js"></script>
 
 <?php
     }else{

@@ -295,7 +295,7 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
-    include "pagos.php";
+    include "pagos/pagos.php";
     include "footer.php";
 ?>
 <!-- carga ficheros javascript -->
