@@ -48,19 +48,19 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Saldo Anterior</label>
-                                    <input type="text" id="saldou" name="saldou" value="saldou" onchange="resta()" onkeyup="resta()" class="form-control input-sm" disabled>
+                                    <input type="text" id="saldou" name="saldou" class="form-control input-sm" disabled>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Valor Despues Abono</label>
-                                    <input type="text" id="balance" name="balance" value="resta" readonly="readonly" class="form-control input-sm" disabled>
+                                    <input type="text" id="balance" name="balance" class="form-control input-sm" disabled>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Valor Abono</label>
-                                    <input type="text" id="abonou" name="abonou" value="0" onchange="resta()" onkeyup="resta()" class="form-control input-sm">
+                                    <input type="text" id="abonou" name="abonou" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-12">
