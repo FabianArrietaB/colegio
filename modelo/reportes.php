@@ -31,7 +31,6 @@
                     s.id_empleado       AS idempleado,
                     s.rep_tipo          AS tiposolicitud,
                     s.rep_detalle       AS detalle,
-                    s.rep_solucion      AS solucion,
                     s.rep_estado        AS estado,
                     u.user_nombre       AS usuario
                 FROM solicitudes AS s
@@ -46,7 +45,6 @@
             'idempleado' => $solicitud['idempleado'],
             'tiposolicitud' => $solicitud['tiposolicitud'],
             'detalle' => $solicitud['detalle'],
-            'solucion' => $solicitud['solucion'],
             'estado' => $solicitud['estado'],
             'usuario' => $solicitud['usuario'],
             );

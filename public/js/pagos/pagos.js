@@ -2,10 +2,6 @@ $(document).ready(function(){
     $('#tablalistapagos').load('pagos/listapagos.php');
 });
 
-function resta(saldou, abonou){
-    return saldou - abonou;
-}
-
 function detallematricula(idmatricula){
     $.ajax({
         type: "POST",

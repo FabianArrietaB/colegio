@@ -35,11 +35,12 @@
                             WHERE id_matricula = ?";
             $query = $conexion->prepare($sql);
             $query->bind_param('ssi',
-                                $datos['saldo']-$datos['abono'],
+                                $datos['balance'],
                                 $datos['detall'],
                                 $datos['idmatricula']);
             $respuesta = $query->execute();
-        return $respuesta;
+            $query->close();
+            return $respuesta;
         }
     }
 ?>

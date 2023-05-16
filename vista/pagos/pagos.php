@@ -53,14 +53,14 @@
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label class="form-label">Valor Despues Abono</label>
-                                    <input type="text" id="balance" name="balance" class="form-control input-sm" disabled>
+                                    <label class="form-label">Valor Abono</label>
+                                    <input type="text" id="abonou" name="abonou" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label class="form-label">Valor Abono</label>
-                                    <input type="text" id="abonou" name="abonou" class="form-control input-sm">
+                                    <label class="form-label">Valor Despues Abono</label>
+                                    <input type="text" id="balanceu" name="balanceu" value="<?php echo ['balanceu']?>" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -79,4 +79,12 @@
         </div>
     </div>
 </form>
+<script>
+    let saldo = document.getElementById("saldou")
+    let balance = document.getElementById("balanceu")
+    let abono = document.getElementById("abonou")
+    abono.addEventListener("change", () => {
+        balance.value = parseFloat(saldo.value) - parseFloat(abono.value)
+    })
+</script>
 <!-- Fin Formulario (Agregar, Modificar) -->
