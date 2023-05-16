@@ -1,9 +1,10 @@
+<!-- Vista Admin y Supervisor -->
 <?php
     include "header.php";
     include "sidebar.php";
     if(isset($_SESSION['usuario']) &&
-    $_SESSION['usuario']['rol'] == 4 ||
-    $_SESSION['usuario']['rol'] == 3){
+    $_SESSION['usuario']['rol'] == 3||
+    $_SESSION['usuario']['rol'] == 4) {
     include "../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
@@ -16,15 +17,18 @@
                 <div class="card-header text-center">
                     <div class="row">
                         <div class="col-9">
-                            <h4>Lista Reportes</h4>
-                        </div>
-                        <div class="col-3 border-primary">
-                            <input class="form-control me-xl-2" type="search" placeholder="Search">
+                            <h4>Panel Informes</h4>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <div id="tablalistareportesadmin"></div>
+                    <div class="col-6 border-primary">
+                        <form action="" method="POST">
+                            <input class="form-control me-xl-2" type="search" placeholder="Buscar" name="filtro" id="filtro">
+                        </form>
+                    </div>
+                </div>
+                    <div id="tablainformes"></div>
                 </div>
             </div>
         </div>
@@ -33,13 +37,10 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
-include "reportes/crearsolicitud.php";
-include "reportes/solucion.php";
-include "reportes/producto.php";
 require('footer.php');
 ?>
 <!-- carga ficheros javascript -->
-<script src="../public/js/reportes/reportes.js"></script>
+<script src="../public/js/informes/informes.js"></script>
 
 <?php
     }else{

@@ -84,6 +84,25 @@ function detallesolicitud(idsolicitud){
     });
 }
 
+function detalleventa(idsolicitud){
+    $.ajax({
+        type: "POST",
+        data: "idsolicitud=" + idsolicitud,
+        url: "../controlador/reportes/detalle.php",
+        success: function(respuesta){
+            respuesta = jQuery.parseJSON(respuesta);
+            $('#idsolicitud').val(respuesta['idsolicitud']);
+            $('#idusuario').val(respuesta['idusuario']);
+            $('#idgradou').val(respuesta['idgrado']);
+            $('#idempleado').val(respuesta['idempleado']);
+            $('#usuariou').val(respuesta['usuario']);
+            $('#tiposolicitudu').val(respuesta['tiposolicitud']);
+            $('#detalleu').val(respuesta['detalle']);
+            $('#estadou').val(respuesta['estado']);
+        }
+    });
+}
+
 function solucion(){
     $.ajax({
         type: "POST",

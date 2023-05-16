@@ -9,10 +9,12 @@ function detallematricula(idmatricula){
         url: "../controlador/pagos/detalle.php",
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
+            console.log(respuesta)
             $('#idmatricula').val(respuesta['idmatricula']);
             $('#idalumno').val(respuesta['idalumno']);
             $('#nomaluu').val(respuesta['nomalu']);
-            $('#idgradou').val(respuesta['idgrado']);
+            $('#idgrado').val(respuesta['idgrado']);
+            $('#gradou').val(respuesta['grado']);
             $('#matriculau').val(respuesta['matricula']);
             $('#saldou').val(respuesta['saldo']);
         }

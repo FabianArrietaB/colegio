@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-3 border-primary">
                             <form action="" method="POST">
-                                <input class="form-control me-xl-2" type="search" placeholder="Buscar" name="campo" id="campo">
+                                <input class="form-control me-xl-2" type="search" placeholder="Buscar" name="filtro" id="filtro">
                             </form>
                         </div>
                     </div>

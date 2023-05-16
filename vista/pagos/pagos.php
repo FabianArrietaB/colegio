@@ -14,6 +14,7 @@
                         <div class="row">
                             <input type="text" id="idmatricula" name="idmatricula" hidden>
                             <input type="text" id="idalumno" name="idalumno" hidden>
+                            <input type="text" id="idgrado" name="idgrado" hidden>
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Estudiante</label>
@@ -23,15 +24,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Grado</label>
-                                    <select name="idgradou" id="idgradou" class="form-control input-sm" disabled>
-                                        <?php
-                                            $sql="SELECT g.id_grado as idgrado, g.gra_nombre as grado FROM grados as g WHERE g.gra_estado = 1";
-                                            $respuesta = mysqli_query($conexion, $sql);
-                                            while($grado = mysqli_fetch_array($respuesta)) {
-                                        ?>
-                                            <option value="<?php echo $grado['idgrado']?>"><?php echo $grado['grado'];?></option>
-                                        <?php }?>
-                                    </select>
+                                    <input type="text" id="gradou" name="gradou" class="form-control input-sm" disabled>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +35,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Valor Matricula</label>
-                                    <input type="text" id="matriculau" name="matriculau" class="form-control input-sm" disabled>
+                                    <input type="text" id="matriculau" name="matriculau" class="form-control input-sm" readonly>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -53,14 +46,14 @@
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label class="form-label">Valor Abono</label>
-                                    <input type="text" id="abonou" name="abonou" class="form-control input-sm">
+                                    <label class="form-label">Valor Despues Abono</label>
+                                    <input type="text" id="balanceu" name="balanceu" class="form-control input-sm" readonly>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label class="form-label">Valor Despues Abono</label>
-                                    <input type="text" id="balanceu" name="balanceu" class="form-control input-sm">
+                                    <label class="form-label">Valor Abono</label>
+                                    <input type="text" id="abonou" name="abonou" class="form-control input-sm">
                                 </div>
                             </div>
                             <div class="col-12">

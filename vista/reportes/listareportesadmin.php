@@ -10,6 +10,7 @@ $sql = "SELECT
     s.id_grado          AS idgrado,
     g.gra_nombre        AS grado,
     s.id_empleado       AS idempleado,
+    s.id_venta          AS idventa,
     s.rep_tipo          AS tiposolicitud,
     s.rep_detalle       AS detalle,
     s.rep_solucion      AS solucion,
@@ -32,6 +33,7 @@ $query = mysqli_query($conexion, $sql);
                 <th>Tipo</th>
                 <th>Detalle</th>
                 <th>Estado</th>
+                <th>Registro Venta</th>
                 <th>Fecha Creacion</th>
                 <th>Fecha Respuesta</th>
                 <th></th>
@@ -57,9 +59,17 @@ $query = mysqli_query($conexion, $sql);
                         <span class="badge text-bg-danger">CERRADO</span>
                     <?php } ?>
                 </td>
+                <td>
+                    <?php if ($reportes['idventa'] == 0) { ?>
+                        <span class="badge text-bg-success">ABIERTO</span>
+                    <?php } else { ?>
+                        <?php echo $reportes['solucion']; ?>
+                    <?php } ?>
+                </td>
                 <td><?php echo $reportes['fecoperacion']; ?></td>
                 <td><?php echo $reportes['fecsolucion']; ?></td>
                 <td>
+                    <?php if ($reportes['tiposolicitud'] == 1 && $reportes['idventa'] == 0) { ?><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#ventas" onclick="detalleventa('<?php echo $reportes['idsolicitud']?>')"><i class="fa-solid fa-stamp fa-xl"></i></button> <?php } ?>
                     <?php if ($reportes['estado'] == 0) { ?><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#solucion" onclick="detallesolicitud('<?php echo $reportes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button> <?php } ?>
                 </td>
             </tr>

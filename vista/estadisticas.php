@@ -11,7 +11,7 @@
 <section class="home-section">
     <div class="container-fluid">
         <div class="page-content">
-        <div class="card border-primary">
+            <div class="card border-primary">
                 <div class="card-header text-center">
                     <div class="title">
                         <h2>INFORMACION</h2>

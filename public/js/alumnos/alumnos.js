@@ -1,18 +1,15 @@
 $(document).ready(function(){
     $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
-    $('#filtro').keyup(function() {obtenerAlumno()})
 });
 
-function buscar() {
-    var textoBusqueda = $("input#campo").val();
-    if (textoBusqueda != "") {
-        $.post("buscar.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
-            $("#resultadoBusqueda").html(mensaje);
-        }); 
-    } else { 
-        ("#resultadoBusqueda").html('');
-	};
-};
+$(document).ready(function(){
+    setInterval(
+        function(){
+            const filtro = $('#filtro').val()
+            $('#Recargar').load('alumnos/listaalumnos.php?filtro='+filtro);
+        },1000
+    );
+});
 
 function activaralumno(idalumno, estado){
     $.ajax({
@@ -77,6 +74,7 @@ function agregaralumno(){
         url: "../controlador/alumnos/crear.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
+            console.log(respuesta)
             if(respuesta == 1){
                 $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
                 $('#frmagregaralumno')[0].reset();

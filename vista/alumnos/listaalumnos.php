@@ -1,6 +1,10 @@
 <?php
     session_start();
     if ($_SESSION['usuario']['rol'] == 4) {
+        $filtro = '';
+        if(isset($_GET['filtro'])){
+            $filtro = $_GET['filtro'];
+        }
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
@@ -22,6 +26,7 @@
             g.gra_nombre as grado
         FROM alumnos as a
         INNER JOIN grados as g ON a.id_grado = g.id_grado
+        WHERE a.alu_nombre LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' ||  a.alu_docume LIKE '%$filtro%'
         ORDER BY a.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     } else {
@@ -53,7 +58,7 @@
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive justify-content-center">
-    <table class="table table-light text-center">
+    <table class="table table-light text-center" id="Recargar">
         <thead>
             <tr>
                 <th scope="col" >Nombres</th>
@@ -85,8 +90,8 @@
                     <?php } ?>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detallealumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i></button>
-                    <?php if($_SESSION['usuario']['rol'] == 4) {?> <button type="button" class="btn btn-danger"  onclick="eliminaralumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button>  <?php } ?>
+                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detallealumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-pen-to-square fa-xl"></i></button>
+                    <?php if($_SESSION['usuario']['rol'] == 4) {?> <button type="button" class="btn btn-danger"  onclick="eliminaralumno('<?php echo $alumnos['idalumno']?>')"><i class="fa-regular fa-trash-can fa-xl"></i></button>  <?php } ?>
                 </td>
             </tr>
         <?php } ?>
