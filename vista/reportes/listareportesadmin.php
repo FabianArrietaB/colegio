@@ -61,9 +61,9 @@ $query = mysqli_query($conexion, $sql);
                 </td>
                 <td>
                     <?php if ($reportes['idventa'] == 0) { ?>
-                        <span class="badge text-bg-success">ABIERTO</span>
+                        <span class="badge text-bg-danger">NO ASIGNADA</span>
                     <?php } else { ?>
-                        <?php echo $reportes['solucion']; ?>
+                        <span class="badge text-bg-success"><?php echo $reportes['solucion']; ?></span>
                     <?php } ?>
                 </td>
                 <td><?php echo $reportes['fecoperacion']; ?></td>

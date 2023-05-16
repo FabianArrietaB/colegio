@@ -39,32 +39,6 @@
                                     <input type="text" id="telcel" name="telcel" class="form-control input-sm" placeholder="Ingrese Telefono">
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="ciudad" name="ciudad" class="form-control input-sm" placeholder="Ingrese Ciudad">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-5">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="direcc" name="direcc" class="form-control input-sm" placeholder="Direccion">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                            <div class="input-group mb-3">
-                                    <select name="estrat" id="estrat" class="form-control input-sm">
-                                        <option selected >ESTRATO</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="MAS">MAS</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div class="col-5">
                                 <div class="input-group mb-3">
                                     <input type="text" id="correo" name="correo" class="form-control input-sm" placeholder="Ingrese Correo" >

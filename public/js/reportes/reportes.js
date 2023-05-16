@@ -90,6 +90,7 @@ function detalleventa(idsolicitud){
         data: "idsolicitud=" + idsolicitud,
         url: "../controlador/reportes/detalle.php",
         success: function(respuesta){
+            console.log(respuesta)
             respuesta = jQuery.parseJSON(respuesta);
             $('#idsolicitud').val(respuesta['idsolicitud']);
             $('#idusuario').val(respuesta['idusuario']);
@@ -99,6 +100,7 @@ function detalleventa(idsolicitud){
             $('#tiposolicitudu').val(respuesta['tiposolicitud']);
             $('#detalleu').val(respuesta['detalle']);
             $('#estadou').val(respuesta['estado']);
+            $('#idventau').val(respuesta['idventa']);
         }
     });
 }
