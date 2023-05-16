@@ -79,6 +79,8 @@
         </div>
     </div>
 </form>
+<!-- Fin Formulario (Agregar, Modificar) -->
+<!-- Calcular Valor Balance -->
 <script>
     let saldo = document.getElementById("saldou")
     let balance = document.getElementById("balanceu")
@@ -87,4 +89,4 @@
         balance.value = parseFloat(saldo.value) - parseFloat(abono.value)
     })
 </script>
-<!-- Fin Formulario (Agregar, Modificar) -->
+

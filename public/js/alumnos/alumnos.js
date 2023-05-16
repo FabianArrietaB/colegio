@@ -3,17 +3,16 @@ $(document).ready(function(){
     $('#filtro').keyup(function() {obtenerAlumno()})
 });
 
-function obtenerAlumno(){
-    const filtro = $('#filtro').val(); 
-    $.ajax({
-        type:"POST",
-        data:{ filtro, tipo : 'html'},
-        url: `http://metrocosta.ddns.net:8080/metropolis/api/inventarios/proveedor/list`,
-        success:function(respuesta){
-            document.getElementById('TablaModalProveedores').innerHTML=respuesta;
-        }
-    });
-}
+function buscar() {
+    var textoBusqueda = $("input#campo").val();
+    if (textoBusqueda != "") {
+        $.post("buscar.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+            $("#resultadoBusqueda").html(mensaje);
+        }); 
+    } else { 
+        ("#resultadoBusqueda").html('');
+	};
+};
 
 function activaralumno(idalumno, estado){
     $.ajax({
