@@ -19,7 +19,16 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="nombreu" name="nombreu" class="form-control input-sm">
+                                    <select name="nombreu" id="nombreu" class="form-control input-sm">
+                                        <option selected >Selecione Persona</option>
+                                        <?php
+                                            $sql="SELECT nombre FROM (SELECT a.alu_nombre as nombre FROM alumnos AS a UNION ALL SELECT e.emp_nombre as nombre FROM empleados AS e) persona";
+                                            $respuesta = mysqli_query($conexion, $sql);
+                                            while($persona = mysqli_fetch_array($respuesta)) {
+                                        ?>
+                                            <option value="<?php echo $persona['nombre']?>"><?php echo $persona['nombre'];?></option>
+                                        <?php }?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-4">

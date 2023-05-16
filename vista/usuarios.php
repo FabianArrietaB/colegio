@@ -1,7 +1,11 @@
 <?php
     include "header.php";
     include "sidebar.php";
-    if(isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 4){
+    if(isset($_SESSION['usuario']) && 
+    $_SESSION['usuario']['rol'] == 4){
+    include "../modelo/conexion.php";
+    $con = new Conexion();
+    $conexion = $con->conectar();
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
