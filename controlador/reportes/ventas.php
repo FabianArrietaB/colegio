@@ -3,8 +3,8 @@
     $datos = Array(
         'idalumno'   => $_POST['idalumno'],
         'idoperador' => $_SESSION['usuario']['id'],
-        'idproducto' => $_POST['idproductou'],
-        'precio'    => $_POST['preciou'],
+        'idproducto' => $_POST['idproducto'],
+        'precio'    => $_POST['precio'],
     );
     include "../../modelo/reportes.php";
     $Reportes = new Reportes();

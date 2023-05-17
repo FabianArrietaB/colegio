@@ -45,7 +45,6 @@
             'idproducto' => $productos['idproducto'],
             'nombre' => $productos['nombre'],
             'precio' => $productos['precio'],
-            'precio' => $productos['precio'],
             'idcat' => $productos['idcat'],
             'catego' => $productos['catego'],
             );

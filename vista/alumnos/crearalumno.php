@@ -253,12 +253,12 @@
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="matric" name="matric" class="form-control input-sm" placeholder="Matricula">
+                                    <input type="text" id="matric" name="matric" class="form-control input-sm" placeholder="Matricula" readonly>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="pensio" name="pensio" class="form-control input-sm" placeholder="Ingrese Pension">
+                                    <input type="text" id="pensio" name="pensio" class="form-control input-sm" placeholder="Ingrese Pension" readonly>
                                 </div>
                             </div>
                             <div class="col-3">
@@ -268,7 +268,12 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-3">
+                                <div class="input-group mb-3">
+                                    <input type="text" id="balance" name="balance" class="form-control input-sm" placeholder="Valor Restante" readonly>
+                                </div>
+                            </div>
+                            <div class="col-9">
                                 <div class="input-group mb-3">
                                     <input type="text" id="detall" name="detall" class="form-control input-sm" placeholder="Observacion">
                                 </div>
@@ -284,3 +289,12 @@
     </div>
 </form>
 <!-- Fin Formulario (Agregar) -->
+<!-- Calcular Valor Balance -->
+<script>
+    let matric = document.getElementById("matric")
+    let balance = document.getElementById("balance")
+    let abono = document.getElementById("abono")
+    abono.addEventListener("change", () => {
+        balance.value = parseFloat(matric.value) - parseFloat(abono.value)
+    })
+</script>

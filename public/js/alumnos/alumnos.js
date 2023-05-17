@@ -11,6 +11,25 @@ $(document).ready(function(){
     );
 });
 
+$('#frmagregaralumno').change(function(){
+    //condicion para limpiar campos
+    if($('#idgrado').val()==0){
+        $('#matric').val("");
+        $('#pensio').val("");
+        return
+    }
+    $.ajax({
+        type:"POST",
+        data:"idgrado=" + $('#idgrado').val(),
+        url:"../controlador/grados/detalle.php",
+        success:function(respuesta){
+            respuesta=jQuery.parseJSON(respuesta);
+            $('#matric').val(respuesta['matric']);
+            $('#pensio').val(respuesta['pensio']);
+        }
+    });
+});
+
 function activaralumno(idalumno, estado){
     $.ajax({
         type:"POST",

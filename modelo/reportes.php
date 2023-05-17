@@ -63,10 +63,9 @@
             $respuesta = $query->execute();
             if ($respuesta > 0) {
                 $idventa = mysqli_insert_id($conexion);
-                $insertventa = "INSERT INTO solicitudes(id_venta)
-                            VALUES(?)";
+                $insertventa = "UPDATE solicitudes SET id_venta = ? WHERe  id_solicitud = ?";
                 $query = $conexion->prepare($insertventa);
-                $query->bind_param("i",$idventa);
+                $query->bind_param("ii", $idventa, $datos['idsolicitud']);
                 $respuesta = $query->execute();
             }
             return $respuesta;

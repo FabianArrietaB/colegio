@@ -6,6 +6,45 @@ $(document).ready(function(){
     $('#tablalistareportesadmin').load('reportes/listareportesadmin.php');
 });
 
+//Llenar Campos Producto
+$('#frmventas').change(function(){
+    //condicion para limpiar campos
+    if($('#idproducto').val()==0){
+        $('#precio').val("");
+        return
+    }
+    $.ajax({
+        type:"POST",
+        data:"idproducto=" + $('#idproducto').val(),
+        url:"../controlador/productos/detalle.php",
+        success:function(respuesta){
+            respuesta=jQuery.parseJSON(respuesta);
+            $('#precio').val(respuesta['precio']);
+        }
+    });
+});
+
+//Llenar Campos Alumno
+$('#frmventas').change(function(){
+    //condicion para limpiar campos
+    if($('#idalumno').val()==0){
+        $('#correo').val("");
+        $('#telcel').val("");
+        return
+    }
+    $.ajax({
+        type:"POST",
+        data:"idalumno=" + $('#idalumno').val(),
+        url:"../controlador/alumnos/detalle.php",
+        success:function(respuesta){
+            respuesta=jQuery.parseJSON(respuesta);
+            $('#correo').val(respuesta['correo']);
+            $('#telcel').val(respuesta['telcel']);
+        }
+    });
+});
+
+
 //Usuario
 function crearsolicitud(){
     $.ajax({
@@ -92,6 +131,7 @@ function solucion(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
+                console.log(respuesta)
                 $('#solucion').modal('hide');
                 $('#tablalistareportesadmin').load('reportes/listareportesadmin.php');
                 Swal.fire({
@@ -122,6 +162,7 @@ function ventas(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
+                console.log(respuesta)
                 $('#ventas').modal('hide');
                 $('#tablalistareportesadmin').load('reportes/listareportesadmin.php');
                 Swal.fire({
