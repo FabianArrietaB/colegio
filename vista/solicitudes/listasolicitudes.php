@@ -34,30 +34,30 @@
             </tr>
         </thead>
         <tbody>
-        <?php while ($reportes = mysqli_fetch_array($query)) { ?>
+        <?php while ($solicitudes = mysqli_fetch_array($query)) { ?>
             <tr>
-                <td><?php if ($reportes['tiposolicitud'] == 1) { ?>
+                <td><?php if ($solicitudes['tiposolicitud'] == 1) { ?>
                         <span">SOLICITUD</span>
-                    <?php } else if ($reportes['tiposolicitud'] == 2) { ?>
+                    <?php } else if ($solicitudes['tiposolicitud'] == 2) { ?>
                         <span >REPORTE</span>
                     <?php } ?></td>
-                <td><?php echo $reportes['detalle']; ?></td>
+                <td><?php echo $solicitudes['detalle']; ?></td>
                 <td>
-                    <?php if ($reportes['estado'] == 0) { ?>
+                    <?php if ($solicitudes['estado'] == 0) { ?>
                         <span class="badge text-bg-success">ABIERTO</span>
-                    <?php } else if ($reportes['estado'] == 1) { ?>
+                    <?php } else if ($solicitudes['estado'] == 1) { ?>
                         <span class="badge text-bg-danger">CERRADO</span>
                     <?php } ?>
                 </td>
                
-                <td><?php if ($reportes['solucion'] == 0) { ?>
+                <td><?php if ($solicitudes['solucion'] == 0) { ?>
                         <span">SIN RESPUESTA</span>
                     <?php } else { ?>
-                        <?php echo $reportes['solucion']; ?>
+                        <?php echo $solicitudes['solucion']; ?>
                     <?php } ?>
                 </td>
                 <td>
-                <?php if ($reportes['estado'] == 0) { ?><button type="button" class="btn btn-danger"  onclick="eliminarsolicitud('<?php echo $reportes['idsolicitud']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button><?php } ?>
+                <?php if ($solicitudes['estado'] == 0) { ?><button type="button" class="btn btn-danger"  onclick="eliminarsolicitud('<?php echo $solicitudes['idsolicitud']?>')"><i class="fa-regular fa-trash-can fa-beat fa-xl"></i></button><?php } ?>
                 </td>
             </tr>
         <?php } ?>

@@ -7,7 +7,7 @@
     $sql = "SELECT
         m.id_matricula AS idmatricula,
         m.mat_saldo AS saldo,
-        m.mat_detalle AS detalle,
+        m.id_tipopago AS idtippago,
         m.mat_valmat AS matricula,
         m.mat_fecope AS fecha,
         m.id_alumno AS idalumno,
@@ -44,7 +44,9 @@
                 <td><?php echo $matriculas['grado'];?></td>
                 <td><?php echo $matriculas['matricula'];?></td>
                 <td><?php echo $matriculas['saldo'];?></td>
-                <td><?php echo $matriculas['detalle'];?></td>
+                <td><?php if ($matriculas['idtippago'] == 1) { ?>
+                        <span >ABONO MATRICULA</span>
+                    <?php } ?></td>
                 <td><?php echo $matriculas['fecha'];?></td>
                 <td>
                     <input class="btn btn-success" type="button" value="Tomar Pago" data-bs-toggle="modal" data-bs-target="#pago" onclick="detallematricula('<?php echo $matriculas['idmatricula']?>')">

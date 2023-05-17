@@ -6,7 +6,7 @@
       'tiposolicitud'  => $_POST['tiposolicitud'],
       'detalle'  => $_POST['detalle'],
     );
-    include "../../modelo/reportes.php";
-    $Reportes = new Reportes();
-    echo $Reportes->crearsolicitud($datos);
+    include "../../modelo/solicitudes.php";
+    $Solicitudes = new Solicitudes();
+    echo $Solicitudes->crearsolicitud($datos);
 ?>

@@ -1,9 +1,9 @@
 $(document).ready(function(){
-    $('#tablalistareportes').load('reportes/listareportes.php');
+    $('#tablalistasolicitudes').load('solicitudes/listasolicitudes.php');
 });
 
 $(document).ready(function(){
-    $('#tablalistareportesadmin').load('reportes/listareportesadmin.php');
+    $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
 });
 
 //Llenar Campos Producto
@@ -16,7 +16,7 @@ $('#frmventas').change(function(){
     $.ajax({
         type:"POST",
         data:"idproducto=" + $('#idproducto').val(),
-        url:"../controlador/productos/llenar.php",
+        url:"../controlador/productos/detalle.php",
         success:function(respuesta){
             respuesta=jQuery.parseJSON(respuesta);
             $('#precio').val(respuesta['precio']);
@@ -29,11 +29,12 @@ function crearsolicitud(){
     $.ajax({
         type: "POST",
         data: $('#frmsolicitud').serialize(),
-        url: "../controlador/reportes/crear.php",
+        url: "../controlador/solicitudes/crear.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistareportes').load('reportes/listareportes.php');
+                console.log(respuesta)
+                $('#tablalistasolicitudes').load('solicitudes/listasolicitudes.php');
                 $('#frmsolicitud')[0].reset();
                 Swal.fire({
                     icon: 'success',
@@ -59,11 +60,11 @@ function eliminarsolicitud(idsolicitud){
     $.ajax({
         type: "POST",
         data:"idsolicitud=" + idsolicitud,
-        url:"../controlador/reportes/eliminar.php",
+        url:"../controlador/solicitudes/eliminar.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                $('#tablalistareportes').load('reportes/listareportes.php');
+                $('#tablalistasolicitudes').load('solicitudes/listasolicitudes.php');
                     swal.fire({
                         icon: 'success',
                         title: 'Solicitud Eliminada Exitosamente',
@@ -87,16 +88,14 @@ function detallesolicitud(idsolicitud){
     $.ajax({
         type: "POST",
         data: "idsolicitud=" + idsolicitud,
-        url: "../controlador/reportes/detalle.php",
+        url: "../controlador/solicitudes/detalle.php",
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
+            console.log(respuesta)
             $('#idsolicitud').val(respuesta['idsolicitud']);
             $('#idusuario').val(respuesta['idusuario']);
             $('#idgradou').val(respuesta['idgrado']);
-            $('#idempleado').val(respuesta['idempleado']);
-            $('#usuariou').val(respuesta['usuario']);
-            $('#tiposolicitudu').val(respuesta['tiposolicitud']);
-            $('#detalleu').val(respuesta['detalle']);
+            $('#idventau').val(respuesta['id_venta']);
             $('#estadou').val(respuesta['estado']);
         }
     });
@@ -106,13 +105,13 @@ function solucion(){
     $.ajax({
         type: "POST",
         data: $('#frmsolucion').serialize(),
-        url: "../controlador/reportes/solucion.php",
+        url: "../controlador/solicitudes/solucion.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
                 console.log(respuesta)
                 $('#solucion').modal('hide');
-                $('#tablalistareportesadmin').load('reportes/listareportesadmin.php');
+                $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Solucion Actualizada Exitosamente',
@@ -137,13 +136,13 @@ function ventas(){
     $.ajax({
         type: "POST",
         data: $('#frmventas').serialize(),
-        url: "../controlador/reportes/ventas.php",
+        url: "../controlador/solicitudes/ventas.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
                 console.log(respuesta)
                 $('#ventas').modal('hide');
-                $('#tablalistareportesadmin').load('reportes/listareportesadmin.php');
+                $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Venta Realizada Exitosamente',

@@ -6,7 +6,7 @@
         'estado'        => $_POST['estadou'],
         'solucion'      => $_POST['solucionu'],
     );
-    include "../../modelo/reportes.php";
-    $Reportes = new Reportes();
-    echo $Reportes->solucion($datos);
+    include "../../modelo/solicitudes.php";
+    $Solicitudes = new Solicitudes();
+    echo $Solicitudes->solucion($datos);
 ?>

@@ -107,13 +107,6 @@
         <span class="tooltip">Productos</span>
       </li>
       <li>
-        <a href="informes.php">
-        <i class='bx bxs-file-doc'></i>
-          <span class="link_name">Informes</span>
-        </a>
-        <span class="tooltip">Informes</span>
-      </li>
-      <li>
         <a href="usuarios.php">
           <i class='bx bx-user-circle'></i>
           <span class="link_name">Usuarios</span>
@@ -121,11 +114,11 @@
         <span class="tooltip">Usuarios</span>
       </li>
       <li>
-        <a href="reportes.php">
-          <i class="bx bx-folder"></i>
-          <span class="link_name">Reportes</span>
+        <a href="informes.php">
+        <i class='bx bxs-file-doc'></i>
+          <span class="link_name">Informes</span>
         </a>
-        <span class="tooltip">Reportes</span>
+        <span class="tooltip">Informes</span>
       </li>
       <li>
         <a href="estadisticas.php">

@@ -58,8 +58,11 @@
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label class="form-label">Observacion</label>
-                                    <input type="text" id="detallu" name="detallu" class="form-control input-sm">
+                                    <select id="idtippagou" name="idtippagou" class="form-control input-sm">
+                                        <option selected >TIPO PAGO</option>
+                                        <option value="1">ABONO MATRICULA</option>
+                                        <option value="2">PAGO TOTAL MATRICULA</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

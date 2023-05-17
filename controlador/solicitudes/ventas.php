@@ -6,7 +6,7 @@
         'idproducto' => $_POST['idproducto'],
         'precio'    => $_POST['precio'],
     );
-    include "../../modelo/reportes.php";
-    $Reportes = new Reportes();
-    echo $Reportes->ventas($datos);
+    include "../../modelo/solicitudes.php";
+    $Solicitudes = new Solicitudes();
+    echo $Solicitudes->ventas($datos);
 ?>

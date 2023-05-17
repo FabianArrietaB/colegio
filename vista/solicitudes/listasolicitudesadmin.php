@@ -41,39 +41,39 @@ $query = mysqli_query($conexion, $sql);
             </tr>
         </thead>
         <tbody>
-        <?php while ($reportes = mysqli_fetch_array($query)) { ?>
+        <?php while ($solicitudes = mysqli_fetch_array($query)) { ?>
             <tr>
-                <td><?php echo $reportes['usuario']; ?></td>
-                <td><?php echo $reportes['grado']; ?></td>
+                <td><?php echo $solicitudes['usuario']; ?></td>
+                <td><?php echo $solicitudes['grado']; ?></td>
                 <td>
-                <?php if ($reportes['tiposolicitud'] == 1) { ?>
+                <?php if ($solicitudes['tiposolicitud'] == 1) { ?>
                         <span">SOLICITUD</span>
-                    <?php } else if ($reportes['tiposolicitud'] == 2) { ?>
+                    <?php } else if ($solicitudes['tiposolicitud'] == 2) { ?>
                         <span >REPORTE</span>
                     <?php } ?>
                 </td>
-                <td><?php echo $reportes['detalle']; ?></td>
+                <td><?php echo $solicitudes['detalle']; ?></td>
                 <td>
-                    <?php if ($reportes['estado'] == 0) { ?>
+                    <?php if ($solicitudes['estado'] == 0) { ?>
                         <span class="badge text-bg-success">ABIERTO</span>
-                    <?php } else if ($reportes['estado'] == 1) { ?>
+                    <?php } else if ($solicitudes['estado'] == 1) { ?>
                         <span class="badge text-bg-danger">CERRADO</span>
                     <?php } ?>
                 </td>
                 <td>
-                    <?php if ($reportes['idventa'] == 0) { ?>
+                    <?php if ($solicitudes['idventa'] == 0) { ?>
                         <span class="badge text-bg-danger">NO ASIGNADA</span>
                     <?php } else { ?>
-                        <span class="badge text-bg-success"><?php echo $reportes['solucion']; ?></span>
+                        <span class="badge text-bg-success"><?php echo $solicitudes['solucion']; ?></span>
                     <?php } ?>
                 </td>
-                <td><?php echo $reportes['fecoperacion']; ?></td>
-                <td><?php echo $reportes['fecsolucion']; ?></td>
+                <td><?php echo $solicitudes['fecoperacion']; ?></td>
+                <td><?php echo $solicitudes['fecsolucion']; ?></td>
                 <td>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#solucion" onclick="detallesolicitud('<?php echo $reportes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#solucion" onclick="detallesolicitud('<?php echo $solicitudes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button>
                 </td>
                 <td>
-                    <?php if ($reportes['tiposolicitud'] == 1){ ?><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#ventas"><i class="fa-solid fa-stamp fa-xl"></i></button> <?php } ?>
+                    <?php if ($solicitudes['tiposolicitud'] == 1){ ?><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#ventas" onclick="detallesolicitud('<?php echo $solicitudes['idsolicitud']?>')"><i class="fa-solid fa-stamp fa-xl"></i></button> <?php } ?>
                 </td>
             </tr>
         <?php } ?>

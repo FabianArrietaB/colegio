@@ -3,7 +3,7 @@
         'idmatricula'=> $_POST['idmatricula'],
         'idalumno'   => $_POST['idalumno'],
         "idgrado"    => $_POST['idgrado'],
-        'detall'     => $_POST['detallu'],
+        'idtippago'  => $_POST['idtippagou'],
         'abono'      => $_POST['abonou'],
         'matricula'  => $_POST['matriculau'],
         'balance'    => $_POST['balanceu'],

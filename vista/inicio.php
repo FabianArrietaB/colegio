@@ -11,7 +11,7 @@
     $sql = "SELECT
         m.id_matricula AS idmatricula,
         m.mat_saldo AS saldo,
-        m.mat_detalle AS detalle,
+        m.id_tipopago AS idtippago,
         m.mat_valmat AS matricula,
         m.mat_fecope AS fecha,
         m.id_alumno AS idalumno,

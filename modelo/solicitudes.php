@@ -1,7 +1,7 @@
 <?php
     include "conexion.php";
 
-    class Reportes extends Conexion {
+    class Solicitudes extends Conexion {
 
         public function crearsolicitud($datos){
             $conexion = Conexion::conectar();
@@ -29,6 +29,7 @@
                     s.id_usuario        AS idusuario,
                     s.id_grado          AS idgrado,
                     s.id_operador       AS idoperador,
+                    s.id_venta          AS idventa,
                     s.rep_tipo          AS tiposolicitud,
                     s.rep_detalle       AS detalle,
                     s.rep_estado        AS estado,
@@ -43,6 +44,7 @@
             'idusuario' => $solicitud['idusuario'],
             'idgrado' => $solicitud['idgrado'],
             'idoperador' => $solicitud['idoperador'],
+            'idventa' => $solicitud['idventa'],
             'tiposolicitud' => $solicitud['tiposolicitud'],
             'detalle' => $solicitud['detalle'],
             'estado' => $solicitud['estado'],
@@ -63,7 +65,7 @@
             $respuesta = $query->execute();
             if ($respuesta > 0) {
                 $idventa = mysqli_insert_id($conexion);
-                $insertventa = "UPDATE solicitudes SET id_venta = ? WHERe  id_solicitud = ?";
+                $insertventa = "UPDATE solicitudes SET id_venta = ? WHERE id_solicitud = ?";
                 $query = $conexion->prepare($insertventa);
                 $query->bind_param("ii", $idventa, $datos['idsolicitud']);
                 $respuesta = $query->execute();
