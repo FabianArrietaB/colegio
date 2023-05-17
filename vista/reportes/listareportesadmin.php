@@ -9,7 +9,7 @@ $sql = "SELECT
     u.user_nombre       AS usuario,
     s.id_grado          AS idgrado,
     g.gra_nombre        AS grado,
-    s.id_empleado       AS idempleado,
+    s.id_operador       AS idoperador,
     s.id_venta          AS idventa,
     s.rep_tipo          AS tiposolicitud,
     s.rep_detalle       AS detalle,
