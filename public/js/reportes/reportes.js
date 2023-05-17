@@ -16,34 +16,13 @@ $('#frmventas').change(function(){
     $.ajax({
         type:"POST",
         data:"idproducto=" + $('#idproducto').val(),
-        url:"../controlador/productos/detalle.php",
+        url:"../controlador/productos/llenar.php",
         success:function(respuesta){
             respuesta=jQuery.parseJSON(respuesta);
             $('#precio').val(respuesta['precio']);
         }
     });
 });
-
-//Llenar Campos Alumno
-$('#frmventas').change(function(){
-    //condicion para limpiar campos
-    if($('#idalumno').val()==0){
-        $('#correo').val("");
-        $('#telcel').val("");
-        return
-    }
-    $.ajax({
-        type:"POST",
-        data:"idalumno=" + $('#idalumno').val(),
-        url:"../controlador/alumnos/detalle.php",
-        success:function(respuesta){
-            respuesta=jQuery.parseJSON(respuesta);
-            $('#correo').val(respuesta['correo']);
-            $('#telcel').val(respuesta['telcel']);
-        }
-    });
-});
-
 
 //Usuario
 function crearsolicitud(){

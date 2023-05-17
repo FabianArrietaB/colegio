@@ -27,6 +27,24 @@
             return $respuesta;
         }
 
+        public function llenarProducto($idproducto){
+            $conexion = Conexion::conectar();
+            $sql ="SELECT
+                productos.id_producto   AS idproducto,
+                productos.pro_nombre    AS nombre,
+                productos.pro_precio    AS precio
+                FROM productos AS productos
+                WHERE productos.id_producto ='$idproducto'";
+                $respuesta = mysqli_query($conexion,$sql);
+                $productos = mysqli_fetch_array($respuesta);
+                $datos = array(
+                'idproducto' => $productos['idproducto'],
+                'nombre' => $productos['nombre'],
+                'precio' => $productos['precio'],
+            );
+            return $datos;
+        }
+
         public function detalleproducto($idproducto){
             $conexion = Conexion::conectar();
             $sql ="SELECT

@@ -26,18 +26,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Correo</label>
-                                    <input type="text" id="correo" name="correo" class="form-control input-sm" readonly>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Telefono</label>
-                                    <input type="text" id="telcel" name="telcel" class="form-control input-sm" readonly>
-                                </div>
-                            </div>
                         </div>
                     </fieldset>
                         <!-- Formulario (Solicitud) -->
