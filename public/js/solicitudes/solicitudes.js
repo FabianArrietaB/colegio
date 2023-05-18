@@ -94,6 +94,8 @@ function detallesolicitud(idsolicitud){
             $('#idsolicitud').val(respuesta['idsolicitud']);
             $('#detalleu').val(respuesta['detalle']);
             $('#usuariou').val(respuesta['usuario']);
+            $('#estadou').val(respuesta['estado']);
+            $('#solucionu').val(respuesta['solucion']);
         }
     });
 }

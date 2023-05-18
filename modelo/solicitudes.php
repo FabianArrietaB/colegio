@@ -98,19 +98,17 @@
 
         public function solucion($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE solicitudes SET
-                        id_operador = ?,
-                        rep_estado = ?,
-                        rep_solucion = ?
-                        WHERE id_solicitud = ?";
+            $sql = "UPDATE solicitudes SET rep_estado = ?, rep_solucion = ? WHERE id_solicitud = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('issi',
-                                $datos['idoperador'],
-                                $datos['estado'],
-                                $datos['solucion'],
-                                $datos['idsolicitud']);
+            $query->bind_param('ssi', $datos['estado'], $datos['solucion'], $datos['idsolicitud']);
             $respuesta = $query->execute();
-            $query->close();
+            if ($datos['reptipo'] = 1) {
+                $idsolicitud = mysqli_insert_id($conexion);
+                $insertventa = "INSERT INTO ventas (id_alumno, id_producto, id_operador, id_solicitud, ven_precio) VALUES(?, ?, ?, ?, ?)";
+                $query = $conexion->prepare($insertventa);
+                $query->bind_param("iiiis",$datos['idalumno'], $datos['idproducto'],  $datos['idoperador'], $idsolicitud, $datos['precio'],);
+                $respuesta = $query->execute();
+            }
             return $respuesta;
         }
     }
