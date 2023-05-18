@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <select name="estadou" id="estadou" class="form-control input-sm">
+                                    <select name="estado" id="estado" class="form-control input-sm">
                                         <option value="0">ABIERTO</option>
                                         <option value="1">CERRADO</option>
                                     </select>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-9">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="solucionu" name="solucionu" class="form-control input-sm">
+                                    <input type="text" id="solucion" name="solucion" class="form-control input-sm">
                                 </div>
                             </div>
                         </div>

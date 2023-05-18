@@ -6,23 +6,23 @@ $(document).ready(function(){
     $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
 });
 
-//Llenar Campos Producto
-$('#frmsolucion').change(function(){
-    //condicion para limpiar campos
-    if($('#idproducto').val()==0){
-        $('#precio').val("");
-        return
-    }
-    $.ajax({
-        type:"POST",
-        data:"idproducto=" + $('#idproducto').val(),
-        url:"../controlador/productos/detalle.php",
-        success:function(respuesta){
-            respuesta=jQuery.parseJSON(respuesta);
-            $('#precio').val(respuesta['precio']);
-        }
-    });
-});
+// //Llenar Campos Producto
+// $('#frmsolucion').change(function(){
+//     //condicion para limpiar campos
+//     if($('#idproducto').val()==0){
+//         $('#precio').val("");
+//         return
+//     }
+//     $.ajax({
+//         type:"POST",
+//         data:"idproducto=" + $('#idproducto').val(),
+//         url:"../controlador/productos/detalle.php",
+//         success:function(respuesta){
+//             respuesta=jQuery.parseJSON(respuesta);
+//             $('#precio').val(respuesta['precio']);
+//         }
+//     });
+// });
 
 //Usuario
 function crearsolicitud(){
@@ -92,14 +92,7 @@ function detallesolicitud(idsolicitud){
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
             $('#idsolicitud').val(respuesta['idsolicitud']);
-            $('#idusuario').val(respuesta['idusuario']);
-            $('#idgradou').val(respuesta['idgrado']);
-            $('#idoperador').val(respuesta['idoperador']);
-            $('#idventau').val(respuesta['idventa']);
-            $('#reptipou').val(respuesta['reptipo']);
             $('#detalleu').val(respuesta['detalle']);
-            $('#solucionu').val(respuesta['solucion']);
-            $('#estadou').val(respuesta['estado']);
             $('#usuariou').val(respuesta['usuario']);
         }
     });
