@@ -13,6 +13,8 @@
                         <legend class="group-border">Informacion Solicitud</legend>
                         <div class="row">
                             <input type="text" id="idsolicitud" name="idsolicitud" hidden>
+                            <input type="text" id="idusuario" name="idusuario" hidden>
+                            <input type="text" id="idgrado" name="idgrado" hidden>
                             <div class="col-6">
                                 <div class="input-group mb-3">
                                     <input type="text" id="usuariou" name="usuariou" class="form-control input-sm" disabled>
@@ -39,7 +41,7 @@
                             </div>
                             <div class="col-9">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="solucionu" name="solucionu" class="form-control input-sm">
+                                    <input type="text" id="solucion" name="solucion" class="form-control input-sm">
                                 </div>
                             </div>
                         </div>

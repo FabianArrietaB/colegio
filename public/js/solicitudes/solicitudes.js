@@ -92,10 +92,14 @@ function detallesolicitud(idsolicitud){
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
             $('#idsolicitud').val(respuesta['idsolicitud']);
-            $('#detalleu').val(respuesta['detalle']);
-            $('#usuariou').val(respuesta['usuario']);
+            $('#idusuario').val(respuesta['idusuario']);
+            $('#idgrado').val(respuesta['idgrado']);
+            $('#idoperador').val(respuesta['idoperador']);
+            $('#reptipo').val(respuesta['reptipo']);
+            $('#detalle').val(respuesta['detalle']);
             $('#estadou').val(respuesta['estado']);
             $('#solucionu').val(respuesta['solucion']);
+            $('#usuariou').val(respuesta['usuario']);
         }
     });
 }

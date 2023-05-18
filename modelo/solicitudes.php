@@ -29,7 +29,6 @@
                     s.id_usuario        AS idusuario,
                     s.id_grado          AS idgrado,
                     s.id_operador       AS idoperador,
-                    s.id_venta          AS idventa,
                     s.rep_tipo          AS reptipo,
                     s.rep_detalle       AS detalle,
                     s.rep_estado        AS estado,
