@@ -36,6 +36,7 @@
         </thead>
         <tbody>
             <?php
+                $hoy = date("d-m-Y");
                 while ($matriculas = mysqli_fetch_array($query)){
             ?>
             <tr>
@@ -43,6 +44,7 @@
                 <td><?php echo $matriculas['grado'];?></td>
                 <td><?php echo $matriculas['pension'];?></td>
                 <td><?php echo $matriculas['fecpen'];?></td>
+                <td><?php echo $hoy;?> </td>
                 <td>
                     <input class="btn btn-success" type="button" value="Tomar Pago" data-bs-toggle="modal" data-bs-target="#pago" onclick="detallematricula('<?php echo $matriculas['idmatricula']?>')">
                 </td>
