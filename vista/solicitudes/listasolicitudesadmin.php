@@ -63,7 +63,7 @@ $query = mysqli_query($conexion, $sql);
                     <?php if ($solicitudes['idventa'] == 0) { ?>
                         <span class="badge text-bg-danger">NO ASIGNADA</span>
                     <?php } else { ?>
-                        <span class="badge text-bg-success"><?php echo $solicitudes['solucion']; ?></span>
+                        <span class="badge text-bg-success"><?php echo $solicitudes['idventa']; ?></span>
                     <?php } ?>
                 </td>
                 <td><?php echo $solicitudes['fecoperacion']; ?></td>

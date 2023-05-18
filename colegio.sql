@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2023 a las 05:56:36
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 18-05-2023 a las 23:16:47
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,16 +50,12 @@ CREATE TABLE `acudientes` (
 --
 
 INSERT INTO `acudientes` (`id_acudiente`, `id_alumno`, `id_operador`, `acu_nombre`, `acu_cladoc`, `acu_docume`, `acu_ciudad`, `acu_direcc`, `acu_estrat`, `acu_telcel`, `acu_correo`, `acu_parent`, `acu_estado`, `acu_fecope`, `acu_fecupd`) VALUES
-(1, 1, NULL, 'ANGIE MICHELLE BOLAÑOS GRANADOZ', 'CEDULA', '1002521463', 'BARRANQUILLA', 'CARRERA 8E # 51 - 52', '3', '3152458574', 'SAGIAN16@GMAIL.COM', 'MADRE', 1, '2023-05-10 02:01:19', '2023-05-10 02:01:19'),
-(2, 1, NULL, 'FABIAN ANDRES ARRIETA BLANCO', 'CEDULA', '1045689957', 'SANTA MARTA', 'CALLE 41 # 33 - 210', '3', '3013996994', 'F.ARRIETA@OUTLOOK.COM', 'PADRE', 1, '2023-05-10 02:01:19', '2023-05-10 02:01:19'),
+(1, 1, NULL, 'ANGIE MICHELLE BOLAÑOS GRANADOZ', 'CEDULA', '1002521463', 'BARRANQUILLA', 'CARRERA 8E # 51 - 52', '3', '3152458574', 'SAGIAN16@GMAIL.COM', 'MADRE', 1, '2023-05-10 02:01:19', '2023-05-17 18:15:49'),
+(2, 1, NULL, 'FABIAN ANDRES ARRIETA BLANCO', 'CEDULA', '1045689957', 'SANTA MARTA', 'CALLE 41 # 33 - 210', '3', '3013996994', 'F.ARRIETA@OUTLOOK.COM', 'PADRE', 1, '2023-05-10 02:01:19', '2023-05-17 18:15:49'),
 (3, 2, NULL, 'KAROL MAITE GOMEZ ORTEGON', 'CEDULA', '1002458964', 'BARRANQUILLA', 'CALLE 41 # 33 - 195', '3', '3154684165', 'CGOMEZ@GMAIL.COM', 'MADRE', 1, '2023-05-14 16:45:16', '2023-05-14 16:56:11'),
 (4, 2, NULL, 'EDER EDUARDO SILVA BLANCO', 'CEDULA', '1045689547', 'BARRANQUILLA', 'CALLE 41 # 33 - 210', '3', '3102457896', 'ESILVA@GMAIL.COM', 'PADRE', 1, '2023-05-14 16:45:16', '2023-05-14 16:56:11'),
 (5, 3, NULL, 'yoelys blanco beltran', 'CEDULA', '186724006', 'santa marta', 'CALLE 43 # 27 - 161', '3', '300000000', '', 'MADRE', 1, '2023-05-15 00:37:19', '2023-05-15 00:37:19'),
-(6, 3, NULL, 'william andres peralta ruiz', 'CEDULA', '108234569', 'SANTA MARTA', 'CALLE 41 # 33 - 210', '3', '300000000', 'williamperalta@gmail.com', 'PADRE', 1, '2023-05-15 00:37:19', '2023-05-15 00:37:19'),
-(7, 4, NULL, 'ANGIE MICHELLE BOLAÑOS GRANADOZ', 'CEDULA', '1002458964', 'BARRANQUILLA', 'CARRERA 8E # 41 - 65', '3', '3154684165', 'SAGIAN@GMAIL.COM', 'MADRE', 1, '2023-05-15 03:46:42', '2023-05-15 03:46:42'),
-(8, 4, NULL, 'FABIAN ANDRES ARRIETA BLANCO', 'CEDULA', '1045689957', 'SANTA MARTA', 'CALLE 43 # 27 - 161', '3', '3013996994', 'F.ARRIETA@OUTLOOK.COM', 'PADRE', 1, '2023-05-15 03:46:42', '2023-05-15 03:46:42'),
-(9, 5, NULL, 'KAROL MAITE GOMEZ ORTEGON', 'CEDULA', '1002458964', 'BARRANQUILLA', 'CALLE 41 # 33 - 195', '3', '3154684165', 'CGOMEZ@GMAIL.COM', 'MADRE', 1, '2023-05-15 04:04:05', '2023-05-15 04:04:05'),
-(10, 5, NULL, 'EDER EDUARDO SILVA BLANCO', 'CEDULA', '1045689547', 'BARRANQUILLA', 'CALLE 41 # 33 - 210', '3', '3102457896', 'ESILVA@GMAIL.COM', 'PADRE', 1, '2023-05-15 04:04:05', '2023-05-15 04:04:05');
+(6, 3, NULL, 'william andres peralta ruiz', 'CEDULA', '108234569', 'SANTA MARTA', 'CALLE 41 # 33 - 210', '3', '300000000', 'williamperalta@gmail.com', 'PADRE', 1, '2023-05-15 00:37:19', '2023-05-15 00:37:19');
 
 -- --------------------------------------------------------
 
@@ -93,11 +89,9 @@ CREATE TABLE `alumnos` (
 --
 
 INSERT INTO `alumnos` (`id_alumno`, `id_grado`, `id_operador`, `alu_nombre`, `alu_cladoc`, `alu_docume`, `alu_sexo`, `alu_gposan`, `alu_factrh`, `alu_ciudad`, `alu_direcc`, `alu_estrat`, `alu_telcel`, `alu_correo`, `alu_estado`, `alu_fecnac`, `alu_fecope`, `alu_fecupd`) VALUES
-(1, 4, 0, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'TARJETA IDENTIDAD', '1043215785', 'MASCULINO', 'O', 'FACTOR RH', 'BARRANQUILLA', 'CARRERA 8E # 51 - 52', '3', '3152458574', 'MICHELLEARRIETA46@GMAIL.COM', 1, '2013-10-14', '2023-05-10 02:01:19', '2023-05-10 02:01:19'),
+(1, 4, 0, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'TARJETA IDENTIDAD', '1043215785', 'MASCULINO', 'O', 'FACTOR RH', 'BARRANQUILLA', 'CARRERA 8E # 51 - 52', '3', '3152458574', 'MICHELLEARRIETA46@GMAIL.COM', 1, '2013-10-14', '2023-05-10 02:01:19', '2023-05-17 18:15:49'),
 (2, 5, 0, 'SAMUEL JOSE SILVA BLANCO', 'TARJETA IDENTIDAD', '1043568941', 'MASCULINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CALLE 41 # 33 - 195', '3', '300000000', 'SSILVA@GMAIL.COM', 1, '2012-10-26', '2023-05-14 16:45:16', '2023-05-14 16:56:11'),
-(3, 3, 0, 'SANTIAGO ANDRES PERALTA BLANCO', 'TARJETA IDENTIDAD', '1043463797', 'MASCULINO', 'O', 'POSITIVO', 'santa marta', 'CALLE 43 # 27 - 161', '3', '300000000', 'speralta@gmail.com', 1, '2010-12-26', '2023-05-15 00:37:19', '2023-05-16 03:22:39'),
-(4, 5, 0, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'TARJETA IDENTIDAD', '1043568941', 'FEMENINO', 'O', 'POSITIVO', 'santa marta', 'CARRERA 8E # 41 - 65', '3', '300000000', 'MARRIETA@GMAIL.COM', 1, '2012-10-14', '2023-05-15 03:46:42', '2023-05-15 03:46:42'),
-(5, 7, 0, 'SAMUEL JOSE SILVA BLANCO', 'TARJETA IDENTIDAD', '1043463797', 'MASCULINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CALLE 41 # 33 - 195', '3', '300000000', 'SSILVA@GMAIL.COM', 1, '3421-01-12', '2023-05-15 04:04:05', '2023-05-15 04:04:05');
+(3, 3, 0, 'SANTIAGO ANDRES PERALTA BLANCO', 'TARJETA IDENTIDAD', '1043463797', 'MASCULINO', 'O', 'POSITIVO', 'santa marta', 'CALLE 43 # 27 - 161', '3', '300000000', 'speralta@gmail.com', 1, '2010-12-26', '2023-05-15 00:37:19', '2023-05-16 03:22:39');
 
 -- --------------------------------------------------------
 
@@ -110,9 +104,9 @@ CREATE TABLE `auditorias` (
   `id_operador` int(11) NOT NULL,
   `id_alumno` int(11) NOT NULL,
   `id_grado` int(11) NOT NULL,
+  `id_tipopago` int(11) NOT NULL,
   `aud_valor` varchar(45) NOT NULL,
   `aud_abono` varchar(45) DEFAULT NULL,
-  `aud_detalle` varchar(45) DEFAULT NULL,
   `aud_fecope` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -120,11 +114,14 @@ CREATE TABLE `auditorias` (
 -- Volcado de datos para la tabla `auditorias`
 --
 
-INSERT INTO `auditorias` (`id_auditoria`, `id_operador`, `id_alumno`, `id_grado`, `aud_valor`, `aud_abono`, `aud_detalle`, `aud_fecope`) VALUES
-(1, 0, 1, 1, '1250000', '250000', 'ABONO MATRICULA', '2023-05-10 02:01:19'),
-(2, 0, 2, 5, '1250000', '1000000', 'ABONO MATRICULA', '2023-05-15 02:01:19'),
-(3, 0, 3, 3, '1250000', '1000000', 'ABONO MATRICULA', '2023-05-15 02:01:19'),
-(4, 0, 5, 7, '1250000', '250000', 'ABONO DE MATRICULA', '2023-05-15 04:04:05');
+INSERT INTO `auditorias` (`id_auditoria`, `id_operador`, `id_alumno`, `id_grado`, `id_tipopago`, `aud_valor`, `aud_abono`, `aud_fecope`) VALUES
+(1, 0, 1, 1, 1, '1250000', '250000', '2023-05-10 02:01:19'),
+(2, 0, 2, 5, 1, '1250000', '1000000', '2023-05-15 02:01:19'),
+(3, 0, 3, 3, 1, '1250000', '1000000', '2023-05-15 02:01:19'),
+(4, 0, 5, 7, 1, '1250000', '250000', '2023-05-15 04:04:05'),
+(5, 0, 3, 3, 1, '1250000', '100000', '2023-05-17 19:24:52'),
+(6, 0, 1, 4, 2, '1250000', '500000', '2023-05-17 19:25:30'),
+(7, 0, 2, 5, 2, '1250000', '250000', '2023-05-17 19:25:58');
 
 -- --------------------------------------------------------
 
@@ -238,23 +235,23 @@ CREATE TABLE `matriculas` (
   `id_alumno` int(11) NOT NULL,
   `id_grado` int(11) NOT NULL,
   `id_operador` int(11) NOT NULL,
+  `id_tipopago` int(11) NOT NULL,
   `mat_valmat` varchar(45) NOT NULL,
   `mat_pensio` varchar(45) NOT NULL,
   `mat_saldo` varchar(45) NOT NULL,
-  `mat_detalle` varchar(255) NOT NULL,
-  `mat_fecope` timestamp NOT NULL DEFAULT current_timestamp()
+  `mat_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
+  `mat_fecmat` timestamp NULL DEFAULT current_timestamp(),
+  `mat_fecpen` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `matriculas`
 --
 
-INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `id_operador`, `mat_valmat`, `mat_pensio`, `mat_saldo`, `mat_detalle`, `mat_fecope`) VALUES
-(1, 1, 4, 0, '1250000', '580000', '500000', 'ABONO MATRICULA', '2023-05-10 02:01:19'),
-(2, 2, 5, 0, '1250000', '580000', '2500000', 'ABONO MATRICULA', '2023-05-14 16:45:16'),
-(3, 3, 3, 0, '1250000', '580000', '100000', 'ABONO MATRICULA', '2023-05-15 00:37:19'),
-(4, 4, 5, 0, '1250000', '580000', '250000', 'ABONO DE MATRICULA', '2023-05-15 03:46:42'),
-(5, 5, 7, 0, '1250000', '580000', '1000000', 'ABONO MATRICULA', '2023-05-15 04:04:05');
+INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `id_operador`, `id_tipopago`, `mat_valmat`, `mat_pensio`, `mat_saldo`, `mat_fecope`, `mat_fecmat`, `mat_fecpen`) VALUES
+(1, 1, 4, 0, 2, '1250000', '580000', '0', '2023-05-10 02:01:19', '2023-05-18 11:20:17', '2023-05-18 11:20:17'),
+(2, 2, 5, 0, 2, '1250000', '580000', '0', '2023-05-14 16:45:16', '2023-05-18 11:20:17', '2023-05-18 11:20:17'),
+(3, 3, 3, 0, 1, '1250000', '580000', '0', '2023-05-15 00:37:19', '2023-05-18 11:20:17', '2023-05-18 11:20:17');
 
 -- --------------------------------------------------------
 
@@ -400,9 +397,9 @@ CREATE TABLE `solicitudes` (
   `id_operador` int(11) NOT NULL DEFAULT 0,
   `id_venta` int(11) NOT NULL,
   `rep_tipo` varchar(45) NOT NULL,
-  `rep_detalle` varchar(45) NOT NULL,
+  `rep_detalle` varchar(250) NOT NULL,
   `rep_estado` varchar(45) NOT NULL DEFAULT '0',
-  `rep_solucion` varchar(45) NOT NULL DEFAULT '0',
+  `rep_solucion` varchar(250) NOT NULL DEFAULT '0',
   `rep_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
   `rep_fecupd` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -412,10 +409,10 @@ CREATE TABLE `solicitudes` (
 --
 
 INSERT INTO `solicitudes` (`id_solicitud`, `id_usuario`, `id_grado`, `id_operador`, `id_venta`, `rep_tipo`, `rep_detalle`, `rep_estado`, `rep_solucion`, `rep_fecope`, `rep_fecupd`) VALUES
-(1, 3, 5, 1, 0, '1', 'CERTIFICADO NOTAS', '0', '0', '2023-05-11 02:01:19', '2023-05-16 01:26:54'),
-(3, 3, 5, 1, 0, '2', 'SILLA MAL ESTADO', '0', '0', '2023-05-11 02:01:19', '2023-05-16 01:26:54'),
-(4, 3, 5, 1, 0, '2', 'TABLERO MAL ESTADO', '0', '0', '2023-05-11 02:01:19', '2023-05-16 01:26:54'),
-(5, 3, 5, 1, 0, '1', 'CERTIFICADO ESTUDIANTIL', '0', '0', '2023-05-11 00:18:57', '2023-05-17 03:35:27');
+(1, 3, 5, 1, 26, '1', 'CERTIFICADO NOTAS', '1', '[SE PROCEDE A GENERAR CERTIFICADO FECHA ENTREGA PROXIMO LUNES]', '2023-05-11 02:01:19', '2023-05-18 20:56:44'),
+(3, 3, 5, 0, 0, '2', 'SILLA MAL ESTADO', '0', '0', '2023-05-11 02:01:19', '2023-05-18 20:56:05'),
+(4, 3, 5, 0, 0, '2', 'TABLERO MAL ESTADO', '0', '0', '2023-05-11 02:01:19', '2023-05-18 20:56:05'),
+(5, 3, 5, 0, 0, '1', 'CERTIFICADO ESTUDIANTIL', '0', '0', '2023-05-11 00:18:57', '2023-05-18 20:56:05');
 
 -- --------------------------------------------------------
 
@@ -443,7 +440,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_operador`, `user_usuario`, `user_nombre`, `user_contra`, `user_correo`, `user_estado`, `user_fecope`, `user_fecupd`) VALUES
 (1, 4, 0, 'Admin', 'Administrador', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-14 00:00:00'),
 (2, 3, 0, 'Farrieta', 'Fabian Arrieta', '202cb962ac59075b964b07152d234b70', 'f.arrieta@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-15 00:00:00'),
-(3, 1, 0, 'Marrieta', 'Michelle Arrieta', '81dc9bdb52d04dc20036dbd8313ed055', 'm.arrieta@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-14 00:00:00');
+(3, 1, 0, 'Marrieta', 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'd41d8cd98f00b204e9800998ecf8427e', 'm.arrieta@gmail.com', 1, '2023-02-12 00:00:00', '2023-04-14 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -452,13 +449,26 @@ INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_operador`, `user_usuario`, `
 --
 
 CREATE TABLE `ventas` (
-  `id` int(11) NOT NULL,
-  `id_alumno` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `id_operador` int(11) NOT NULL,
-  `ven_precio` varchar(45) NOT NULL,
-  `ven_fecope` timestamp NOT NULL DEFAULT current_timestamp()
+  `id_venta` int(11) NOT NULL,
+  `id_alumno` int(11) DEFAULT NULL,
+  `id_producto` int(11) DEFAULT NULL,
+  `id_operador` int(11) DEFAULT NULL,
+  `ven_precio` varchar(45) DEFAULT NULL,
+  `ven_fecope` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`id_venta`, `id_alumno`, `id_producto`, `id_operador`, `ven_precio`, `ven_fecope`) VALUES
+(6, 1, 1, 1, '50000', '2023-05-17 21:22:50'),
+(7, 1, 1, 1, '50000', '2023-05-17 21:26:15'),
+(8, 1, 1, 1, '50000', '2023-05-17 21:56:37'),
+(9, 2, 14, 1, '55000', '2023-05-17 22:03:24'),
+(10, 1, 1, 1, '50000', '2023-05-17 22:31:19'),
+(45, 1, 1, 1, '50000', '2023-05-18 20:08:01'),
+(46, 1, 12, 1, '35000', '2023-05-18 20:20:58');
 
 --
 -- Índices para tablas volcadas
@@ -552,7 +562,7 @@ ALTER TABLE `usuarios`
 -- Indices de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_venta`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -574,7 +584,7 @@ ALTER TABLE `alumnos`
 -- AUTO_INCREMENT de la tabla `auditorias`
 --
 ALTER TABLE `auditorias`
-  MODIFY `id_auditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_auditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -646,7 +656,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

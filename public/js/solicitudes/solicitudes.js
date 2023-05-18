@@ -113,7 +113,6 @@ function solucion(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                console.log(respuesta)
                 $('#solucion').modal('hide');
                 $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
                 Swal.fire({
