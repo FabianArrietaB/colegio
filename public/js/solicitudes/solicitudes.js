@@ -91,12 +91,16 @@ function detallesolicitud(idsolicitud){
         url: "../controlador/solicitudes/detalle.php",
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
-            console.log(respuesta)
             $('#idsolicitud').val(respuesta['idsolicitud']);
             $('#idusuario').val(respuesta['idusuario']);
             $('#idgradou').val(respuesta['idgrado']);
-            $('#idventau').val(respuesta['id_venta']);
+            $('#idoperador').val(respuesta['idoperador']);
+            $('#idventau').val(respuesta['idventa']);
+            $('#reptipou').val(respuesta['reptipo']);
+            $('#detalleu').val(respuesta['detalle']);
+            $('#solucionu').val(respuesta['solucion']);
             $('#estadou').val(respuesta['estado']);
+            $('#usuariou').val(respuesta['usuario']);
         }
     });
 }

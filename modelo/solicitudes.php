@@ -30,7 +30,7 @@
                     s.id_grado          AS idgrado,
                     s.id_operador       AS idoperador,
                     s.id_venta          AS idventa,
-                    s.rep_tipo          AS tiposolicitud,
+                    s.rep_tipo          AS reptipo,
                     s.rep_detalle       AS detalle,
                     s.rep_estado        AS estado,
                     u.user_nombre       AS usuario
@@ -45,7 +45,7 @@
             'idgrado' => $solicitud['idgrado'],
             'idoperador' => $solicitud['idoperador'],
             'idventa' => $solicitud['idventa'],
-            'tiposolicitud' => $solicitud['tiposolicitud'],
+            'reptipo' => $solicitud['reptipo'],
             'detalle' => $solicitud['detalle'],
             'estado' => $solicitud['estado'],
             'usuario' => $solicitud['usuario'],
@@ -76,7 +76,7 @@
         public function solucion($datos){
             $conexion = Conexion::conectar();
             $sql = "UPDATE solicitudes SET
-                                id_opeador = ?,
+                                id_operador = ?,
                                 rep_estado = ?,
                                 rep_solucion = ?
                                 WHERE id_solicitud = ?";

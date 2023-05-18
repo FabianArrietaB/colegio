@@ -3,7 +3,7 @@
     $datos = Array(
       'idusuario'  => $_SESSION['usuario']['id'],
       'idgrado'  => $_POST['idgrado'],
-      'tiposolicitud'  => $_POST['tiposolicitud'],
+      'reptipo'  => $_POST['reptipo'],
       'detalle'  => $_POST['detalle'],
     );
     include "../../modelo/solicitudes.php";
