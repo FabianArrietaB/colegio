@@ -8,21 +8,6 @@
     include "../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
-    $sql = "SELECT
-        m.id_matricula AS idmatricula,
-        m.mat_saldo AS saldo,
-        m.id_tipopago AS idtippago,
-        m.mat_valmat AS matricula,
-        m.mat_fecope AS fecha,
-        m.id_alumno AS idalumno,
-        a.alu_nombre AS nombre,
-        m.id_grado AS idgrado,
-        g.gra_nombre AS grado
-        FROM matriculas AS m
-        INNER JOIN alumnos AS a ON m.id_alumno = a.id_alumno
-        INNER JOIN grados AS g ON m.id_grado = g.id_grado
-        ORDER BY m.id_matricula ASC";
-    $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
@@ -285,7 +270,18 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div id="tablalistapagos"></div>
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <a name="" id="pagosbtn" class="btn btn-primary" href="#" role="button">MAtriculas</a>
+                        </div>
+                        <div class="col-6">
+                            <a name="" id="pensionbt" class="btn btn-primary" href="#" role="button">Pension</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="tablalistapagos"></div>
+                        <div id="tablalistapension"></div>
+                    </div>
                 </div>
             </div>
             <!-- /. PAGE INNER  -->
@@ -302,7 +298,7 @@
 <script src="../public/js/pagos/pagos.js"></script>
 <!-- Vista Alumno -->
 <?php }else if($_SESSION['usuario']['rol'] == 1){ ?>
-<!-- inicio del contenido principal -->
+    <!-- inicio del contenido principal -->
 <section class="home-section">
     <div class="container-fluid">
         <div class="page-content">
@@ -310,12 +306,14 @@
                 <div class="card-header text-center">
                     <div class="row">
                         <div class="col-md-4">
-                            <a class="btn btn-lg btn-success btn-block mb-3" data-bs-toggle="modal" data-bs-target="#reporte">
+                            <button class="btn btn-lg btn-success btn-block mb-3" data-bs-toggle="modal" data-bs-target="#reporte">
                                 <div class="row">
-                                    <div class="col-3 text-center"><i class="fa-solid fa-notes-medical fa-2x"></i></div>
+                                    <div class="col-3 text-center">
+                                        <i class="fa-solid fa-notes-medical fa-2x"></i>
+                                    </div>
                                     <div class="col-9 text-center pt-1"><strong>CREAR REPORTE</strong></div>
                                 </div>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -338,11 +336,11 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
-include "reportes/crearsolicitud.php";
+include "solicitudes/crearsolicitud.php";
 include "footer.php";
 ?>
 <!-- carga ficheros javascript -->
-<script src="../public/js/reportes/reportes.js"></script>
+<script src="../public/js/solicitudes/solicitudes.js"></script>
 <?php }else{
         header("../index.php");
     }

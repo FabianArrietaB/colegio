@@ -17,7 +17,7 @@
                                 </div>
                         </div>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-6">
                                 <div class="input-group mb-3">
                                     <select name="nombreu" id="nombreu" class="form-control input-sm">
                                         <option selected >Selecione Persona</option>
@@ -31,12 +31,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="usuariou" name="usuariou" class="form-control input-sm">
-                                </div>
-                            </div>
-                            <div class="col-4">
+                            <div class="col-6">
                                 <div class="input-group mb-3">
                                     <input type="text" id="passwordu" name="passwordu" class="form-control input-sm" placeholder="Nueva Contraseña">
                                 </div>
@@ -48,7 +43,7 @@
                                     <input type="text" id="correou" name="correou" class="form-control input-sm" >
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-3">
                                 <div class="input-group mb-3">
                                     <select name="idrolu" id="idrolu" class="form-control input-sm">
                                     <option value="1">Alumno</option>
@@ -56,6 +51,11 @@
                                     <option value="3">Supervisor</option>
                                     <option value="4">Administrador</option>
                                 </select>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="input-group mb-3">
+                                    <input type="text" id="usuariou" name="usuariou" class="form-control input-sm">
                                 </div>
                             </div>
                         </div>

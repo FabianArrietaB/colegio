@@ -9,6 +9,7 @@ function detalleacudiente(idacudiente){
         url: "../controlador/alumnos/detallepadre.php",
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
+            //console.log(respuesta)
             $('#idacudiente').val(respuesta['idacudiente']);
             $('#idalumno').val(respuesta['idalumno']);
             $('#nomaluu').val(respuesta['nomalu']);
@@ -31,6 +32,7 @@ function editaracudiente(){
         url: "../controlador/alumnos/editarpadre.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
+            //console.log(respuesta)
             if(respuesta == 1){
                 $('#padre').modal('hide');
                 $('#tablalistaacudientes').load('alumnos/listaacudientes.php');

@@ -7,7 +7,7 @@ $(document).ready(function(){
 });
 
 //Llenar Campos Producto
-$('#frmventas').change(function(){
+$('#frmsolucion').change(function(){
     //condicion para limpiar campos
     if($('#idproducto').val()==0){
         $('#precio').val("");
@@ -119,37 +119,6 @@ function solucion(){
                 Swal.fire({
                     icon: 'success',
                     title: 'Solucion Actualizada Exitosamente',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }else{
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Error al Editar!',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }
-        }
-    });
-    return false;
-}
-
-function ventas(){
-    $.ajax({
-        type: "POST",
-        data: $('#frmventas').serialize(),
-        url: "../controlador/solicitudes/ventas.php",
-        success:function(respuesta){
-            respuesta = respuesta.trim();
-            if(respuesta == 1){
-                console.log(respuesta)
-                $('#ventas').modal('hide');
-                $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Venta Realizada Exitosamente',
                     showConfirmButton: false,
                     timer: 1500
                 });
