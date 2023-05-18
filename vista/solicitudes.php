@@ -33,7 +33,6 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
-include "solicitudes/crearsolicitud.php";
 include "solicitudes/crearventa.php";
 include "solicitudes/solucion.php";
 require('footer.php');

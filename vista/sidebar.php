@@ -125,7 +125,7 @@
           <i class="bx bx-pie-chart-alt-2"></i>
           <span class="link_name">Estadisticas</span>
         </a>
-        <span class="tooltip">Esadisticas</span>
+        <span class="tooltip">Estadisticas</span>
       </li>
       <li>
         <a href="config.php">

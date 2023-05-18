@@ -33,7 +33,6 @@ function crearsolicitud(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                console.log(respuesta)
                 $('#tablalistasolicitudes').load('solicitudes/listasolicitudes.php');
                 $('#frmsolicitud')[0].reset();
                 Swal.fire({
@@ -93,9 +92,8 @@ function detallesolicitud(idsolicitud){
             respuesta = jQuery.parseJSON(respuesta);
             console.log(respuesta)
             $('#idsolicitud').val(respuesta['idsolicitud']);
-            $('#idusuario').val(respuesta['idusuario']);
-            $('#idgradou').val(respuesta['idgrado']);
-            $('#idventau').val(respuesta['id_venta']);
+            $('#usuariou').val(respuesta['usuario']);
+            $('#detalleu').val(respuesta['detalle']);
             $('#estadou').val(respuesta['estado']);
         }
     });
@@ -109,7 +107,6 @@ function solucion(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                console.log(respuesta)
                 $('#solucion').modal('hide');
                 $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
                 Swal.fire({

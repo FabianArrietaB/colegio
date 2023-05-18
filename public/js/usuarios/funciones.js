@@ -72,10 +72,10 @@ function detalleusuario(idusuario){
             console.log(respuesta)
             $('#idusuario').val(respuesta['idusuario']);
             $('#nombreu').val(respuesta['nombre']);
-            $('#usuariou').val(respuesta['usuario']);
+            $('#passwordu').val(respuesta['password']);
             $('#correou').val(respuesta['correo']);
             $('#idRolu').val(respuesta['idrol']);
-            $('#passwordu').val(respuesta['password']);
+            $('#usuariou').val(respuesta['usuario']);
         }
     });
 }

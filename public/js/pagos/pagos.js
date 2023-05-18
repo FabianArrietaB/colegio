@@ -1,6 +1,23 @@
 $(document).ready(function(){
-    $('#tablalistapagos').load('pagos/listapagos.php');
+
+    $('#pagosbtn').click(function(){
+        ocultarsecciondes();
+        $('#tablalistapagos').load('pagos/listapagos.php');
+        $('#tablalistapagos').show();
+    });
+
+    $('#pensionbt').click(function(){
+        ocultarsecciondes();
+        $('#tablalistapension').load('pagos/listapension.php');
+        $('#tablalistapension').show();
+    });
 });
+
+function ocultarsecciondes(){
+    $('#tablalistapagos').hide();
+    $('#tablalistapension').hide();
+    return false;
+}
 
 function detallematricula(idmatricula){
     $.ajax({
@@ -9,7 +26,7 @@ function detallematricula(idmatricula){
         url: "../controlador/pagos/detalle.php",
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
-            console.log(respuesta)
+            //console.log(respuesta)
             $('#idmatricula').val(respuesta['idmatricula']);
             $('#idalumno').val(respuesta['idalumno']);
             $('#nomaluu').val(respuesta['nomalu']);
@@ -28,7 +45,7 @@ function pagomatricula(){
         url: "../controlador/pagos/pagos.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
-            console.log(respuesta)
+            //console.log(respuesta)
             if(respuesta == 1){
                 $('#frmpagomatricula')[0].reset();
                 $('#tablalistapagos').load('pagos/listapagos.php');
