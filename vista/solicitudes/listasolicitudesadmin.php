@@ -10,7 +10,6 @@ $sql = "SELECT
     s.id_grado          AS idgrado,
     g.gra_nombre        AS grado,
     s.id_operador       AS idoperador,
-    s.id_venta          AS idventa,
     s.rep_tipo          AS tiposolicitud,
     s.rep_detalle       AS detalle,
     s.rep_solucion      AS solucion,
@@ -57,13 +56,6 @@ $query = mysqli_query($conexion, $sql);
                         <span class="badge text-bg-success">ABIERTO</span>
                     <?php } else if ($solicitudes['estado'] == 1) { ?>
                         <span class="badge text-bg-danger">CERRADO</span>
-                    <?php } ?>
-                </td>
-                <td>
-                    <?php if ($solicitudes['idventa'] == 0) { ?>
-                        <span class="badge text-bg-danger">NO ASIGNADA</span>
-                    <?php } else { ?>
-                        <span class="badge text-bg-success"><?php echo $solicitudes['idventa']; ?></span>
                     <?php } ?>
                 </td>
                 <td><?php echo $solicitudes['fecoperacion']; ?></td>

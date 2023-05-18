@@ -43,7 +43,6 @@
             'idusuario' => $solicitud['idusuario'],
             'idgrado' => $solicitud['idgrado'],
             'idoperador' => $solicitud['idoperador'],
-            'idventa' => $solicitud['idventa'],
             'reptipo' => $solicitud['reptipo'],
             'detalle' => $solicitud['detalle'],
             'estado' => $solicitud['estado'],

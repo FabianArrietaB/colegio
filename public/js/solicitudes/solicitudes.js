@@ -96,7 +96,7 @@ function detallesolicitud(idsolicitud){
             $('#idgrado').val(respuesta['idgrado']);
             $('#idoperador').val(respuesta['idoperador']);
             $('#reptipo').val(respuesta['reptipo']);
-            $('#detalle').val(respuesta['detalle']);
+            $('#detalleu').val(respuesta['detalle']);
             $('#estadou').val(respuesta['estado']);
             $('#solucionu').val(respuesta['solucion']);
             $('#usuariou').val(respuesta['usuario']);
