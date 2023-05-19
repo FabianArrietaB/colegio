@@ -32,7 +32,6 @@ $query = mysqli_query($conexion, $sql);
                 <th>Tipo</th>
                 <th>Detalle</th>
                 <th>Estado</th>
-                <th>Registro Venta</th>
                 <th>Fecha Creacion</th>
                 <th>Fecha Respuesta</th>
                 <th></th>

@@ -90,6 +90,7 @@ function detallesolicitud(idsolicitud){
         data: "idsolicitud=" + idsolicitud,
         url: "../controlador/solicitudes/detalle.php",
         success: function(respuesta){
+            console.log(respuesta)
             respuesta = jQuery.parseJSON(respuesta);
             $('#idsolicitud').val(respuesta['idsolicitud']);
             $('#idusuario').val(respuesta['idusuario']);
@@ -111,6 +112,7 @@ function solucion(){
         url: "../controlador/solicitudes/solucion.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
+            console.log(respuesta)
             if(respuesta == 1){
                 $('#solucion').modal('hide');
                 $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
