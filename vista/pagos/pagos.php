@@ -32,32 +32,39 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Matricula</legend>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                <label class="form-label">Fecha Operacion</label>
+                                    <input type="date" id="fecmatu" name="fecmatu" class="form-control input-sm" placeholder="Fecha Nacimiento">
+                                </div>
+                            </div>
+                            <div class="col-3">
                                 <div class="mb-3">
                                     <label class="form-label">Valor Matricula</label>
                                     <input type="text" id="matriculau" name="matriculau" class="form-control input-sm" readonly>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-3">
                                 <div class="mb-3">
                                     <label class="form-label">Saldo Anterior</label>
                                     <input type="text" id="saldou" name="saldou" class="form-control input-sm" disabled>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-4">
                                 <div class="mb-3">
                                     <label class="form-label">Valor Despues Abono</label>
                                     <input type="text" id="balanceu" name="balanceu" class="form-control input-sm" readonly>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-4">
                                 <div class="mb-3">
                                     <label class="form-label">Valor Abono</label>
                                     <input type="text" id="abonou" name="abonou" class="form-control input-sm">
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-4">
                                 <div class="mb-3">
+                                <label class="form-label">Tipo Pago</label>
                                     <select id="idtippagou" name="idtippagou" class="form-control input-sm">
                                         <option selected >TIPO PAGO</option>
                                         <option value="1">ABONO MATRICULA</option>

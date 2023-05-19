@@ -59,9 +59,9 @@
 
         public function editargrado($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE grados SET id_categoria = ?, gra_nombre = ?, gra_precio = ?, gra_fecope = ? WHERE id_grado = ?";
+            $sql = "UPDATE grados SET gra_nombre = ?, gra_matric = ?, gra_pensio = ?, gra_canalu = ?, id_empleado = ? WHERE id_grado = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('isssi', $datos['idcat'], $datos['nombre'], $datos['precio'], $datos['fecha'], $datos['idgrado']);
+            $query->bind_param('ssssii', $datos['nombre'], $datos['matric'], $datos['pensio'], $datos['canalu'], $datos['iddir'], $datos['idgrado']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

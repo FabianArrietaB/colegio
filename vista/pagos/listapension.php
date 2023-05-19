@@ -18,8 +18,7 @@
         FROM matriculas AS m
         INNER JOIN alumnos AS a ON m.id_alumno = a.id_alumno
         INNER JOIN grados AS g ON m.id_grado = g.id_grado
-        WHERE m.mat_saldo > 0
-        ORDER BY m.id_matricula ASC";
+        ORDER BY m.mat_fecpen ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio del contenido principal -->
@@ -31,12 +30,13 @@
                 <th>Grado</th>
                 <th>Valor Pension</th>
                 <th>Ultimo Pago</th>
+                <th>Dias Proximo Pago</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             <?php
-                $hoy = date("d-m-Y");
+                $fecha_actual = date("d-m-Y");
                 while ($matriculas = mysqli_fetch_array($query)){
             ?>
             <tr>
@@ -44,7 +44,13 @@
                 <td><?php echo $matriculas['grado'];?></td>
                 <td><?php echo $matriculas['pension'];?></td>
                 <td><?php echo $matriculas['fecpen'];?></td>
-                <td><?php echo $hoy;?> </td>
+                <td><?php
+                    $propag = $matriculas['fecpen'];
+                    $mes = date("d-m-Y",strtotime($propag."+ 1 month"));
+                    $dateDifference = abs(strtotime($mes) - strtotime($fecha_actual));
+                    $dias = $dateDifference / (60*60*24);
+                    echo $dias;
+                ;?> </td>
                 <td>
                     <input class="btn btn-success" type="button" value="Tomar Pago" data-bs-toggle="modal" data-bs-target="#pago" onclick="detallematricula('<?php echo $matriculas['idmatricula']?>')">
                 </td>

@@ -105,6 +105,7 @@ function detallesolicitud(idsolicitud){
     });
 }
 
+
 function solucion(){
     $.ajax({
         type: "POST",
@@ -112,13 +113,14 @@ function solucion(){
         url: "../controlador/solicitudes/solucion.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
-            console.log(respuesta)
+            //console.log(respuesta)
             if(respuesta == 1){
-                $('#solucion').modal('hide');
+                console.log(respuesta)
+                $('#frmsolucion')[0].reset();
                 $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
                 Swal.fire({
                     icon: 'success',
-                    title: 'Solucion Actualizada Exitosamente',
+                    title: 'Solicitud Cerrada Exitosamente',
                     showConfirmButton: false,
                     timer: 1500
                 });

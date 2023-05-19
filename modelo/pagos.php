@@ -32,9 +32,9 @@
 
         public function pagomatricula($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE matriculas SET mat_saldo = ?, id_tipopago = ? WHERE id_matricula = ?";
+            $sql = "UPDATE matriculas SET mat_saldo = ?, mat_fecmat = ?, id_tipopago = ? WHERE id_matricula = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('sii', $datos['balance'], $datos['idtippago'], $datos['idmatricula']);
+            $query->bind_param('ssii', $datos['balance'], $datos['fecmat'], $datos['idtippago'], $datos['idmatricula']);
             $respuesta = $query->execute();
             if ($respuesta > 0) {
                 $insertauditoria = "INSERT INTO auditorias(id_alumno, id_grado, aud_valor, aud_abono, id_tipopago)
