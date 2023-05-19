@@ -56,7 +56,7 @@ $query = mysqli_query($conexion, $sql);
                 <?php if ($solicitudes['idventa'] == 0 && $solicitudes['tiposolicitud'] == 1) { ?>
                         <span class="badge text-bg-success">ABIERTO</span>
                     <?php } else if ($solicitudes['idventa'] > 0 && $solicitudes['tiposolicitud'] == 1) { ?>
-                        <span class="badge text-bg-success">VENTA</span>
+                        <span class="badge text-bg-warning">VENTA</span>
                     <?php } else { ?>
                         <span class="badge text-bg-danger">CERRADO</span>
                     <?php } ?>
@@ -72,7 +72,7 @@ $query = mysqli_query($conexion, $sql);
                 <td><?php echo $solicitudes['fecsolucion']; ?></td>
                 <td>
                     <?php if ($solicitudes['estado'] == 0 &&  $solicitudes['tiposolicitud'] == 2) { ?> <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#solucion" onclick="detallesolicitud('<?php echo $solicitudes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button><?php } ?>
-                    <?php if ($solicitudes['estado'] == 0 && $solicitudes['tiposolicitud'] == 1) { ?> <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#venta" onclick="detallesolicitud('<?php echo $solicitudes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button><?php } ?>
+                    <?php if ($solicitudes['estado'] == 0 && $solicitudes['tiposolicitud'] == 1) { ?> <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#solucion" onclick="detallesolicitud('<?php echo $solicitudes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button><?php } ?>
                 </td>
             </tr>
         <?php } ?>

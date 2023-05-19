@@ -112,42 +112,10 @@ function solucion(){
         url: "../controlador/solicitudes/solucion.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
-            //console.log(respuesta)
+            console.log(respuesta)
             if(respuesta == 1){
                 console.log(respuesta)
                 $('#frmsolucion')[0].reset();
-                $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Solicitud Cerrada Exitosamente',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }else{
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Error al Editar!',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }
-        }
-    });
-    return false;
-}
-
-function venta(){
-    $.ajax({
-        type: "POST",
-        data: $('#frmventas').serialize(),
-        url: "../controlador/solicitudes/ventas.php",
-        success:function(respuesta){
-            respuesta = respuesta.trim();
-            //console.log(respuesta)
-            if(respuesta == 1){
-                console.log(respuesta)
-                $('#frmventas')[0].reset();
                 $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
                 Swal.fire({
                     icon: 'success',

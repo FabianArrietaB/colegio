@@ -34,7 +34,6 @@
 <!-- por ultimo se carga el footer -->
 <?php
 include "solicitudes/solucion.php";
-include "solicitudes/ventas.php";
 require('footer.php');
 ?>
 <!-- carga ficheros javascript -->

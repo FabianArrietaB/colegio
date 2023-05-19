@@ -92,18 +92,22 @@
                 <td>
                     <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar"
                         onclick="detallegrado('<?php echo $grados['idgrado']?>')">
-                        <i class="fa-solid fa-pen-to-square fa-beat fa-xl"></i>
+                        <i class="fa-solid fa-pen-to-square fa-xl"></i>
                     </button>
                     <?php
                         if($_SESSION['usuario']['rol'] == 4) {
                     ?>
                         <button type="button" class="btn btn-danger" onclick="eliminargrado(
                         '<?php echo $grados['idgrado']?>')">
-                        <i class="fa-regular fa-trash-can fa-beat fa-xl"></i>
+                        <i class="fa-regular fa-trash-can fa-xl"></i>
                         </button>
                     <?php
                     }
                     ?>
+                    <button type="button" class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#prueba"
+                        onclick="detallegrado('<?php echo $grados['idgrado']?>')">
+                        <i class="fa-solid fa-pen-to-square fa-xl"></i>
+                    </button>
                 </td>
             </tr>
             <?php } ?>

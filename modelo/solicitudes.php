@@ -50,42 +50,17 @@
 
         public function solucion($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE  solicitudes SET
+            $idventa = self::ventas($datos);
+
+            if($idventa > 0){
+                $sql = "UPDATE  solicitudes SET
                             id_operador = ?,
+                            id_venta = ?,
                             rep_estado = ?,
                             rep_solucion = ?
                             WHERE id_solicitud = ?";
-            $query = $conexion->prepare($sql);
-            $query->bind_param('issi',
-                                $datos['idoperador'],
-                                $datos['estado'],
-                                $datos['solucion'],
-                                $datos['idsolicitud']);
-            $respuesta = $query->execute();
-            $query->close();
-            return $respuesta;
-            }
-
-        public function ventas($datos){
-            $conexion = Conexion::conectar();
-            $sql = "INSERT INTO ventas (id_alumno, id_producto, id_operador, ven_precio) VALUES(?, ?, ?, ?)";
-            $query = $conexion->prepare($sql);
-            $query->bind_param('iiis',
-                                $datos['idalumno'],
-                                $datos['idproducto'],
-                                $datos['idoperador'],
-                                $datos['precio']);
-            $respuesta = $query->execute();
-            if ($respuesta = 1){
-                $idventa = mysqli_insert_id($conexion);
-                $sql = "UPDATE  solicitudes SET
-                                id_operador = ?,
-                                id_venta = ?,
-                                rep_estado = ?,
-                                rep_solucion = ?
-                                WHERE id_solicitud = ?";
                 $query = $conexion->prepare($sql);
-                $query->bind_param('issi',
+                $query->bind_param('iissi',
                                     $datos['idoperador'],
                                     $idventa,
                                     $datos['estado'],
@@ -93,8 +68,25 @@
                                     $datos['idsolicitud']);
                 $respuesta = $query->execute();
                 $query->close();
+                return $respuesta;
+            }else {
+                return 0;
             }
-            return $respuesta;
+        }
+
+        public function ventas($datos){
+            $conexion = Conexion::conectar();
+            $insertventa = "INSERT INTO ventas (id_alumno, id_producto, id_operador, ven_precio) VALUES(?, ?, ?, ?)";
+            $query = $conexion->prepare($insertventa);
+            $query->bind_param('iiis',
+                                $datos['idalumno'],
+                                $datos['idproducto'],
+                                $datos['idoperador'],
+                                $datos['precio']);
+            $respuesta = $query->execute();
+            $idventa = mysqli_insert_id($conexion);
+            $query->close();
+            return $idventa;
         }
     }
 ?>
