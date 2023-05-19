@@ -8,6 +8,7 @@ $sql = "SELECT
     s.id_usuario        AS idusuario,
     u.user_nombre       AS usuario,
     s.id_grado          AS idgrado,
+    s.id_venta          AS idventa,
     g.gra_nombre        AS grado,
     s.id_operador       AS idoperador,
     s.rep_tipo          AS tiposolicitud,
@@ -31,6 +32,7 @@ $query = mysqli_query($conexion, $sql);
                 <th>Grado</th>
                 <th>Tipo</th>
                 <th>Detalle</th>
+                <th>Venta</th>
                 <th>Estado</th>
                 <th>Fecha Creacion</th>
                 <th>Fecha Respuesta</th>
@@ -45,11 +47,20 @@ $query = mysqli_query($conexion, $sql);
                 <td>
                 <?php if ($solicitudes['tiposolicitud'] == 1) { ?>
                         <span">SOLICITUD</span>
-                    <?php } else if ($solicitudes['tiposolicitud'] == 2) { ?>
+                <?php } else if ($solicitudes['tiposolicitud'] == 2) { ?>
                         <span >REPORTE</span>
-                    <?php } ?>
+                <?php } ?>
                 </td>
                 <td><?php echo $solicitudes['detalle']; ?></td>
+                <td>
+                <?php if ($solicitudes['idventa'] == 0 && $solicitudes['tiposolicitud'] == 1) { ?>
+                        <span class="badge text-bg-success">ABIERTO</span>
+                    <?php } else if ($solicitudes['idventa'] > 0 && $solicitudes['tiposolicitud'] == 1) { ?>
+                        <span class="badge text-bg-success">VENTA</span>
+                    <?php } else { ?>
+                        <span class="badge text-bg-danger">CERRADO</span>
+                    <?php } ?>
+                </td>
                 <td>
                     <?php if ($solicitudes['estado'] == 0) { ?>
                         <span class="badge text-bg-success">ABIERTO</span>
@@ -60,7 +71,8 @@ $query = mysqli_query($conexion, $sql);
                 <td><?php echo $solicitudes['fecoperacion']; ?></td>
                 <td><?php echo $solicitudes['fecsolucion']; ?></td>
                 <td>
-                <?php if ($solicitudes['estado'] == 0 && $solicitudes['tiposolicitud'] == 1) { ?> <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#solucion" onclick="detallesolicitud('<?php echo $solicitudes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button><?php } ?>
+                    <?php if ($solicitudes['estado'] == 0 &&  $solicitudes['tiposolicitud'] == 2) { ?> <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#solucion" onclick="detallesolicitud('<?php echo $solicitudes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button><?php } ?>
+                    <?php if ($solicitudes['estado'] == 0 && $solicitudes['tiposolicitud'] == 1) { ?> <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#venta" onclick="detallesolicitud('<?php echo $solicitudes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button><?php } ?>
                 </td>
             </tr>
         <?php } ?>
