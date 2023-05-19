@@ -25,6 +25,45 @@
                             </div>
                         </div>
                     </fieldset>
+                    <!-- Formulario (Venta) -->
+                    <fieldset class="group-border">
+                        <legend class="group-border">Informacion Venta</legend>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="input-group mb-3">
+                                    <select name="idalumnou" id="idalumnou" class="form-control input-sm">
+                                        <option selected >Selecione Alumno</option>
+                                        <?php
+                                        $sql="SELECT a.id_alumno as idalumno, a.alu_nombre as alumno FROM alumnos as a WHERE a.alu_estado = 1";
+                                        $respuesta = mysqli_query($conexion, $sql);
+                                        while($empleado = mysqli_fetch_array($respuesta)) {
+                                        ?>
+                                        <option value="<?php echo $empleado['idalumno']?>"><?php echo $empleado['alumno'];?></option>
+                                        <?php }?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <select name="idproducto" id="idproducto" class="form-control input-sm">
+                                        <option selected >Selecione Producto</option>
+                                        <?php
+                                        $sql="SELECT p.id_producto as idproducto, p.pro_nombre as producto FROM productos as p WHERE p.pro_estado = 1";
+                                        $respuesta = mysqli_query($conexion, $sql);
+                                        while($empleado = mysqli_fetch_array($respuesta)) {
+                                        ?>
+                                        <option value="<?php echo $empleado['idproducto']?>"><?php echo $empleado['producto'];?></option>
+                                        <?php }?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <input type="text" id="precio" name="precio" class="form-control input-sm">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
                     <!-- Formulario (Solucion) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Solucion</legend>

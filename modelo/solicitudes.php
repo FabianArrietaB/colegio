@@ -50,19 +50,39 @@
 
         public function solucion($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE solicitudes SET
+            $idventa = self::ventas($datos);
+
+            if ( $idventa > 0) {
+                $sql = "UPDATE  solicitudes SET
+                                id_operador = ?,
+                                id_venta = ?,
+                                rep_estado = ?,
+                                rep_solucion = ?
+                                WHERE id_solicitud = ?";
+                $query = $conexion->prepare($sql);
+                $query->bind_param('iissi',
+                                    $datos['idoperador'],
+                                    $idventa,
+                                    $datos['estado'],
+                                    $datos['solucion'],
+                                    $datos['idsolicitud']);
+                $respuesta = $query->execute();
+            return $respuesta;
+            } else {
+                $sql = "UPDATE  solicitudes SET
                                 id_operador = ?,
                                 rep_estado = ?,
                                 rep_solucion = ?
                                 WHERE id_solicitud = ?";
-            $query = $conexion->prepare($sql);
-            $query->bind_param('issi',
-                                $datos['idoperador'],
-                                $datos['estado'],
-                                $datos['solucion'],
-                                $datos['idsolicitud']);
-            $respuesta = $query->execute();
+                $query = $conexion->prepare($sql);
+                $query->bind_param('issi',
+                                    $datos['idoperador'],
+                                    $datos['estado'],
+                                    $datos['solucion'],
+                                    $datos['idsolicitud']);
+                $respuesta = $query->execute();
             return $respuesta;
+            }
         }
 
         public function ventas($datos){
