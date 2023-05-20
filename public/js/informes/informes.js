@@ -21,6 +21,7 @@ function reporteventas(idalumno){
             $('#idalumno').val(respuesta['idalumno']);
             $('#idproductou').val(respuesta['idproducto']);
             $('#preciou').val(respuesta['precio']);
+            $('#nombreu').val(respuesta['nombre']);
         }
     });
 }

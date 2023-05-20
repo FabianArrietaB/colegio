@@ -1,18 +1,18 @@
 <!-- Formulario (Agregar) -->
-<form id="frmeditarempleado" method="post" onsubmit="return editarempleado()">
+<form id="frmeditarempleado" method="post">
     <div class="modal fade" id="editar" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar Empleado</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Detalle Ventas Alumno</h5>
                     <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <d class="modal-body">
                     <!-- Formulario (Empleado) -->
                     <fieldset class="group-border">
-                        <legend class="group-border">Informacion Empleado</legend>
+                        <legend class="group-border">Informacion Alumno</legend>
                         <div class="row">
-                            <input type="text" id="idempleado" name="idempleado" hidden>
+                            <input type="text" id="idalumno" name="idalumno" hidden>
                             <div class="col-4">
                                 <div class="input-group mb-3">
                                     <input type="text" id="nombreu" name="nombreu" class="form-control input-sm">
