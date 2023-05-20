@@ -20,9 +20,10 @@
 
         public function agregargrado($datos){
             $conexion = Conexion::conectar();
-            $sql = "INSERT INTO grados (id_categoria, gra_nombre, gra_precio ) VALUES(?, ?, ?)";
+            $sql = "INSERT INTO grados (id_empleado, id_operador, gra_nombre, gra_matric, gra_pensio, gra_canalu)
+                    VALUES(?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("iss", $datos['idcat'], $datos['nombre'], $datos['precio']);
+            $query->bind_param("iissss",$datos['idoperador'], $datos['iddir'], $datos['nombre'], $datos['matric'], $datos['pensio'], $datos['canalu']);
             $respuesta = $query->execute();
             return $respuesta;
         }

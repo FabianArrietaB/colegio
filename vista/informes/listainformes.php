@@ -8,6 +8,7 @@
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
+        $idusuario = $_SESSION['usuario']['id'];
         $sql = "SELECT
             a.id_alumno as idalumno,
             a.alu_nombre as nombre,

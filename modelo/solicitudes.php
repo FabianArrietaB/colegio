@@ -75,18 +75,22 @@
         }
 
         public function ventas($datos){
-            $conexion = Conexion::conectar();
-            $insertventa = "INSERT INTO ventas (id_alumno, id_producto, id_operador, ven_precio) VALUES(?, ?, ?, ?)";
-            $query = $conexion->prepare($insertventa);
-            $query->bind_param('iiis',
+            if (!$datos) {
+                return 0;
+            }else{
+                $conexion = Conexion::conectar();
+                $insertventa = "INSERT INTO ventas (id_alumno, id_producto, id_operador, ven_precio) VALUES(?, ?, ?, ?)";
+                $query = $conexion->prepare($insertventa);
+                $query->bind_param('iiis',
                                 $datos['idalumno'],
                                 $datos['idproducto'],
                                 $datos['idoperador'],
                                 $datos['precio']);
-            $respuesta = $query->execute();
-            $idventa = mysqli_insert_id($conexion);
-            $query->close();
-            return $idventa;
+                $respuesta = $query->execute();
+                $idventa = mysqli_insert_id($conexion);
+                $query->close();
+                return $idventa;
+            }
         }
     }
 ?>

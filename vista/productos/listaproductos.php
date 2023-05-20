@@ -5,6 +5,7 @@
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
+    $idusuario = $_SESSION['usuario']['id'];
     $sql = "SELECT
         productos.id_producto   AS idproducto,
         productos.pro_nombre    AS nombre,

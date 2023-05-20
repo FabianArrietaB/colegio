@@ -275,7 +275,11 @@
                             </div>
                             <div class="col-9">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="detall" name="detall" class="form-control input-sm" placeholder="Observacion">
+                                    <select name="tippag" id="tippag" class="form-control input-sm">
+                                        <option selected >TIPO PAGO</option>
+                                        <option value="1">ABONO MATRICULA</option>
+                                        <option value="2">PAGO TOTAL MATRICULA</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

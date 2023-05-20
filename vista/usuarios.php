@@ -1,7 +1,7 @@
 <?php
     include "header.php";
     include "sidebar.php";
-    if(isset($_SESSION['usuario']) && 
+    if(isset($_SESSION['usuario']) &&
     $_SESSION['usuario']['rol'] == 4){
     include "../modelo/conexion.php";
     $con = new Conexion();

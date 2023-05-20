@@ -1,5 +1,7 @@
 <?php
+   session_start();
    $datos = array(
+      'idoperador' => $_SESSION['usuario']['id'],
       "nombre" => $_POST['nombre'],
       "cladoc" => $_POST['cladoc'],
       "docume" => $_POST['docume'],
@@ -34,7 +36,7 @@
       "matric" => $_POST['matric'],
       "pensio" => $_POST['pensio'],
       "abono" => $_POST['abono'],
-      "detall" => $_POST['detall'],
+      "tippag" => $_POST['tippag'],
    );
    include "../../modelo/alumnos.php";
    $Alumnos   = new Alumnos();
