@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="input-group mb-3">
-                                    <input placeholder="Ingrese Correo" type="text" id="correo" name="correo" class="form-control input-sm" >
+                                    <input placeholder="Ingrese Correo" type="text" id="correo" name="correo" class="form-control input-sm">
                                 </div>
                             </div>
                         </div>

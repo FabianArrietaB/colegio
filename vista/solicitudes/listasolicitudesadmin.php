@@ -3,6 +3,7 @@ session_start();
 include "../../modelo/conexion.php";
 $con = new Conexion();
 $conexion = $con->conectar();
+$idusuario = $_SESSION['usuario']['id'];
 $sql = "SELECT
     s.id_solicitud      AS idsolicitud,
     s.id_usuario        AS idusuario,

@@ -39,9 +39,9 @@
 
         public function agregarusuario($datos){
             $conexion = Conexion::conectar();
-            $sql = "INSERT INTO usuarios (id_rol, user_usuario, user_nombre, user_contra, user_correo) VALUES( ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO usuarios (id_rol, id_operador, user_usuario, user_nombre, user_contra, user_correo) VALUES( ?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("isssss", $datos['idrol'], $datos['usuario'], $datos['nombre'], $datos['password'], $datos['correo']);
+            $query->bind_param("iissss", $datos['idRol'], $datos['idoperador'], $datos['usuario'], $datos['nombre'], $datos['password'], $datos['correo']);
             $respuesta = $query->execute();
             return $respuesta;
         }
