@@ -52,9 +52,9 @@
                 <td> <?php echo $alumnos['docume']; ?></td>
                 <td> <?php echo $alumnos['correo']; ?></td>
                 <td>
-                    <button type="button" class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#certificado" onclick="reportegeneral('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-passport fa-1x"></i></button>
-                    <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#certificado" onclick="reportematriculas('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-file-contract fa-1x"></i></button>
-                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#certificado" onclick="reporteventas('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-file-lines fa-1x"></i></button>
+                    <button type="button" class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#eportgeneral" onclick="reportegeneral('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-passport fa-1x"></i></button>
+                    <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#reportmatri" onclick="reportematriculas('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-file-contract fa-1x"></i></button>
+                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#reportventa" onclick="reporteventas('<?php echo $alumnos['idalumno']?>')"><i class="fa-solid fa-file-lines fa-1x"></i></button>
                 </td>
             </tr>
         <?php } ?>
