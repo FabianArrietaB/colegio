@@ -12,25 +12,25 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Alumno</legend>
                         <div class="row">
-                            <input type="text" id="matriculaid" name="matriculaid" hidden>
-                            <input type="text" id="alumnoid" name="alumnoid" hidden>
-                            <input type="text" id="gradoid" name="gradoid" hidden>
+                            <input type="text" id="idmatriculau" name="idmatriculau" hidden>
+                            <input type="text" id="idalumnou" name="idalumnou" hidden>
+                            <input type="text" id="idgradou" name="idgradou" hidden>
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Estudiante</label>
-                                    <input type="text" id="alunomu" name="alunomu" class="form-control input-sm" disabled>
+                                    <input type="text" id="nomalu" name="nomalu" class="form-control input-sm" disabled>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label class="form-label">Grado</label>
-                                    <input type="text" id="nomgrau" name="nomgrau" class="form-control input-sm" disabled>
+                                    <input type="text" id="grado" name="grado" class="form-control input-sm" disabled>
                                 </div>
                             </div>
                         </div>
                     </fieldset>
                     <fieldset class="group-border">
-                        <legend class="group-border">Informacion Matricula</legend>
+                        <legend class="group-border">Informacion Pension</legend>
                         <div class="row">
                             <div class="col-6">
                                 <div class="mb-3">
@@ -40,14 +40,14 @@
                             </div>
                             <div class="col-3">
                                 <div class="mb-3">
-                                    <label class="form-label">Valor Matricula</label>
+                                    <label class="form-label">Valor Pension</label>
                                     <input type="text" id="pensionu" name="pensionu" class="form-control input-sm" readonly>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="mb-3">
                                     <label class="form-label">Saldo Anterior</label>
-                                    <input type="text" id="restau" name="restau" class="form-control input-sm" disabled>
+                                    <input type="text" id="salpenu" name="salpenu" class="form-control input-sm" disabled>
                                 </div>
                             </div>
                             <div class="col-4">
@@ -65,7 +65,7 @@
                             <div class="col-4">
                                 <div class="mb-3">
                                 <label class="form-label">Tipo Pago</label>
-                                    <select id="idtipagou" name="idtipagou" class="form-control input-sm">
+                                    <select id="idtippago" name="idtippago" class="form-control input-sm">
                                         <option selected >TIPO PAGO</option>
                                         <option value="3">ABONO PENSION</option>
                                         <option value="4">PAGO TOTAL PENSION</option>

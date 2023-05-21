@@ -7,8 +7,9 @@
     $sql = "SELECT
         m.id_matricula AS idmatricula,
         m.mat_saldo AS saldo,
-        m.id_tipopago AS idtippago,
+        m.id_tippagpen AS idtippago,
         m.mat_pensio AS pension,
+        m.mat_salpen AS salpen,
         m.mat_fecope AS fecha,
         m.id_alumno AS idalumno,
         m.mat_fecpen AS fecpen,
@@ -29,6 +30,7 @@
                 <th>Nombre Alumno</th>
                 <th>Grado</th>
                 <th>Valor Pension</th>
+                <th>Saldo Anterior</th>
                 <th>Ultimo Pago</th>
                 <th>Dias Proximo Pago</th>
                 <th></th>
@@ -43,6 +45,14 @@
                 <td><?php echo $matriculas['nombre'];?></td>
                 <td><?php echo $matriculas['grado'];?></td>
                 <td><?php echo $matriculas['pension'];?></td>
+                <td><?php echo $matriculas['salpen'];?></td>
+                <td><?php if ($matriculas['idtippago'] == 0) { ?>
+                        <span class="badge text-bg-danger">NO REGISTRA PAGO</span>
+                    <?php } else { ?>
+                        <span class="badge text-bg-warning">ABONO PENSION</span>
+                    <?php } ?>
+                </td>
+
                 <td><?php echo $matriculas['fecpen'];?></td>
                 <td><?php
                     $propag = $matriculas['fecpen'];

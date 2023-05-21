@@ -46,7 +46,8 @@
                 <td><?php echo $matriculas['saldo'];?></td>
                 <td><?php if ($matriculas['idtippago'] == 1) { ?>
                         <span >ABONO MATRICULA</span>
-                    <?php } ?></td>
+                    <?php } ?>
+                </td>
                 <td><?php echo $matriculas['fecha'];?></td>
                 <td>
                     <input class="btn btn-success" type="button" value="Tomar Pago" data-bs-toggle="modal" data-bs-target="#pago" onclick="detallematricula('<?php echo $matriculas['idmatricula']?>')">

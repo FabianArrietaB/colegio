@@ -26,11 +26,11 @@ function detallematricula(idmatricula){
         url: "../controlador/pagos/detalle.php",
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
-            //console.log(respuesta)
+            console.log(respuesta)
             $('#idmatricula').val(respuesta['idmatricula']);
             $('#idalumno').val(respuesta['idalumno']);
-            $('#nomaluu').val(respuesta['nomalu']);
             $('#idgrado').val(respuesta['idgrado']);
+            $('#nomaluu').val(respuesta['nomalu']);
             $('#gradou').val(respuesta['grado']);
             $('#matriculau').val(respuesta['matricula']);
             $('#saldou').val(respuesta['saldo']);
@@ -46,12 +46,13 @@ function detallepension(idmatricula){
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
             console.log(respuesta)
-            $('#matriculaid').val(respuesta['matriculaid']);
-            $('#alumnoid').val(respuesta['alumnoid']);
-            $('#alunomu').val(respuesta['alunom']);
-            $('#gradoid').val(respuesta['gradoid']);
-            $('#nomgrau').val(respuesta['nomgra']);
+            $('#idmatriculau').val(respuesta['idmatriculau']);
+            $('#idalumnou').val(respuesta['idalumnou']);
+            $('#idgradou').val(respuesta['idgradou']);
+            $('#nomalu').val(respuesta['nomaluu']);
+            $('#grado').val(respuesta['gradou']);
             $('#pensionu').val(respuesta['pension']);
+            $('#salpenu').val(respuesta['salpen']);
         }
     });
 }
