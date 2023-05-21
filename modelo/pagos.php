@@ -84,7 +84,7 @@
                 $insertauditoria = "INSERT INTO auditorias(id_operador, id_alumno, id_grado, aud_valor, aud_abono, id_tipopago)
                             VALUES(?, ?, ?, ?, ?, ?)";
                 $query = $conexion->prepare($insertauditoria);
-                $query->bind_param("iiissi", $datos['idoperador'], $datos['idalumnou'], $datos['idgradou'],  $datos['pension'], $datos['avance'],$datos['idtippago'],);
+                $query->bind_param("iiissi", $datos['idoperador'], $datos['idalumnou'], $datos['idgradou'],  $datos['pension'], $datos['avance'],$datos['idtippagou'],);
                 $respuesta = $query->execute();
             }
             return $respuesta;

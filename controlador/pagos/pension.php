@@ -5,7 +5,7 @@
         'idmatriculau'=> $_POST['idmatriculau'],
         'idalumnou'   => $_POST['idalumnou'],
         "idgradou"    => $_POST['idgradou'],
-        'idtippago'   => $_POST['idtippago'],
+        'idtippagou'  => $_POST['idtippago'],
         'avance'      => $_POST['avanceu'],
         'pension'     => $_POST['pensionu'],
         'diferencia'  => $_POST['diferenciau'],
