@@ -52,7 +52,6 @@ function detallepension(idmatricula){
             $('#gradoid').val(respuesta['gradoid']);
             $('#nomgrau').val(respuesta['nomgra']);
             $('#pensionu').val(respuesta['pension']);
-            $('#restau').val(respuesta['resta']);
         }
     });
 }
@@ -64,7 +63,7 @@ function pagomatricula(){
         url: "../controlador/pagos/pagos.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
-            //console.log(respuesta)
+            console.log(respuesta)
             if(respuesta == 1){
                 $('#frmpagomatricula')[0].reset();
                 $('#tablalistapagos').load('pagos/listapagos.php');
@@ -92,10 +91,10 @@ function pagopension(){
     $.ajax({
         type: "POST",
         data: $('#frmpagopension').serialize(),
-        url: "../controlador/pagos/pagos.php",
+        url: "../controlador/pagos/pension.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
-            //console.log(respuesta)
+            console.log(respuesta)
             if(respuesta == 1){
                 $('#frmpagopension')[0].reset();
                 $('#tablalistapagos').load('pagos/listapagos.php');

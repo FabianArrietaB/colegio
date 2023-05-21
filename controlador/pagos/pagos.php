@@ -2,16 +2,16 @@
     session_start();
     $datos = Array(
         'idoperador' => $_SESSION['usuario']['id'],
-        'matriculaid'=> $_POST['matriculaid'],
-        'alumnoid'   => $_POST['alumnoid'],
-        "gradoid"    => $_POST['gradoid'],
+        'idmatricula'=> $_POST['idmatricula'],
+        'idalumno'   => $_POST['idalumno'],
+        "idgrado"    => $_POST['idgrado'],
         'idtippago'  => $_POST['idtippagou'],
-        'avance'      => $_POST['avanceu'],
-        'pension'  => $_POST['pensionu'],
-        'diferencia'    => $_POST['diferenciau'],
-        'fecpen'    => $_POST['fecpenu'],
+        'abono'      => $_POST['abonou'],
+        'matricula'  => $_POST['matriculau'],
+        'balance'    => $_POST['balanceu'],
+        'fecmat'    => $_POST['fecmatu'],
     );
     include "../../modelo/pagos.php";
     $Pagos = new Pagos();
-    echo $Pagos->pagopension($datos);
+    echo $Pagos->pagomatricula($datos);
 ?>

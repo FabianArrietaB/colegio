@@ -33,6 +33,7 @@ function crearsolicitud(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
+                //console.log(respuesta)
                 console.log(respuesta)
                 $('#tablalistasolicitudes').load('solicitudes/listasolicitudes.php');
                 $('#frmsolicitud')[0].reset();
@@ -64,6 +65,7 @@ function eliminarsolicitud(idsolicitud){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
+                //console.log(respuesta)
                 $('#tablalistasolicitudes').load('solicitudes/listasolicitudes.php');
                     swal.fire({
                         icon: 'success',
@@ -90,7 +92,7 @@ function detallesolicitud(idsolicitud){
         data: "idsolicitud=" + idsolicitud,
         url: "../controlador/solicitudes/detalle.php",
         success: function(respuesta){
-            console.log(respuesta)
+            //console.log(respuesta)
             respuesta = jQuery.parseJSON(respuesta);
             $('#idsolicitud').val(respuesta['idsolicitud']);
             $('#idusuario').val(respuesta['idusuario']);
@@ -110,7 +112,7 @@ function detalleventa(idsolicitud){
         data: "idsolicitud=" + idsolicitud,
         url: "../controlador/solicitudes/detalleventa.php",
         success: function(respuesta){
-            console.log(respuesta)
+            //console.log(respuesta)
             respuesta = jQuery.parseJSON(respuesta);
             $('#idsolicitudu').val(respuesta['idsolicitudu']);
             $('#idusuariou').val(respuesta['idusuariou']);
@@ -132,6 +134,7 @@ function solucion(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
+                //console.log(respuesta)
                 $('#frmsolucion')[0].reset();
                 $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
                 Swal.fire({
@@ -163,7 +166,7 @@ function ventas(){
             respuesta = respuesta.trim();
             console.log(respuesta)
             if(respuesta == 1){
-                console.log(respuesta)
+                //console.log(respuesta)
                 $('#frmventa')[0].reset();
                 $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
                 Swal.fire({

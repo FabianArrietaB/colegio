@@ -65,7 +65,7 @@
                             <div class="col-4">
                                 <div class="mb-3">
                                 <label class="form-label">Tipo Pago</label>
-                                    <select id="idtippago" name="idtippago" class="form-control input-sm">
+                                    <select id="idtipagou" name="idtipagou" class="form-control input-sm">
                                         <option selected >TIPO PAGO</option>
                                         <option value="3">ABONO PENSION</option>
                                         <option value="4">PAGO TOTAL PENSION</option>

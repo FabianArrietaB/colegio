@@ -10,6 +10,7 @@ function activarusuario(idusuario, estado){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
+                console.log(respuesta)
                 $('#tablalistausuarios').load('usuarios/listausuarios.php');
                 Swal.fire({
                     icon: 'success',
