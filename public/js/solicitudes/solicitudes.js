@@ -7,7 +7,7 @@ $(document).ready(function(){
 });
 
 //Llenar Campos Producto
-$('#frmsolucion').change(function(){
+$('#frmventa').change(function(){
     //condicion para limpiar campos
     if($('#idproducto').val()==0){
         $('#precio').val("");
@@ -95,12 +95,31 @@ function detallesolicitud(idsolicitud){
             $('#idsolicitud').val(respuesta['idsolicitud']);
             $('#idusuario').val(respuesta['idusuario']);
             $('#idgrado').val(respuesta['idgrado']);
-            $('#idoperador').val(respuesta['idoperador']);
             $('#reptipo').val(respuesta['reptipo']);
             $('#detalleu').val(respuesta['detalle']);
             $('#estadou').val(respuesta['estado']);
             $('#solucionu').val(respuesta['solucion']);
             $('#usuariou').val(respuesta['usuario']);
+        }
+    });
+}
+
+function detalleventa(idsolicitud){
+    $.ajax({
+        type: "POST",
+        data: "idsolicitud=" + idsolicitud,
+        url: "../controlador/solicitudes/detalleventa.php",
+        success: function(respuesta){
+            console.log(respuesta)
+            respuesta = jQuery.parseJSON(respuesta);
+            $('#idsolicitudu').val(respuesta['idsolicitudu']);
+            $('#idusuariou').val(respuesta['idusuariou']);
+            $('#idgradou').val(respuesta['idgradou']);
+            $('#reptipou').val(respuesta['reptipou']);
+            $('#detalle').val(respuesta['detalleu']);
+            $('#estado').val(respuesta['estadou']);
+            $('#solucion').val(respuesta['solucionu']);
+            $('#usuario').val(respuesta['usuariou']);
         }
     });
 }
@@ -112,10 +131,40 @@ function solucion(){
         url: "../controlador/solicitudes/solucion.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
+            if(respuesta == 1){
+                $('#frmsolucion')[0].reset();
+                $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Solicitud Cerrada Exitosamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error al Editar!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+    });
+    return false;
+}
+
+function ventas(){
+    $.ajax({
+        type: "POST",
+        data: $('#frmventa').serialize(),
+        url: "../controlador/solicitudes/ventas.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
             console.log(respuesta)
             if(respuesta == 1){
                 console.log(respuesta)
-                $('#frmsolucion')[0].reset();
+                $('#frmventa')[0].reset();
                 $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
                 Swal.fire({
                     icon: 'success',

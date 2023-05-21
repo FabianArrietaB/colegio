@@ -30,6 +30,33 @@
             return $datos;
         }
 
+        public function detallepension($idmatricula){
+            $conexion = Conexion::conectar();
+            $sql ="SELECT
+                m.id_matricula as idmatricula,
+                m.id_alumno as idalumno,
+                a.alu_nombre as nomalu,
+                m.id_grado as idgrado,
+                g.gra_nombre as grado,
+                m.mat_pensio as matricula
+                FROM matriculas AS m
+                INNER JOIN alumnos as a ON m.id_alumno = a.id_alumno
+                INNER JOIN grados as g ON m.id_grado = g.id_grado
+                WHERE m.id_matricula ='$idmatricula'";
+            $respuesta = mysqli_query($conexion,$sql);
+            $matricula = mysqli_fetch_array($respuesta);
+            $datos = array(
+            'idmatricula'   => $matricula['matriculaid'],
+            'idalumno'      => $matricula['alumnoid'],
+            'nomalu'        => $matricula['alunom'],
+            'idgrado'       => $matricula['gradoid'],
+            'grado'         => $matricula['nomgra'],
+            'matricula'     => $matricula['pension'],
+            'saldo'         => $matricula['resta'],
+            );
+            return $datos;
+        }
+
         public function pagomatricula($datos){
             $conexion = Conexion::conectar();
             $sql = "UPDATE matriculas SET mat_saldo = ?, mat_fecmat = ?, id_tipopago = ? WHERE id_matricula = ?";
@@ -41,6 +68,22 @@
                             VALUES(?, ?, ?, ?, ?)";
                 $query = $conexion->prepare($insertauditoria);
                 $query->bind_param("iissi",$datos['idalumno'], $datos['idgrado'],  $datos['matricula'], $datos['abono'],$datos['idtippago'],);
+                $respuesta = $query->execute();
+            }
+            return $respuesta;
+        }
+
+        public function pagopension($datos){
+            $conexion = Conexion::conectar();
+            $sql = "UPDATE matriculas SET mat_fecpen = ?, id_tipopago = ? WHERE id_matricula = ?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('sii', $datos['fecpen'], $datos['idtippago'], $datos['matriculaid']);
+            $respuesta = $query->execute();
+            if ($respuesta > 0) {
+                $insertauditoria = "INSERT INTO auditorias(id_alumno, id_grado, aud_valor, aud_abono, id_tipopago)
+                            VALUES(?, ?, ?, ?, ?)";
+                $query = $conexion->prepare($insertauditoria);
+                $query->bind_param("iissi",$datos['alumnoid'], $datos['gradoid'],  $datos['pension'], $datos['avance'],$datos['idtippago'],);
                 $respuesta = $query->execute();
             }
             return $respuesta;

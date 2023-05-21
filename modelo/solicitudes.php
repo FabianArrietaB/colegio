@@ -48,49 +48,56 @@
             return $datos;
         }
 
+        public function detalleventa($idsolicitud){
+            $conexion = Conexion::conectar();
+            $sql ="SELECT
+                s.id_solicitud      AS idsolicitudu,
+                s.id_usuario        AS idusuariou,
+                s.id_grado          AS idgradou,
+                s.id_operador       AS idoperadoru,
+                s.rep_tipo          AS reptipou,
+                s.rep_detalle       AS detalleu,
+                s.rep_estado        AS estadou,
+                u.user_nombre       AS usuariou
+                FROM solicitudes AS s
+                INNER JOIN usuarios AS u ON s.id_usuario = u.id_usuario
+                WHERE s.id_solicitud ='$idsolicitud'";
+            $respuesta = mysqli_query($conexion,$sql);
+            $solicitud = mysqli_fetch_array($respuesta);
+            $datos = array(
+            'idsolicitudu' => $solicitud['idsolicitudu'],
+            'reptipou' => $solicitud['reptipou'],
+            'detalleu' => $solicitud['detalleu'],
+            'estadou' => $solicitud['estadou'],
+            'usuariou' => $solicitud['usuariou'],
+            );
+            return $datos;
+        }
+
         public function solucion($datos){
             $conexion = Conexion::conectar();
-            $idventa = self::ventas($datos);
-
-            if($idventa > 0){
-                $sql = "UPDATE  solicitudes SET
-                            id_operador = ?,
-                            id_venta = ?,
-                            rep_estado = ?,
-                            rep_solucion = ?
-                            WHERE id_solicitud = ?";
-                $query = $conexion->prepare($sql);
-                $query->bind_param('iissi',
-                                    $datos['idoperador'],
-                                    $idventa,
-                                    $datos['estado'],
-                                    $datos['solucion'],
-                                    $datos['idsolicitud']);
-                $respuesta = $query->execute();
-                $query->close();
-                return $respuesta;
-            }else {
-                return 0;
-            }
+            $sql = "UPDATE  solicitudes SET id_operador = ?, rep_estado = ?, rep_solucion = ? WHERE id_solicitud = ?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('issi', $datos['idoperador'], $datos['estado'], $datos['solucion'], $datos['idsolicitud']);
+            $respuesta = $query->execute();
+            $query->close();
+            return $respuesta;
         }
 
         public function ventas($datos){
-            if (!$datos) {
-                return 0;
-            }else{
-                $conexion = Conexion::conectar();
-                $insertventa = "INSERT INTO ventas (id_alumno, id_producto, id_operador, ven_precio) VALUES(?, ?, ?, ?)";
-                $query = $conexion->prepare($insertventa);
-                $query->bind_param('iiis',
-                                $datos['idalumno'],
-                                $datos['idproducto'],
-                                $datos['idoperador'],
-                                $datos['precio']);
-                $respuesta = $query->execute();
+            $conexion = Conexion::conectar();
+            $insertventa = "INSERT INTO ventas (id_alumno, id_producto, id_operador, ven_precio) VALUES(?, ?, ?, ?)";
+            $query = $conexion->prepare($insertventa);
+            $query->bind_param('iiis', $datos['idalumno'], $datos['idproducto'], $datos['idoperador'], $datos['precio']);
+            $respuesta = $query->execute();
+            if ($$respuesta = 1) {
                 $idventa = mysqli_insert_id($conexion);
-                $query->close();
-                return $idventa;
+                $insertarauditoria = "UPDATE solicitudes SET id_operador = ?, id_venta = ?, rep_estado = ?, rep_solucion = ? WHERE id_solicitud = ?";
+                $query = $conexion->prepare($insertarauditoria);
+                $query->bind_param('iissi', $datos['idoperador'], $idventa, $datos['estado'], $datos['solucion'], $datos['idsolicitudu']);
+                $respuesta = $query->execute();
             }
+            return $respuesta;
         }
     }
 ?>

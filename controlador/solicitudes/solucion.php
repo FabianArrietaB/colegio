@@ -3,9 +3,6 @@
     $datos = Array(
         'idsolicitud'   => $_POST['idsolicitud'],
         'idoperador'    => $_SESSION['usuario']['id'],
-        'idalumno'      => $_POST['idalumno'],
-        'idproducto'    => $_POST['idproducto'],
-        'precio'        => $_POST['precio'],
         'estado'        => $_POST['estadou'],
         'solucion'      => $_POST['solucionu'],
     );

@@ -52,7 +52,7 @@
                     echo $dias;
                 ;?> </td>
                 <td>
-                    <input class="btn btn-success" type="button" value="Tomar Pago" data-bs-toggle="modal" data-bs-target="#pago" onclick="detallematricula('<?php echo $matriculas['idmatricula']?>')">
+                    <input class="btn btn-success" type="button" value="Tomar Pago" data-bs-toggle="modal" data-bs-target="#pension" onclick="detallepension('<?php echo $matriculas['idmatricula']?>')">
                 </td>
             </tr>
             <?php } ?>

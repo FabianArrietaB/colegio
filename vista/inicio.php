@@ -291,6 +291,7 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
+    include "pagos/pension.php";
     include "pagos/pagos.php";
     include "footer.php";
 ?>
