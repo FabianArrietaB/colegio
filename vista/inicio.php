@@ -4,7 +4,7 @@
     include "sidebar.php";
     if(isset($_SESSION['usuario']) &&
     $_SESSION['usuario']['rol'] == 3||
-    $_SESSION['usuario']['rol'] == 4) {
+    $_SESSION['usuario']['rol'] == 4){
     include "../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
@@ -298,7 +298,7 @@
 <!-- carga ficheros javascript -->
 <script src="../public/js/pagos/pagos.js"></script>
 <!-- Vista Alumno -->
-<?php }else if($_SESSION['usuario']['rol'] == 1){ ?>
+<?php } else if($_SESSION['usuario']['rol'] == 1) {?>
     <!-- inicio del contenido principal -->
 <section class="home-section">
     <div class="container-fluid">

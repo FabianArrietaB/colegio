@@ -5,6 +5,7 @@ function ingresar(){
         data:$('#frmIngreso').serialize(),
         success:function(respuesta){
             respuesta = respuesta.trim();
+            console.log(respuesta)
             if(respuesta == 1){
                 window.location.href = "vista/inicio.php";
             }else{

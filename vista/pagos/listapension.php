@@ -51,6 +51,8 @@
                         <span class="badge text-bg-danger">NO REGISTRA PAGO</span>
                     <?php } else if ($matriculas['idtippago'] == 3)  { ?>
                         <span class="badge text-bg-warning">ABONO PENSION</span>
+                    <?php } else if ($matriculas['idtippago'] == 4)  { ?>
+                        <span class="badge text-bg-success">PAGO TOTAL</span>
                     <?php } ?>
                 </td>
 
