@@ -298,8 +298,12 @@
 <!-- carga ficheros javascript -->
 <script src="../public/js/pagos/pagos.js"></script>
 <!-- Vista Alumno -->
-<?php } else if($_SESSION['usuario']['rol'] == 1) {?>
-    <!-- inicio del contenido principal -->
+<?php } else if($_SESSION['usuario']['rol'] == 1) {
+include "../modelo/conexion.php";
+$con = new Conexion();
+$conexion = $con->conectar();
+?>
+<!-- inicio del contenido principal -->
 <section class="home-section">
     <div class="container-fluid">
         <div class="page-content">

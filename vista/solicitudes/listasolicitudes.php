@@ -49,7 +49,6 @@
                         <span class="badge text-bg-danger">CERRADO</span>
                     <?php } ?>
                 </td>
-               
                 <td><?php if ($solicitudes['solucion'] == 0) { ?>
                         <span">SIN RESPUESTA</span>
                     <?php } else { ?>
