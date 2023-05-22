@@ -20,9 +20,9 @@
 
         public function agregarproducto($datos){
             $conexion = Conexion::conectar();
-            $sql = "INSERT INTO productos (id_categoria, id_operador, pro_nombre, pro_precio ) VALUES(?, ?, ?)";
+            $sql = "INSERT INTO productos (id_categoria, id_operador, pro_nombre, pro_precio ) VALUES(?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("iss", $datos['idcat'], $datos['idoperador'], $datos['nombre'], $datos['precio']);
+            $query->bind_param("iiss", $datos['idcat'], $datos['idoperador'], $datos['nombre'], $datos['precio']);
             $respuesta = $query->execute();
             return $respuesta;
         }

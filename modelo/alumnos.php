@@ -55,11 +55,11 @@
             $query->bind_param("iisssssssss", $idalumno, $datos['idoperador'], $datos['nompad'], $datos['cldopa'], $datos['docpad'], $datos['ciupad'], $datos['dirpad'], $datos['estpad'], $datos['telpad'], $datos['corpad'], $datos['parpad'],);
             $respuesta = $query->execute();
                 if ($respuesta > 0) {
-                    $insertmatricula = "INSERT INTO matriculas(id_alumno, id_grado, id_operador, id_tipopago, mat_valmat, mat_pensio, mat_saldo)
-                                VALUES(?, ?, ?, ?, ?, ?, ?)";
+                    $insertmatricula = "INSERT INTO matriculas(id_alumno, id_grado, id_operador, id_tipopago, mat_valmat, mat_pensio, mat_salpen, mat_saldo)
+                                VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
                     $query = $conexion->prepare($insertmatricula);
                     $saldo = $datos['matric']-$datos['abono'];
-                    $query->bind_param("iiissss", $idalumno, $datos['idgrado'], $datos['idoperador'], $datos['tippag'], $datos['matric'], $datos['pensio'], $saldo,);
+                    $query->bind_param("iiisssss", $idalumno, $datos['idgrado'], $datos['idoperador'], $datos['tippag'], $datos['matric'], $datos['pensio'], $datos['pensio'], $saldo,);
                     $respuesta = $query->execute();
                     $insertauditoria = "INSERT INTO auditorias(id_operador, id_alumno, id_grado, id_tipopago, aud_valor, aud_abono)
                                 VALUES(?, ?, ?, ?, ?, ?)";
