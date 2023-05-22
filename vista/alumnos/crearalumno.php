@@ -240,7 +240,7 @@
                             <div class="col-3">
                                 <div class="input-group mb-3">
                                     <select name="idgrado" id="idgrado" class="form-control input-sm">
-                                        <option selected >Selecione Gradp</option>
+                                        <option selected >Selecione Grado</option>
                                         <?php
                                         $sql="SELECT g.id_grado as idgrado, g.gra_nombre as grado FROM grados as g WHERE g.gra_estado = 1";
                                         $respuesta = mysqli_query($conexion, $sql);
