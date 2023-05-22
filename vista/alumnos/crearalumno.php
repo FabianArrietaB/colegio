@@ -240,14 +240,14 @@
                             <div class="col-3">
                                 <div class="input-group mb-3">
                                     <select name="idgrado" id="idgrado" class="form-control input-sm">
-                                        <option selected >GRADO</option
+                                        <option selected >Selecione Gradp</option>
                                         <?php
-                                            $sql="SELECT g.id_grado as idgrado, g.gra_nombre as grado FROM grados as g WHERE g.gra_estado = 1";
-                                            $respuesta = mysqli_query($conexion, $sql);
-                                            while($grado = mysqli_fetch_array($respuesta)) {
+                                        $sql="SELECT g.id_grado as idgrado, g.gra_nombre as grado FROM grados as g WHERE g.gra_estado = 1";
+                                        $respuesta = mysqli_query($conexion, $sql);
+                                        while($empleado = mysqli_fetch_array($respuesta)) {
                                         ?>
-                                            <option value="<?php echo $grado['idgrado']?>"><?php echo $grado['grado'];?></option>
-                                        <?php } ?>
+                                        <option value="<?php echo $empleado['idgrado']?>"><?php echo $empleado['grado'];?></option>
+                                        <?php }?>
                                     </select>
                                 </div>
                             </div>

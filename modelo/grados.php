@@ -23,7 +23,7 @@
             $sql = "INSERT INTO grados (id_empleado, id_operador, gra_nombre, gra_matric, gra_pensio, gra_canalu)
                     VALUES(?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("iissss",$datos['idoperador'], $datos['iddir'], $datos['nombre'], $datos['matric'], $datos['pensio'], $datos['canalu']);
+            $query->bind_param("iissss", $datos['iddir'] ,$datos['idoperador'], $datos['nombre'], $datos['matric'], $datos['pensio'], $datos['canalu']);
             $respuesta = $query->execute();
             return $respuesta;
         }
@@ -60,9 +60,10 @@
 
         public function editargrado($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE grados SET gra_nombre = ?, gra_matric = ?, gra_pensio = ?, gra_canalu = ?, id_empleado = ? WHERE id_grado = ?";
+            $sql = "UPDATE grados SET
+                            id_operador = ?, gra_nombre = ?, gra_matric = ?, gra_pensio = ?, gra_canalu = ?, id_empleado = ? WHERE id_grado = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('ssssii', $datos['nombre'], $datos['matric'], $datos['pensio'], $datos['canalu'], $datos['iddir'], $datos['idgrado']);
+            $query->bind_param('issssii', $datos['idoperador'], $datos['nombre'], $datos['matric'], $datos['pensio'], $datos['canalu'], $datos['iddir'], $datos['idgrado']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

@@ -114,6 +114,7 @@
             $conexion = Conexion::conectar();
             $sql = "UPDATE alumnos SET
                     id_grado = ?,
+                    idoperador = ?,
                     alu_nombre = ?,
                     alu_cladoc = ?,
                     alu_docume = ?,
@@ -128,7 +129,8 @@
                     alu_fecnac = ?
                     WHERE id_alumno = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('issssssssssssi',
+            $query->bind_param('iissssssssssssi',
+                                $datos['idoperador'],
                                 $datos['idgrado'],
                                 $datos['nombre'],
                                 $datos['cladoc'],
@@ -192,6 +194,7 @@
             $conexion = Conexion::conectar();
             $sql = "UPDATE acudientes SET
                     id_alumno = ?,
+                    idoperador = ?,
                     acu_nombre = ?,
                     acu_cladoc = ?,
                     acu_docume = ?,
@@ -202,8 +205,9 @@
                     acu_correo = ?
                     WHERE id_acudiente = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('issssssssi',
+            $query->bind_param('iissssssssi',
                                 $datos['idalumno'],
+                                $datos['idoperador'],
                                 $datos['nombre'],
                                 $datos['cladoc'],
                                 $datos['docume'],

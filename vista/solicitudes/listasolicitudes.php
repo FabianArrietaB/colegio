@@ -44,7 +44,8 @@
                         <span">SOLICITUD</span>
                     <?php } else if ($solicitudes['tiposolicitud'] == 2) { ?>
                         <span >REPORTE</span>
-                    <?php } ?></td>
+                    <?php } ?>
+                </td>
                 <td><?php echo $solicitudes['detalle']; ?></td>
                 <td>
                     <?php if ($solicitudes['estado'] == 0) { ?>

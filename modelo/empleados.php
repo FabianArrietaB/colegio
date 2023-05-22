@@ -31,7 +31,7 @@
         public function agregarempleado($datos){
             $conexion = Conexion::conectar();
             $sql = "INSERT INTO empleados (
-                id_operador = ?,
+                id_operador,
                 emp_nombre,
                 emp_cladoc,
                 emp_docume,
@@ -146,6 +146,7 @@
         public function editarempleado($datos){
             $conexion = Conexion::conectar();
             $sql = "UPDATE empleados SET
+                    id_operador = ?,
                     emp_nombre = ?,
                     emp_cladoc = ?,
                     emp_docume = ?,
@@ -170,7 +171,8 @@
                     emp_codces = ?
                     WHERE id_empleado = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('ssssssssssssssssssssssi',
+            $query->bind_param('issssssssssssssssssssssi',
+                                $datos['idoperador'],                    
                                 $datos['nombre'],
                                 $datos['cladoc'],
                                 $datos['docume'],

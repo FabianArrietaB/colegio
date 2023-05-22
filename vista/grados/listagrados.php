@@ -7,36 +7,36 @@
     $conexion = $con->conectar();
     $idusuario = $_SESSION['usuario']['id'];
     $sql = "SELECT
-        grados.id_grado         AS idgrado,
-        grados.gra_nombre       AS nombre,
-        grados.gra_matric       AS matric,
-        grados.gra_pensio       AS pensio,
-        grados.gra_canalu       AS canalu,
-        grados.gra_fecope       AS fecha,
-        grados.gra_estado       AS estado,
-        empleados.id_empleado   AS iddir,
-        empleados.emp_nombre    AS nompro
-        FROM grados AS grados
-        INNER JOIN empleados AS empleados ON grados.id_empleado = empleados.id_empleado
-        ORDER BY grados.id_grado ASC";
+        g.id_grado      AS idgrado,
+        g.id_empleado   AS iddir,
+        g.gra_nombre    AS nombre,
+        g.gra_matric    AS matric,
+        g.gra_pensio    AS pensio,
+        g.gra_canalu    AS canalu,
+        g.gra_fecope    AS fecha,
+        g.gra_estado    AS estado,
+        e.emp_nombre    AS nompro
+        FROM grados AS g
+        INNER JOIN empleados AS e ON g.id_empleado = e.id_empleado
+        ORDER BY g.id_grado ASC";
     $query = mysqli_query($conexion, $sql);
 } else {
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
     $sql = "SELECT
-        grados.id_grado         AS idgrado,
-        grados.gra_nombre       AS nombre,
-        grados.gra_matric       AS matric,
-        grados.gra_pensio       AS pensio,
-        grados.gra_canalu       AS canalu,
-        grados.gra_fecope       AS fecha,
-        grados.gra_estado       AS estado,
-        empleados.id_empleado   AS iddir,
-        empleados.emp_nombre    AS nompro
-        FROM grados AS grados
-        INNER JOIN empleados AS empleados ON grados.id_empleado = empleados.id_empleado
-        WHERE grados.id_grado = 1
+        g.id_grado      AS idgrado,
+        g.id_empleado   AS iddir,
+        g.gra_nombre    AS nombre,
+        g.gra_matric    AS matric,
+        g.gra_pensio    AS pensio,
+        g.gra_canalu    AS canalu,
+        g.gra_fecope    AS fecha,
+        g.gra_estado    AS estado,
+        e.emp_nombre    AS nompro
+        FROM grados AS g
+        INNER JOIN empleados AS e ON g.id_empleado = e.id_empleado
+        WHERE grados.gra_estado = 1
         ORDER BY grados.id_grado ASC";
     $query = mysqli_query($conexion, $sql);
     }
@@ -66,7 +66,13 @@
             <tr>
                 <td> <?php echo $grados['nombre']; ?> </td>
                 <td> <?php echo $grados['canalu']; ?></td>
-                <td> <?php echo $grados['nompro']; ?></td>
+                <td>
+                    <?php if ($grados['iddir'] == 0) { ?>
+                        <span class="badge text-bg-danger">NO ASIGNADO</span>
+                    <?php } else { ?>
+                        <?php echo $grados['nompro']; ?>
+                    <?php } ?>
+                </td>
                 <td> <?php echo $grados['matric']; ?></td>
                 <td> <?php echo $grados['pensio']; ?></td>
                 <td>

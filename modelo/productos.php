@@ -71,9 +71,9 @@
 
         public function editarproducto($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE productos SET id_categoria = ?, pro_nombre = ?, pro_precio = ? WHERE id_producto = ?";
+            $sql = "UPDATE productos SET id_categoria = ?, id_operador = ?, pro_nombre = ?, pro_precio = ? WHERE id_producto = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('issi', $datos['idcat'], $datos['nombre'], $datos['precio'], $datos['idproducto']);
+            $query->bind_param('iissi', $datos['idcat'], $datos['idoperador'], $datos['precio'], $datos['idproducto']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

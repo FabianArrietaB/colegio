@@ -1,5 +1,7 @@
 <?php
+    session_start();
     $datos = Array(
+        'idoperador' => $_SESSION['usuario']['id'],
         'idempleado' => $_POST['idempleado'],
         "nombre" => $_POST['nombreu'],
         "cladoc" => $_POST['cladocu'],
