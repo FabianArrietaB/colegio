@@ -85,7 +85,7 @@
 <!-- Fin Formulario (Agregar, Modificar) -->
 <!-- Calcular Valor Balance -->
 <script>
-    let resta = document.getElementById("restau")
+    let resta = document.getElementById("salpenu")
     let diferencia = document.getElementById("diferenciau")
     let avance = document.getElementById("avanceu")
     avance.addEventListener("change", () => {

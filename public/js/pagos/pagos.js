@@ -98,7 +98,7 @@ function pagopension(){
             console.log(respuesta)
             if(respuesta == 1){
                 $('#frmpagopension')[0].reset();
-                $('#tablalistapagos').load('pagos/listapagos.php');
+                $('#tablalistapension').load('pagos/listapension.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Pago Realizado Exitosamente',

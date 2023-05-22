@@ -31,6 +31,7 @@
                 <th>Grado</th>
                 <th>Valor Pension</th>
                 <th>Saldo Anterior</th>
+                <th>Estado</th>
                 <th>Ultimo Pago</th>
                 <th>Dias Proximo Pago</th>
                 <th></th>
@@ -48,7 +49,7 @@
                 <td><?php echo $matriculas['salpen'];?></td>
                 <td><?php if ($matriculas['idtippago'] == 0) { ?>
                         <span class="badge text-bg-danger">NO REGISTRA PAGO</span>
-                    <?php } else { ?>
+                    <?php } else if ($matriculas['idtippago'] == 3)  { ?>
                         <span class="badge text-bg-warning">ABONO PENSION</span>
                     <?php } ?>
                 </td>

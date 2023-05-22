@@ -36,7 +36,7 @@
                 m.id_matricula as idmatriculau,
                 m.id_alumno as idalumnou,
                 m.id_grado as idgradou,
-                m.mat_pensio as pensionu,
+                m.mat_pensio as pension,
                 m.mat_salpen as salpen,
                 a.alu_nombre as nomaluu,
                 g.gra_nombre as gradou
@@ -60,15 +60,35 @@
 
         public function pagomatricula($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE matriculas SET mat_saldo = ?, mat_fecmat = ?, id_tipopago = ? WHERE id_matricula = ?";
+            $sql = "UPDATE matriculas SET
+                    mat_saldo = ?,
+                    mat_fecmat = ?,
+                    id_tipopago = ?
+                    WHERE id_matricula = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('ssii', $datos['balance'], $datos['fecmat'], $datos['idtippago'], $datos['idmatricula']);
+            $query->bind_param('ssii', 
+                        $datos['balance'],
+                        $datos['fecmat'],
+                        $datos['idtippago'],
+                        $datos['idmatricula']);
             $respuesta = $query->execute();
             if ($respuesta > 0) {
-                $insertauditoria = "INSERT INTO auditorias(id_operador, id_alumno, id_grado, aud_valor, aud_abono, id_tipopago)
+                $insertauditoria = "INSERT INTO auditorias(
+                                    id_operador,
+                                    id_alumno,
+                                    id_grado,
+                                    aud_valor,
+                                    aud_abono,
+                                    id_tipopago)
                             VALUES(?, ?, ?, ?, ?, ?)";
                 $query = $conexion->prepare($insertauditoria);
-                $query->bind_param("iiissi", $datos['idoperador'], $datos['idalumno'], $datos['idgrado'],  $datos['matricula'], $datos['abono'],$datos['idtippago'],);
+                $query->bind_param("iiissi",
+                                    $datos['idoperador'],
+                                    $datos['idalumno'],
+                                    $datos['idgrado'],
+                                    $datos['matricula'],
+                                    $datos['abono'],
+                                    $datos['idtippago'],);
                 $respuesta = $query->execute();
             }
             return $respuesta;
@@ -76,15 +96,35 @@
 
         public function pagopension($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE matriculas SET mat_fecpen = ?, id_tipopago = ? WHERE id_matricula = ?";
+            $sql = "UPDATE matriculas SET
+                    mat_salpen = ?,
+                    mat_fecpen = ?,
+                    id_tippagpen = ?
+                    WHERE id_matricula = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('sii', $datos['fecpen'], $datos['idtippago'], $datos['idmatriculau']);
+            $query->bind_param('ssii',
+                                $datos['diferencia'],
+                                $datos['fecpen'],
+                                $datos['idtippagou'],
+                                $datos['idmatriculau']);
             $respuesta = $query->execute();
             if ($respuesta > 0) {
-                $insertauditoria = "INSERT INTO auditorias(id_operador, id_alumno, id_grado, aud_valor, aud_abono, id_tipopago)
+                $insertauditoria = "INSERT INTO auditorias(
+                                    id_operador,
+                                    id_alumno,
+                                    id_grado,
+                                    aud_valor,
+                                    aud_abono,
+                                    id_tipopago)
                             VALUES(?, ?, ?, ?, ?, ?)";
                 $query = $conexion->prepare($insertauditoria);
-                $query->bind_param("iiissi", $datos['idoperador'], $datos['idalumnou'], $datos['idgradou'],  $datos['pension'], $datos['avance'],$datos['idtippagou'],);
+                $query->bind_param("iiissi",
+                                    $datos['idoperador'],
+                                    $datos['idalumnou'],
+                                    $datos['idgradou'],
+                                    $datos['pension'],
+                                    $datos['avance'],
+                                    $datos['idtippagou'],);
                 $respuesta = $query->execute();
             }
             return $respuesta;

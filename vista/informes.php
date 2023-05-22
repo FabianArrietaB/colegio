@@ -1,4 +1,3 @@
-<!-- Vista Admin y Supervisor -->
 <?php
     include "header.php";
     include "sidebar.php";
@@ -15,20 +14,27 @@
         <div class="page-content">
             <div class="card border-primary">
                 <div class="card-header text-center">
-                    <div class="row">
-                        <div class="col-9">
-                            <h4>Panel Informes</h4>
-                        </div>
+                    <div class="title">
+                        <h2>REPORTES</h2>
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="col-6 border-primary">
-                        <form action="" method="POST">
-                            <input class="form-control me-xl-2" type="search" placeholder="Buscar" name="filtro" id="filtro">
-                        </form>
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <a name="" id="ventasbtn" class="btn btn-primary" href="#" role="button">VENTAS</a>
+                        </div>
+                        <div class="col-4">
+                            <a name="" id="pensionbtn" class="btn btn-primary" href="#" role="button">PENSION</a>
+                        </div>
+                        <div class="col-4">
+                            <a name="" id="matriculasbtn" class="btn btn-primary" href="#" role="button">MATRICULAS</a>
+                        </div>
                     </div>
                 </div>
-                    <div id="tablainformes"></div>
+                <div class="row text-center">
+                    <div id="tablaventas"></div>
+                    <div id="tablapension"></div>
+                    <div id="tablamatriculas"></div>
                 </div>
             </div>
         </div>

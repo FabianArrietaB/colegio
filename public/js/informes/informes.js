@@ -1,45 +1,28 @@
 $(document).ready(function(){
-    $('#tablainformes').load('informes/listainformes.php');
+
+    $('#ventasbtn').click(function(){
+        ocultarsecciondes();
+        $('#tablaventas').load('informes/tablaventas.php');
+        $('#tablaventas').show();
+    });
+
+    $('#pensionbtn').click(function(){
+        ocultarsecciondes();
+        $('#tablapension').load('informes/tablapension.php');
+        $('#tablapension').show();
+    });
+    
+    $('#matriculasbtn').click(function(){
+        ocultarsecciondes();
+        $('#tablamatriculas').load('informes/tablamatriculas.php');
+        $('#tablamatriculas').show();
+    });
 });
 
-$(document).ready(function(){
-    setInterval(
-        function(){
-            const filtro = $('#filtro').val()
-            $('#Recargar').load('informes/listainformes.php?filtro='+filtro);
-        },1000
-    );
-});
-
-function reporteventas(idalumno){
-    $.ajax({
-        type: "POST",
-        data: "idalumno=" + idalumno,
-        url: "../controlador/informe/detalleventa.php",
-        success: function(respuesta){
-            respuesta = jQuery.parseJSON(respuesta);
-            $('#idalumno').val(respuesta['idalumno']);
-            $('#idproductou').val(respuesta['idproducto']);
-            $('#preciou').val(respuesta['precio']);
-            $('#nombreu').val(respuesta['nombre']);
-        }
-    });
-}
-
-function reportematriculas(idalumno){
-    $.ajax({
-        type: "POST",
-        data: "idalumno=" + idalumno,
-        url: "../controlador/informe/detallematricula.php",
-        success: function(respuesta){
-            respuesta = jQuery.parseJSON(respuesta);
-            $('#idalumno').val(respuesta['idalumno']);
-            $('#idgradou').val(respuesta['idgrado']);
-            $('#idtippag').val(respuesta['tippag']);
-            $('#matriculau').val(respuesta['matricula']);
-            $('#abonou').val(respuesta['abono']);
-            $('#fechau').val(respuesta['fecha']);
-        }
-    });
+function ocultarsecciondes(){
+    $('#tablaventas').hide();
+    $('#tablapension').hide();
+    $('#tablamatriculas').hide();
+    return false;
 }
 

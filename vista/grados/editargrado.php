@@ -14,7 +14,7 @@
                             <input type="text" id="idgrado" name="idgrado" hidden>
                             <div class="col">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="nombreu" name="nombreu" class="form-control input-sm" placeholder="Ingrese Nombre" >
+                                    <input type="text" id="nomalu" name="nombreu" class="form-control input-sm" placeholder="Ingrese Nombre" >
                                 </div>
                             </div>
                             <div class="col">
