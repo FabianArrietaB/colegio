@@ -58,12 +58,20 @@
 
                 <td><?php echo $matriculas['fecpen'];?></td>
                 <td><?php
-                    $propag = $matriculas['fecpen'];
-                    $mes = date("d-m-Y",strtotime($propag."+ 1 month"));
-                    $dateDifference = abs(strtotime($mes) - strtotime($fecha_actual));
-                    $dias = $dateDifference / (60*60*24);
-                    echo $dias;
-                ;?> </td>
+                        $propag = $matriculas['fecpen'];
+                        $mes = date("d-m-Y",strtotime($propag."+ 1 month"));
+                        $dateDifference = abs(strtotime($mes) - strtotime($fecha_actual));
+                        $dias = $dateDifference / (60*60*24);
+                        echo $dias;
+                        if ($dias >= 30 && $dias <= 16) { 
+                    ?>
+                        <span class="badge text-bg-success"><?php echo $dias ?></span>
+                    <?php } else if ($dias <= 15)  { ?>
+                        <span class="badge text-bg-warning"><?php echo $dias ?></span>
+                    <?php } else if ($dias <= 5)  { ?>
+                        <span class="badge text-bg-danger"><?php echo $dias ?></span>
+                    <?php } ?>
+                </td>
                 <td>
                     <input class="btn btn-success" type="button" value="Tomar Pago" data-bs-toggle="modal" data-bs-target="#pension" onclick="detallepension('<?php echo $matriculas['idmatricula']?>')">
                 </td>

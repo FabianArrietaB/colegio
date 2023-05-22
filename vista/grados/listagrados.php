@@ -105,10 +105,6 @@
                     <?php
                     }
                     ?>
-                    <button type="button" class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#prueba"
-                        onclick="detallegrado('<?php echo $grados['idgrado']?>')">
-                        <i class="fa-solid fa-pen-to-square fa-xl"></i>
-                    </button>
                 </td>
             </tr>
             <?php } ?>

@@ -76,6 +76,11 @@
                 <td> <?php echo $ventas['alumno']; ?> </td>
                 <td> <?php echo $ventas['grado']; ?> </td>
                 <td> <?php echo $ventas['vtventas']; ?> </td>
+                <td>
+                <div class="d-grid gap-2">
+                    <input type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#repventa" value="Reporte" onclick="detalleventa('<?php echo $ventas['idalumno']?>')"></input>
+                </div>
+                </td>
             </tr>
             <?php } ?>
         </tbody>
