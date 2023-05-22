@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <select name="tiposolicitud" id="tiposolicitud" class="form-control input-sm">
+                                    <select name="reptipo" id="reptipo" class="form-control input-sm">
                                         <option selected >TIPO SOLICITUD</option>
                                         <option value="1">SOLICITUD</option>
                                         <option value="2">REPORTE</option>

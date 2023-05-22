@@ -7,7 +7,7 @@
             $conexion = Conexion::conectar();
             $sql = "INSERT INTO solicitudes (id_usuario, id_grado, rep_tipo, rep_detalle) VALUES(?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("iiss", $datos['idusuario'], $datos['idgrado'], $datos['tiposolicitud'], $datos['detalle']);
+            $query->bind_param("iiss", $datos['idusuario'], $datos['idgrado'], $datos['reptipo'], $datos['detalle']);
             $respuesta = $query->execute();
             return $respuesta;
         }

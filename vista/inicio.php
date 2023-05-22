@@ -332,7 +332,7 @@ $conexion = $con->conectar();
                     </div>
                 </div>
                 <div class="card-body">
-                    <div id="tablalistareportes"></div>
+                    <div id="tablalistasolicitudes"></div>
                 </div>
             </div>
         </div>
