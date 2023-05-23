@@ -1,5 +1,5 @@
 <!-- Formulario (Agregar) -->
-<form id="frmrepventa" method="post" onsubmit="return imprepventa()">
+<form id="frmrepventa" method="post" action="" onsubmit="return imprepventa()">
     <div class="modal fade" id="repventa" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
@@ -12,13 +12,8 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Alumno</legend>
                         <div class="row">
-                            <div class="col-1">
-                                <div class="mb-3">
-                                    <label class="form-label">ID</label>
-                                    <input type="text" id="idalumno" name="idalumno" class="form-control input-sm" disabled>
-                                </div>
-                            </div>
-                            <div class="col-5">
+                            <input type="text" id="idalumno" name="idalumno" class="form-control input-sm" hidden>
+                            <div class="col-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Estudiante</label>
                                     <input type="text" id="nomalu" name="nomalu" class="form-control input-sm" disabled>
@@ -57,11 +52,19 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" >Producto</th>
-                                        <th scope="col" >Valor</th>
+                                        <th scope="col" >Precio</th>
                                         <th scope="col" >Fecha</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php
+                                    $id = $_COOKIE['variable'];
+                                    $sql=$conexion->query("SELECT v.id_producto as 'producto' from ventas as v");
+                                    $data = mysqli_fetch_array($sql);
+                                    echo $id;
+                                ?>
+                                    <tr>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

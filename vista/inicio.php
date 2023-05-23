@@ -29,7 +29,7 @@
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 30px">
                                                     <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 1 AND alu_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql; 
+                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 1 AND alu_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql;
                                                     ?>
                                                 </span>
                                             </div>

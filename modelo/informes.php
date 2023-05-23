@@ -34,6 +34,7 @@
             'direcc'     => $ventas['direcc'],
             'fecmat'     => $ventas['fecmat'],
             'producto'   => $ventas['producto'],
+            'lista'       => array()
             );
             return $datos;
         }

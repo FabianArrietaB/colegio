@@ -39,15 +39,11 @@ function detalleventa(idalumno){
             $('#correo').val(respuesta['correo']);
             $('#direcc').val(respuesta['direcc']);
             $('#fecmat').val(respuesta['fecmat']);
-            var tbHtml = '';
-            /*recorre el object y agrega a tbHtml los <td>*/
-            for (var respuesta in respuesta){
-                tbHtml += '<tr>';
-                tbHtml += '<td>'+respuesta.first_name+'</td></tr>';
-            }
-            console.log(tbHtml)
-            /*agrega tbHtml al DOM*/
-            $('tablainfoventas tbody').html(tbHtml);
+
+            respuesta['lista'].forEach(item, function() {
+                tbl += 
+            })
+
         }
     });
 }

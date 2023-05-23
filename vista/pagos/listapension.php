@@ -63,9 +63,9 @@
                         $dateDifference = abs(strtotime($mes) - strtotime($fecha_actual));
                         $dias = $dateDifference / (60*60*24);
                         echo $dias;
-                        if ($dias >= 30 && $dias <= 16) { 
+                        if ($dias >= 30 && $dias < 16) {
                     ?>
-                        <span class="badge text-bg-success"><?php echo $dias ?></span>
+                        <span class="badge text-bg-success value" ></span>
                     <?php } else if ($dias <= 15)  { ?>
                         <span class="badge text-bg-warning"><?php echo $dias ?></span>
                     <?php } else if ($dias <= 5)  { ?>
