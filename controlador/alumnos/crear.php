@@ -37,6 +37,10 @@
       "pensio" => $_POST['pensio'],
       "abono" => $_POST['abono'],
       "tippag" => $_POST['tippag'],
+      "usuario"    => $_POST['usuario'],
+      'idoperador' => $_SESSION['usuario']['id'],
+      "password"   => md5($_POST['password']),
+      "idRol"      => $_POST['idRol'],
    );
    include "../../modelo/alumnos.php";
    $Alumnos   = new Alumnos();

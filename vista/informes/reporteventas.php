@@ -70,8 +70,3 @@
     </div>
 </form>
 <!-- Fin Formulario (Agregar, Modificar) -->
-<script>
-    var ibxUserTwo=document.getElementById('idalumno');
-    var toPost=ibxUserTwo.value;
-    console.log(toPost);
-</script>
