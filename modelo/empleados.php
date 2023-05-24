@@ -30,59 +30,31 @@
 
         public function agregarempleado($datos){
             $conexion = Conexion::conectar();
-            $sql = "INSERT INTO empleados (
-                id_operador,
-                emp_nombre,
-                emp_cladoc,
-                emp_docume,
-                emp_fecnac,
-                emp_sexo,
-                emp_gposan,
-                emp_factrh,
-                emp_estciv,
-                emp_escola,
-                emp_hijos,
-                emp_telcel,
-                emp_ciudad,
-                emp_direcc,
-                emp_estrat,
-                emp_correo,
-                emp_cargo,
-                emp_tipcon,
-                emp_salari,
-                emp_codeps,
-                emp_codarl,
-                emp_codpen,
-                emp_codces)
-                VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+            $idusuario = self::agregarusuario($datos);
+
+            if ($idusuario > 0) {
+            $sql = "INSERT INTO empleados (id_usuario, id_operador, emp_nombre, emp_cladoc, emp_docume, emp_fecnac, emp_sexo, emp_gposan, emp_factrh, emp_estciv, emp_escola, emp_hijos, emp_telcel, emp_ciudad, emp_direcc, emp_estrat, emp_correo, emp_cargo, emp_tipcon, emp_salari, emp_codeps, emp_codarl, emp_codpen, emp_codces)
+                    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $query = $conexion->prepare($sql);
-            $query->bind_param("issssssssssssssssssssss",
-                                $datos['idoperador'],
-                                $datos['nombre'],
-                                $datos['cladoc'],
-                                $datos['docume'],
-                                $datos['fecnac'],
-                                $datos['sexo'],
-                                $datos['gposan'],
-                                $datos['factrh'],
-                                $datos['estciv'],
-                                $datos['escola'],
-                                $datos['hijos'],
-                                $datos['telcel'],
-                                $datos['ciudad'],
-                                $datos['direcc'],
-                                $datos['estrat'],
-                                $datos['correo'],
-                                $datos['cargo'],
-                                $datos['tipcon'],
-                                $datos['salari'],
-                                $datos['codeps'],
-                                $datos['codarl'],
-                                $datos['codpen'],
-                                $datos['codces'],
+            $query->bind_param("iissssssssssssssssssssss", $idusuario, $datos['idoperador'], $datos['nombre'], $datos['cladoc'], $datos['docume'], $datos['fecnac'], $datos['sexo'], $datos['gposan'], $datos['factrh'], $datos['estciv'], $datos['escola'], $datos['hijos'], $datos['telcel'], $datos['ciudad'], $datos['direcc'], $datos['estrat'], $datos['correo'], $datos['cargo'], $datos['tipcon'], $datos['salari'], $datos['codeps'], $datos['codarl'], $datos['codpen'], $datos['codces'],
                     );
             $respuesta = $query->execute();
             return $respuesta;
+            }else {
+                return 0;
+            }
+        }
+
+        public function agregarusuario($datos){
+            $conexion = Conexion::conectar();
+            $sql = "INSERT INTO usuarios (id_rol, id_operador, user_usuario, user_nombre, user_contra, user_correo) VALUES( ?, ?, ?, ?, ?, ?)";
+            $query = $conexion->prepare($sql);
+            $query->bind_param("iissss", $datos['idRol'], $datos['idoperador'], $datos['usuario'], $datos['nombre'], $datos['password'], $datos['correo']);
+            $respuesta = $query->execute();
+            $idusuario = mysqli_insert_id($conexion);
+            $query->close();
+            return $idusuario;
         }
 
         public function detalleempleado($idempleado){
@@ -171,31 +143,7 @@
                     emp_codces = ?
                     WHERE id_empleado = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('issssssssssssssssssssssi',
-                                $datos['idoperador'],                    
-                                $datos['nombre'],
-                                $datos['cladoc'],
-                                $datos['docume'],
-                                $datos['fecnac'],
-                                $datos['sexo'],
-                                $datos['gposan'],
-                                $datos['factrh'],
-                                $datos['estciv'],
-                                $datos['escola'],
-                                $datos['hijos'],
-                                $datos['telcel'],
-                                $datos['ciudad'],
-                                $datos['direcc'],
-                                $datos['estrat'],
-                                $datos['correo'],
-                                $datos['cargo'],
-                                $datos['tipcon'],
-                                $datos['salari'],
-                                $datos['codeps'],
-                                $datos['codarl'],
-                                $datos['codpen'],
-                                $datos['codces'],
-                                $datos['idempleado']);
+            $query->bind_param('issssssssssssssssssssssi', $datos['idoperador'],                     $datos['nombre'], $datos['cladoc'], $datos['docume'], $datos['fecnac'], $datos['sexo'], $datos['gposan'], $datos['factrh'], $datos['estciv'], $datos['escola'], $datos['hijos'], $datos['telcel'], $datos['ciudad'], $datos['direcc'], $datos['estrat'], $datos['correo'], $datos['cargo'], $datos['tipcon'], $datos['salari'], $datos['codeps'], $datos['codarl'], $datos['codpen'], $datos['codces'], $datos['idempleado']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

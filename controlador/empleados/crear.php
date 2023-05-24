@@ -24,6 +24,10 @@
       "codarl" => $_POST['codarl'],
       "codpen" => $_POST['codpen'],
       "codces" => $_POST['codces'],
+      "usuario"    => $_POST['usuario'],
+      'idoperador' => $_SESSION['usuario']['id'],
+      "password"   => md5($_POST['password']),
+      "idRol"      => $_POST['idRol'],
    );
    include "../../modelo/empleados.php";
    $Empleados   = new Empleados();
