@@ -19,8 +19,8 @@
             a.alu_nombre as nomalu,
             g.gra_nombre as grado
             FROM acudientes as ac
-            INNER JOIN alumnos as a ON ac.id_alumno = a.id_alumno
-            INNER JOIN grados as g ON a.id_grado = g.id_grado
+            LEFT JOIN alumnos as a ON ac.id_alumno = a.id_alumno
+            LEFT JOIN grados as g ON a.id_grado = g.id_grado
             ORDER BY ac.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     } else {

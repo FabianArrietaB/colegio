@@ -19,8 +19,8 @@ $sql = "SELECT
     s.rep_fecupd        AS fecsolucion,
     s.rep_estado        AS estado
 FROM solicitudes AS s
-INNER JOIN usuarios AS u ON s.id_usuario = u.id_usuario
-INNER JOIN grados as g ON s.id_grado = g.id_grado
+LEFT JOIN usuarios AS u ON s.id_usuario = u.id_usuario
+LEFT JOIN grados as g ON s.id_grado = g.id_grado
 ORDER BY s.id_solicitud ASC";
 $query = mysqli_query($conexion, $sql);
 ?>

@@ -12,7 +12,7 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Alumno</legend>
                         <div class="row">
-                            <input type="text" id="idalumno" name="idalumno" class="form-control input-sm" hidden>
+                            <input type="text" id="idalumno" name="idalumno" class="form-control input-sm">
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Estudiante</label>
@@ -56,15 +56,7 @@
                                         <th scope="col" >Fecha</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                <?php
-                                    $id = $_COOKIE['variable'];
-                                    $sql=$conexion->query("SELECT v.id_producto as 'producto' from ventas as v");
-                                    $data = mysqli_fetch_array($sql);
-                                    echo $id;
-                                ?>
-                                    <tr>
-                                    </tr>
+                                <tbody id="tblventaalu">
                                 </tbody>
                             </table>
                         </div>
@@ -78,3 +70,8 @@
     </div>
 </form>
 <!-- Fin Formulario (Agregar, Modificar) -->
+<script>
+    var ibxUserTwo=document.getElementById('idalumno');
+    var toPost=ibxUserTwo.value;
+    console.log(toPost);
+</script>

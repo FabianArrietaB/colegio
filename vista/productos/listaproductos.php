@@ -15,7 +15,7 @@
         categorias.id_categoria AS idcat,
         categorias.cat_nombre   AS catego
         FROM productos AS productos
-        INNER JOIN categorias AS categorias ON productos.id_categoria = categorias.id_categoria
+        LEFT JOIN categorias AS categorias ON productos.id_categoria = categorias.id_categoria
         ORDER BY productos.id_producto ASC";
     $query = mysqli_query($conexion, $sql);
 } else {
@@ -31,7 +31,7 @@
         categorias.id_categoria AS idcat,
         categorias.cat_nombre   AS catego
         FROM productos AS productos
-        INNER JOIN categorias AS categorias ON productos.id_categoria = categorias.id_categoria
+        LEFT JOIN categorias AS categorias ON productos.id_categoria = categorias.id_categoria
         WHERE productos.id_producto = 1
         ORDER BY productos.id_producto ASC";
     $query = mysqli_query($conexion, $sql);

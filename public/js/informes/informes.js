@@ -39,11 +39,7 @@ function detalleventa(idalumno){
             $('#correo').val(respuesta['correo']);
             $('#direcc').val(respuesta['direcc']);
             $('#fecmat').val(respuesta['fecmat']);
-
-            respuesta['lista'].forEach(item, function() {
-                tbl += 
-            })
-
+            $('#lista').val(respuesta['lista']);
         }
     });
 }

@@ -17,7 +17,7 @@
         g.gra_estado    AS estado,
         e.emp_nombre    AS nompro
         FROM grados AS g
-        INNER JOIN empleados AS e ON g.id_empleado = e.id_empleado
+        LEFT JOIN empleados AS e ON g.id_empleado = e.id_empleado
         ORDER BY g.id_grado ASC";
     $query = mysqli_query($conexion, $sql);
 } else {
@@ -35,7 +35,7 @@
         g.gra_estado    AS estado,
         e.emp_nombre    AS nompro
         FROM grados AS g
-        INNER JOIN empleados AS e ON g.id_empleado = e.id_empleado
+        LEFT JOIN empleados AS e ON g.id_empleado = e.id_empleado
         WHERE grados.gra_estado = 1
         ORDER BY grados.id_grado ASC";
     $query = mysqli_query($conexion, $sql);

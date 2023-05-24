@@ -14,8 +14,8 @@
         SUM(aud_abono) as vtpension,
         au.aud_fecope  as fecope
         FROM auditorias AS au
-        INNER JOIN alumnos AS a ON au.id_alumno = a.id_alumno
-        INNER JOIN grados AS g ON au.id_grado = g.id_grado
+        LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
+        LEFT JOIN grados AS g ON au.id_grado = g.id_grado
         WHERE au.id_tipopago = 3 || au.id_tipopago = 4
         GROUP BY au.id_alumno
         ORDER BY au.id_auditoria ASC";

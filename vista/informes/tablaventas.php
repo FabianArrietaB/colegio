@@ -15,9 +15,9 @@
         SUM(ven_precio) as vtventas,
         v.ven_fecope  as fecope
         FROM ventas AS v
-        INNER JOIN alumnos AS a ON v.id_alumno = a.id_alumno
-        INNER JOIN productos AS p ON v.id_producto = p.id_producto
-        INNER JOIN grados AS g ON a.id_grado = g.id_grado
+        LEFT JOIN alumnos AS a ON v.id_alumno = a.id_alumno
+        LEFT JOIN productos AS p ON v.id_producto = p.id_producto
+        LEFT JOIN grados AS g ON a.id_grado = g.id_grado
         GROUP BY v.id_alumno
         ORDER BY v.id_venta ASC";
     $query = mysqli_query($conexion, $sql);

@@ -26,7 +26,7 @@
             a.alu_fecnac as fecnac,
             g.gra_nombre as grado
         FROM alumnos as a
-        INNER JOIN grados as g ON a.id_grado = g.id_grado
+        LEFT JOIN grados as g ON a.id_grado = g.id_grado
         WHERE a.alu_nombre LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' ||  a.alu_docume LIKE '%$filtro%'
         ORDER BY a.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
