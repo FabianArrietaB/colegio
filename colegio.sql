@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2023 a las 05:58:47
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 25-05-2023 a las 00:58:30
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -57,7 +57,9 @@ INSERT INTO `acudientes` (`id_acudiente`, `id_alumno`, `id_operador`, `acu_nombr
 (5, 3, NULL, 'yoelys blanco beltran', 'CEDULA', '186724006', 'santa marta', 'CALLE 43 # 27 - 161', '3', '300000000', '', 'MADRE', 1, '2023-05-15 00:37:19', '2023-05-15 00:37:19'),
 (6, 3, NULL, 'william andres peralta ruiz', 'CEDULA', '108234569', 'SANTA MARTA', 'CALLE 41 # 33 - 210', '3', '300000000', 'williamperalta@gmail.com', 'PADRE', 1, '2023-05-15 00:37:19', '2023-05-15 00:37:19'),
 (11, 6, 1, 'KELLY MARIA SANHEZ RIOS', 'CEDULA', '1002155147', 'barranquilla', 'cARRERA 8E # 40 - 68', '3', '3152192962', 'KSANCHEZ@GMAIL.COM', 'MADRE', 1, '2023-05-20 21:48:01', '2023-05-20 21:48:01'),
-(12, 6, 1, 'CARLOS ALBERTO ROCHA TOVAR', 'CEDULA', '1043589674', 'SANTA MARTA', 'calle 44 # 50 - 12', '3', '3013996994', 'CROCHA@GMAIL.COM', 'PADRE', 1, '2023-05-20 21:48:01', '2023-05-20 21:48:01');
+(12, 6, 1, 'CARLOS ALBERTO ROCHA TOVAR', 'CEDULA', '1043589674', 'SANTA MARTA', 'calle 44 # 50 - 12', '3', '3013996994', 'CROCHA@GMAIL.COM', 'PADRE', 1, '2023-05-20 21:48:01', '2023-05-20 21:48:01'),
+(15, 8, 1, 'FANNY MARIA VILLA TORRES', 'CEDULA', '15478963', 'SANTA MARTA', 'CALLE 43 # 27 - 161', '3', '3000000000', 'FVILLA@GMAIL.COM', 'MADRE', 1, '2023-05-24 22:03:38', '2023-05-24 22:03:38'),
+(16, 8, 1, 'JAITHER ANTONIO BLANCO BELTRAN', 'CEDULA', '1084598632', 'SANTA MARTA', 'CALLE 43 # 27 - 161', '3', '3000000000', 'JBLANCO@GMAIL.COM', 'PADRE', 1, '2023-05-24 22:03:38', '2023-05-24 22:03:38');
 
 -- --------------------------------------------------------
 
@@ -69,6 +71,7 @@ CREATE TABLE `alumnos` (
   `id_alumno` int(11) NOT NULL,
   `id_grado` int(11) NOT NULL,
   `id_operador` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `alu_nombre` varchar(45) NOT NULL,
   `alu_cladoc` varchar(45) NOT NULL,
   `alu_docume` varchar(45) NOT NULL,
@@ -90,11 +93,12 @@ CREATE TABLE `alumnos` (
 -- Volcado de datos para la tabla `alumnos`
 --
 
-INSERT INTO `alumnos` (`id_alumno`, `id_grado`, `id_operador`, `alu_nombre`, `alu_cladoc`, `alu_docume`, `alu_sexo`, `alu_gposan`, `alu_factrh`, `alu_ciudad`, `alu_direcc`, `alu_estrat`, `alu_telcel`, `alu_correo`, `alu_estado`, `alu_fecnac`, `alu_fecope`, `alu_fecupd`) VALUES
-(1, 4, 0, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'TARJETA IDENTIDAD', '1043215785', 'MASCULINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CARRERA 8E # 51 - 52', '3', '3152458574', 'MICHELLEARRIETA46@GMAIL.COM', 1, '2013-10-14', '2023-05-10 02:01:19', '2023-05-20 21:39:41'),
-(2, 5, 0, 'SAMUEL JOSE SILVA BLANCO', 'TARJETA IDENTIDAD', '1043568941', 'MASCULINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CALLE 41 # 33 - 195', '3', '3105102234', 'SSILVA@GMAIL.COM', 1, '2012-10-26', '2023-05-14 16:45:16', '2023-05-20 21:39:52'),
-(3, 3, 0, 'SANTIAGO ANDRES PERALTA BLANCO', 'TARJETA IDENTIDAD', '1043463797', 'MASCULINO', 'O', 'POSITIVO', 'santa marta', 'CALLE 43 # 27 - 161', '3', '3225458796', 'speralta@gmail.com', 1, '2010-12-26', '2023-05-15 00:37:19', '2023-05-20 21:40:08'),
-(6, 5, 1, 'CARLOS ALBERTO ROCHA TOVAR', 'TARJETA IDENTIDAD', '1043589674', 'MASCULINO', 'A', 'POSITIVO', 'SANTA MARTA', 'calle 44 # 50 - 12', '3', '3013996994', 'crocha@gmail.com', 1, '2010-12-10', '2023-05-20 21:48:01', '2023-05-20 21:48:01');
+INSERT INTO `alumnos` (`id_alumno`, `id_grado`, `id_operador`, `id_usuario`, `alu_nombre`, `alu_cladoc`, `alu_docume`, `alu_sexo`, `alu_gposan`, `alu_factrh`, `alu_ciudad`, `alu_direcc`, `alu_estrat`, `alu_telcel`, `alu_correo`, `alu_estado`, `alu_fecnac`, `alu_fecope`, `alu_fecupd`) VALUES
+(1, 4, 0, 10, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'TARJETA IDENTIDAD', '1043215785', 'MASCULINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CARRERA 8E # 51 - 52', '3', '3152458574', 'MICHELLEARRIETA46@GMAIL.COM', 1, '2013-10-14', '2023-05-10 02:01:19', '2023-05-24 22:39:39'),
+(2, 5, 0, 13, 'SAMUEL JOSE SILVA BLANCO', 'TARJETA IDENTIDAD', '1043568941', 'MASCULINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CALLE 41 # 33 - 195', '3', '3105102234', 'SSILVA@GMAIL.COM', 1, '2012-10-26', '2023-05-14 16:45:16', '2023-05-24 22:40:56'),
+(3, 3, 0, 14, 'SANTIAGO ANDRES PERALTA BLANCO', 'TARJETA IDENTIDAD', '1043463797', 'MASCULINO', 'O', 'POSITIVO', 'santa marta', 'CALLE 43 # 27 - 161', '3', '3225458796', 'speralta@gmail.com', 1, '2010-12-26', '2023-05-15 00:37:19', '2023-05-24 22:41:54'),
+(6, 5, 1, 15, 'CARLOS ALBERTO ROCHA TOVAR', 'TARJETA IDENTIDAD', '1043589674', 'MASCULINO', 'A', 'POSITIVO', 'SANTA MARTA', 'calle 44 # 50 - 12', '3', '3013996994', 'crocha@gmail.com', 1, '2010-12-10', '2023-05-20 21:48:01', '2023-05-24 22:41:54'),
+(8, 4, 1, 11, 'VALERIA INES BLANCO VILLA', 'TARJETA IDENTIDAD', '1085479632', 'FEMENINO', 'O', 'POSITIVO', 'SANTA MARTA', 'CALLE 43 # 27 - 161', '3', '3000000000', 'VBLANCO@GMAIL.COM', 1, '2015-08-02', '2023-05-24 22:03:38', '2023-05-24 22:03:38');
 
 -- --------------------------------------------------------
 
@@ -108,42 +112,44 @@ CREATE TABLE `auditorias` (
   `id_alumno` int(11) NOT NULL,
   `id_grado` int(11) NOT NULL,
   `id_tipopago` int(11) NOT NULL,
+  `aud_numdoc` varchar(45) NOT NULL,
   `aud_valor` varchar(45) NOT NULL,
-  `aud_abono` varchar(45) DEFAULT NULL,
-  `aud_fecope` timestamp NULL DEFAULT current_timestamp()
+  `aud_abono` varchar(45) NOT NULL,
+  `aud_fecope` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `auditorias`
 --
 
-INSERT INTO `auditorias` (`id_auditoria`, `id_operador`, `id_alumno`, `id_grado`, `id_tipopago`, `aud_valor`, `aud_abono`, `aud_fecope`) VALUES
-(1, 0, 1, 1, 1, '1250000', '250000', '2023-05-10 02:01:19'),
-(2, 0, 2, 5, 1, '1250000', '1000000', '2023-05-15 02:01:19'),
-(3, 0, 3, 3, 1, '1250000', '1000000', '2023-05-15 02:01:19'),
-(4, 0, 5, 7, 1, '1250000', '250000', '2023-05-15 04:04:05'),
-(5, 0, 3, 3, 1, '1250000', '100000', '2023-05-17 19:24:52'),
-(6, 0, 1, 4, 2, '1250000', '500000', '2023-05-17 19:25:30'),
-(7, 0, 2, 5, 2, '1250000', '250000', '2023-05-17 19:25:58'),
-(8, 0, 1, 4, 2, '1250000', '250000', '2023-05-19 12:43:29'),
-(9, 0, 1, 4, 2, '1250000', '250000', '2023-05-19 12:53:29'),
-(10, 1, 7, 4, 1, '1250000', '1000000', '2023-05-20 22:00:11'),
-(11, 0, 7, 4, 2, '1250000', '250000', '2023-05-20 22:02:04'),
-(12, 0, 2, 5, 2, '1250000', '250000', '2023-05-21 01:34:30'),
-(13, 0, 3, 3, 0, '1250000', '250000', '2023-05-21 02:10:16'),
-(14, 1, 2, 5, 0, '1250000', '250000', '2023-05-21 02:19:56'),
-(15, 1, 1, 4, 2, '1250000', '250000', '2023-05-21 02:20:41'),
-(16, 1, 3, 3, 2, '1250000', '250000', '2023-05-21 02:20:51'),
-(17, 1, 7, 4, 2, '1250000', '250000', '2023-05-21 02:20:59'),
-(18, 1, 2, 5, 2, '1250000', '250000', '2023-05-21 02:21:45'),
-(19, 1, 2, 5, 3, '580000', '280000', '2023-05-21 22:03:39'),
-(20, 1, 3, 3, 3, '580000', '300000', '2023-05-21 22:10:32'),
-(21, 1, 1, 4, 3, '580000', '280000', '2023-05-21 22:12:31'),
-(22, 1, 1, 4, 2, '1250000', '250000', '2023-05-22 03:30:06'),
-(23, 1, 1, 4, 4, '580000', '300000', '2023-05-22 03:30:30'),
-(24, 1, 3, 3, 4, '580000', '280000', '2023-05-22 03:31:03'),
-(25, 1, 2, 5, 4, '580000', '580000', '2023-05-22 03:31:14'),
-(26, 1, 2, 5, 0, '580000', '', '2023-05-22 03:39:11');
+INSERT INTO `auditorias` (`id_auditoria`, `id_operador`, `id_alumno`, `id_grado`, `id_tipopago`, `aud_numdoc`, `aud_valor`, `aud_abono`, `aud_fecope`) VALUES
+(1, 0, 1, 1, 1, '', '1250000', '250000', '2023-05-10 02:01:19'),
+(2, 0, 2, 5, 1, '', '1250000', '1000000', '2023-05-15 02:01:19'),
+(3, 0, 3, 3, 1, '', '1250000', '1000000', '2023-05-15 02:01:19'),
+(4, 0, 5, 7, 1, '', '1250000', '250000', '2023-05-15 04:04:05'),
+(5, 0, 3, 3, 1, '', '1250000', '100000', '2023-05-17 19:24:52'),
+(6, 0, 1, 4, 2, '', '1250000', '500000', '2023-05-17 19:25:30'),
+(7, 0, 2, 5, 2, '', '1250000', '250000', '2023-05-17 19:25:58'),
+(8, 0, 1, 4, 2, '', '1250000', '250000', '2023-05-19 12:43:29'),
+(9, 0, 1, 4, 2, '', '1250000', '250000', '2023-05-19 12:53:29'),
+(10, 1, 7, 4, 1, '', '1250000', '1000000', '2023-05-20 22:00:11'),
+(11, 0, 7, 4, 2, '', '1250000', '250000', '2023-05-20 22:02:04'),
+(12, 0, 2, 5, 2, '', '1250000', '250000', '2023-05-21 01:34:30'),
+(13, 0, 3, 3, 0, '', '1250000', '250000', '2023-05-21 02:10:16'),
+(14, 1, 2, 5, 0, '', '1250000', '250000', '2023-05-21 02:19:56'),
+(15, 1, 1, 4, 2, '', '1250000', '250000', '2023-05-21 02:20:41'),
+(16, 1, 3, 3, 2, '', '1250000', '250000', '2023-05-21 02:20:51'),
+(17, 1, 7, 4, 2, '', '1250000', '250000', '2023-05-21 02:20:59'),
+(18, 1, 2, 5, 2, '', '1250000', '250000', '2023-05-21 02:21:45'),
+(19, 1, 2, 5, 3, '', '580000', '280000', '2023-05-21 22:03:39'),
+(20, 1, 3, 3, 3, '', '580000', '300000', '2023-05-21 22:10:32'),
+(21, 1, 1, 4, 3, '', '580000', '280000', '2023-05-21 22:12:31'),
+(22, 1, 1, 4, 2, '', '1250000', '250000', '2023-05-22 03:30:06'),
+(23, 1, 1, 4, 4, '', '580000', '300000', '2023-05-22 03:30:30'),
+(24, 1, 3, 3, 4, '', '580000', '280000', '2023-05-22 03:31:03'),
+(25, 1, 2, 5, 4, '', '580000', '580000', '2023-05-22 03:31:14'),
+(26, 1, 2, 5, 0, '', '580000', '', '2023-05-22 03:39:11'),
+(27, 1, 8, 4, 2, '', '1250000', '1250000', '2023-05-24 22:03:38');
 
 -- --------------------------------------------------------
 
@@ -174,6 +180,7 @@ INSERT INTO `categorias` (`id_categoria`, `id_operador`, `cat_nombre`, `cat_feco
 
 CREATE TABLE `empleados` (
   `id_empleado` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `id_operador` int(11) NOT NULL,
   `emp_nombre` varchar(45) NOT NULL,
   `emp_cladoc` varchar(45) NOT NULL,
@@ -206,9 +213,10 @@ CREATE TABLE `empleados` (
 -- Volcado de datos para la tabla `empleados`
 --
 
-INSERT INTO `empleados` (`id_empleado`, `id_operador`, `emp_nombre`, `emp_cladoc`, `emp_docume`, `emp_cargo`, `emp_telcel`, `emp_ciudad`, `emp_direcc`, `emp_estrat`, `emp_correo`, `emp_tipcon`, `emp_salari`, `emp_codces`, `emp_codeps`, `emp_codpen`, `emp_codarl`, `emp_sexo`, `emp_estciv`, `emp_escola`, `emp_gposan`, `emp_factrh`, `emp_hijos`, `emp_estado`, `emp_fecnac`, `emp_fecope`, `emp_fecupd`) VALUES
-(1, 0, 'CARLOS ALBERTO ROCHA TOVAR', 'CEDULA', '574236985', 'PROFESOR MATEMATICAS', '3002548965', 'SANTA MARTA', 'CALLE 17 # 40 - 62', '3', 'crocha@gmail.com', 'FIJO', '1100000', '9', '5', '1', '2', 'MASCULINO', 'SOLTERO/A', 'PROFESIONAL', 'O', 'POSITIVO', '1', 1, '0000-00-00 00:00:00', '2023-02-01 05:00:00', '2023-05-13 02:25:03'),
-(8, 0, 'CONSUELO BAUTISTA SANCHEZ', 'CEDULA', '63484295', 'PROFESORA ETICA', '3013866172', 'SANTA MARTA', 'CALLE 29D3 #19A-25 BULEVAR D ELAS ROSAS', '2', 'consuelobs2010@hotmail.com', 'FIJO', '1250000', '13', '6', '12', '5', 'FEMENINO', 'SOLTERO/A', 'PROFESIONAL', 'O', 'POSITIVO', '3', 1, '1973-04-05 00:00:00', '2023-05-19 12:36:02', '2023-05-19 12:36:02');
+INSERT INTO `empleados` (`id_empleado`, `id_usuario`, `id_operador`, `emp_nombre`, `emp_cladoc`, `emp_docume`, `emp_cargo`, `emp_telcel`, `emp_ciudad`, `emp_direcc`, `emp_estrat`, `emp_correo`, `emp_tipcon`, `emp_salari`, `emp_codces`, `emp_codeps`, `emp_codpen`, `emp_codarl`, `emp_sexo`, `emp_estciv`, `emp_escola`, `emp_gposan`, `emp_factrh`, `emp_hijos`, `emp_estado`, `emp_fecnac`, `emp_fecope`, `emp_fecupd`) VALUES
+(1, 0, 0, 'CARLOS ALBERTO ROCHA TOVAR', 'CEDULA', '574236985', 'PROFESOR MATEMATICAS', '3002548965', 'SANTA MARTA', 'CALLE 17 # 40 - 62', '3', 'crocha@gmail.com', 'FIJO', '1100000', '9', '5', '1', '2', 'MASCULINO', 'SOLTERO/A', 'PROFESIONAL', 'O', 'POSITIVO', '1', 1, '0000-00-00 00:00:00', '2023-02-01 05:00:00', '2023-05-13 02:25:03'),
+(8, 0, 0, 'CONSUELO BAUTISTA SANCHEZ', 'CEDULA', '63484295', 'PROFESORA ETICA', '3013866172', 'SANTA MARTA', 'CALLE 29D3 #19A-25 BULEVAR D ELAS ROSAS', '2', 'consuelobs2010@hotmail.com', 'FIJO', '1250000', '13', '6', '12', '5', 'FEMENINO', 'SOLTERO/A', 'PROFESIONAL', 'O', 'POSITIVO', '3', 1, '1973-04-05 00:00:00', '2023-05-19 12:36:02', '2023-05-19 12:36:02'),
+(9, 12, 1, 'LAURA VANESSA ADARRAGA BERDUGO', 'CEDULA', '1007900088', 'profesora ingles', '3002950772', 'SANTA MARTA', 'MZA 8 CASA 15 MINUTO DE DIOS', '3', 'lauraadarraga5@gmail.com', 'INDEFINIDO', '1250000', '10', '6', '14', '7', 'FEMENINO', 'SOLTERO/A', 'TECNICO', 'O', 'POSITIVO', '1', 1, '2001-01-08 00:00:00', '2023-05-24 22:16:40', '2023-05-24 22:16:40');
 
 -- --------------------------------------------------------
 
@@ -234,18 +242,18 @@ CREATE TABLE `grados` (
 --
 
 INSERT INTO `grados` (`id_grado`, `id_empleado`, `id_operador`, `gra_nombre`, `gra_matric`, `gra_pensio`, `gra_canalu`, `gra_estado`, `gra_fecope`, `gra_fecupd`) VALUES
-(1, 1, 0, 'TRANSICION', '1320000', '580000', 30, 1, '2023-02-01 05:00:00', '2023-05-19 12:21:43'),
-(2, 8, 0, 'PRIMERO', '1270000', '480000', 30, 1, '2023-02-01 05:00:00', '2023-05-19 12:36:38'),
-(3, 1, 0, 'SEGUNDO', '1260000', '580000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
-(4, 1, 0, 'TERCERO', '1250000', '580000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
-(5, 1, 0, 'CUARTO', '1240000', '580000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
-(6, 1, 0, 'QUINTO', '1240000', '580000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
-(7, 1, 0, 'SEXTO', '1250000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
-(8, 1, 0, 'SEPTIMO', '1222000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
-(9, 1, 0, 'OCTAVO', '1222000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
-(10, 1, 0, 'NOVENO', '1222000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
-(11, 1, 0, 'DECIMO', '1100000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-02-01 05:00:00'),
-(12, 1, 0, 'UNDECIMO', '1100000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-05-05 00:34:05');
+(1, 1, 1, 'TRANSICION', '1320000', '580000', 30, 1, '2023-02-01 05:00:00', '2023-05-23 14:17:24'),
+(2, 8, 1, 'PRIMERO', '1270000', '480000', 30, 1, '2023-02-01 05:00:00', '2023-05-23 14:17:24'),
+(3, 0, 1, 'SEGUNDO', '1260000', '580000', 30, 1, '2023-02-01 05:00:00', '2023-05-24 16:02:38'),
+(4, 1, 1, 'TERCERO', '1250000', '580000', 30, 1, '2023-02-01 05:00:00', '2023-05-23 14:17:24'),
+(5, 1, 1, 'CUARTO', '1240000', '580000', 30, 1, '2023-02-01 05:00:00', '2023-05-23 14:17:24'),
+(6, 1, 1, 'QUINTO', '1240000', '580000', 30, 1, '2023-02-01 05:00:00', '2023-05-23 14:17:24'),
+(7, 1, 1, 'SEXTO', '1250000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-05-23 14:17:24'),
+(8, 1, 1, 'SEPTIMO', '1222000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-05-23 14:17:24'),
+(9, 1, 1, 'OCTAVO', '1222000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-05-23 14:17:24'),
+(10, 1, 1, 'NOVENO', '1222000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-05-23 14:17:24'),
+(11, 1, 1, 'DECIMO', '1100000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-05-23 14:17:24'),
+(12, 1, 1, 'UNDECIMO', '1100000', '540000', 30, 1, '2023-02-01 05:00:00', '2023-05-23 14:17:24');
 
 -- --------------------------------------------------------
 
@@ -260,6 +268,7 @@ CREATE TABLE `matriculas` (
   `id_operador` int(11) NOT NULL,
   `id_tipopago` int(11) NOT NULL,
   `id_tippagpen` int(11) NOT NULL,
+  `mat_numdoc` varchar(45) NOT NULL,
   `mat_valmat` varchar(45) NOT NULL,
   `mat_pensio` varchar(45) NOT NULL,
   `mat_saldo` varchar(45) NOT NULL,
@@ -273,11 +282,12 @@ CREATE TABLE `matriculas` (
 -- Volcado de datos para la tabla `matriculas`
 --
 
-INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `id_operador`, `id_tipopago`, `id_tippagpen`, `mat_valmat`, `mat_pensio`, `mat_saldo`, `mat_salpen`, `mat_fecope`, `mat_fecmat`, `mat_fecpen`) VALUES
-(1, 1, 4, 0, 2, 4, '1250000', '580000', '0', '0', '2023-05-10 02:01:19', '2023-05-21 05:00:00', '2023-05-21 05:00:00'),
-(2, 2, 5, 0, 2, 4, '1250000', '580000', '0', '0', '2023-04-21 16:45:16', '2023-05-20 05:00:00', '2023-05-21 05:00:00'),
-(3, 3, 3, 0, 2, 4, '1250000', '580000', '0', '0', '2023-05-15 00:37:19', '2023-05-20 05:00:00', '2023-05-21 05:00:00'),
-(6, 7, 4, 1, 2, 4, '1250000', '580000', '0', '0', '2023-05-20 22:00:11', '2023-05-20 05:00:00', '2023-05-20 22:00:11');
+INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `id_operador`, `id_tipopago`, `id_tippagpen`, `mat_numdoc`, `mat_valmat`, `mat_pensio`, `mat_saldo`, `mat_salpen`, `mat_fecope`, `mat_fecmat`, `mat_fecpen`) VALUES
+(1, 1, 4, 0, 2, 4, '', '1250000', '580000', '0', '0', '2023-05-10 02:01:19', '2023-05-21 05:00:00', '2023-05-21 05:00:00'),
+(2, 2, 5, 0, 2, 4, '', '1250000', '580000', '0', '0', '2023-04-21 16:45:16', '2023-05-20 05:00:00', '2023-05-21 05:00:00'),
+(3, 3, 3, 0, 2, 4, '', '1250000', '580000', '0', '0', '2023-05-15 00:37:19', '2023-05-20 05:00:00', '2023-05-21 05:00:00'),
+(6, 7, 4, 1, 2, 4, '', '1250000', '580000', '0', '0', '2023-05-20 22:00:11', '2023-05-20 05:00:00', '2023-05-20 22:00:11'),
+(7, 8, 4, 1, 2, 0, '', '1250000', '580000', '0', '580000', '2023-05-24 22:03:38', '2023-05-24 22:03:38', '2023-05-24 22:03:38');
 
 -- --------------------------------------------------------
 
@@ -434,10 +444,10 @@ CREATE TABLE `solicitudes` (
 --
 
 INSERT INTO `solicitudes` (`id_solicitud`, `id_usuario`, `id_grado`, `id_operador`, `id_venta`, `rep_tipo`, `rep_detalle`, `rep_estado`, `rep_solucion`, `rep_fecope`, `rep_fecupd`) VALUES
-(1, 3, 5, 1, 71, '1', 'CERTIFICADO NOTAS', '1', 'se procede a generar certificado entrega proximo lunes', '2023-05-11 02:01:19', '2023-05-21 01:25:04'),
-(3, 3, 5, 1, 0, '2', 'SILLA MAL ESTADO', '1', 'se procede a revisar elemento mensionado', '2023-05-11 02:01:19', '2023-05-21 00:10:39'),
-(4, 3, 5, 1, 0, '2', 'TABLERO MAL ESTADO', '1', 'se procede a revisar elemento mensionado', '2023-05-11 02:01:19', '2023-05-21 00:10:56'),
-(5, 3, 5, 1, 72, '1', 'CERTIFICADO ESTUDIANTIL', '1', 'se procede a realizar certificado, fecha de entrega proximo lunes', '2023-05-11 00:18:57', '2023-05-21 01:25:45');
+(1, 10, 5, 1, 71, '1', 'CERTIFICADO NOTAS', '1', 'se procede a generar certificado entrega proximo lunes', '2023-05-11 02:01:19', '2023-05-24 22:38:49'),
+(3, 10, 5, 1, 0, '2', 'SILLA MAL ESTADO', '1', 'se procede a revisar elemento mensionado', '2023-05-11 02:01:19', '2023-05-24 22:38:49'),
+(4, 10, 5, 1, 0, '2', 'TABLERO MAL ESTADO', '1', 'se procede a revisar elemento mensionado', '2023-05-11 02:01:19', '2023-05-24 22:38:49'),
+(5, 10, 5, 1, 72, '1', 'CERTIFICADO ESTUDIANTIL', '1', 'se procede a realizar certificado, fecha de entrega proximo lunes', '2023-05-11 00:18:57', '2023-05-24 22:38:49');
 
 -- --------------------------------------------------------
 
@@ -463,9 +473,14 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_operador`, `user_usuario`, `user_nombre`, `user_contra`, `user_correo`, `user_estado`, `user_fecope`, `user_fecupd`) VALUES
-(1, 4, 0, 'Admin', 'Administrador', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', 1, '2023-02-12 05:00:00', '2023-04-14 05:00:00'),
-(2, 3, 0, 'Farrieta', 'Fabian Arrieta', '202cb962ac59075b964b07152d234b70', 'f.arrieta@gmail.com', 1, '2023-02-12 05:00:00', '2023-04-15 05:00:00'),
-(10, 1, 1, 'marrieta', 'MICHELLE ANDREA ARRIETA BOLAÑOS', '81dc9bdb52d04dc20036dbd8313ed055', 'marrieta@gmail.com', 1, '0000-00-00 00:00:00', '2023-05-22 03:43:00');
+(1, 4, 1, 'Admin', 'Administrador', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', 1, '2023-02-12 05:00:00', '2023-05-23 14:17:52'),
+(2, 3, 1, 'Farrieta', 'Fabian Arrieta', '202cb962ac59075b964b07152d234b70', 'f.arrieta@gmail.com', 1, '2023-02-12 05:00:00', '2023-05-23 14:17:52'),
+(10, 1, 1, 'marrieta', 'MICHELLE ANDREA ARRIETA BOLAÑOS', '81dc9bdb52d04dc20036dbd8313ed055', 'marrieta@gmail.com', 1, '0000-00-00 00:00:00', '2023-05-22 03:43:00'),
+(11, 1, 1, 'VBLANCO', 'VALERIA INES BLANCO VILLA', '81dc9bdb52d04dc20036dbd8313ed055', 'VBLANCO@GMAIL.COM', 0, '2023-05-24 22:03:38', '2023-05-24 22:18:29'),
+(12, 2, 1, 'lADARRAGA ', 'LAURA VANESSA ADARRAGA BERDUGO', '81dc9bdb52d04dc20036dbd8313ed055', 'lauraadarraga5@gmail.com', 0, '2023-05-24 22:16:40', '2023-05-24 22:18:27'),
+(13, 1, 1, 'SSILVA', 'SAMUEL JOSE SILVA BLANCO', '81dc9bdb52d04dc20036dbd8313ed055', 'SSILVA@GMAIL.COM', 0, '2023-05-24 22:40:15', '2023-05-24 22:40:15'),
+(14, 1, 1, 'SPERALTA', 'SANTIAGO ANDRES PERALTA BLANCO', '202cb962ac59075b964b07152d234b70', 'SPERALTA@GMAIL.COM', 0, '2023-05-24 22:41:23', '2023-05-24 22:41:23'),
+(15, 1, 1, 'CROCHA', 'CARLOS ALBERTO ROCHA TOVAR', '81dc9bdb52d04dc20036dbd8313ed055', 'CROCHA@GMAIL.COM', 0, '2023-05-24 22:41:39', '2023-05-24 22:41:39');
 
 -- --------------------------------------------------------
 
@@ -475,26 +490,27 @@ INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_operador`, `user_usuario`, `
 
 CREATE TABLE `ventas` (
   `id_venta` int(11) NOT NULL,
-  `id_alumno` int(11) DEFAULT NULL,
-  `id_producto` int(11) DEFAULT NULL,
-  `id_operador` int(11) DEFAULT NULL,
-  `ven_precio` varchar(45) DEFAULT NULL,
-  `ven_fecope` timestamp NULL DEFAULT current_timestamp()
+  `id_alumno` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `id_operador` int(11) NOT NULL,
+  `ven_numdoc` varchar(45) NOT NULL,
+  `ven_precio` varchar(45) NOT NULL,
+  `ven_fecope` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `ventas`
 --
 
-INSERT INTO `ventas` (`id_venta`, `id_alumno`, `id_producto`, `id_operador`, `ven_precio`, `ven_fecope`) VALUES
-(6, 1, 1, 1, '50000', '2023-05-17 21:22:50'),
-(7, 1, 1, 1, '50000', '2023-05-17 21:26:15'),
-(8, 1, 1, 1, '50000', '2023-05-17 21:56:37'),
-(9, 2, 14, 1, '55000', '2023-05-17 22:03:24'),
-(69, 1, 12, 1, '35000', '2023-05-21 01:21:50'),
-(70, 1, 1, 1, '50000', '2023-05-21 01:22:59'),
-(71, 1, 12, 1, '35000', '2023-05-21 01:25:04'),
-(72, 1, 1, 1, '50000', '2023-05-21 01:25:45');
+INSERT INTO `ventas` (`id_venta`, `id_alumno`, `id_producto`, `id_operador`, `ven_numdoc`, `ven_precio`, `ven_fecope`) VALUES
+(6, 1, 1, 1, '', '50000', '2023-05-17 21:22:50'),
+(7, 1, 1, 1, '', '50000', '2023-05-17 21:26:15'),
+(8, 1, 1, 1, '', '50000', '2023-05-17 21:56:37'),
+(9, 2, 14, 1, '', '55000', '2023-05-17 22:03:24'),
+(69, 1, 12, 1, '', '35000', '2023-05-21 01:21:50'),
+(70, 1, 1, 1, '', '50000', '2023-05-21 01:22:59'),
+(71, 1, 12, 1, '', '35000', '2023-05-21 01:25:04'),
+(72, 1, 1, 1, '', '50000', '2023-05-21 01:25:45');
 
 --
 -- Índices para tablas volcadas
@@ -598,19 +614,19 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `acudientes`
 --
 ALTER TABLE `acudientes`
-  MODIFY `id_acudiente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_acudiente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `auditorias`
 --
 ALTER TABLE `auditorias`
-  MODIFY `id_auditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_auditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -622,7 +638,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `grados`
@@ -634,7 +650,7 @@ ALTER TABLE `grados`
 -- AUTO_INCREMENT de la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  MODIFY `id_matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `pais`
@@ -676,7 +692,7 @@ ALTER TABLE `solicitudes`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
