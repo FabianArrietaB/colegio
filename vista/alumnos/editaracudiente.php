@@ -15,7 +15,7 @@
                             <input type="text" id="idalumno" name="idalumno" hidden>
                             <div class="col-8">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="nomaluu" name="nomaluu" class="form-control input-sm" placeholder="Ingrese Nombre" >
+                                    <input type="text" id="nomaluu" name="nomaluu" class="form-control input-sm" placeholder="Ingrese Nombre" disabled>
                                 </div>
                             </div>
                     </fieldset>
