@@ -39,14 +39,6 @@ function detalleventa(idalumno){
             $('#correo').val(respuesta['correo']);
             $('#direcc').val(respuesta['direcc']);
             $('#fecmat').val(respuesta['fecmat']);
-            var table = $('#repventa').find('.table tbody');
-            for (var i in respuesta) {
-                table.append(
-                    '<tr><td>' + respuesta[i].producto +
-                    '</td><td>' + respuesta[i].precio +
-                    '</td><td>' + respuesta[i].fecope +
-                    '</td></tr>');
-            }
         }
     });
 }
