@@ -13,22 +13,28 @@ $(document).ready(function(){
         $('#parafiscales').show();
     });
 
-    $('#parafiscalesbtn').click(function(){
+    $('#paisbtn').click(function(){
         ocultarsecciondes();
-        $('#parafiscales').load('config/parafiscales.php');
-        $('#parafiscales').show();
+        $('#paises').load('config/pais.php');
+        $('#paises').show();
     });
 
-    $('#parafiscalesbtn').click(function(){
+    $('#parametrosbtn').click(function(){
         ocultarsecciondes();
-        $('#parafiscales').load('config/parafiscales.php');
-        $('#parafiscales').show();
+        $('#parametros').load('config/parametros.php');
+        $('#parametros').show();
     });
 
-    $('#parafiscalesbtn').click(function(){
+    $('#seguridadbtn').click(function(){
         ocultarsecciondes();
-        $('#parafiscales').load('config/parafiscales.php');
-        $('#parafiscales').show();
+        $('#seguridad').load('config/seguridad.php');
+        $('#seguridad').show();
+    });
+
+     $('#sedesbtn').click(function(){
+        ocultarsecciondes();
+        $('#sedes').load('config/sedes.php');
+        $('#sedes').show();
     });
 });
 
@@ -50,7 +56,6 @@ function agregarparafiscal(){
     url: "../controlador/config/crearparafiscal.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
-            console.log(respuesta)
             if(respuesta == 1){
                 $('#frmagregarparafiscal')[0].reset();
                 $('#tablaparafiscales').load('config/listaparafiscales.php');
@@ -73,33 +78,3 @@ function agregarparafiscal(){
     });
     return false;
 }
-
-function agregarpais(){
-    $.ajax({
-        type: "POST",
-        data: $('#frmagregarpais').serialize(),
-        url: "../controlador/config/crearpais.php",
-        success:function(respuesta){
-            respuesta = respuesta.trim();
-            if(respuesta == 1){
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Agregado Exitosamente',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                $('#parametros').load('config/parafiscales.php');
-                $('#frmagregarparafiscal')[0].reset();
-            }else{
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'No se pudo realizar la operacion!',
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-            }
-        }
-    });
-    return false;
-  }

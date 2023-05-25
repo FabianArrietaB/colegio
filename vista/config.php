@@ -53,7 +53,7 @@
                             </a>
                         </div>
                         <div class="col-sm-2 text-center"">
-                            <a data-bs-toggle="modal" data-bs-target="#pais">
+                            <a type="button" id="paisbtn">
                                 <div class="card border-danger text-white bg-primary mb-3">
                                     <div class="card-header">
                                         <div class="row">
@@ -69,7 +69,7 @@
                             </a>
                         </div>
                         <div class="col-sm-2 text-center"">
-                            <a data-bs-toggle="modal" data-bs-target="#parametros">
+                            <a type="button" id="parametrosbtn">
                                 <div class="card border-danger text-white bg-primary mb-3">
                                     <div class="card-header">
                                         <div class="row">
@@ -85,7 +85,7 @@
                             </a>
                         </div>
                         <div class="col-sm-2 text-center"">
-                            <a data-bs-toggle="modal" data-bs-target="#seguridad">
+                            <a type="button" id="seguridadbtn">
                                 <div class="card border-danger text-white bg-primary mb-3">
                                     <div class="card-header">
                                         <div class="row">
@@ -101,7 +101,7 @@
                             </a>
                         </div>
                         <div class="col-sm-2 text-center"">
-                            <a data-bs-toggle="modal" data-bs-target="#sedes">
+                            <a type="button" id="sedesbtn">
                                 <div class="card border-danger text-white bg-primary mb-3">
                                     <div class="card-header">
                                         <div class="row">
