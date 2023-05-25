@@ -131,7 +131,7 @@
             $conexion = Conexion::conectar();
             $sql = "UPDATE alumnos SET
                     id_grado = ?,
-                    idoperador = ?,
+                    id_operador = ?,
                     alu_nombre = ?,
                     alu_cladoc = ?,
                     alu_docume = ?,
@@ -147,8 +147,8 @@
                     WHERE id_alumno = ?";
             $query = $conexion->prepare($sql);
             $query->bind_param('iissssssssssssi',
-                                $datos['idoperador'],
                                 $datos['idgrado'],
+                                $datos['idoperador'],
                                 $datos['nombre'],
                                 $datos['cladoc'],
                                 $datos['docume'],
