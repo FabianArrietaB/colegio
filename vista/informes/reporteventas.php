@@ -12,7 +12,7 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Alumno</legend>
                         <div class="row">
-                            <input type="text" id="idalumno" name="idalumno" class="form-control input-sm">
+                            <input type="text" id="idalumno" name="idalumno" class="form-control input-sm" hidden>
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Estudiante</label>

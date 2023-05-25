@@ -19,6 +19,7 @@
                     <div class="title">
                         <h2>GRADOS</h2>
                     </div>
+                   
                     <div class="row student" style="align-items: center;">
                         <!-- Curso Transicion -->
                         <div class="col-sm-2">

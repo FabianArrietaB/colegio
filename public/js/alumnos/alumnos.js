@@ -2,6 +2,7 @@ $(document).ready(function(){
     $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
 });
 
+//FILTRAR
 $(document).ready(function(){
     setInterval(
         function(){
@@ -11,6 +12,7 @@ $(document).ready(function(){
     );
 });
 
+//CONSULTAR VALOR GRADO
 $('#frmagregaralumno').change(function(){
     //condicion para limpiar campos
     if($('#idgrado').val()==0){

@@ -19,7 +19,9 @@
                             <h4>Lista Grados</h4>
                         </div>
                         <div class="col-3 border-primary">
-                            <input class="form-control me-xl-2" type="search" placeholder="Search">
+                            <form action="" method="POST">
+                                <input class="form-control me-xl-2" type="search" placeholder="Search" name="filtro" id="filtro">
+                            </form>
                         </div>
                     </div>
                 </div>

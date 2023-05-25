@@ -27,10 +27,15 @@
             g.gra_nombre as grado
         FROM alumnos as a
         LEFT JOIN grados as g ON a.id_grado = g.id_grado
-        WHERE a.alu_nombre LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' ||  a.alu_docume LIKE '%$filtro%'
+        WHERE a.alu_nombre
+        LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' ||  a.alu_docume LIKE '%$filtro%'
         ORDER BY a.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     } else {
+        $filtro = '';
+        if(isset($_GET['filtro'])){
+            $filtro = $_GET['filtro'];
+        }
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();

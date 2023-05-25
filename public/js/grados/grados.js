@@ -2,6 +2,17 @@ $(document).ready(function(){
     $('#tablalistagrados').load('grados/listagrados.php');
 });
 
+//FILTRAR
+$(document).ready(function(){
+    setInterval(
+        function(){
+            const filtro = $('#filtro').val()
+            $('#Recargar').load('grados/listagrados.php?filtro='+filtro);
+        },1000
+    );
+});
+
+
 function activargrado(idgrado, estado){
     $.ajax({
         type:"POST",

@@ -16,7 +16,9 @@
                             <h4>Lista Acudientes</h4>
                         </div>
                         <div class="col-3 border-primary">
-                            <input class="form-control me-xl-2" type="search" placeholder="Search">
+                            <form action="" method="GET">
+                                <input class="form-control me-xl-2" type="search" placeholder="Buscar" name="filtro" id="filtro">
+                            </form>
                         </div>
                     </div>
                 </div>

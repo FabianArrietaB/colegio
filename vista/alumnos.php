@@ -19,7 +19,7 @@
                             <h4>Lista Alumnos</h4>
                         </div>
                         <div class="col-3 border-primary">
-                            <form action="" method="POST">
+                            <form action="" method="GET">
                                 <input class="form-control me-xl-2" type="search" placeholder="Buscar" name="filtro" id="filtro">
                             </form>
                         </div>

@@ -2,6 +2,10 @@
     session_start();
     //Consulta//
     if ($_SESSION['usuario']['rol'] == 4) {
+    $filtro = '';
+    if(isset($_GET['filtro'])){
+        $filtro = $_GET['filtro'];
+    }
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
@@ -18,6 +22,7 @@
         e.emp_nombre    AS nompro
         FROM grados AS g
         LEFT JOIN empleados AS e ON g.id_empleado = e.id_empleado
+        WHERE g.gra_nombre LIKE '%$filtro%'
         ORDER BY g.id_grado ASC";
     $query = mysqli_query($conexion, $sql);
 } else {
@@ -43,7 +48,7 @@
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive justify-content-center">
-    <table class="table table-light text-center">
+    <table class="table table-light text-center" id="Recargar">
         <thead>
             <tr>
                 <th scope="col" >Nombre</th>
