@@ -1,6 +1,8 @@
 <?php
    $datos = array(
-   "nombre" => $_POST['nombre'],
+      "nit" => $_POST['nit'],
+      "nombre" => $_POST['nombre'],
+      "idtip" => $_POST['idtip'],
    );
 
    include "../../modelo/config.php";

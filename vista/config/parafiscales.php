@@ -11,16 +11,37 @@
         <legend class="group-border"></legend>
             <div class="row">
                 <form id="frmagregarparafiscal" method="post" onsubmit="return agregarparafiscal()">
-                    <div class="row text-center">
-                        <div class="col-12">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre entiddad">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="input-group">
+                                <span class="input-group-text">Nit Entidad</span>
+                                <input type="text" id="nit" name="nit" aria-label="First name" class="form-control">
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="button">Guardar</button>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <span class="input-group-text">Nombre Entidad</span>
+                                <input type="text" id="nombre" name="nombre"  aria-label="First name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group">
+                                <span class="input-group-text">Tipo Entidad</span>
+                                <select name="idtip" id="idtip" class="form-control input-sm">
+                                    <option value="1">EPS o PENSION</option>
+                                    <option value="2">ARL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="input-group">
+                                <button type="submit" class="btn btn-success">Agregar</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
+            <br>
             <div class="row">
                 <div class="col-12">
                     <div id="tablaparafiscales"></div>

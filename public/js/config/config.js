@@ -18,24 +18,6 @@ $(document).ready(function(){
         $('#paises').load('config/pais.php');
         $('#paises').show();
     });
-
-    $('#parametrosbtn').click(function(){
-        ocultarsecciondes();
-        $('#parametros').load('config/parametros.php');
-        $('#parametros').show();
-    });
-
-    $('#seguridadbtn').click(function(){
-        ocultarsecciondes();
-        $('#seguridad').load('config/seguridad.php');
-        $('#seguridad').show();
-    });
-
-     $('#sedesbtn').click(function(){
-        ocultarsecciondes();
-        $('#sedes').load('config/sedes.php');
-        $('#sedes').show();
-    });
 });
 
 function ocultarsecciondes(){
@@ -72,6 +54,51 @@ function agregarparafiscal(){
                     text: 'No se pudo realizar la operacion!',
                     showConfirmButton: false,
                     timer: 2000
+                });
+            }
+        }
+    });
+    return false;
+}
+
+function detalleparafiscal(idparafiscal){
+    $.ajax({
+        type: "POST",
+        data: "idparafiscal=" + idparafiscal,
+        url: "../controlador/config/detallepara.php",
+        success: function(respuesta){
+            respuesta = jQuery.parseJSON(respuesta);
+            $('#idparafiscal').val(respuesta['idparafiscal']);
+            $('#nombreu').val(respuesta['nombre']);
+            $('#nitu').val(respuesta['nit']);
+            $('#idtipu').val(respuesta['idtip']);
+        }
+    });
+}
+
+function editarparafiscal(){
+    $.ajax({
+        type: "POST",
+        data: $('#frmeditarparafiscal').serialize(),
+        url: "../controlador/config/editarpara.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                $('#editar').modal('hide');
+                $('#tablalistagrados').load('grados/listagrados.php');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Actualizado Exitosamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error al Editar!',
+                    showConfirmButton: false,
+                    timer: 1500
                 });
             }
         }
