@@ -34,9 +34,17 @@
             'direcc'     => $ventas['direcc'],
             'fecmat'     => $ventas['fecmat'],
             'producto'   => $ventas['producto'],
-            'lista'      => array()
+            'lista'      => $this->detalleEstudiante()
             );
             return $datos;
+        }
+
+        public function detalleEstudiante() {
+            return array(array(
+                'producto' => 'Certificado',
+                'precio' => '55000',
+                'fecha' => date('Y-m-d'),
+            ));
         }
     }
 ?>
