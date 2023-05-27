@@ -41,9 +41,23 @@
 
         public function detalleEstudiante() {
             return array(array(
-                'producto' => 'Certificado',
-                'precio' => '55000',
-                'fecha' => date('Y-m-d'),
+                $sql ="SELECT
+                v.id_alumno as idalumno,
+                v.id_producto as idproducto,
+                a.id_grado   as idgrado,
+                v.ven_precio as precio,
+                v.ven_fecope as fecope,
+                a.alu_nombre as nomalu,
+                a.alu_telcel as telcel,
+                a.alu_correo as correo,
+                a.alu_direcc as direcc,
+                a.alu_fecope as fecmat,
+                p.pro_nombre as producto
+                FROM ventas AS v
+                INNER JOIN alumnos as a ON v.id_alumno = a.id_alumno
+                INNER JOIN productos as p ON v.id_producto = p.id_producto
+                WHERE v.id_alumno ='$idalumno'";
+                
             ));
         }
     }
