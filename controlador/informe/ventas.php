@@ -1,6 +1,6 @@
 <?php
     include "../../modelo/informes.php";
     $Informes = new Informes();
-    $idalumno = $_POST['idalumno'];
+    $idalumno = $_GET['idalumno'];
     echo json_encode($Informes->detalleventa($idalumno));
 ?>

@@ -1,3 +1,9 @@
+<?php
+
+include "../../modelo/conexion.php";
+$con = new Conexion();
+$conexion = $con->conectar();
+?>
 <!-- Formulario (Agregar) -->
 <form id="frmrepventa" method="post" action="" onsubmit="return imprepventa()">
     <div class="modal fade" id="repventa" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -56,7 +62,41 @@
                                         <th scope="col" >Fecha</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tblventaalu">
+                                <tbody">
+                                <?php
+                                    $id_check = 
+                                    $PHPvariable = "<script> document.write(id)</script>";
+                                    $sql = "CALL ventas_alumno('$id_check');";
+                                    $arrayDetalle = array();
+                                    $query = mysqli_query($conexion, $sql);
+                                    foreach ($query as $row) {
+                                        $arrayDetalle[] = $row;
+                                    }
+                                    if (count($arrayDetalle) > 0) {
+                                        foreach ($arrayDetalle as $c => $value) {
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $value['producto']; ?></td>
+                                                <td><?php echo $value['precio']; ?></td>
+                                                <td><?php echo $value['fecope']; ?></td>
+                                                <td><?php echo "PHPvariable = ".$PHPvariable; ?></td>
+                                            </tr>
+                                            <?php
+                                        }
+                                    } else {
+                                        ?>
+                                        <tr>
+                                            <td colspan="4" style="text-align: center">
+                                                <div class="alert alert-danger" role="alert">
+                                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                                    <span class="sr-only">Error:</span>
+                                                    No existen Datos
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
