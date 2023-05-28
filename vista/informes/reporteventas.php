@@ -1,13 +1,14 @@
 <?php
-
+$idalumno = $_GET['idalumno'];
 include "../../modelo/conexion.php";
 $con = new Conexion();
 $conexion = $con->conectar();
+echo $idalumno
 ?>
 <!-- Formulario (Agregar) -->
 <form id="frmrepventa" method="post" action="" onsubmit="return imprepventa()">
     <div class="modal fade" id="repventa" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Reporte Ventas</h5>
@@ -18,7 +19,6 @@ $conexion = $con->conectar();
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Alumno</legend>
                         <div class="row">
-                            <input type="text" id="idalumno" name="idalumno" class="form-control input-sm" hidden>
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Estudiante</label>
@@ -64,9 +64,7 @@ $conexion = $con->conectar();
                                 </thead>
                                 <tbody">
                                 <?php
-                                    $id_check = 
-                                    $PHPvariable = "<script> document.write(id)</script>";
-                                    $sql = "CALL ventas_alumno('$id_check');";
+                                    $sql = "CALL ventas_alumno('$idalumno');";
                                     $arrayDetalle = array();
                                     $query = mysqli_query($conexion, $sql);
                                     foreach ($query as $row) {
@@ -79,7 +77,6 @@ $conexion = $con->conectar();
                                                 <td><?php echo $value['producto']; ?></td>
                                                 <td><?php echo $value['precio']; ?></td>
                                                 <td><?php echo $value['fecope']; ?></td>
-                                                <td><?php echo "PHPvariable = ".$PHPvariable; ?></td>
                                             </tr>
                                             <?php
                                         }
