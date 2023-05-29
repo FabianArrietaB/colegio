@@ -49,6 +49,12 @@ echo $idalumno
                                     <input type="text" id="fecmat" name="fecmat" class="form-control input-sm" disabled>
                                 </div>
                             </div>
+                            <div class="col-3">
+                                <div class="mb-3">
+                                    <label class="form-label">Fecha Ingreso</label>
+                                    <input type="text" id="nomenclatura" name="nomenclatura" class="form-control input-sm" disabled>
+                                </div>
+                            </div>
                         </div>
                     </fieldset>
                     <fieldset class="group-border">

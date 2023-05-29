@@ -28,11 +28,11 @@ function ocultarsecciondes(){
 
 function detalleventa(idalumno){
     var ruta = 'informes/reporteventas.php?idalumno=' + idalumno;
-    // $.get(ruta, function (respuesta) {
+    $.get(ruta,{
+        idalumno: idalumno
     //     $('#repventa').html(respuesta);
     //     $('#repventa').modal('show');
-    // });
-    
+    });
     $.ajax({
         type: "GET",
         url: "../controlador/informe/ventas.php?idalumno="+idalumno,
