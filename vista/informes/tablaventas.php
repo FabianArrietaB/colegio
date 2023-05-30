@@ -78,7 +78,7 @@
                 <td> <?php echo $ventas['vtventas']; ?> </td>
                 <td>
                 <div class="d-grid gap-2">
-                    <input type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#repventa" value="Reporte" onclick="detalleventa('<?php echo $ventas['idalumno']?>')"></input>
+                    <input type="button" class="btn btn-info" value="Reporte" onclick="detalleventa('<?php echo $ventas['idalumno']?>')"></input>
                 </div>
                 </td>
             </tr>
@@ -86,3 +86,4 @@
         </tbody>
     </table>
 </div>
+<div id="conte-modal"></div>

@@ -43,7 +43,6 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
-include "informes/reporteventas.php";
 require('footer.php');
 ?>
 <!-- carga ficheros javascript -->

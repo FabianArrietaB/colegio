@@ -3,11 +3,16 @@ $idalumno = $_GET['idalumno'];
 include "../../modelo/conexion.php";
 $con = new Conexion();
 $conexion = $con->conectar();
-echo $idalumno
+$sql = "CALL ventas_alumno('$idalumno');";
+$arrayDetalle = array();
+$query = mysqli_query($conexion, $sql);
+foreach ($query as $row) {
+    $arrayDetalle[] = $row;
+}
 ?>
 <!-- Formulario (Agregar) -->
 <form id="frmrepventa" method="post" action="" onsubmit="return imprepventa()">
-    <div class="modal fade" id="repventa" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="repventa" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -22,37 +27,31 @@ echo $idalumno
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Estudiante</label>
-                                    <input type="text" id="nomalu" name="nomalu" class="form-control input-sm" disabled>
+                                    <input type="text" id="nomalu" name="nomalu"  class="form-control input-sm" disabled value="<?php echo $row['alumno']; ?>">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label class="form-label">Correo</label>
-                                    <input type="text" id="correo" name="correo" class="form-control input-sm" disabled>
+                                    <input type="text" id="correo" name="correo" class="form-control input-sm" disabled value="<?php echo $row['correo']; ?>">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label class="form-label">Direccion</label>
-                                    <input type="text" id="direcc" name="direcc" class="form-control input-sm" disabled>
+                                    <input type="text" id="direcc" name="direcc" class="form-control input-sm" disabled value="<?php echo $row['direcc']; ?>">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="mb-3">
                                     <label class="form-label">Telefono</label>
-                                    <input type="text" id="telcel" name="telcel" class="form-control input-sm" disabled>
+                                    <input type="text" id="telcel" name="telcel" class="form-control input-sm" disabled value="<?php echo $row['telcel']; ?>">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="mb-3">
                                     <label class="form-label">Fecha Ingreso</label>
-                                    <input type="text" id="fecmat" name="fecmat" class="form-control input-sm" disabled>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="mb-3">
-                                    <label class="form-label">Fecha Ingreso</label>
-                                    <input type="text" id="nomenclatura" name="nomenclatura" class="form-control input-sm" disabled>
+                                    <input type="text" id="fecmat" name="fecmat" class="form-control input-sm" disabled value="<?php echo $row['fecmat']; ?>">
                                 </div>
                             </div>
                         </div>
@@ -70,12 +69,7 @@ echo $idalumno
                                 </thead>
                                 <tbody">
                                 <?php
-                                    $sql = "CALL ventas_alumno('$idalumno');";
-                                    $arrayDetalle = array();
-                                    $query = mysqli_query($conexion, $sql);
-                                    foreach ($query as $row) {
-                                        $arrayDetalle[] = $row;
-                                    }
+                                   
                                     if (count($arrayDetalle) > 0) {
                                         foreach ($arrayDetalle as $c => $value) {
                                             ?>

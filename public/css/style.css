@@ -410,3 +410,16 @@ font-size: 15px;
   border-radius: 0 4px 4px 4px;
   background: white;
 }
+
+.modal-backdrop {
+  --bs-backdrop-zindex: 0 !important;
+  --bs-backdrop-bg: #000 !important;
+  --bs-backdrop-opacity: 0.5 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: var(--bs-backdrop-zindex) !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: var(--bs-backdrop-bg) !important;
+}
