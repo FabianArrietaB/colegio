@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2023 a las 00:58:30
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Tiempo de generación: 30-05-2023 a las 05:49:42
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,48 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `colegio`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `matricula_alumno` (`idalumno` INT)   BEGIN
+	SELECT
+	au.id_auditoria as idauditoria,
+    a.alu_nombre as alumno,
+    g.gra_nombre as grado,
+    au.id_tipopago as tippag,
+    au.aud_valor as matricula,
+    au.aud_abono as abono,
+    au.aud_fecope as fecope
+	FROM auditorias AS au 
+    INNER JOIN alumnos as a ON au.id_alumno = a.id_alumno
+    INNER JOIN grados as g ON au.id_grado = g.id_grado
+    WHERE au.id_alumno = idalumno;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ventas_alumno` (`idalumno` INT)   BEGIN
+	SELECT
+        v.id_venta    as idventa,
+        v.id_alumno   as idalumno,
+        a.alu_nombre  as alumno,
+        a.alu_correo  as correo,
+        a.alu_direcc  as direcc,
+        a.alu_telcel  as telcel,
+        a.alu_fecope  as fecmat,
+        v.id_producto as idproducto,
+        p.pro_nombre  as producto,
+        g.gra_nombre  as grado,
+        v.ven_precio  as precio,
+        v.ven_fecope  as fecope
+        FROM ventas AS v
+        LEFT JOIN alumnos AS a ON v.id_alumno = a.id_alumno
+        LEFT JOIN productos AS p ON v.id_producto = p.id_producto
+        LEFT JOIN grados AS g ON a.id_grado = g.id_grado
+        WHERE v.id_alumno = idalumno;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -94,9 +136,9 @@ CREATE TABLE `alumnos` (
 --
 
 INSERT INTO `alumnos` (`id_alumno`, `id_grado`, `id_operador`, `id_usuario`, `alu_nombre`, `alu_cladoc`, `alu_docume`, `alu_sexo`, `alu_gposan`, `alu_factrh`, `alu_ciudad`, `alu_direcc`, `alu_estrat`, `alu_telcel`, `alu_correo`, `alu_estado`, `alu_fecnac`, `alu_fecope`, `alu_fecupd`) VALUES
-(1, 4, 0, 10, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'TARJETA IDENTIDAD', '1043215785', 'MASCULINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CARRERA 8E # 51 - 52', '3', '3152458574', 'MICHELLEARRIETA46@GMAIL.COM', 1, '2013-10-14', '2023-05-10 02:01:19', '2023-05-24 22:39:39'),
-(2, 5, 0, 13, 'SAMUEL JOSE SILVA BLANCO', 'TARJETA IDENTIDAD', '1043568941', 'MASCULINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CALLE 41 # 33 - 195', '3', '3105102234', 'SSILVA@GMAIL.COM', 1, '2012-10-26', '2023-05-14 16:45:16', '2023-05-24 22:40:56'),
-(3, 3, 0, 14, 'SANTIAGO ANDRES PERALTA BLANCO', 'TARJETA IDENTIDAD', '1043463797', 'MASCULINO', 'O', 'POSITIVO', 'santa marta', 'CALLE 43 # 27 - 161', '3', '3225458796', 'speralta@gmail.com', 1, '2010-12-26', '2023-05-15 00:37:19', '2023-05-24 22:41:54'),
+(1, 4, 1, 10, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'TARJETA IDENTIDAD', '1043215785', 'FEMENINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CARRERA 8E # 51 - 52', '3', '3152458574', 'MICHELLEARRIETA46@GMAIL.COM', 1, '2013-10-14', '2023-05-10 02:01:19', '2023-05-24 23:43:34'),
+(2, 5, 1, 13, 'SAMUEL JOSE SILVA BLANCO', 'TARJETA IDENTIDAD', '1043568941', 'MASCULINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CALLE 41 # 33 - 195', '3', '3105102234', 'SSILVA@GMAIL.COM', 1, '2012-10-26', '2023-05-14 16:45:16', '2023-05-24 23:45:37'),
+(3, 3, 1, 14, 'SANTIAGO ANDRES PERALTA BLANCO', 'TARJETA IDENTIDAD', '1043463797', 'MASCULINO', 'O', 'POSITIVO', 'santa marta', 'CALLE 43 # 27 - 161', '3', '3225458796', 'speralta@gmail.com', 1, '2010-12-26', '2023-05-15 00:37:19', '2023-05-24 23:45:37'),
 (6, 5, 1, 15, 'CARLOS ALBERTO ROCHA TOVAR', 'TARJETA IDENTIDAD', '1043589674', 'MASCULINO', 'A', 'POSITIVO', 'SANTA MARTA', 'calle 44 # 50 - 12', '3', '3013996994', 'crocha@gmail.com', 1, '2010-12-10', '2023-05-20 21:48:01', '2023-05-24 22:41:54'),
 (8, 4, 1, 11, 'VALERIA INES BLANCO VILLA', 'TARJETA IDENTIDAD', '1085479632', 'FEMENINO', 'O', 'POSITIVO', 'SANTA MARTA', 'CALLE 43 # 27 - 161', '3', '3000000000', 'VBLANCO@GMAIL.COM', 1, '2015-08-02', '2023-05-24 22:03:38', '2023-05-24 22:03:38');
 

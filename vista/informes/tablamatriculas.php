@@ -75,8 +75,14 @@
                 <td> <?php echo $ventas['alumno']; ?> </td>
                 <td> <?php echo $ventas['grado']; ?> </td>
                 <td> <?php echo $ventas['vtpension']; ?> </td>
+                <td>
+                    <div class="d-grid gap-2">
+                        <input type="button" class="btn btn-info" value="Reporte" onclick="detallematricula('<?php echo $ventas['idalumno']?>')"></input>
+                    </div>
+                </td>
             </tr>
             <?php } ?>
         </tbody>
     </table>
 </div>
+<div id="conte-modal-matricula"></div>

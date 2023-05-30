@@ -86,4 +86,4 @@
         </tbody>
     </table>
 </div>
-<div id="conte-modal"></div>
+<div id="conte-modal-venta"></div>
