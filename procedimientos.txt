@@ -1,0 +1,45 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `matricula_alumno`(`idalumno` INT)
+BEGIN
+	SELECT
+	au.id_auditoria as idauditoria,
+    a.alu_nombre as alumno,
+    a.alu_correo  as correo,
+	a.alu_direcc  as direcc,
+    a.alu_telcel  as telcel,
+    a.alu_fecope  as fecmat,
+    g.gra_nombre as grado,
+    au.id_tipopago as tippag,
+    au.aud_valor as matricula,
+    au.aud_abono as abono,
+    au.aud_fecope as fecope
+	FROM auditorias AS au 
+    INNER JOIN alumnos as a ON au.id_alumno = a.id_alumno
+    INNER JOIN grados as g ON au.id_grado = g.id_grado
+    WHERE au.id_alumno = idalumno;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ventas_alumno`(`idalumno` INT)
+BEGIN
+	SELECT
+        v.id_venta    as idventa,
+        v.id_alumno   as idalumno,
+        a.alu_nombre  as alumno,
+        a.alu_correo  as correo,
+        a.alu_direcc  as direcc,
+        a.alu_telcel  as telcel,
+        a.alu_fecope  as fecmat,
+        v.id_producto as idproducto,
+        p.pro_nombre  as producto,
+        g.gra_nombre  as grado,
+        v.ven_precio  as precio,
+        v.ven_fecope  as fecope
+        FROM ventas AS v
+        LEFT JOIN alumnos AS a ON v.id_alumno = a.id_alumno
+        LEFT JOIN productos AS p ON v.id_producto = p.id_producto
+        LEFT JOIN grados AS g ON a.id_grado = g.id_grado
+        WHERE v.id_alumno = idalumno;
+END$$
+DELIMITER ;
