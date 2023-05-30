@@ -19,7 +19,7 @@ au.aud_fecope  as fecope
 FROM auditorias AS au
 LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
 LEFT JOIN grados AS g ON au.id_grado = g.id_grado
-WHERE au.id_tipopago = 1 || au.id_tipopago = 2 AND au.id_alumno = '$idalumno'";
+WHERE au.id_tipopago IN (1 , 2) AND au.id_alumno = '$idalumno'";
 $arrayDetalle = array();
 $query = mysqli_query($conexion, $sql);
 foreach ($query as $row) {
