@@ -3,24 +3,23 @@ $idalumno = $_GET['idalumno'];
 include "../../modelo/conexion.php";
 $con = new Conexion();
 $conexion = $con->conectar();
-$sql = " SELECT
-v.id_venta    as idventa,
-v.id_alumno   as idalumno,
+$sql = "SELECT
+au.id_auditoria as idpension,
+au.id_alumno  as idalumno,
 a.alu_nombre  as alumno,
 a.alu_correo  as correo,
 a.alu_direcc  as direcc,
 a.alu_telcel  as telcel,
 a.alu_fecope  as fecmat,
-v.id_producto as idproducto,
-p.pro_nombre  as producto,
+au.id_tipopago as tippag,
+a.alu_nombre  as alumno,
 g.gra_nombre  as grado,
-v.ven_precio  as precio,
-v.ven_fecope  as fecope
-FROM ventas AS v
-LEFT JOIN alumnos AS a ON v.id_alumno = a.id_alumno
-LEFT JOIN productos AS p ON v.id_producto = p.id_producto
-LEFT JOIN grados AS g ON a.id_grado = g.id_grado
-WHERE v.id_alumno = '$idalumno'";
+au.aud_abono  as abono,
+au.aud_fecope  as fecope
+FROM auditorias AS au
+LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
+LEFT JOIN grados AS g ON au.id_grado = g.id_grado
+WHERE au.id_tipopago = 3 || au.id_tipopago = 4 AND au.id_alumno = '$idalumno'";
 $arrayDetalle = array();
 $query = mysqli_query($conexion, $sql);
 foreach ($query as $row) {
@@ -28,8 +27,8 @@ foreach ($query as $row) {
 }
 ?>
 <!-- Formulario (Agregar) -->
-<form id="frmrepventa" method="post" action="" onsubmit="return imprepventa()">
-    <div class="modal fade" id="repventa" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+<form id="frmpensiones" method="post" action="" onsubmit="return imprimir()">
+    <div class="modal fade" id="reppensiones" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -74,7 +73,7 @@ foreach ($query as $row) {
                         </div>
                     </fieldset>
                     <fieldset class="group-border">
-                        <legend class="group-border">Informacion Compras</legend>
+                        <legend class="group-border">Informacion Pagos</legend>
                         <div class="table-responsive justify-content-center">
                             <table class="table table-light text-center" id="tablainfoventas">
                                 <thead>
@@ -91,8 +90,15 @@ foreach ($query as $row) {
                                         foreach ($arrayDetalle as $c => $value) {
                                             ?>
                                             <tr>
-                                                <td><?php echo $value['producto']; ?></td>
-                                                <td><?php echo $value['precio']; ?></td>
+                                                <td>
+                                                <?php if ($value['tippag'] == 3) { ?>
+                                                    <span>ABONO PENSION</span>
+                                                <?php } else { ?>
+                                                    <span>PAGO TOTAL PENSION</span>
+                                                <?php }
+                                                ?>
+                                                </td>
+                                                <td><?php echo $value['abono']; ?></td>
                                                 <td><?php echo $value['fecope']; ?></td>
                                             </tr>
                                             <?php

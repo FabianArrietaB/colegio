@@ -3,7 +3,23 @@ $idalumno = $_GET['idalumno'];
 include "../../modelo/conexion.php";
 $con = new Conexion();
 $conexion = $con->conectar();
-$sql = "CALL matricula_alumno('$idalumno');";
+$sql = "SELECT
+au.id_auditoria as idpension,
+au.id_alumno  as idalumno,
+a.alu_nombre  as alumno,
+a.alu_correo  as correo,
+a.alu_direcc  as direcc,
+a.alu_telcel  as telcel,
+a.alu_fecope  as fecmat,
+au.id_tipopago as tippag,
+a.alu_nombre  as alumno,
+g.gra_nombre  as grado,
+au.aud_abono  as abono,
+au.aud_fecope  as fecope
+FROM auditorias AS au
+LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
+LEFT JOIN grados AS g ON au.id_grado = g.id_grado
+WHERE au.id_tipopago = 1 || au.id_tipopago = 2 AND au.id_alumno = '$idalumno'";
 $arrayDetalle = array();
 $query = mysqli_query($conexion, $sql);
 foreach ($query as $row) {
@@ -11,7 +27,7 @@ foreach ($query as $row) {
 }
 ?>
 <!-- Formulario (Agregar) -->
-<form id="frmrepmatricula" method="post" action="" onsubmit="return imprepmatricula()">
+<form id="frmrepmatricula" method="post" action="" onsubmit="return imprimir()">
     <div class="modal fade" id="repmatricula" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">

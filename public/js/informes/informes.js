@@ -40,3 +40,9 @@ function detallematricula(idalumno){
     });
 }
 
+function detallepension(idalumno){
+    $('#conte-modal-pension').load('informes/reportepesiones.php?idalumno='+idalumno, function(){
+        $('#reppensiones').modal("show");
+        $('.modal-backdrop').remove()
+    });
+}
