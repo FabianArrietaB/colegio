@@ -29,7 +29,7 @@ function ocultarsecciondes(){
 function detalleventa(idalumno){
     $('#conte-modal').load('informes/reporteventas.php?idalumno='+idalumno, function(){
         $('#repventa').modal("show");
-        $(".modal-backdrop.in").hide();
+        $('.modal-backdrop').remove()
     });
      // var idalumno = idalumno
     // // var ruta = 'informes/reporteventas.php?idalumno=' + idalumno;
