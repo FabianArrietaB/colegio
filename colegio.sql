@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2023 a las 05:49:42
+-- Tiempo de generación: 01-06-2023 a las 05:07:32
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -29,6 +29,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `matricula_alumno` (`idalumno` INT) 
 	SELECT
 	au.id_auditoria as idauditoria,
     a.alu_nombre as alumno,
+    a.alu_correo  as correo,
+	a.alu_direcc  as direcc,
+    a.alu_telcel  as telcel,
+    a.alu_fecope  as fecmat,
     g.gra_nombre as grado,
     au.id_tipopago as tippag,
     au.aud_valor as matricula,
@@ -191,7 +195,9 @@ INSERT INTO `auditorias` (`id_auditoria`, `id_operador`, `id_alumno`, `id_grado`
 (24, 1, 3, 3, 4, '', '580000', '280000', '2023-05-22 03:31:03'),
 (25, 1, 2, 5, 4, '', '580000', '580000', '2023-05-22 03:31:14'),
 (26, 1, 2, 5, 0, '', '580000', '', '2023-05-22 03:39:11'),
-(27, 1, 8, 4, 2, '', '1250000', '1250000', '2023-05-24 22:03:38');
+(27, 1, 8, 4, 2, '', '1250000', '1250000', '2023-05-24 22:03:38'),
+(28, 1, 1, 4, 2, '', '1250000', '250000', '2023-06-01 00:49:00'),
+(29, 1, 8, 4, 4, '', '580000', '580000', '2023-06-01 00:52:00');
 
 -- --------------------------------------------------------
 
@@ -317,19 +323,20 @@ CREATE TABLE `matriculas` (
   `mat_salpen` varchar(45) NOT NULL,
   `mat_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
   `mat_fecmat` timestamp NOT NULL DEFAULT current_timestamp(),
-  `mat_fecpen` timestamp NOT NULL DEFAULT current_timestamp()
+  `mat_fecpen` timestamp NOT NULL DEFAULT current_timestamp(),
+  `mat_fecpropag` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `matriculas`
 --
 
-INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `id_operador`, `id_tipopago`, `id_tippagpen`, `mat_numdoc`, `mat_valmat`, `mat_pensio`, `mat_saldo`, `mat_salpen`, `mat_fecope`, `mat_fecmat`, `mat_fecpen`) VALUES
-(1, 1, 4, 0, 2, 4, '', '1250000', '580000', '0', '0', '2023-05-10 02:01:19', '2023-05-21 05:00:00', '2023-05-21 05:00:00'),
-(2, 2, 5, 0, 2, 4, '', '1250000', '580000', '0', '0', '2023-04-21 16:45:16', '2023-05-20 05:00:00', '2023-05-21 05:00:00'),
-(3, 3, 3, 0, 2, 4, '', '1250000', '580000', '0', '0', '2023-05-15 00:37:19', '2023-05-20 05:00:00', '2023-05-21 05:00:00'),
-(6, 7, 4, 1, 2, 4, '', '1250000', '580000', '0', '0', '2023-05-20 22:00:11', '2023-05-20 05:00:00', '2023-05-20 22:00:11'),
-(7, 8, 4, 1, 2, 0, '', '1250000', '580000', '0', '580000', '2023-05-24 22:03:38', '2023-05-24 22:03:38', '2023-05-24 22:03:38');
+INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `id_operador`, `id_tipopago`, `id_tippagpen`, `mat_numdoc`, `mat_valmat`, `mat_pensio`, `mat_saldo`, `mat_salpen`, `mat_fecope`, `mat_fecmat`, `mat_fecpen`, `mat_fecpropag`) VALUES
+(1, 1, 4, 0, 2, 4, '', '1250000', '580000', '0', '0', '2023-05-10 02:01:19', '2023-05-31 05:00:00', '2023-05-21 05:00:00', '2023-06-30 05:00:00'),
+(2, 2, 5, 0, 2, 4, '', '1250000', '580000', '0', '0', '2023-04-21 16:45:16', '2023-05-20 05:00:00', '2023-05-21 05:00:00', '2023-06-21 05:00:00'),
+(3, 3, 3, 0, 2, 4, '', '1250000', '580000', '0', '0', '2023-05-15 00:37:19', '2023-05-20 05:00:00', '2023-05-21 05:00:00', '2023-06-21 05:00:00'),
+(6, 7, 4, 1, 2, 4, '', '1250000', '580000', '0', '0', '2023-05-20 22:00:11', '2023-05-20 05:00:00', '2023-05-20 22:00:11', '2023-06-21 05:00:00'),
+(7, 8, 4, 1, 2, 4, '', '1250000', '580000', '0', '0', '2023-05-24 22:03:38', '2023-05-24 22:03:38', '2023-05-31 05:00:00', '2023-06-30 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -359,31 +366,33 @@ INSERT INTO `pais` (`id_pais`, `pais_nombre`, `pais_fecope`) VALUES
 --
 
 CREATE TABLE `parafiscales` (
-  `id_parafiscales` int(11) NOT NULL,
+  `id_parafiscal` int(11) NOT NULL,
+  `id_tipo` int(11) DEFAULT NULL,
   `par_nombre` varchar(45) NOT NULL,
-  `par_fecope` timestamp NULL DEFAULT current_timestamp()
+  `par_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
+  `par_nit` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `parafiscales`
 --
 
-INSERT INTO `parafiscales` (`id_parafiscales`, `par_nombre`, `par_fecope`) VALUES
-(1, 'ALIANSALUD ENTIDAD PROMOTORA DE SALUD S.A.', '2023-05-13 01:27:08'),
-(2, 'CAPITAL SALUD', '2023-05-13 01:27:08'),
-(3, 'COMPENSAR   E.P.S.', '2023-05-13 01:27:08'),
-(4, 'FAMISANAR LTDA. ', '2023-05-13 01:27:08'),
-(5, 'NUEVA EPS S.A.', '2023-05-13 01:27:08'),
-(6, 'SANITAS S.A.', '2023-05-13 01:27:08'),
-(7, 'SALUD TOTAL S.A.  E.P.S.', '2023-05-13 01:27:08'),
-(8, 'SALUDVIDA S.A. E.P.S', '2023-05-13 01:27:08'),
-(9, 'SAVIA SALUD EPS', '2023-05-13 01:27:08'),
-(10, 'PROTECCION', '2023-05-13 01:27:08'),
-(11, 'PORVENIR', '2023-05-13 01:27:08'),
-(12, 'COLFONDOS', '2023-05-13 01:27:08'),
-(13, 'OLD MUTUAL', '2023-05-13 01:27:08'),
-(14, 'COLPENSIONES', '2023-05-13 01:27:08'),
-(15, '', '2023-05-13 02:34:28');
+INSERT INTO `parafiscales` (`id_parafiscal`, `id_tipo`, `par_nombre`, `par_fecope`, `par_nit`) VALUES
+(1, 1, '', '2023-05-13 01:27:08', ''),
+(2, NULL, 'CAPITAL SALUD', '2023-05-13 01:27:08', ''),
+(3, NULL, 'COMPENSAR   E.P.S.', '2023-05-13 01:27:08', ''),
+(4, NULL, 'FAMISANAR LTDA. ', '2023-05-13 01:27:08', ''),
+(5, NULL, 'NUEVA EPS S.A.', '2023-05-13 01:27:08', ''),
+(6, NULL, 'SANITAS S.A.', '2023-05-13 01:27:08', ''),
+(7, NULL, 'SALUD TOTAL S.A.  E.P.S.', '2023-05-13 01:27:08', ''),
+(8, NULL, 'SALUDVIDA S.A. E.P.S', '2023-05-13 01:27:08', ''),
+(9, NULL, 'SAVIA SALUD EPS', '2023-05-13 01:27:08', ''),
+(10, NULL, 'PROTECCION', '2023-05-13 01:27:08', ''),
+(11, NULL, 'PORVENIR', '2023-05-13 01:27:08', ''),
+(12, NULL, 'COLFONDOS', '2023-05-13 01:27:08', ''),
+(13, NULL, 'OLD MUTUAL', '2023-05-13 01:27:08', ''),
+(14, NULL, 'COLPENSIONES', '2023-05-13 01:27:08', ''),
+(15, NULL, '', '2023-05-13 02:34:28', '');
 
 -- --------------------------------------------------------
 
@@ -460,6 +469,13 @@ CREATE TABLE `sedes` (
   `sed_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
   `sed_fecupd` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `sedes`
+--
+
+INSERT INTO `sedes` (`id_sedes`, `id_tipo`, `id_operador`, `sed_razsoc`, `sed_nombre`, `sed_nit`, `sed_correo`, `sed_telcel`, `sed_direcc`, `sed_tipper`, `sed_regime`, `sed_pais`, `sed_depart`, `sed_muni`, `sed_estado`, `sed_fecope`, `sed_fecupd`) VALUES
+(1, 1, 1, 'GRUPO METROPOLIS DE LA COSTA', 'FERRETERIA METROPOLIS', '900513041', 'ferreteriametropolisdelacos@gmail.com', '4302541', 'Crr 19 # 29S - 12', '1', '1', 'COLOMBIA', 'MAGDALENA', 'SANTA MARTA', '1', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -610,7 +626,7 @@ ALTER TABLE `pais`
 -- Indices de la tabla `parafiscales`
 --
 ALTER TABLE `parafiscales`
-  ADD PRIMARY KEY (`id_parafiscales`);
+  ADD PRIMARY KEY (`id_parafiscal`);
 
 --
 -- Indices de la tabla `productos`
@@ -668,7 +684,7 @@ ALTER TABLE `alumnos`
 -- AUTO_INCREMENT de la tabla `auditorias`
 --
 ALTER TABLE `auditorias`
-  MODIFY `id_auditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_auditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -701,12 +717,6 @@ ALTER TABLE `pais`
   MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `parafiscales`
---
-ALTER TABLE `parafiscales`
-  MODIFY `id_parafiscales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -722,7 +732,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `sedes`
 --
 ALTER TABLE `sedes`
-  MODIFY `id_sedes` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sedes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitudes`
