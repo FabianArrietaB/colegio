@@ -63,12 +63,14 @@
             $sql = "UPDATE matriculas SET
                     mat_saldo = ?,
                     mat_fecmat = ?,
+                    mat_fecpropag = ?,
                     id_tipopago = ?
                     WHERE id_matricula = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('ssii', 
+            $query->bind_param('sssii', 
                         $datos['balance'],
                         $datos['fecmat'],
+                        $datos['fecpro'],
                         $datos['idtippago'],
                         $datos['idmatricula']);
             $respuesta = $query->execute();
@@ -99,12 +101,14 @@
             $sql = "UPDATE matriculas SET
                     mat_salpen = ?,
                     mat_fecpen = ?,
+                    mat_fecpropag = ?,
                     id_tippagpen = ?
                     WHERE id_matricula = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('ssii',
+            $query->bind_param('sssii',
                                 $datos['diferencia'],
                                 $datos['fecpen'],
+                                $datos['fecpro'],
                                 $datos['idtippagou'],
                                 $datos['idmatriculau']);
             $respuesta = $query->execute();

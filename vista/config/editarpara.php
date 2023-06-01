@@ -4,7 +4,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar Producto</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Parafiscal</h5>
                     <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <d class="modal-body">
@@ -14,12 +14,12 @@
                             <input type="text" id="idparafiscal" name="idparafiscal" hidden>
                             <div class="col">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="nombreu" name="nombreu" class="form-control input-sm" placeholder="Ingrese Nombre" >
+                                    <input type="text" id="nombreu" name="nombreu" class="form-control input-sm" " >
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="nitu" name="nitu" class="form-control input-sm" placeholder="Ingrese Precio">
+                                    <input type="text" id="nitu" name="nitu" class="form-control input-sm" ">
                                 </div>
                             </div>
                             <div class="col">

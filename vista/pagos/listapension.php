@@ -13,12 +13,15 @@
         m.mat_fecope AS fecha,
         m.id_alumno AS idalumno,
         m.mat_fecpen AS fecpen,
+        m.mat_fecpropag AS fecpro,
         a.alu_nombre AS nombre,
         m.id_grado AS idgrado,
         g.gra_nombre AS grado
         FROM matriculas AS m
         INNER JOIN alumnos AS a ON m.id_alumno = a.id_alumno
         INNER JOIN grados AS g ON m.id_grado = g.id_grado
+        WHERE YEAR(m.mat_fecpropag) = YEAR(CURRENT_DATE())
+        AND MONTH(m.mat_fecpropag)  = MONTH(CURRENT_DATE())
         ORDER BY m.mat_fecpen ASC";
     $query = mysqli_query($conexion, $sql);
 ?>

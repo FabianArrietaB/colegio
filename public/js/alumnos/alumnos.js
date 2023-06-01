@@ -174,3 +174,13 @@ function editaralumno(){
     return false;
 }
 
+$("#datos_factura").submit(function(){
+    var idalumno = $("#cliente").val();
+    if (idalumno>0){
+        window.open('../../../ticket.php?idalumno='+idalumno);
+    } else {
+        alert("Selecciona el alumno");
+        return false;
+    }
+});
+

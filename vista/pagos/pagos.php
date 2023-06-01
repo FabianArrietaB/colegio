@@ -2,7 +2,7 @@
 <form id="frmpagomatricula" method="post" onsubmit="return pagomatricula()">
     <div class="modal fade" id="pago" tabindex="-1" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
+            <div class="modal-content text-center">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tomar pago</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -15,13 +15,13 @@
                             <input type="text" id="idmatricula" name="idmatricula" hidden>
                             <input type="text" id="idalumno" name="idalumno" hidden>
                             <input type="text" id="idgrado" name="idgrado" hidden>
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Estudiante</label>
                                     <input type="text" id="nomaluu" name="nomaluu" class="form-control input-sm" disabled>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="mb-3">
                                     <label class="form-label">Grado</label>
                                     <input type="text" id="gradou" name="gradou" class="form-control input-sm" disabled>
@@ -32,7 +32,7 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Matricula</legend>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-3">
                                 <div class="mb-3">
                                 <label class="form-label">Fecha Operacion</label>
                                     <input type="date" id="fecmatu" name="fecmatu" class="form-control input-sm" placeholder="Fecha Nacimiento">
@@ -50,9 +50,9 @@
                                     <input type="text" id="saldou" name="saldou" class="form-control input-sm" disabled>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-3">
                                 <div class="mb-3">
-                                    <label class="form-label">Valor Despues Abono</label>
+                                    <label class="form-label">Nuevo Saldo</label>
                                     <input type="text" id="balanceu" name="balanceu" class="form-control input-sm" readonly>
                                 </div>
                             </div>
@@ -70,6 +70,12 @@
                                         <option value="1">ABONO MATRICULA</option>
                                         <option value="2">PAGO TOTAL MATRICULA</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="mb-3">
+                                <label class="form-label">Fecha Proximo Pago</label>
+                                    <input type="date" id="fecpro" name="fecpro" class="form-control input-sm" placeholder="Fecha Nacimiento">
                                 </div>
                             </div>
                         </div>

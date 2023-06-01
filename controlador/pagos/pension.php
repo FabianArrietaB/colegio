@@ -10,6 +10,7 @@
         'pension'     => $_POST['pensionu'],
         'diferencia'  => $_POST['diferenciau'],
         'fecpen'      => $_POST['fecpenu'],
+        'fecpro'      => $_POST['fecpro'],
     );
     include "../../modelo/pagos.php";
     $Pagos = new Pagos();
