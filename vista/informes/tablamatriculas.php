@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-9">
                 <div class="title">
-                    <h2>INFORME PENSION</h2>
+                    <h2>INFORME MATRICULAS</h2>
                 </div>
             </div>
             <div class="col-3">

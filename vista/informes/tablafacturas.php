@@ -1,5 +1,9 @@
 <?php
     session_start();
+    $filtro = '';
+    if(isset($_GET['filtro'])){
+        $filtro = $_GET['filtro'];
+    }
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
@@ -16,17 +20,24 @@
         f.fac_fecha    as fecha
         FROM facturas AS f
         LEFT JOIN alumnos as a ON f.id_alumno = a.id_alumno
-        LEFT JOIN productos as p ON f.id_producto = p.id_producto";
+        LEFT JOIN productos as p ON f.id_producto = p.id_producto
+        WHERE a.alu_nombre 
+        LIKE '%$filtro%' || p.pro_nombre LIKE '%$filtro%' || f.id_facturas LIKE '%$filtro%'";
     $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio Tabla -->
 <div class="card border-primary">
     <div class="card-header text-center">
         <div class="row">
-            <div class="col-9">
+            <div class="col-3">
                 <div class="title">
-                    <h2>INFORME Facturas</h2>
+                    <h2>Facturas</h2>
                 </div>
+            </div>
+            <div class="col-6">
+                <form action="" method="GET">
+                    <input class="form-control me-xl-2" type="search" placeholder="Ingrese Nombre, Producto o Numero Factura" name="filtro" id="filtro">
+                </form>
             </div>
             <div class="col-3">
                 <div class="card border-danger text-white bg-primary mb-3">
@@ -55,14 +66,13 @@
     </div>
 </div>
 <div class="table-responsive justify-content-center">
-    <table class="table table-light text-center">
+    <table class="table table-light text-center" id="Recargar">
         <thead>
             <tr>
                 <th scope="col" ># Factura</th>
                 <th scope="col" >Alumno</th>
                 <th scope="col" >Producto</th>
                 <th scope="col" >Precio</th>
-                <th scope="col" >Detalle</th>
                 <th scope="col" >Fecha</th>
                 <th>
                 </th>
@@ -92,7 +102,6 @@
                     ?>
                 </td>
                 <td> <?php echo $facturas['precio']; ?> </td>
-                <td> <?php echo $facturas['detalle']; ?> </td>
                 <td> <?php echo $facturas['fecha']; ?> </td>
                 <td>
                 <div class="d-grid gap-2">

@@ -33,6 +33,16 @@ function ocultarsecciondes(){
     return false;
 }
 
+//FILTRAR
+$(document).ready(function(){
+    setInterval(
+        function(){
+            const filtro = $('#filtro').val()
+            $('#Recargar').load('informes/tablafacturas.php?filtro='+filtro);
+        },1000
+    );
+});
+
 function detalleventa(idalumno){
     $('#conte-modal-venta').load('informes/reporteventas.php?idalumno='+idalumno, function(){
         $('#repventa').modal("show");
