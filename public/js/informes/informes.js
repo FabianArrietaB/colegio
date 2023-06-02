@@ -17,12 +17,19 @@ $(document).ready(function(){
         $('#tablamatriculas').load('informes/tablamatriculas.php');
         $('#tablamatriculas').show();
     });
+
+    $('#facturasbtn').click(function(){
+        ocultarsecciondes();
+        $('#tablafacturas').load('informes/tablafacturas.php');
+        $('#tablafacturas').show();
+    });
 });
 
 function ocultarsecciondes(){
     $('#tablaventas').hide();
     $('#tablapension').hide();
     $('#tablamatriculas').hide();
+    $('#tablafacturas').hide();
     return false;
 }
 

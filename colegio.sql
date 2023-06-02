@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2023 a las 05:07:32
+-- Tiempo de generación: 02-06-2023 a las 03:34:38
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -265,6 +265,61 @@ INSERT INTO `empleados` (`id_empleado`, `id_usuario`, `id_operador`, `emp_nombre
 (1, 0, 0, 'CARLOS ALBERTO ROCHA TOVAR', 'CEDULA', '574236985', 'PROFESOR MATEMATICAS', '3002548965', 'SANTA MARTA', 'CALLE 17 # 40 - 62', '3', 'crocha@gmail.com', 'FIJO', '1100000', '9', '5', '1', '2', 'MASCULINO', 'SOLTERO/A', 'PROFESIONAL', 'O', 'POSITIVO', '1', 1, '0000-00-00 00:00:00', '2023-02-01 05:00:00', '2023-05-13 02:25:03'),
 (8, 0, 0, 'CONSUELO BAUTISTA SANCHEZ', 'CEDULA', '63484295', 'PROFESORA ETICA', '3013866172', 'SANTA MARTA', 'CALLE 29D3 #19A-25 BULEVAR D ELAS ROSAS', '2', 'consuelobs2010@hotmail.com', 'FIJO', '1250000', '13', '6', '12', '5', 'FEMENINO', 'SOLTERO/A', 'PROFESIONAL', 'O', 'POSITIVO', '3', 1, '1973-04-05 00:00:00', '2023-05-19 12:36:02', '2023-05-19 12:36:02'),
 (9, 12, 1, 'LAURA VANESSA ADARRAGA BERDUGO', 'CEDULA', '1007900088', 'profesora ingles', '3002950772', 'SANTA MARTA', 'MZA 8 CASA 15 MINUTO DE DIOS', '3', 'lauraadarraga5@gmail.com', 'INDEFINIDO', '1250000', '10', '6', '14', '7', 'FEMENINO', 'SOLTERO/A', 'TECNICO', 'O', 'POSITIVO', '1', 1, '2001-01-08 00:00:00', '2023-05-24 22:16:40', '2023-05-24 22:16:40');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `facturas`
+--
+
+CREATE TABLE `facturas` (
+  `id_facturas` int(11) NOT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `id_tippag` int(11) NOT NULL,
+  `fac_precio` varchar(45) NOT NULL,
+  `fac_detalle` varchar(45) NOT NULL,
+  `fac_fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `facturas`
+--
+
+INSERT INTO `facturas` (`id_facturas`, `id_alumno`, `id_producto`, `id_tippag`, `fac_precio`, `fac_detalle`, `fac_fecha`) VALUES
+(1, 1, 0, 1, '250000', 'ABONO MARICULA', '2023-05-09'),
+(2, 2, 0, 1, '1000000', 'ABONO AMTRICULA', '2023-05-14'),
+(3, 3, 0, 1, '1000000', 'ABONO MATRICULA', '2023-05-14'),
+(4, 5, 0, 1, '250000', 'ABONO MATRICULA', '2023-05-14'),
+(5, 3, 0, 1, '100000', 'ABONO MATRICULA', '2023-05-17'),
+(6, 1, 0, 2, '500000', 'PAGO TOTAL MATRICULA', '2023-05-17'),
+(7, 2, 0, 2, '250000', 'PAGO TOTAL MATRICULA', '2023-05-17'),
+(8, 1, 0, 2, '250000', 'PAGO TOTAL MATRICULA', '2023-05-19'),
+(9, 1, 0, 2, '250000', 'PAGO TOTAL MATRICULA', '2023-05-19'),
+(10, 7, 0, 1, '1000000', 'ABONO MATRICULA', '2023-05-20'),
+(11, 7, 0, 2, '250000', 'PAGO TOTAL MATRICULA', '2023-05-20'),
+(12, 2, 0, 2, '250000', 'PAGO TOTAL MATRICULA', '2023-05-20'),
+(13, 3, 0, 0, '250000', '', '2023-05-20'),
+(14, 2, 0, 0, '250000', '', '2023-05-20'),
+(15, 1, 0, 2, '250000', 'PAGO TOTAL MATRICULA', '2023-05-20'),
+(16, 3, 0, 2, '250000', 'PAGO TOTAL MATRICULA', '2023-05-20'),
+(17, 7, 0, 2, '250000', 'PAGO TOTAL MATRICULA', '2023-05-20'),
+(18, 2, 0, 2, '250000', 'PAGO TOTAL MATRICULA', '2023-05-20'),
+(19, 2, 0, 3, '280000', 'ABONO PENSION', '2023-05-21'),
+(20, 3, 0, 3, '300000', 'ABONO PENSION', '2023-05-21'),
+(21, 1, 0, 3, '280000', 'ABONO PENSION', '2023-05-21'),
+(22, 1, 0, 2, '250000', 'PAGO TOTAL MATRICULA', '2023-05-21'),
+(23, 1, 0, 4, '300000', 'PAGO TOTAL PENSION', '2023-05-21'),
+(24, 3, 0, 4, '280000', 'PAGO TOTAL PENSION', '2023-05-21'),
+(25, 2, 0, 4, '580000', 'PAGO TOTAL PENSION', '2023-05-21'),
+(26, 1, 1, 0, '50000', 'CERTIFICADO NOTAS', '2023-05-17'),
+(27, 1, 1, 0, '50000', 'CERTIFICADO NOTAS', '2023-05-17'),
+(28, 1, 1, 0, '50000', 'CERTIFICADO NOTAS', '2023-05-17'),
+(29, 2, 14, 0, '55000', 'ACTA GRADO', '2023-05-17'),
+(30, 1, 12, 0, '35000', 'CERTIFICADO GENERAL', '2023-05-20'),
+(31, 1, 1, 0, '50000', 'CERTIFICADO NOTAS', '2023-05-20'),
+(32, 1, 12, 0, '35000', 'CERTIFICADO GENERAL', '2023-05-20'),
+(33, 1, 1, 0, '50000', 'CERTIFICADO NOTAS', '2023-05-20');
 
 -- --------------------------------------------------------
 
@@ -605,6 +660,12 @@ ALTER TABLE `empleados`
   ADD PRIMARY KEY (`id_empleado`);
 
 --
+-- Indices de la tabla `facturas`
+--
+ALTER TABLE `facturas`
+  ADD PRIMARY KEY (`id_facturas`);
+
+--
 -- Indices de la tabla `grados`
 --
 ALTER TABLE `grados`
@@ -697,6 +758,12 @@ ALTER TABLE `categorias`
 --
 ALTER TABLE `empleados`
   MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `facturas`
+--
+ALTER TABLE `facturas`
+  MODIFY `id_facturas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `grados`
