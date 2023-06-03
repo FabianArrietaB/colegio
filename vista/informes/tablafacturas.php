@@ -7,14 +7,22 @@
     $sql = "SELECT
         f.id_facturas as idfacturas,
         f.id_operador as idoperador,
+        u.user_nombre as vendedor,
         CONCAT(f.fac_prefijo, ' ' ,f.id_facturas) as factura,
         f.id_alumno   as idalumno,
+        a.alu_nombre as alumno,
         f.id_acudiente as idacudiente,
+        ac.acu_nombre as acudiente,
         f.id_producto  as idproducto,
+        p.pro_nombre as producto,
         f.fac_valor as precio,
         f.fac_detalle as detalle,
         f.fac_fecope as fecha
         FROM facturas AS f
+        INNER JOIN alumnos as a ON a.id_alumno = f.id_alumno
+        INNER JOIN acudientes as ac ON ac.id_acudiente = f.id_acudiente
+        INNER JOIN productos as p ON p.id_producto = f.id_producto
+        INNER JOIN usuarios as u ON u.id_usuario = f.id_operador
         ORDER BY f.id_facturas ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
@@ -58,6 +66,7 @@
         <thead>
             <tr>
                 <th scope="col" >#Factura</th>
+                <th scope="col" >ALumno</th>
                 <th scope="col" >Producto</th>
                 <th scope="col" >Valor</th>
                 <th scope="col" >Vendedor</th>
@@ -72,9 +81,10 @@
         ?>
             <tr>
                 <td> <?php echo $facturas['factura']; ?> </td>
-                <td> <?php echo $facturas['idproducto']; ?> </td>
+                <td> <?php echo $facturas['alumno']; ?> </td>
+                <td> <?php echo $facturas['producto']; ?> </td>
                 <td> <?php echo $facturas['precio']; ?> </td>
-                <td> <?php echo $facturas['idoperador']; ?> </td>
+                <td> <?php echo $facturas['vendedor']; ?> </td>
                 <td> <?php echo $facturas['fecha']; ?> </td>
                 <td>
                 <div class="d-grid gap-2">
