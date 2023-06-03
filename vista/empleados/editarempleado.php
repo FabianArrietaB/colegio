@@ -169,7 +169,7 @@
                                 <div class="input-group mb-3">
                                     <select name="codepsu" id="codepsu" class="form-control input-sm">
                                         <?php
-                                            $sql="SELECT p.id_parafiscales as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
+                                            $sql="SELECT p.id_parafiscal as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
                                             $respuesta = mysqli_query($conexion, $sql);
                                             while($parafiscales = mysqli_fetch_array($respuesta)) {
                                             ?>
@@ -182,7 +182,7 @@
                                 <div class="input-group mb-3">
                                     <select name="codarlu" id="codarlu" class="form-control input-sm">
                                         <?php
-                                            $sql="SELECT p.id_parafiscales as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
+                                            $sql="SELECT p.id_parafiscal as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
                                             $respuesta = mysqli_query($conexion, $sql);
                                             while($parafiscales = mysqli_fetch_array($respuesta)) {
                                             ?>
@@ -195,7 +195,7 @@
                                 <div class="input-group mb-3">
                                     <select name="codpenu" id="codpenu" class="form-control input-sm">
                                         <?php
-                                            $sql="SELECT p.id_parafiscales as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
+                                            $sql="SELECT p.id_parafiscal as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
                                             $respuesta = mysqli_query($conexion, $sql);
                                             while($parafiscales = mysqli_fetch_array($respuesta)) {
                                             ?>
@@ -208,7 +208,7 @@
                                 <div class="input-group mb-3">
                                     <select name="codcesu" id="codcesu" class="form-control input-sm">
                                         <?php
-                                            $sql="SELECT p.id_parafiscales as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
+                                            $sql="SELECT p.id_parafiscal as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
                                             $respuesta = mysqli_query($conexion, $sql);
                                             while($parafiscales = mysqli_fetch_array($respuesta)) {
                                             ?>

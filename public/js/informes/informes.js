@@ -1,28 +1,35 @@
 $(document).ready(function(){
 
     $('#ventasbtn').click(function(){
-        ocultarsecciondes();
+        ocultar();
         $('#tablaventas').load('informes/tablaventas.php');
         $('#tablaventas').show();
     });
 
     $('#pensionbtn').click(function(){
-        ocultarsecciondes();
+        ocultar();
         $('#tablapension').load('informes/tablapension.php');
         $('#tablapension').show();
     });
     
     $('#matriculasbtn').click(function(){
-        ocultarsecciondes();
+        ocultar();
         $('#tablamatriculas').load('informes/tablamatriculas.php');
         $('#tablamatriculas').show();
     });
+
+    $('#facturasbtn').click(function(){
+        ocultar();
+        $('#tablafacturas').load('informes/tablafacturas.php');
+        $('#tablafacturas').show();
+    });
 });
 
-function ocultarsecciondes(){
+function ocultar(){
     $('#tablaventas').hide();
     $('#tablapension').hide();
     $('#tablamatriculas').hide();
+    $('#tablafacturas').hide();
     return false;
 }
 

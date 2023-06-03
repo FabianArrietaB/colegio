@@ -14,14 +14,14 @@
         m.id_alumno AS idalumno,
         m.mat_fecpen AS fecpen,
         m.mat_fecpropag AS fecpro,
+        DATEDIFF(m.mat_fecpropag,CURDATE()) AS diffDays,
         a.alu_nombre AS nombre,
         m.id_grado AS idgrado,
         g.gra_nombre AS grado
         FROM matriculas AS m
         INNER JOIN alumnos AS a ON m.id_alumno = a.id_alumno
         INNER JOIN grados AS g ON m.id_grado = g.id_grado
-        WHERE YEAR(m.mat_fecpropag) = YEAR(CURRENT_DATE())
-        AND MONTH(m.mat_fecpropag)  = MONTH(CURRENT_DATE())
+        WHERE MONTH(m.mat_fecpropag) = MONTH(CURDATE())
         ORDER BY m.mat_fecpen ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
@@ -60,19 +60,10 @@
                 </td>
 
                 <td><?php echo $matriculas['fecpen'];?></td>
-                <td><?php
-                        $propag = $matriculas['fecpen'];
-                        $mes = date("d-m-Y",strtotime($propag."+ 1 month"));
-                        $dateDifference = abs(strtotime($mes) - strtotime($fecha_actual));
-                        $dias = $dateDifference / (60*60*24);
-                        echo $dias;
-                        if ($dias >= 30 && $dias < 16) {
-                    ?>
-                        <span class="badge text-bg-success value" ></span>
-                    <?php } else if ($dias <= 15)  { ?>
-                        <span class="badge text-bg-warning"><?php echo $dias ?></span>
-                    <?php } else if ($dias <= 5)  { ?>
-                        <span class="badge text-bg-danger"><?php echo $dias ?></span>
+                <td><?php if ($matriculas['diffDays'] >= 10) { ?>
+                    <?php  echo $matriculas['diffDays'] ?>
+                    <?php } else { ?>
+                        0
                     <?php } ?>
                 </td>
                 <td>

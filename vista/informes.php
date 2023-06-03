@@ -20,21 +20,25 @@
                 </div>
                 <div class="card-body">
                     <div class="row text-center">
-                        <div class="col-4">
+                        <div class="col-3">
                             <a name="" id="ventasbtn" class="btn btn-primary" href="#" role="button">VENTAS</a>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <a name="" id="pensionbtn" class="btn btn-primary" href="#" role="button">PENSION</a>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <a name="" id="matriculasbtn" class="btn btn-primary" href="#" role="button">MATRICULAS</a>
+                        </div>
+                        <div class="col-3">
+                            <a name="" id="facturasbtn" class="btn btn-primary" href="#" role="button">FACTURAS</a>
                         </div>
                     </div>
                 </div>
                 <div class="row text-center">
-                    <div id="tablaventas"></div>
-                    <div id="tablapension"></div>
+                    <div id="tablafacturas"></div>
                     <div id="tablamatriculas"></div>
+                    <div id="tablapension"></div>
+                    <div id="tablaventas"></div>
                 </div>
             </div>
         </div>

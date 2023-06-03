@@ -5,21 +5,17 @@
     $conexion = $con->conectar();
     $idusuario = $_SESSION['usuario']['id'];
     $sql = "SELECT
-        v.id_venta    as idventa,
-        v.id_alumno   as idalumno,
-        a.alu_nombre  as alumno,
-        v.id_producto as idproducto,
-        p.pro_nombre  as producto,
-        g.gra_nombre  as grado,
-        v.ven_precio  as precio,
-        SUM(ven_precio) as vtventas,
-        v.ven_fecope  as fecope
-        FROM ventas AS v
-        LEFT JOIN alumnos AS a ON v.id_alumno = a.id_alumno
-        LEFT JOIN productos AS p ON v.id_producto = p.id_producto
-        LEFT JOIN grados AS g ON a.id_grado = g.id_grado
-        GROUP BY v.id_alumno
-        ORDER BY v.id_venta ASC";
+        f.id_facturas as idfacturas,
+        f.id_operador as idoperador,
+        CONCAT(f.fac_prefijo, ' ' ,f.id_facturas) as factura,
+        f.id_alumno   as idalumno,
+        f.id_acudiente as idacudiente,
+        f.id_producto  as idproducto,
+        f.fac_valor as precio,
+        f.fac_detalle as detalle,
+        f.fac_fecope as fecha
+        FROM facturas AS f
+        ORDER BY f.id_facturas ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio Tabla -->
@@ -42,7 +38,7 @@
                                 <div class="float-sm-right">&nbsp;
                                     <span style="font-size: 20px">
                                     <?php
-                                        $sql=$conexion->query("SELECT SUM(ven_precio) as 'precio' from ventas");
+                                        $sql=$conexion->query("SELECT SUM(fac_valor) as 'precio' from facturas");
                                         $data = mysqli_fetch_array($sql);
                                         $precio = $data['precio'];
                                         echo '$'. $precio;
@@ -61,25 +57,28 @@
     <table class="table table-light text-center">
         <thead>
             <tr>
-                <th scope="col" >Alumno</th>
-                <th scope="col" >Grado</th>
-                <th scope="col" >Grado</th>
-                <th scope="col" >Precio</th>
+                <th scope="col" >#Factura</th>
+                <th scope="col" >Producto</th>
+                <th scope="col" >Valor</th>
+                <th scope="col" >Vendedor</th>
+                <th scope="col" >fecha</th>
                 <th>
                 </th>
             </tr>
         </thead>
         <tbody>
         <?php
-            while ($ventas = mysqli_fetch_array($query)){
+            while ($facturas = mysqli_fetch_array($query)){
         ?>
             <tr>
-                <td> <?php echo $ventas['alumno']; ?> </td>
-                <td> <?php echo $ventas['grado']; ?> </td>
-                <td> <?php echo $ventas['vtventas']; ?> </td>
+                <td> <?php echo $facturas['factura']; ?> </td>
+                <td> <?php echo $facturas['idproducto']; ?> </td>
+                <td> <?php echo $facturas['precio']; ?> </td>
+                <td> <?php echo $facturas['idoperador']; ?> </td>
+                <td> <?php echo $facturas['fecha']; ?> </td>
                 <td>
                 <div class="d-grid gap-2">
-                    <input type="button" class="btn btn-info" value="Reporte" onclick="detalleventa('<?php echo $ventas['idalumno']?>')"></input>
+                    <input type="button" class="btn btn-info" value="Reporte" onclick="detallefactura('<?php echo $facturas['idalumno']?>')"></input>
                 </div>
                 </td>
             </tr>
@@ -87,4 +86,3 @@
         </tbody>
     </table>
 </div>
-<div id="conte-modal-venta"></div>

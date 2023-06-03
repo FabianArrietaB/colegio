@@ -1,5 +1,15 @@
 $(document).ready(function(){
-    $('#tablalistaempleados').load('empleados/listaempleados.php');
+    $('#tablaempleados').load('empleados/listaempleados.php');
+});
+
+//FILTRAR
+$(document).ready(function(){
+    setInterval(
+        function(){
+            const filtro = $('#filtro').val()
+            $('#Recargar').load('empleados/listaempleados.php?filtro='+filtro);
+        },1000
+    );
 });
 
 function activarempleado(idempleado, estado){

@@ -12,6 +12,7 @@ $(document).ready(function(){
     );
 });
 
+
 //CONSULTAR VALOR GRADO
 $('#frmagregaralumno').change(function(){
     //condicion para limpiar campos

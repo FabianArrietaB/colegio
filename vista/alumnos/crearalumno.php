@@ -239,6 +239,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="input-group mb-3">
+                                <legend class="group-border">Grado a Cursar</legend>
                                     <select name="idgrado" id="idgrado" class="form-control input-sm">
                                         <option selected >Selecione Grado</option>
                                         <?php
@@ -253,33 +254,44 @@
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
+                                <legend class="group-border">Valo Matricula</legend>
                                     <input type="text" id="matric" name="matric" class="form-control input-sm" placeholder="Matricula" readonly>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
+                                <legend class="group-border">Valor Pension</legend>
                                     <input type="text" id="pensio" name="pensio" class="form-control input-sm" placeholder="Ingrese Pension" readonly>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
+                                <legend class="group-border">Valor Pagado</legend>
                                     <input type="text" id="abono" name="abono" class="form-control input-sm" placeholder="Abono Matricula">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-4">
                                 <div class="input-group mb-3">
+                                    <legend class="group-border">Valor Restante</legend>
                                     <input type="text" id="balance" name="balance" class="form-control input-sm" placeholder="Valor Restante" readonly>
                                 </div>
                             </div>
-                            <div class="col-9">
+                            <div class="col-4">
                                 <div class="input-group mb-3">
+                                <legend class="group-border">Pago a Realizar</legend>
                                     <select name="tippag" id="tippag" class="form-control input-sm">
-                                        <option selected >TIPO PAGO</option>
+                                        <option value="0" selected >TIPO PAGO</option>
                                         <option value="1">ABONO MATRICULA</option>
                                         <option value="2">PAGO TOTAL MATRICULA</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group mb-3">
+                                    <legend class="group-border">Fecha Proximo Pago</legend>
+                                    <input type="date" id="fecpro" name="fecpro" class="form-control input-sm" placeholder="Fecha Proximo pago">
                                 </div>
                             </div>
                         </div>

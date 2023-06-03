@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div id="tablalistaempleados"></div>
+                    <div id="tablaempleados"></div>
                 </div>
             </div>
         </div>

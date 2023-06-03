@@ -179,7 +179,7 @@
                                     <select name="codeps" id="codeps" class="form-control input-sm">
                                         <option selected >Selecione EPS</option>
                                         <?php
-                                            $sql="SELECT p.id_parafiscales as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
+                                            $sql="SELECT p.id_parafiscal as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
                                             $respuesta = mysqli_query($conexion, $sql);
                                             while($parafiscales = mysqli_fetch_array($respuesta)) {
                                         ?>
@@ -193,7 +193,7 @@
                                     <select name="codarl" id="codarl" class="form-control input-sm">
                                         <option selected >Selecione ARL</option>
                                         <?php
-                                            $sql="SELECT p.id_parafiscales as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
+                                            $sql="SELECT p.id_parafiscal as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
                                             $respuesta = mysqli_query($conexion, $sql);
                                             while($parafiscales = mysqli_fetch_array($respuesta)) {
                                             ?>
@@ -207,7 +207,7 @@
                                     <select name="codpen" id="codpen" class="form-control input-sm">
                                         <option selected >Selecione Pension</option>
                                         <?php
-                                            $sql="SELECT p.id_parafiscales as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
+                                            $sql="SELECT p.id_parafiscal as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
                                             $respuesta = mysqli_query($conexion, $sql);
                                             while($parafiscales = mysqli_fetch_array($respuesta)) {
                                             ?>
@@ -221,7 +221,7 @@
                                     <select name="codces" id="codces" class="form-control input-sm">
                                         <option selected >Selecione Censantia</option>
                                         <?php
-                                            $sql="SELECT p.id_parafiscales as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
+                                            $sql="SELECT p.id_parafiscal as idparafiscal, p.par_nombre as nombre FROM parafiscales as p";
                                             $respuesta = mysqli_query($conexion, $sql);
                                             while($parafiscales = mysqli_fetch_array($respuesta)) {
                                             ?>

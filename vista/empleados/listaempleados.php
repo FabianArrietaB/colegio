@@ -1,76 +1,88 @@
 <?php
     session_start();
     if ($_SESSION['usuario']['rol'] == 4) {
+    $filtro = '';
+    if(isset($_GET['filtro'])){
+        $filtro = $_GET['filtro'];
+    }
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
     $idusuario = $_SESSION['usuario']['id'];
     $sql = "SELECT
-        empleados.id_empleado AS idempleado,
-        empleados.emp_nombre    AS nombre,
-        empleados.emp_cladoc    AS cladoc,
-        empleados.emp_docume    AS docume,
-        empleados.emp_cargo     AS cargo,
-        empleados.emp_telcel    AS telcel,
-        empleados.emp_ciudad    AS ciudad,
-        empleados.emp_direcc    AS direcc,
-        empleados.emp_estrat    AS estrat,
-        empleados.emp_correo    AS correo,
-        empleados.emp_tipcon    AS tipcon,
-        empleados.emp_salari    AS salari,
-        empleados.emp_codces    AS codces,
-        empleados.emp_codeps    AS codeps,
-        empleados.emp_codpen    AS codpen,
-        empleados.emp_codarl    AS codarl,
-        empleados.emp_sexo      AS sexo,
-        empleados.emp_estciv    AS estciv,
-        empleados.emp_escola    AS escola,
-        empleados.emp_gposan    AS gposan,
-        empleados.emp_factrh    AS factrh,
-        empleados.emp_hijos     AS hijos,
-        empleados.emp_estado    AS estado,
-        empleados.emp_fecnac    AS fecnac
-        FROM empleados AS empleados
-        ORDER BY empleados.id_empleado ASC";
+        e.id_empleado AS idempleado,
+        e.id_usuario  AS idusuario,
+        e.emp_nombre    AS nombre,
+        e.emp_cladoc    AS cladoc,
+        e.emp_docume    AS docume,
+        e.emp_cargo     AS cargo,
+        e.emp_telcel    AS telcel,
+        e.emp_ciudad    AS ciudad,
+        e.emp_direcc    AS direcc,
+        e.emp_estrat    AS estrat,
+        e.emp_correo    AS correo,
+        e.emp_tipcon    AS tipcon,
+        e.emp_salari    AS salari,
+        e.emp_codces    AS codces,
+        e.emp_codeps    AS codeps,
+        e.emp_codpen    AS codpen,
+        e.emp_codarl    AS codarl,
+        e.emp_sexo      AS sexo,
+        e.emp_estciv    AS estciv,
+        e.emp_escola    AS escola,
+        e.emp_gposan    AS gposan,
+        e.emp_factrh    AS factrh,
+        e.emp_hijos     AS hijos,
+        e.emp_estado    AS estado,
+        e.emp_fecnac    AS fecnac
+        FROM empleados AS e
+        WHERE e.emp_nombre
+        LIKE '%$filtro%' || e.emp_nombre LIKE '%$filtro%' ||  e.emp_docume LIKE '%$filtro%'
+        ORDER BY e.id_empleado ASC";
     $query = mysqli_query($conexion, $sql);
 } else {
+    $filtro = '';
+    if(isset($_GET['filtro'])){
+        $filtro = $_GET['filtro'];
+    }
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
     $sql = "SELECT
-        empleados.id_empleado AS idempleado,
-        empleados.emp_nombre    AS nombre,
-        empleados.emp_cladoc    AS cladoc,
-        empleados.emp_docume    AS docume,
-        empleados.emp_cargo     AS cargo,
-        empleados.emp_telcel    AS telcel,
-        empleados.emp_ciudad    AS ciudad,
-        empleados.emp_direcc    AS direcc,
-        empleados.emp_estrat    AS estrat,
-        empleados.emp_correo    AS correo,
-        empleados.emp_tipcon    AS tipcon,
-        empleados.emp_salari    AS salari,
-        empleados.emp_codces    AS codces,
-        empleados.emp_codeps    AS codeps,
-        empleados.emp_codpen    AS codpen,
-        empleados.emp_codarl    AS codarl,
-        empleados.emp_sexo      AS sexo,
-        empleados.emp_estciv    AS estciv,
-        empleados.emp_escola    AS escola,
-        empleados.emp_gposan    AS gposan,
-        empleados.emp_factrh    AS factrh,
-        empleados.emp_hijos     AS hijos,
-        empleados.emp_estado    AS estado,
-        empleados.emp_fecnac    AS fecnac
-        FROM empleados AS empleados
-        WHERE empleados.emp_estado = 1
-        ORDER BY empleados.id_empleado ASC";
+        e.id_empleado AS idempleado,
+        e.emp_nombre    AS nombre,
+        e.emp_cladoc    AS cladoc,
+        e.emp_docume    AS docume,
+        e.emp_cargo     AS cargo,
+        e.emp_telcel    AS telcel,
+        e.emp_ciudad    AS ciudad,
+        e.emp_direcc    AS direcc,
+        e.emp_estrat    AS estrat,
+        e.emp_correo    AS correo,
+        e.emp_tipcon    AS tipcon,
+        e.emp_salari    AS salari,
+        e.emp_codces    AS codces,
+        e.emp_codeps    AS codeps,
+        e.emp_codpen    AS codpen,
+        e.emp_codarl    AS codarl,
+        e.emp_sexo      AS sexo,
+        e.emp_estciv    AS estciv,
+        e.emp_escola    AS escola,
+        e.emp_gposan    AS gposan,
+        e.emp_factrh    AS factrh,
+        e.emp_hijos     AS hijos,
+        e.emp_estado    AS estado,
+        e.emp_fecnac    AS fecnac
+        FROM empleados AS e
+        WHERE e.emp_estado = 1
+        AND LIKE '%$filtro%' || e.emp_nombre LIKE '%$filtro%' ||  e.emp_docume LIKE '%$filtro%'
+        ORDER BY e.id_empleado ASC";
     $query = mysqli_query($conexion, $sql);
     }
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive">
-    <table class="table table-light  text-center">
+    <table class="table table-light  text-center" id="Recargar">
     <thead>
         <tr>
             <th scope="col" >Nombres</th>

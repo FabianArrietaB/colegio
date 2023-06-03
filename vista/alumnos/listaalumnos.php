@@ -58,6 +58,7 @@
             FROM alumnos as a
             INNER JOIN grados as g ON a.id_grado = g.id_grado
             WHERE a.alu_estado = 1
+            AND LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' ||  a.alu_docume LIKE '%$filtro%'
             ORDER BY a.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     }
@@ -104,3 +105,4 @@
         </tbody>
     </table>
 </div>
+<div id="conte-modal-padres"></div>

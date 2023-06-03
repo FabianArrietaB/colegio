@@ -37,6 +37,7 @@
       "pensio" => $_POST['pensio'],
       "abono" => $_POST['abono'],
       "tippag" => $_POST['tippag'],
+      "fecpro" => $_POST['fecpro'],
       "usuario"    => $_POST['usuario'],
       'idoperador' => $_SESSION['usuario']['id'],
       "password"   => md5($_POST['password']),

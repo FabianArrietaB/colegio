@@ -271,7 +271,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="row text-center">
+                    <div class="row text-center mb-3">
                         <div class="col-6">
                             <a name="" id="pagosbtn" class="btn btn-primary" href="#" role="button">MATRICULAS</a>
                         </div>
