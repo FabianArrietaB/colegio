@@ -15,13 +15,14 @@
         ac.acu_nombre as acudiente,
         f.id_producto  as idproducto,
         p.pro_nombre as producto,
+        f.id_tippag as tippag,
         f.fac_valor as precio,
         f.fac_detalle as detalle,
         f.fac_fecope as fecha
         FROM facturas AS f
         INNER JOIN alumnos as a ON a.id_alumno = f.id_alumno
         INNER JOIN acudientes as ac ON ac.id_acudiente = f.id_acudiente
-        INNER JOIN productos as p ON p.id_producto = f.id_producto
+        LEFT JOIN productos as p ON p.id_producto = f.id_producto
         INNER JOIN usuarios as u ON u.id_usuario = f.id_operador
         ORDER BY f.id_facturas ASC";
     $query = mysqli_query($conexion, $sql);
@@ -82,13 +83,27 @@
             <tr>
                 <td> <?php echo $facturas['factura']; ?> </td>
                 <td> <?php echo $facturas['alumno']; ?> </td>
-                <td> <?php echo $facturas['producto']; ?> </td>
+                <td>
+                    <?php if ($facturas['producto'] <> 0) {
+                        echo $facturas['producto'];
+                    } else {
+                        if ($facturas['tippag'] == 1) { ?>
+                            <span>ABONO MATRICULA</span>
+                        <?php } else if ($facturas['tippag'] == 2) { ?>
+                            <span>PAGO TOTAL MATRICULA</span>
+                        <?php } else if ($facturas['tippag'] == 3) { ?>
+                            <span>ABONO PENSION</span>
+                        <?php } else if ($facturas['tippag'] == 4) { ?>
+                            <span>PAGO TOTAL PENSION</span>
+                        <?php } ?>
+                    <?php } ?>
+                </td>
                 <td> <?php echo $facturas['precio']; ?> </td>
                 <td> <?php echo $facturas['vendedor']; ?> </td>
                 <td> <?php echo $facturas['fecha']; ?> </td>
                 <td>
                 <div class="d-grid gap-2">
-                    <input type="button" class="btn btn-info" value="Reporte" onclick="detallefactura('<?php echo $facturas['idalumno']?>')"></input>
+                    <input type="button" class="btn btn-info" value="Reporte" onclick="detallefactura('<?php echo $facturas['idfacturas']?>')"></input>
                 </div>
                 </td>
             </tr>
@@ -96,3 +111,4 @@
         </tbody>
     </table>
 </div>
+<div id="conte-modal-factura"></div>

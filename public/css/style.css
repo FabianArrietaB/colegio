@@ -13,7 +13,8 @@
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-size: 12px !important;
+  font-family: 'Times New Roman' !important;
 }
 
 body{
@@ -30,6 +31,9 @@ body{
   position: fixed;
   top:0;
   left: 0;
+  
+  font-size: 12px !important;
+  font-family: 'Times New Roman' !important;
 }
 
 .sidebar.open{

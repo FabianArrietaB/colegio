@@ -53,3 +53,10 @@ function detallepension(idalumno){
         $('.modal-backdrop').remove()
     });
 }
+
+function detallefactura(idfacturas){
+    $('#conte-modal-factura').load('informes/tickeproductos.php?idfacturas='+idfacturas, function(){
+        $('#factura').modal("show");
+        $('.modal-backdrop').remove()
+    });
+}

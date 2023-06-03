@@ -3,10 +3,16 @@
     font-family: 'Times New Roman';
 }
 
+.modal-dialog {
+    display: table;
+    overflow-y: auto;
+    overflow-x: auto;
+    width: auto;
+  }
+
 .both_border {
     border-top: 1px dotted  black;
 	border-bottom: 1px dotted  black;
-   
 }
 
 td.description,
