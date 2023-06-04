@@ -1,6 +1,6 @@
 <!-- Formulario (Agregar) -->
-<form id="frmventa" method="post" onsubmit="return ventas()">
-    <div class="modal fade" id="venta" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="false">
+<form id="frmventa" method="post" onsubmit="return factura()">
+    <div class="modal fade" id="factura" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="false">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -12,17 +12,17 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Solicitud</legend>
                         <div class="row">
-                            <input type="text" id="idsolicitudu" name="idsolicitudu" hidden>
+                            <input type="text" id="idsolicitudalu" name="idsolicitudalu" hidden>
                             <div class="col-6">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="usuario" name="usuario" class="form-control input-sm" disabled>
+                                    <input type="text" id="nomusuariou" name="nomusuariou" class="form-control input-sm" disabled>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="detalle" name="detalle" class="form-control input-sm" disabled>
+                                    <input type="text" id="detallesol" name="detallesol" class="form-control input-sm" disabled>
                                 </div>
-                            </div>A
+                            </div>
                         </div>
                     </fieldset>
                     <!-- Formulario (Venta) -->

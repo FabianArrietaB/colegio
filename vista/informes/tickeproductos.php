@@ -35,13 +35,13 @@
 	$rw_producto = mysqli_fetch_array($query4);
 
 ?>
- <div class="modal fade" id="factura" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+<div class="modal fade" id="factura" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-body">
 				<!DOCTYPE html>
-				<html lang="es">
-					<head>
+					<html lang="es">
+						<head>
 						<meta charset="UTF-8">
 						<meta name="viewport" content="width=device-width, initial-scale=1.0">
 						<meta http-equiv="X-UA-Compatible" content="ie=edge">

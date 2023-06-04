@@ -126,6 +126,22 @@ function detalleventa(idsolicitud){
     });
 }
 
+function detallefactura(idsolicitud){
+    $.ajax({
+        type: "POST",
+        data: "idsolicitud=" + idsolicitud,
+        url: "../controlador/solicitudes/detalleventa.php",
+        success: function(respuesta){
+            //console.log(respuesta)
+            respuesta = jQuery.parseJSON(respuesta);
+            $('#idsolicitudu').val(respuesta['idsolicitudalu']);
+            $('#idgradou').val(respuesta['idgradoalu']);
+            $('#detalle').val(respuesta['detallesol']);
+            $('#usuario').val(respuesta['nomusuariou']);
+        }
+    });
+}
+
 function solucion(){
     $.ajax({
         type: "POST",
