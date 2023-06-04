@@ -1,14 +1,26 @@
-* {
+* .modal{
     font-size: 12px;
     font-family: 'Times New Roman';
+
+}
+.table{
+    margin-bottom: 1rem !important;
 }
 
-.modal-dialog {
-    display: table;
-    overflow-y: auto;
-    overflow-x: auto;
-    width: auto;
-  }
+.modal-content {
+    align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--bs-modal-color);
+    pointer-events: auto;
+    background-color: var(--bs-modal-bg);
+    background-clip: padding-box;
+    border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+    border-radius: var(--bs-modal-border-radius);
+    outline: 0;
+}
 
 .both_border {
     border-top: 1px dotted  black;
@@ -34,7 +46,7 @@ th.price {
     width: 20mm;
     max-width: 20mmpx;
     word-break: break-all;
-	text-align:right;
+	text-align: center;
 }
 
 .centered {

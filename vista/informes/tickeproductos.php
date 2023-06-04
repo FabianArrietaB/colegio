@@ -38,9 +38,6 @@
  <div class="modal fade" id="factura" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
 			<div class="modal-body">
 				<!DOCTYPE html>
 				<html lang="es">
@@ -65,7 +62,7 @@
 								<br><strong>Dirección: </strong> <?php echo $rw_alumno['alu_direcc'];?>
 								<br><strong>Telefono: </strong> <?php echo $rw_alumno['alu_telcel'];?>
 							</p>
-							<table>
+							<table class="mb-3">
 								<thead>
 									<tr >
 										<th class="quantity both_border">Cant.</th>
@@ -82,7 +79,7 @@
 									<tr>
 										<td class="quantity"><?php echo $rw_factura['fac_cantidad'];?></td>
 										<td class="description"><?php echo $rw_factura['fac_detalle'];?></td>
-										<td class="price"> <?php echo number_format($total,2);?></td>
+										<td class="price"> <?php echo number_format($total);?></td>
 									</tr>
 									<?php
 										$suma+= $total;
@@ -90,14 +87,15 @@
 										//$detalle = mysqli_query($con,"INSERT INTO `detalle` (`id`, `descripcion`, `cantidad`, `precio`, `id_factura`) VALUES (NULL, '".$row['pro_nombre']."', '".$row['pro_estado']."', '".$row['pro_precio']."', '$numero');");
 									?>
 									<tr>
-										<th class="price totales both_border" colspan=3> TOTAL PAGO  $ <?php echo number_format($total,2);?></th>
+										<th class="price totales both_border" colspan=3> TOTAL PAGO  $ <?php echo number_format($total);?></th>
 									</tr>
 								</tbody>
 							</table>
 							<p class="centered">Gracias por su compra!
 							<br>www.gimnasiolasamericas.com</p>
 						</div>
-						<button  id="btnPrint" class="btn btn-info" onclick="window.print('#factura')"><i class="fa-solid fa-print fa-2x"></i></button>
+						<button  id="btnPrint" class="btn btn-info" onclick="window.print();"><i class="fa-solid fa-print fa-2x"></i></button>
+						<button  class="btn btn-danger" data-bs-dismiss="modal" ><i class="fa-solid fa-x fa-2x"></i></button>
 					</body>
 				</html>
 			</div>
