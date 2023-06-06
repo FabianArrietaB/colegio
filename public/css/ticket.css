@@ -35,8 +35,8 @@ th.description {
 
 td.quantity,
 th.quantity {
-    width: 10mm;
-    max-width: 10mm;
+    width: 20mm;
+    max-width: 20mm;
     word-break: break-all;
 	text-align:center;
 }
@@ -55,8 +55,8 @@ th.price {
 }
 
 .ticket {
-    width: 60mm;
-    max-width: 60mm;
+    width: 80mm;
+    max-width: 80mm;
 }
 
 td.totales {

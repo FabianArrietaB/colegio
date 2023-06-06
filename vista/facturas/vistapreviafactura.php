@@ -35,7 +35,7 @@
 	$rw_producto = mysqli_fetch_array($query4);
 
 ?>
-<div class="modal fade" id="factura" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+<div class="modal fade" id="viewfactura" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-body">
@@ -94,10 +94,12 @@
 							<p class="centered">Gracias por su compra!
 							<br>www.gimnasiolasamericas.com</p>
 						</div>
-						<button  id="btnPrint" class="btn btn-info" onclick="window.print();"><i class="fa-solid fa-print fa-2x"></i></button>
-						<button  class="btn btn-danger" data-bs-dismiss="modal" ><i class="fa-solid fa-x fa-2x"></i></button>
 					</body>
 				</html>
+			</div>
+			<div class="modal-footer">
+				<button  id="btnPrint" class="btn btn-info" onclick="imprimir()"><i class="fa-solid fa-print fa-2x"></i></button>
+				<button  class="btn btn-danger" data-bs-dismiss="modal" ><i class="fa-solid fa-x fa-2x"></i></button>
 			</div>
 		</div>
 	</div>
