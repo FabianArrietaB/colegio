@@ -12,6 +12,7 @@ if (!empty($_SESSION["user_estado"])) {
     <meta charset="UTF-8">
     <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
     <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/factura.css"/>
     <!--<title> Bootstrap </title>-->
     <link rel="stylesheet" href="../public/bootstrap5/css/bootstrap.min.css">
     <!--<title> Boxicons </title>-->
