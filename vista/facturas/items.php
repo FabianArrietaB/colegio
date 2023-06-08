@@ -7,12 +7,12 @@ if($action == 'ajax'){
     $conexion = $con->conectar();
 	if (isset($_REQUEST['id'])){
 		$id=intval($_REQUEST['id']);
-		$delete=mysqli_query($con,"delete from tmp where id='$id'");
+		$delete=mysqli_query($conexion,"delete from tmp where id='$id'");
 	}
 	
 	if (isset($_POST['descripcion'])){
 		
-		$descripcion=mysqli_real_escape_string($con,$_POST['descripcion']);
+		$descripcion=mysqli_real_escape_string($conexion,$_POST['descripcion']);
 		$cantidad=intval($_POST['cantidad']);
 		$precio=floatval($_POST['precio']);
 		$sql="INSERT INTO `tmp` (`id`, `descripcion`, `cantidad`, `precio`) VALUES (NULL, '$descripcion', '$cantidad', '$precio');";
@@ -48,7 +48,7 @@ if($action == 'ajax'){
 	<tr>
 		<td colspan='6'>
 		
-			<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Agregar Ítem</button>
+			<button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#producto"><span class="glyphicon glyphicon-plus"></span> Agregar Ítem</button>
 		</td>
 	</tr>
 	<tr>
