@@ -93,6 +93,7 @@
                     </div>
 				    <div class="modal-body">
                         <fieldset class="group-border">
+                            
                             <div class="row">
                                 <div class="col-md-12">
                                     <label>Descripción del producto/servicio</label>
