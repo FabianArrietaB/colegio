@@ -16,14 +16,11 @@ if($action == 'ajax'){
 		$cantidad=intval($_POST['cantidad']);
 		$precio=floatval($_POST['precio']);
 		$sql="INSERT INTO `tmp` (`id`, `descripcion`, `cantidad`, `precio`) VALUES (NULL, '$descripcion', '$cantidad', '$precio');";
-		$insert=mysqli_query($con,$sql);
+		$insert=mysqli_query($conexion,$sql);
 	}
-	$query_perfil=mysqli_query($con,"select * from perfil where id=1");
+	$query_perfil=mysqli_query($conexion,"select * from sedes where id_sedes = 1");
 	$rw=mysqli_fetch_assoc($query_perfil);
-	$tax= $rw['tax'];//% de iva o impuestos
-	
-	
-	$query=mysqli_query($con,"select * from tmp order by id");
+	$query=mysqli_query($conexion,"select * from tmp order by id");
 	$items=1;
 	$suma=0;
 
@@ -44,7 +41,7 @@ if($action == 'ajax'){
 		$suma+=$total;
 		
 	}
-		$iva=$suma * ($tax / 100);
+		$iva=$suma * (16 / 100);
 		$total_iva=number_format($iva,2,'.','');	
 		$total=$suma + $total_iva;
 	?>
