@@ -39,11 +39,11 @@
                     <hr />
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <h2>Detalles del cliente :</h2>
-                            <select class="cliente form-control" name="cliente" id="cliente" required>
-                            <option value="">Selecciona el cliente</option>
-                        </select>
+                            <select class="form-select input-sm" name="idpersona" id="idpersona" required>
+                                <option value="">Seleccionar Persona</option>
+                            </select>
                         <span id="direccion"></span>
-                        <h4><strong>E-mail: </strong><span id="email"></span></h4>
+                        <h4><strong>E-mail: </strong><span id="nomalu"></span></h4>
                         <h4><strong>Teléfono: </strong><span id="telefono"></span></h4>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">

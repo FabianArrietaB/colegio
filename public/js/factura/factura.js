@@ -1,30 +1,32 @@
+//Buscar Persona
 $(document).ready(function() {
-    $( ".cliente" ).select2({
-    ajax: {
-        url: "ajax/clientes_json.php",
-        dataType: 'json',
-        delay: 250,
-        data: function (params) {
-            return {
-                q: params.term // search term
-            };
+    $( '#idpersona' ).select2({
+        width: '100%',
+        ajax: {
+            url: "../controlador/alumnos/buscaracudiente.php",
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    persona: params.term // search term
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
         },
-        processResults: function (data) {
-            return {
-                results: data
-            };
-        },
-        cache: true
-    },
-    minimumInputLength: 2
-}).on('change', function (e){
-		var email = $('.cliente').select2('data')[0].email;
-		var telefono = $('.cliente').select2('data')[0].telefono;
-		var direccion = $('.cliente').select2('data')[0].direccion;
-		$('#email').html(email);
-		$('#telefono').html(telefono);
-		$('#direccion').html(direccion);
-})
+        minimumInputLength: 2
+    }).on('change', function (e){
+        var id = $('#idpersona').select2('data')[0].id;
+        var nomacu = $('#idpersona').select2('data')[0].nomacu;
+		var nomalu = $('#idpersona').select2('data')[0].nomalu;
+        $('#id').html(id);
+        $('#nomacu').html(nomacu);
+		$('#nomalu').html(nomalu);
+    })
 });
 
 	function mostrar_items(){

@@ -19,6 +19,7 @@ if (!empty($_SESSION["user_estado"])) {
     <link rel="stylesheet" href="../public/Boxicons/css/boxicons.min.css">
     <link rel="stylesheet" href="../public/Boxicons/css/animations.css">
     <link rel="stylesheet" href="../public/Boxicons/css/transformations.css">
+    <link rel="stylesheet" href="../public/select2/select2.min.css">
     <!--<title> Fontawesome </title>-->
     <link rel="stylesheet" href="../public/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../public/fontawesome/css/fontawesome.min.css">

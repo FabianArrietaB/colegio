@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6 text-center"">
-                            <a type="button" id="empresabtn">
+                            <a class="acard" type="button" id="empresabtn">
                                 <div class="card border-danger text-white bg-primary mb-3">
                                     <div class="card-header">
                                         <div class="row">
@@ -37,7 +37,7 @@
                             </a>
                         </div>
                         <div class="col-sm-6 text-center"">
-                            <a type="button" id="parafiscalesbtn">
+                            <a class="acard" type="button" id="parafiscalesbtn">
                                 <div class="card border-danger text-white bg-primary mb-3">
                                     <div class="card-header">
                                         <div class="row">

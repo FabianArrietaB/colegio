@@ -2,9 +2,9 @@
 $action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
 if($action == 'ajax'){
 	/* Connect To Database*/
-	require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
-	require_once ("../config/conexion.php");//Contiene funcion que conecta a la base de datos
-	
+	require_once ("../modelo/conexion.php");//Contiene funcion que conecta a la base de datos
+    $con = new Conexion();
+    $conexion = $con->conectar();
 	if (isset($_REQUEST['id'])){
 		$id=intval($_REQUEST['id']);
 		$delete=mysqli_query($con,"delete from tmp where id='$id'");

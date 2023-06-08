@@ -6,6 +6,7 @@
         <script src="./../public/chart/chart.js"></script>
         <!-- jquery -->
         <script src="./../public/pnotify/js/jquery.min.js"></script>
+        <script src="../public//select2/select2.min.js"></script>
         <!-- fontawesome -->
         <script src="./../public/fontawesome/js/all.min.js"></script>
         <script src="./../public/fontawesome/js/fontawesome.min.js"></script>
