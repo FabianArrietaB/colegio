@@ -12,7 +12,8 @@
         $data[] = array(
             'id' => $list['id_acudiente'],
             'text' => $list['acu_nombre'],
-            'nomalu' => $list['alu_nombre']
+            'nomalu' => $list['alu_nombre'],
+            'direcc' => $list['acu_direcc']
         );
     }
     // return the result in json

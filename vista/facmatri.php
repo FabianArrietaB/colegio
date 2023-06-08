@@ -7,19 +7,19 @@
     $conexion = $con->conectar();
 	//Consulta Empresa
 	$sql_empresa = "select * from sedes where id_sedes = 1 limit 0,1";//Obtengo los datos del Empresa
-	$query2 = mysqli_query($conexion, $sql_empresa);
-	$rw_empresa = mysqli_fetch_array($query2);
-	$sql = "select LAST_INSERT_ID(id_facturas) as last from facturas";
-	$query1 = mysqli_query($conexion, $sql);
-	$rw1 = mysqli_fetch_array($query1);
-	$numero = $rw1['last']+1;
+	$query1 = mysqli_query($conexion, $sql_empresa);
+	$rw_empresa = mysqli_fetch_array($query1);
+	$sql = "select max(id_facturas) as last from facturas";
+	$query2 = mysqli_query($conexion, $sql);
+	$rw_facrura = mysqli_fetch_array($query2);
+	$numero = $rw_facrura['last']+1;
 ?>
     <div class="container outer-section" >
         <form class="form-horizontal" role="form" id="datos_factura" method="post">
             <div id="print-area">
                 <div class="row pad-top font-big">
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <a href="https://obedalvarado.pw/" target="_blank"> 
+                        <a href="https://obedalvarado.pw/" target="_blank">
                             <img src="../public/images/logo.png" width="25%" height="25%" alt="Logo sistemas web"/>
                         </a>
                     </div>
@@ -36,14 +36,27 @@
                     </div>
                 </div>
                 <div class="row ">
-                    <hr />
+                    <hr/>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <h2>Detalles del cliente :</h2>
+                        <div class="input-group mb-1">
                             <select class="form-select input-sm" name="idpersona" id="idpersona" required>
-                                <option value="">Seleccionar Persona</option>
+                                <option value="">Seleccionar Acudiente</option>
                             </select>
-                            <input type="text" id="nomacu" name="nomacu" class="form-control input-sm">
-                            <input type="text" id="nomalu" name="nomalu" class="form-control input-sm">
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Alumno</span>
+                            </div>
+                            <input class="form-control" placeholder="Nombre Alumno" type="text" id="nomalu" name="nomalu" aria-label="Recipient's text" aria-describedby="my-addon">
+                            <input hidden class="form-control" placeholder="Nombre Acudiente" type="text" id="nomacu" name="nomacu" aria-label="Recipient's text" aria-describedby="my-addon">
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Direccion</span>
+                            </div>
+                            <input class="form-control" placeholder="Direccion Alumno" type="text" id="direcc" name="direcc" aria-label="Recipient's text" aria-describedby="my-addon">
+                        </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <h2>Detalles del ticket:</h2>

@@ -55,7 +55,7 @@ function detallepension(idalumno){
 }
 
 function detallefactura(idfacturas){
-    $('#conte-modal-viewfactura').load('facturas/vistapreviafactura.php?idfacturas='+idfacturas, function(){
+    $('#conte-modal-factura').load('facturas/vistapreviafactura.php?idfacturas='+idfacturas, function(){
         $('#viewfactura').modal("show");
         $('.modal-backdrop').remove()
     });

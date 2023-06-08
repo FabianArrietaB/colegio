@@ -23,9 +23,12 @@ $(document).ready(function() {
         var id = $('#idpersona').select2('data')[0].id;
         var nomacu = $('#idpersona').select2('data')[0].text;
 		var nomalu = $('#idpersona').select2('data')[0].nomalu;
+		var direcc = $('#idpersona').select2('data')[0].direcc;
+
         $('#id').html(id);
         document.getElementById("nomacu").value=nomacu;
         document.getElementById("nomalu").value=nomalu;
+		document.getElementById("direcc").value=direcc;
     })
 });
 
@@ -67,14 +70,14 @@ $(document).ready(function() {
 			  },
 			success:function(data){
 				$(".items").html(data).fadeIn('slow');
-				$("#myModal").modal('hide');
+				$("#producto").modal('hide');
 			}
 		})
 		
 	  event.preventDefault();
 	})
 	$("#datos_factura").submit(function(){
-		  var cliente = $("#cliente").val();
+		  var cliente = $("#idpersona").val();
 		  
 		 
 		  
