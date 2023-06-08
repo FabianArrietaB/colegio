@@ -83,7 +83,7 @@ $(document).ready(function() {
 		  
 		  if (cliente>0)
 		 {
-			window.open('facturas/ticket.php?cliente='+cliente);
+			window.open('../facturas/ticket.php?cliente='+cliente);
 		 } else {
 			 alert("Selecciona el cliente");
 			 return false;

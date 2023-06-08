@@ -20,6 +20,7 @@
 	$session_id= session_id();
 	$sql_count=mysqli_query($conexion,"select * from tmp ");
 	$count=mysqli_num_rows($sql_count);
+	$fecha = date("d/m/Y");
 	if ($count==0)
 	{
 	echo "<script>alert('No hay productos agregados al presupuesto')</script>";
@@ -42,7 +43,7 @@
 			<p class="centered"><?php echo $rw_empresa['sed_razsoc'];?>
 				<br><strong>Teléfono :</strong> <?php echo $rw_empresa['sed_telcel'];?> 
 				<br><strong>Dirección: </strong> <?php echo $rw_empresa['sed_direcc'];?> 
-				<br><strong>Fecha: </strong><?php echo date("d/m/Y");?>
+				<br><strong>Fecha: </strong><?php echo $fecha;?>
 				<br><strong>Factura Nº: </strong> <?php echo 'GAV', ' - ',  $numero;?> 
 			</p>
 			<p>
@@ -76,28 +77,18 @@
 				<?php
 					$suma+=$total;
 					//Guardo los datos en la tabla detalle
-					$detalle=mysqli_query($conexion,"INSERT INTO `facturas` (`id_operador`, `id_acudiente`, `id_producto`, `fac_cantidad`, `fac_valor`,`fac_detalle`) VALUES ($idoperador, $cliente, '".$row['descripcion']."', '".$row['cantidad']."', '".$row['precio']."', '$numero');");
+					$detalle = mysqli_query($conexion,"INSERT INTO `facturas` (`id_operador`, `id_acudiente`, `id_producto`, `fac_cantidad`, `fac_valor`,`fac_detalle`,`fac_fecope`) VALUES ($idoperador, $cliente, '".$row['descripcion']."', '".$row['cantidad']."', '".$row['precio']."', '$numero', $fecha);");
 					}
 					$iva = $suma * (16 / 100);
-					$total_iva=number_format($iva,2,'.','');
-					$total=$suma + $total_iva;
+					$total_iva= number_format($iva,2,'.','');
+					$total= $suma + $total_iva;
 			
 				?>
-                
-                    <tr>
-                        <td class="quantity"></td>
-                        <td class="description"> NETO</td>
-                        <td class="price"> <?php echo number_format($suma,2);?></td>
-                    </tr>
 					
-					<tr>
-                        <td class="quantity"></td>
-                        <td class="price"> <?php echo number_format($total_iva,2);?></td>
-                    </tr>
 					
 					<tr>
                      
-                        <th class="price totales both_border" colspan=3> TOTAL IMPORTE  $ <?php echo number_format($total,2);?></th>
+                        <th class="price totales both_border" colspan=3> TOTAL IMPORTE  $ <?php echo number_format($suma,2);?></th>
                     </tr>
                 </tbody>
             </table>
@@ -111,8 +102,5 @@
 </html>
 <?php
 //Guardando los datos del ticket
-$fecha=date("Y-m-d H:i:s");
-$sql="INSERT INTO `facturas` (`id`, `fecha`, `id_cliente`, `monto`) VALUES (NULL, '$fecha', '$cliente', '$total');";
-$save = mysqli_query($conexion,$sql);
 $delete = mysqli_query($conexion,"delete from tmp");
 ?>
