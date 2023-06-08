@@ -2,7 +2,7 @@
 $action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
 if($action == 'ajax'){
 	/* Connect To Database*/
-	require_once ("../modelo/conexion.php");//Contiene funcion que conecta a la base de datos
+	require_once ("../../modelo/conexion.php");//Contiene funcion que conecta a la base de datos
     $con = new Conexion();
     $conexion = $con->conectar();
 	if (isset($_REQUEST['id'])){

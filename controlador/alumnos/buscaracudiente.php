@@ -12,7 +12,6 @@
         $data[] = array(
             'id' => $list['id_acudiente'],
             'text' => $list['acu_nombre'],
-            'nomacu' => $list['acu_nombre'],
             'nomalu' => $list['alu_nombre']
         );
     }

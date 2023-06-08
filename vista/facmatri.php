@@ -20,7 +20,7 @@
                 <div class="row pad-top font-big">
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <a href="https://obedalvarado.pw/" target="_blank"> 
-                            <img src="../public/images/logo.png" alt="Logo sistemas web"/>
+                            <img src="../public/images/logo.png" width="25%" height="25%" alt="Logo sistemas web"/>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
@@ -42,9 +42,8 @@
                             <select class="form-select input-sm" name="idpersona" id="idpersona" required>
                                 <option value="">Seleccionar Persona</option>
                             </select>
-                        <span id="direccion"></span>
-                        <h4><strong>E-mail: </strong><span id="nomalu"></span></h4>
-                        <h4><strong>Teléfono: </strong><span id="telefono"></span></h4>
+                            <input type="text" id="nomacu" name="nomacu" class="form-control input-sm">
+                            <input type="text" id="nomalu" name="nomalu" class="form-control input-sm">
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <h2>Detalles del ticket:</h2>

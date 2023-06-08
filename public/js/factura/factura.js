@@ -21,11 +21,11 @@ $(document).ready(function() {
         minimumInputLength: 2
     }).on('change', function (e){
         var id = $('#idpersona').select2('data')[0].id;
-        var nomacu = $('#idpersona').select2('data')[0].nomacu;
+        var nomacu = $('#idpersona').select2('data')[0].text;
 		var nomalu = $('#idpersona').select2('data')[0].nomalu;
         $('#id').html(id);
-        $('#nomacu').html(nomacu);
-		$('#nomalu').html(nomalu);
+        document.getElementById("nomacu").value=nomacu;
+        document.getElementById("nomalu").value=nomalu;
     })
 });
 
