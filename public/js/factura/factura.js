@@ -76,11 +76,9 @@ $(document).ready(function() {
 		
 	  event.preventDefault();
 	})
+
 	$("#datos_factura").submit(function(){
 		  var cliente = $("#idpersona").val();
-		  
-		 
-		  
 		  if (cliente>0)
 		 {
 			window.open('../facturas/ticket.php?cliente='+cliente);

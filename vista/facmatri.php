@@ -120,6 +120,7 @@
                                             <option value="<?php echo $producto['idproducto']?>"><?php echo $producto['producto'];?></option>
                                             <?php }?>
                                         </select>
+                                        <input type="hidden" class="form-control" id="action" name="action"  value="ajax">
                                     </div>
                                 </div>
                             </div>
