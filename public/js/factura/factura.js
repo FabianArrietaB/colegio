@@ -94,3 +94,43 @@ $(document).ready(function() {
 
 		mostrar_items();
 		
+
+//Llenar Campos Producto
+$('#guardar_item').change(function(){
+    //condicion para limpiar campos
+	
+    if($('#idproducto').val()==0){
+        $('#precio').val("");
+        return
+    }
+    $.ajax({
+        type:"POST",
+        data:"idproducto=" + $('#idproducto').val(),
+        url:"../controlador/productos/detalle.php",
+        success:function(respuesta){
+            respuesta=jQuery.parseJSON(respuesta);
+            $('#precio').val(respuesta['precio']);
+			$('#detalle').val(respuesta['nombre']);
+        }
+    });
+});
+
+//Llenar Campos Detalle
+$('#idtippagou').change(function(){
+    //condicion para limpiar campos
+    var valor = $(this).val();
+	switch (valor) {
+		case '1':
+			$("#detalle").val("ABONO MATRICULA");
+		break;
+		case '2':
+			$("#detalle").val("PAGO TOTAL MATRICULA");
+		break;
+		case '3':
+			$("#detalle").val("ABONO PENSION");
+		break;
+		case '3':
+			$("#detalle").val("PAGO TOTAL PENSION");
+		break;
+	}
+});

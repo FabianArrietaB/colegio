@@ -98,20 +98,29 @@
     </div>
 	<form class="form-horizontal" name="guardar_item" id="guardar_item">
         <div class="modal fade" id="producto" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
                         <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-				    <div class="modal-body">
+                    <div class="modal-body">
                         <fieldset class="group-border">
-                            
+                            <legend class="group-border"></legend>
                             <div class="row">
-                                <div class="col-md-12">
-                                    <label>Descripción del producto/servicio</label>
-                                    <textarea class="form-control" id="descripcion" name="descripcion"  required></textarea>
-                                    <input type="hidden" class="form-control" id="action" name="action"  value="ajax">
+                                <div class="col-12">
+                                    <div class="input-group mb-3">
+                                        <select name="idproducto" id="idproducto" class="form-control input-sm">
+                                            <option selected >Selecione Producto</option>
+                                            <?php
+                                            $sql="SELECT p.id_producto as idproducto, p.pro_nombre as producto FROM productos as p WHERE p.pro_estado = 1";
+                                            $respuesta = mysqli_query($conexion, $sql);
+                                            while($producto = mysqli_fetch_array($respuesta)) {
+                                                ?>
+                                            <option value="<?php echo $producto['idproducto']?>"><?php echo $producto['producto'];?></option>
+                                            <?php }?>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -120,8 +129,25 @@
                                     <input type="text" class="form-control" id="cantidad" name="cantidad" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>Precio unitario</label>
-                                    <input type="text" class="form-control" id="precio" name="precio" required>
+                                    <label>Precio</label>
+                                    <input type="text" id="precio" name="precio" class="form-control input-sm" readonly>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Tipo Pago</label>
+                                        <select id="idtippagou" name="idtippagou" class="form-control input-sm">
+                                            <option selected >TIPO PAGO</option>
+                                            <option value="0">VENTA</option>
+                                            <option value="1">ABONO MATRICULA</option>
+                                            <option value="2">PAGO TOTAL MATRICULA</option>
+                                            <option value="3">ABONO PENSION</option>
+                                            <option value="4">PAGO TOTAL PENSION</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Observacion</label>
+                                    <input type="text" id="detalle" name="detalle" class="form-control input-sm" readonly>
                                 </div>
                             </div>
                         </fieldset>
