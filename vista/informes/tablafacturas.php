@@ -17,7 +17,6 @@
         p.pro_nombre as producto,
         f.id_tippag as tippag,
         f.fac_valor as precio,
-        f.fac_detalle as detalle,
         f.fac_fecope as fecha
         FROM facturas AS f
         INNER JOIN alumnos as a ON a.id_alumno = f.id_alumno

@@ -78,7 +78,21 @@
 									?>
 									<tr>
 										<td class="quantity"><?php echo $rw_factura['fac_cantidad'];?></td>
-										<td class="description"><?php echo $rw_factura['fac_detalle'];?></td>
+										<td class="description">
+											<?php if ($rw_factura['id_producto'] <> 0) {
+												echo $rw_producto['pro_nombre'];
+											} else {
+												if ($rw_factura['id_tippag'] == 1) { ?>
+													<span>ABONO MATRICULA</span>
+												<?php } else if ($rw_factura['id_tippag'] == 2) { ?>
+													<span>PAGO TOTAL MATRICULA</span>
+												<?php } else if ($rw_factura['id_tippag'] == 3) { ?>
+													<span>ABONO PENSION</span>
+												<?php } else if ($rw_factura['id_tippag'] == 4) { ?>
+													<span>PAGO TOTAL PENSION</span>
+												<?php } ?>
+											<?php } ?>
+										</td>
 										<td class="price"> <?php echo number_format($total);?></td>
 									</tr>
 									<?php
