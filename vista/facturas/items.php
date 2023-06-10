@@ -14,10 +14,11 @@
 
 		if (isset($_POST['idproducto'])){
 			$idproducto = intval($_POST['idproducto']);
+			$idtippag = intval($_POST['idtippagou']);
 			$descripcion = mysqli_real_escape_string($conexion,$_POST['detalle']);
 			$cantidad = intval($_POST['cantidad']);
 			$precio = floatval($_POST['precio']);
-			$sql="INSERT INTO `tmp` (`id`, id_producto, `descripcion`, `cantidad`, `precio`) VALUES (NULL, '$idproducto', '$descripcion', '$cantidad', '$precio');";
+			$sql="INSERT INTO `tmp` (`id`, `id_producto`, `id_tippag`, `descripcion`, `cantidad`, `precio`) VALUES (NULL, '$idproducto', $idtippag, '$descripcion', '$cantidad', '$precio');";
 			$insert=mysqli_query($conexion,$sql);
 		}
 		$query_perfil=mysqli_query($conexion,"select * from sedes where id_sedes = 1");

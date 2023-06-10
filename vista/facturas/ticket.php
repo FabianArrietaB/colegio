@@ -7,13 +7,13 @@
     $conexion = $con->conectar();
 	$sql=mysqli_query($conexion, "select MAX(id_facturas) as last from facturas");
 	$rw=mysqli_fetch_array($sql);
-	$numero=$rw['last']+1;	
+	$numero=$rw['last']+1;
 	//Consulta Empresa
 	$sql_empresa = "select * from sedes where id_sedes = 1 limit 0,1";//Obtengo los datos del Empresa
 	$query2 = mysqli_query($conexion, $sql_empresa);
 	$rw_empresa = mysqli_fetch_array($query2);
 	//Variables por GET
-	$cliente=intval($_GET['idpersona']);
+	$cliente = ($_GET['idpersona']);
 	//Fin de variables por GET
 	$sql_cliente=mysqli_query($conexion,"select * from acudientes inner join alumnos on acudientes.id_alumno = alumnos.id_alumno where id_acudiente = '$cliente' limit 0,1");//Obtengo los datos del cliente
 	$rw_cliente=mysqli_fetch_array($sql_cliente);
@@ -50,7 +50,7 @@
 			<p>
 				<strong>Alumno :</strong> <?php echo $rw_cliente['alu_nombre'];?>
 				<br>
-				<strong>Cliente :</strong> <?php echo $rw_cliente['acu_nombre'];?> 
+				<strong>Cliente :</strong> <?php echo $rw_cliente['acu_nombre'];?>
 				<br>
 				<strong>Dirección: </strong> <?php echo $rw_cliente['acu_direcc'];?>
 			</p>
@@ -78,7 +78,7 @@
 				<?php
 					$suma+=$total;
 					//Guardo los datos en la tabla detalle
-					$detalle = mysqli_query($conexion,"INSERT INTO `facturas` (`id_operador`, `id_alumno`, `id_acudiente`, `id_producto`, `fac_cantidad`, `fac_valor`,`fac_detalle`,`fac_fecope`) VALUES ($idoperador, $cliente, $idalumno ,'".$row['id_producto']."', '".$row['descripcion']."', '".$row['cantidad']."', '".$row['precio']."', '$numero', $fecha);");
+					$detalle = mysqli_query($conexion,"INSERT INTO `facturas` (`id_operador`, `id_acudiente`, `id_alumno`, `id_producto`, `id_tippag`, `fac_detalle`, `fac_cantidad`, `fac_valor`, `fac_fecope`) VALUES ($idoperador, $cliente, $idalumno ,'".$row['id_producto']."', '".$row['descripcion']."', '".$row['cantidad']."', '".$row['precio']."', $fecha);");
 					}
 					$iva = $suma * (16 / 100);
 					$total_iva= number_format($iva,2,'.','');
