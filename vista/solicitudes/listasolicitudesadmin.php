@@ -74,7 +74,6 @@ $query = mysqli_query($conexion, $sql);
                 <td>
                     <?php if ($solicitudes['estado'] == 0 &&  $solicitudes['tiposolicitud'] == 2) { ?> <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#solucion" onclick="detallesolicitud('<?php echo $solicitudes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button><?php } ?>
                     <?php if ($solicitudes['estado'] == 0 && $solicitudes['tiposolicitud'] == 1) { ?> <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#venta" onclick="detalleventa('<?php echo $solicitudes['idsolicitud']?>')"><i class="fa-solid fa-check-to-slot fa-xl"></i></button><?php } ?>
-                    <?php if ($solicitudes['estado'] == 1 && $solicitudes['tiposolicitud'] == 1) { ?> <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#factura" onclick="detallefactura('<?php echo $solicitudes['idsolicitud']?>')"><i class="fa-solid fa-file-invoice-dollar fa-x1"></i></button><?php } ?>
                 </td>
             </tr>
         <?php } ?>

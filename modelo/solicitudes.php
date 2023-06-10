@@ -96,6 +96,13 @@
                 $query = $conexion->prepare($insertarauditoria);
                 $query->bind_param('iissi', $datos['idoperador'], $idventa, $datos['estado'], $datos['solucion'], $datos['idsolicitudu']);
                 $respuesta = $query->execute();
+                if ($respuesta > 0) {
+                    $fecha = date("Y-m-d");
+                    $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_producto, fac_valor, fac_fecope) VALUES (?, ?, ?, ?, ?)";
+                    $query = $conexion->prepare($crearfactura);
+                    $query->bind_param("iiiss", $datos['idoperador'], $datos['idalumno'], $datos['idproducto'], $datos['precio'], $fecha);
+                    $respuesta = $query->execute();
+                }
             }
             return $respuesta;
         }

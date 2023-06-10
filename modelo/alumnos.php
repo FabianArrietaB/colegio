@@ -67,10 +67,14 @@
                         $insertauditoria = "INSERT INTO auditorias(id_operador, id_alumno, id_grado, id_tipopago, aud_valor, aud_abono)
                                     VALUES(?, ?, ?, ?, ?, ?)";
                         $query = $conexion->prepare($insertauditoria);
-                        $query->bind_param("iiisss", $datos['idoperador'], $idalumno, $datos['idgrado'], $datos['tippag'], $datos['matric'], $datos['abono'],);
+                        $query->bind_param("iiisss", $datos['idoperador'], $idalumno, $datos['idgrado'], $datos['tippag'], $datos['matric'], $datos['abono']);
                         $respuesta = $query->execute();
                         if ($respuesta > 0) {
-                        $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, )"
+                        $fecha = date("Y-m-d");
+                        $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_fecope) VALUES (?, ?, ?, ?, ?)";
+                        $query = $conexion->prepare($crearfactura);
+                        $query->bind_param("iiiss", $datos['idoperador'], $idalumno, $datos['tippag'], $datos['abono'], $fecha);
+                        $respuesta = $query->execute();
                         }
                     }
                 return $respuesta;

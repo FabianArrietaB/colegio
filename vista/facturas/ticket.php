@@ -81,15 +81,11 @@
 					$detalle = mysqli_query($conexion,"INSERT INTO `facturas` (`id_operador`, `id_acudiente`, `id_alumno`, `id_producto`, `id_tippag`, `fac_detalle`, `fac_cantidad`, `fac_valor`, `fac_fecope`) VALUES ($idoperador, $cliente, $idalumno ,'".$row['id_producto']."', '".$row['descripcion']."', '".$row['cantidad']."', '".$row['precio']."', $fecha);");
 					}
 					$iva = $suma * (16 / 100);
-					$total_iva= number_format($iva,2,'.','');
+					$total_iva= number_format($iva);
 					$total= $suma + $total_iva;
-			
 				?>
-					
-					
 					<tr>
-                     
-                        <th class="price totales both_border" colspan=3> TOTAL IMPORTE  $ <?php echo number_format($suma,2);?></th>
+                        <th class="price totales both_border" colspan=3> TOTAL IMPORTE  $ <?php echo number_format($suma)?></th>
                     </tr>
                 </tbody>
             </table>

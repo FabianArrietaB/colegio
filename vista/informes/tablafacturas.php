@@ -19,10 +19,10 @@
         f.fac_valor as precio,
         f.fac_fecope as fecha
         FROM facturas AS f
-        INNER JOIN alumnos as a ON a.id_alumno = f.id_alumno
-        INNER JOIN acudientes as ac ON ac.id_acudiente = f.id_acudiente
+        LEFT JOIN alumnos as a ON a.id_alumno = f.id_alumno
+        LEFT JOIN acudientes as ac ON ac.id_acudiente = f.id_acudiente
         LEFT JOIN productos as p ON p.id_producto = f.id_producto
-        INNER JOIN usuarios as u ON u.id_usuario = f.id_operador
+        LEFT JOIN usuarios as u ON u.id_usuario = f.id_operador
         ORDER BY f.id_facturas ASC";
     $query = mysqli_query($conexion, $sql);
 ?>

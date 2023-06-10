@@ -11,11 +11,18 @@ $(document).ready(function(){
         $('#tablalistapension').load('pagos/listapension.php');
         $('#tablalistapension').show();
     });
+
+    $('#facturasbtn').click(function(){
+        ocultar();
+        $('#tablafacturas').load('informes/tablafacturas.php');
+        $('#tablafacturas').show();
+    });
 });
 
 function ocultarsecciondes(){
     $('#tablalistapagos').hide();
     $('#tablalistapension').hide();
+    $('#tablafacturas').hide();
     return false;
 }
 
