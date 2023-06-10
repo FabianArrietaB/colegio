@@ -1,13 +1,13 @@
 $(document).ready(function(){
 
     $('#pagosbtn').click(function(){
-        ocultarsecciondes();
+        ocultar();
         $('#tablalistapagos').load('pagos/listapagos.php');
         $('#tablalistapagos').show();
     });
 
     $('#pensionbt').click(function(){
-        ocultarsecciondes();
+        ocultar();
         $('#tablalistapension').load('pagos/listapension.php');
         $('#tablalistapension').show();
     });
@@ -19,7 +19,7 @@ $(document).ready(function(){
     });
 });
 
-function ocultarsecciondes(){
+function ocultar(){
     $('#tablalistapagos').hide();
     $('#tablalistapension').hide();
     $('#tablafacturas').hide();
@@ -124,4 +124,21 @@ function pagopension(){
         }
     });
     return false;
+}
+
+function detallefactura(idfacturas){
+    $('#conte-modal-factura').load('facturas/vistapreviafactura.php?idfacturas='+idfacturas, function(){
+        $('#viewfactura').modal("show");
+        $('.modal-backdrop').remove()
+    });
+}
+
+function imprimir(){
+    var viewfactura = window.open("", "viewfactura", "width=800, heigth=600");
+    factura.document.write("<html><head><title>Factura de Venta</title>");
+    factura.document.write("<style><link rel='stylesheet' href='../../../public/css/ticket.css'></style></head><body>");
+    factura.document.write($("#conte-modal-viewfactura").html());
+    factura.document.write("</body></html>");
+    factura.document.close();
+    factura.print();
 }
