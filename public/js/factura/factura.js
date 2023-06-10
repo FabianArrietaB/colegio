@@ -32,73 +32,69 @@ $(document).ready(function() {
     })
 });
 
-	function mostrar_items(){
-		var parametros={"action":"ajax"};
-		$.ajax({
-			url:'facturas/items.php',
-			data: parametros,
-			 beforeSend: function(objeto){
-			 $('.items').html('Cargando...');
-		  },
-			success:function(data){
-				$(".items").html(data).fadeIn('slow');
-		}
-		})
+function mostrar_items(){
+	var parametros={"action":"ajax"};
+	$.ajax({
+		url:'facturas/items.php',
+		data: parametros,
+			beforeSend: function(objeto){
+			$('.items').html('Cargando...');
+		},
+		success:function(data){
+			$(".items").html(data).fadeIn('slow');
 	}
-	function eliminar_item(id){
-		$.ajax({
-			type: "GET",
-			url: "facturas/items.php",
-			data: "action=ajax&id="+id,
-			 beforeSend: function(objeto){
-				 $('.items').html('Cargando...');
-			  },
-			success: function(data){
-				$(".items").html(data).fadeIn('slow');
-			}
-		});
-	}
-	
-	$( "#guardar_item" ).submit(function( event ) {
-		parametros = $(this).serialize();
-		$.ajax({
-			type: "POST",
-			url:'facturas/items.php',
-			data: parametros,
-			 beforeSend: function(objeto){
-				 $('.items').html('Cargando...');
-			  },
-			success:function(data){
-				$(".items").html(data).fadeIn('slow');
-				$("#producto").modal('hide');
-			}
-		})
-		
-	  event.preventDefault();
 	})
+}
 
-	$("#datos_factura").submit(function(){
-		  var cliente = $("#idpersona").val();
-		  if (cliente>0)
-		 {
-			window.open('../facturas/ticket.php?cliente='+cliente);
-		 } else {
-			 alert("Selecciona el cliente");
-			 return false;
-		 }
-		 
-	 });
-		
+function eliminar_item(id){
+	$.ajax({
+		type: "GET",
+		url: "facturas/items.php",
+		data: "action=ajax&id="+id,
+			beforeSend: function(objeto){
+				$('.items').html('Cargando...');
+			},
+		success: function(data){
+			$(".items").html(data).fadeIn('slow');
+		}
+	});
+}
 
-		mostrar_items();
-		
+$("#guardar_item").submit(function(event){
+parametros = $(this).serialize();
+	$.ajax({
+	type: "POST",
+	url:'facturas/items.php',
+	data: parametros,
+		beforeSend: function(objeto){
+			$('.items').html('Cargando...');
+		},
+		success:function(data){
+		$(".items").html(data).fadeIn('slow');
+		$("#producto").modal('hide');
+		}
+	})
+	event.preventDefault();
+})
+
+$("#datos_factura").submit(function(){
+var cliente = $("#idpersona").val();
+	if (cliente>0){
+	window.open('vista/facturas/ticket.php?cliente='+cliente);
+	} else {
+	alert("Selecciona el cliente");
+	return false;
+	}
+});
+
+mostrar_items();
 
 //Llenar Campos Producto
 $('#guardar_item').change(function(){
     //condicion para limpiar campos
 	
     if($('#idproducto').val()==0){
-        $('#precio').val("");
+        $('#precio').val("0");
         return
     }
     $.ajax({

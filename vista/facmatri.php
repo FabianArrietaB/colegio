@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Precio</label>
-                                    <input type="text" id="precio" name="precio" class="form-control input-sm" readonly>
+                                    <input type="text" id="precio" name="precio" class="form-control input-sm">
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-3">

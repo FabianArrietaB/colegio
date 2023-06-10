@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-06-2023 a las 19:24:45
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 10-06-2023 a las 04:12:11
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -243,7 +243,7 @@ CREATE TABLE `facturas` (
   `fac_cantidad` varchar(45) NOT NULL,
   `fac_valor` varchar(45) NOT NULL,
   `fac_detalle` varchar(45) NOT NULL,
-  `fac_fecope` date NOT NULL
+  `fac_fecope` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -251,11 +251,11 @@ CREATE TABLE `facturas` (
 --
 
 INSERT INTO `facturas` (`id_facturas`, `id_operador`, `id_alumno`, `id_acudiente`, `id_producto`, `id_tippag`, `fac_prefijo`, `fac_cantidad`, `fac_valor`, `fac_detalle`, `fac_fecope`) VALUES
-(1, 1, 1, 1, 1, 0, 'GAV', '1', '50000', 'CERTIFICADO ESTUDIANTIL', '2023-05-17'),
-(2, 2, 1, 1, 1, 0, 'GAV', '1', '50000', 'CERTIFICADO ESTUDIANTIL', '2023-05-17'),
-(3, 1, 1, 1, 0, 1, 'GAV', '1', '1000000', 'ABONO MATRICULA', '2023-05-31'),
-(4, 1, 2, 1, 0, 2, 'GAV', '1', '250000', 'PAGO TOTAL MATRICULA', '2023-05-31'),
-(19, 1, 0, 2, 0, 0, 'GAV', '1', '55000', '5', '2023-06-08');
+(1, 1, 1, 1, 1, 0, 'GAV', '1', '50000', 'CERTIFICADO ESTUDIANTIL', '2023-05-17 16:22:50'),
+(2, 2, 1, 1, 1, 0, 'GAV', '1', '50000', 'CERTIFICADO ESTUDIANTIL', '2023-05-17 16:22:50'),
+(3, 1, 1, 1, 0, 1, 'GAV', '1', '1000000', 'ABONO MATRICULA', '2023-05-31 00:00:00'),
+(4, 1, 2, 1, 0, 2, 'GAV', '1', '250000', 'PAGO TOTAL MATRICULA', '2023-05-31 00:00:00'),
+(5, 1, 1, 0, 1, 0, 'GAV', '1', '50000.00', 'CERTIFICADO ESTUDIANTIL', '0.000823858955017301');
 
 -- --------------------------------------------------------
 
@@ -506,18 +506,20 @@ INSERT INTO `solicitudes` (`id_solicitud`, `id_usuario`, `id_grado`, `id_operado
 
 CREATE TABLE `tmp` (
   `id` int(11) NOT NULL,
-  `id_producto` int(11) DEFAULT NULL,
-  `descripcion` varchar(45) DEFAULT NULL,
-  `cantidad` int(11) DEFAULT NULL,
-  `precio` varchar(45) DEFAULT NULL
+  `id_producto` int(11) NOT NULL,
+  `id_tippag` int(11) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `precio` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `tmp`
 --
 
-INSERT INTO `tmp` (`id`, `id_producto`, `descripcion`, `cantidad`, `precio`) VALUES
-(4, 1, 'CERTIFICADO ESTUDIANTIL', 1, '50000');
+INSERT INTO `tmp` (`id`, `id_producto`, `id_tippag`, `descripcion`, `cantidad`, `precio`) VALUES
+(5, 1, 0, 'CERTIFICADO ESTUDIANTIL', 1, 50000.00),
+(6, 0, 1, 'ABONO MATRICULA', 1, 1000000.00);
 
 -- --------------------------------------------------------
 
@@ -728,7 +730,7 @@ ALTER TABLE `empleados`
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
-  MODIFY `id_facturas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_facturas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `grados`
@@ -776,7 +778,7 @@ ALTER TABLE `solicitudes`
 -- AUTO_INCREMENT de la tabla `tmp`
 --
 ALTER TABLE `tmp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
