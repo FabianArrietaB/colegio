@@ -139,6 +139,8 @@ function editarempresa(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
+                console.log(respuesta)
+                $('#frmempresa');
                 $('#empresa').load('config/empresa.php');
                 Swal.fire({
                     icon: 'success',
