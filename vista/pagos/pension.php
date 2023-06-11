@@ -91,11 +91,20 @@
 <!-- Fin Formulario (Agregar, Modificar) -->
 <!-- Calcular Valor Balance -->
 <script>
+    let pension = document.getElementById("pensionu")
     let resta = document.getElementById("salpenu")
     let diferencia = document.getElementById("diferenciau")
     let avance = document.getElementById("avanceu")
-    avance.addEventListener("change", () => {
-        diferencia.value = parseFloat(resta.value) - parseFloat(avance.value)
-    })
+
+    if (resta == 0) {
+        avance.addEventListener("change", () => {
+            diferencia.value = parseFloat(resta.value) - parseFloat(avance.value)
+        })
+      
+    } else {
+        avance.addEventListener("change", () => {
+            diferencia.value = parseFloat(pension.value) - parseFloat(avance.value)
+        })
+    }
 </script>
 

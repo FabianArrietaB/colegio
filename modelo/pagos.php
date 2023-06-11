@@ -80,6 +80,8 @@
             return $respuesta;
         }
 
+        
+
         public function pagopension($datos){
             $conexion = Conexion::conectar();
             $sql = "UPDATE matriculas SET mat_salpen = ?, mat_fecpen = ?, mat_fecpropag = ?, id_tippagpen = ? WHERE id_matricula = ?";

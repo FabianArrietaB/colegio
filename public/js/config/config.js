@@ -140,6 +140,7 @@ function editarempresa(){
             respuesta = respuesta.trim();
             if(respuesta == 1){
                 //console.log(respuesta)
+                detalleempresa();
                 $('#empresa').load('config/empresa.php');
                 Swal.fire({
                     icon: 'success',

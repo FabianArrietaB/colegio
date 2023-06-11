@@ -196,6 +196,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-body">
+                    <div id="tablaestadistica"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -206,7 +209,7 @@
 require('footer.php'); 
 ?>
 <!-- carga ficheros javascript -->
-<script src="../public/js/alumnos/alumnos.js"></script>
+<script src="../public/js/estadisticas/estadisticas.js"></script>
 
 <?php
     }else{
