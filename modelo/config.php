@@ -43,9 +43,9 @@
 
         public function editarparafiscal($datos){
             $conexion = Conexion::conectar();
-            $sql = "UPDATE parafiscales SET id_tipo = ?, par_nit = ?, par_nombre = ? WHERE id_parafiscal = ?";
+            $sql = "UPDATE parafiscales SET id_tipo = ?, par_nombre = ?, par_nit = ? WHERE id_parafiscal = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('issi', $datos['idtip'], $datos['nombreu'], $datos['nitu'], $datos['idparafiscal']);
+            $query->bind_param('issi', $datos['idtip'], $datos['nombre'], $datos['nit'], $datos['idparafiscal']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;
