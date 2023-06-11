@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2023 a las 01:05:08
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Tiempo de generación: 11-06-2023 a las 05:45:55
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `gimamecol`
+-- Base de datos: `colgimame`
 --
 
 -- --------------------------------------------------------
@@ -144,6 +144,26 @@ CREATE TABLE `empleados` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `facturas`
+--
+
+CREATE TABLE `facturas` (
+  `id_facturas` int(11) NOT NULL,
+  `id_operador` int(11) DEFAULT NULL,
+  `id_alumno` int(11) NOT NULL,
+  `id_acudiente` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `id_tippag` int(11) NOT NULL,
+  `fac_prefijo` varchar(45) NOT NULL DEFAULT 'GAV',
+  `fac_cantidad` varchar(45) NOT NULL,
+  `fac_valor` varchar(45) NOT NULL,
+  `fac_detalle` varchar(45) NOT NULL,
+  `fac_fecope` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `grados`
 --
 
@@ -180,7 +200,8 @@ CREATE TABLE `matriculas` (
   `mat_salpen` varchar(45) NOT NULL,
   `mat_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
   `mat_fecmat` timestamp NOT NULL DEFAULT current_timestamp(),
-  `mat_fecpen` timestamp NOT NULL DEFAULT current_timestamp()
+  `mat_fecpen` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `mat_fecpropag` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -195,15 +216,6 @@ CREATE TABLE `pais` (
   `pais_fecope` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `pais`
---
-
-INSERT INTO `pais` (`id_pais`, `pais_nombre`, `pais_fecope`) VALUES
-(1, 'ALEMANIA', '2023-02-01 05:00:00'),
-(2, 'BRASIL', '2023-02-01 05:00:00'),
-(3, 'COLOMBIA', '2023-02-01 05:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -211,31 +223,12 @@ INSERT INTO `pais` (`id_pais`, `pais_nombre`, `pais_fecope`) VALUES
 --
 
 CREATE TABLE `parafiscales` (
-  `id_parafiscales` int(11) NOT NULL,
+  `id_parafiscal` int(11) NOT NULL,
+  `id_tipo` int(11) DEFAULT NULL,
   `par_nombre` varchar(45) NOT NULL,
-  `par_fecope` timestamp NULL DEFAULT current_timestamp()
+  `par_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
+  `par_nit` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `parafiscales`
---
-
-INSERT INTO `parafiscales` (`id_parafiscales`, `par_nombre`, `par_fecope`) VALUES
-(1, 'ALIANSALUD ENTIDAD PROMOTORA DE SALUD S.A.', '2023-05-13 01:27:08'),
-(2, 'CAPITAL SALUD', '2023-05-13 01:27:08'),
-(3, 'COMPENSAR   E.P.S.', '2023-05-13 01:27:08'),
-(4, 'FAMISANAR LTDA. ', '2023-05-13 01:27:08'),
-(5, 'NUEVA EPS S.A.', '2023-05-13 01:27:08'),
-(6, 'SANITAS S.A.', '2023-05-13 01:27:08'),
-(7, 'SALUD TOTAL S.A.  E.P.S.', '2023-05-13 01:27:08'),
-(8, 'SALUDVIDA S.A. E.P.S', '2023-05-13 01:27:08'),
-(9, 'SAVIA SALUD EPS', '2023-05-13 01:27:08'),
-(10, 'PROTECCION', '2023-05-13 01:27:08'),
-(11, 'PORVENIR', '2023-05-13 01:27:08'),
-(12, 'COLFONDOS', '2023-05-13 01:27:08'),
-(13, 'OLD MUTUAL', '2023-05-13 01:27:08'),
-(14, 'COLPENSIONES', '2023-05-13 01:27:08'),
-(15, '', '2023-05-13 02:34:28');
 
 -- --------------------------------------------------------
 
@@ -289,6 +282,7 @@ CREATE TABLE `sedes` (
   `sed_razsoc` varchar(45) NOT NULL,
   `sed_nombre` varchar(45) NOT NULL,
   `sed_nit` varchar(45) NOT NULL,
+  `sed_pagina` varchar(255) NOT NULL,
   `sed_correo` varchar(45) NOT NULL,
   `sed_telcel` varchar(45) NOT NULL,
   `sed_direcc` varchar(45) NOT NULL,
@@ -301,6 +295,13 @@ CREATE TABLE `sedes` (
   `sed_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
   `sed_fecupd` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `sedes`
+--
+
+INSERT INTO `sedes` (`id_sedes`, `id_tipo`, `id_operador`, `sed_razsoc`, `sed_nombre`, `sed_nit`, `sed_pagina`, `sed_correo`, `sed_telcel`, `sed_direcc`, `sed_tipper`, `sed_regime`, `sed_pais`, `sed_depart`, `sed_muni`, `sed_estado`, `sed_fecope`, `sed_fecupd`) VALUES
+(1, 1, 1, 'COLEGIO GIMNASIO LAS AMERICAS', 'COLEGIO GIMNASIO LAS AMERICAS', '347001005243', 'colegiogimnasiolasamericas.edu.co', 'secretariageneral@colegiogimnasiolasamericas.', '3245833253', 'Cra. 33b #9f-27 a 9f-1', '1', '1', 'COLOMBIA', 'MAGDALENA', 'SANTA MARTA', '1', '0000-00-00 00:00:00', '2023-06-11 01:39:24');
 
 -- --------------------------------------------------------
 
@@ -325,6 +326,29 @@ CREATE TABLE `solicitudes` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tmp`
+--
+
+CREATE TABLE `tmp` (
+  `id` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `id_tippag` int(11) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `precio` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tmp`
+--
+
+INSERT INTO `tmp` (`id`, `id_producto`, `id_tippag`, `descripcion`, `cantidad`, `precio`) VALUES
+(5, 1, 0, 'CERTIFICADO ESTUDIANTIL', 1, 50000.00),
+(6, 0, 1, 'ABONO MATRICULA', 1, 1000000.00);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -332,6 +356,7 @@ CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
   `id_rol` int(11) NOT NULL DEFAULT 1,
   `id_operador` int(11) NOT NULL,
+  `id_sede` int(11) NOT NULL DEFAULT 1,
   `user_usuario` varchar(45) NOT NULL,
   `user_nombre` varchar(100) NOT NULL,
   `user_contra` varchar(255) NOT NULL,
@@ -345,8 +370,17 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_operador`, `user_usuario`, `user_nombre`, `user_contra`, `user_correo`, `user_estado`, `user_fecope`, `user_fecupd`) VALUES
-(1, 4, 1, 'Admin', 'Administrador', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', 1, '2023-01-01 05:00:00', '2023-01-01 05:00:00');
+INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_operador`, `id_sede`, `user_usuario`, `user_nombre`, `user_contra`, `user_correo`, `user_estado`, `user_fecope`, `user_fecupd`) VALUES
+(1, 4, 1, 1, 'Admin', 'Administrador', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(10, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -399,6 +433,12 @@ ALTER TABLE `empleados`
   ADD PRIMARY KEY (`id_empleado`);
 
 --
+-- Indices de la tabla `facturas`
+--
+ALTER TABLE `facturas`
+  ADD PRIMARY KEY (`id_facturas`);
+
+--
 -- Indices de la tabla `grados`
 --
 ALTER TABLE `grados`
@@ -420,7 +460,7 @@ ALTER TABLE `pais`
 -- Indices de la tabla `parafiscales`
 --
 ALTER TABLE `parafiscales`
-  ADD PRIMARY KEY (`id_parafiscales`);
+  ADD PRIMARY KEY (`id_parafiscal`);
 
 --
 -- Indices de la tabla `productos`
@@ -445,6 +485,12 @@ ALTER TABLE `sedes`
 --
 ALTER TABLE `solicitudes`
   ADD PRIMARY KEY (`id_solicitud`);
+
+--
+-- Indices de la tabla `tmp`
+--
+ALTER TABLE `tmp`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -493,6 +539,12 @@ ALTER TABLE `empleados`
   MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `facturas`
+--
+ALTER TABLE `facturas`
+  MODIFY `id_facturas` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `grados`
 --
 ALTER TABLE `grados`
@@ -508,13 +560,7 @@ ALTER TABLE `matriculas`
 -- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
-  MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `parafiscales`
---
-ALTER TABLE `parafiscales`
-  MODIFY `id_parafiscales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -532,7 +578,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `sedes`
 --
 ALTER TABLE `sedes`
-  MODIFY `id_sedes` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sedes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitudes`
@@ -541,10 +587,16 @@ ALTER TABLE `solicitudes`
   MODIFY `id_solicitud` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `tmp`
+--
+ALTER TABLE `tmp`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

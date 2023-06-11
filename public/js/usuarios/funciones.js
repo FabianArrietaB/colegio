@@ -2,6 +2,16 @@ $(document).ready(function(){
     $('#tablalistausuarios').load('usuarios/listausuarios.php');
 });
 
+//FILTRAR
+$(document).ready(function(){
+    setInterval(
+        function(){
+            const filtro = $('#filtro').val()
+            $('#Recargar').load('usuarios/listausuarios.php?filtro='+filtro);
+        },1000
+    );
+});
+
 function activarusuario(idusuario, estado){
     $.ajax({
         type:"POST",

@@ -1,6 +1,10 @@
 <?php
     session_start();
     if ($_SESSION['usuario']['rol'] == 4) {
+        $filtro = '';
+        if(isset($_GET['filtro'])){
+            $filtro = $_GET['filtro'];
+        }
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
@@ -21,9 +25,15 @@
             FROM acudientes as ac
             LEFT JOIN alumnos as a ON ac.id_alumno = a.id_alumno
             LEFT JOIN grados as g ON a.id_grado = g.id_grado
+            WHERE a.alu_nombre
+            LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' ||  a.alu_docume LIKE '%$filtro%' || ac.acu_nombre LIKE '%$filtro%' || ac.acu_docume
             ORDER BY ac.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     } else {
+        $filtro = '';
+        if(isset($_GET['filtro'])){
+            $filtro = $_GET['filtro'];
+        }
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
@@ -45,13 +55,14 @@
         INNER JOIN alumnos as a ON ac.id_alumno = a.id_alumno
         INNER JOIN grados as g ON a.id_grado = g.id_grado
         WHERE ac.acu_estado = 1
+        AND a.alu_nombre LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' ||  a.alu_docume LIKE '%$filtro%' || ac.acu_nombre LIKE '%$filtro%' || ac.acu_docume
         ORDER BY ac.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     }
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive justify-content-center">
-    <table class="table table-light text-center">
+    <table class="table table-light text-center" id="Recargar">
         <thead>
             <tr>
                 <th scope="col" >Alumno</th>

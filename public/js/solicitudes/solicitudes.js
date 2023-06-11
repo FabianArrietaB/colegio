@@ -6,6 +6,16 @@ $(document).ready(function(){
     $('#tablalistasolicitudesadmin').load('solicitudes/listasolicitudesadmin.php');
 });
 
+//FILTRAR
+$(document).ready(function(){
+    setInterval(
+        function(){
+            const filtro = $('#filtro').val()
+            $('#Recargar').load('solicitudes/listasolicitudesadmin.php?filtro='+filtro);
+        },1000
+    );
+});
+
 //Llenar Campos Producto
 $('#frmventa').change(function(){
     //condicion para limpiar campos

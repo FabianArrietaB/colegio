@@ -1,5 +1,9 @@
 <?php
 session_start();
+$filtro = '';
+if(isset($_GET['filtro'])){
+    $filtro = $_GET['filtro'];
+}
 include "../../modelo/conexion.php";
 $con = new Conexion();
 $conexion = $con->conectar();
@@ -21,12 +25,14 @@ $sql = "SELECT
 FROM solicitudes AS s
 INNER JOIN usuarios AS u ON s.id_usuario = u.id_usuario
 INNER JOIN grados as g ON s.id_grado = g.id_grado
+WHERE u.user_nombre
+LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%'
 ORDER BY s.id_solicitud ASC";
 $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio del contenido principal -->
 <div class="table-responsive justify-content-center">
-    <table class="table table-light text-center"">
+    <table class="table table-light text-center" id="Recargar">
         <thead class="thead-light">
             <tr>
                 <th>Alumno</th>

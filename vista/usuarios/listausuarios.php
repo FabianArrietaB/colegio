@@ -1,26 +1,31 @@
 <?php
     session_start();
+    $filtro = '';
+    if(isset($_GET['filtro'])){
+        $filtro = $_GET['filtro'];
+    }
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
     $idusuario = $_SESSION['usuario']['id'];
     $sql = "SELECT
-        usuarios.id_usuario     AS idusuario,
-        usuarios.user_usuario   AS usuario,
-        usuarios.user_nombre    AS nombre,
-        usuarios.user_correo    AS correo,
-        usuarios.id_rol         AS idrol,
-        roles.rol_nombre        AS rol,
-        usuarios.user_estado    AS estado,
-        usuarios.user_fecope    AS fecha
-        FROM usuarios AS usuarios
-        INNER JOIN roles AS roles ON usuarios.id_rol = roles.id_rol
-        ORDER BY usuarios.id_usuario ASC";
+        u.id_usuario     AS idusuario,
+        u.user_usuario   AS usuario,
+        u.user_nombre    AS nombre,
+        u.user_correo    AS correo,
+        u.id_rol         AS idrol,
+        r.rol_nombre     AS rol,
+        u.user_estado    AS estado,
+        u.user_fecope    AS fecha
+        FROM usuarios AS u
+        INNER JOIN roles AS r ON u.id_rol = r.id_rol
+        WHERE u.user_nombre LIKE '%$filtro%'|| r.rol_nombre  LIKE '%$filtro%'
+        ORDER BY u.id_usuario ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio Tabla -->
 <div class="table-responsive">
-    <table class="table table-light text-center">
+    <table class="table table-light text-center" id="Recargar">
         <thead>
             <tr>
                 <th scope="col" >Usuario</th>

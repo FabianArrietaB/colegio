@@ -24,7 +24,7 @@ if (!empty($_SESSION["user_estado"])) {
     <link rel="stylesheet" href="../public/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../public/fontawesome/css/fontawesome.min.css">
     <!-- Boxicons CDN Link -->
-    <link href="../public/images/icon.png" rel="shortcut icon">
+    <link href="../public/images/icono.png" rel="shortcut icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 <body>

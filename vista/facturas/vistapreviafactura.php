@@ -35,7 +35,7 @@
 	$rw_producto = mysqli_fetch_array($query4);
 
 ?>
-<div class="modal fade" id="viewfactura" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+<div class="modal fade" id="factura" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-body">
@@ -50,10 +50,11 @@
 					</head>
 					<body>
 						<div class="ticket">
-							<img href="./../public/images/logo.jpg"/>
-							<p class="centered"><?php echo $rw_empresa['sed_razsoc'];?>
-								<br><strong>Teléfono :</strong> <?php echo $rw_empresa['sed_telcel'];?> 
-								<br><strong>Dirección: </strong> <?php echo $rw_empresa['sed_direcc'];?> 
+							<p class="centered">
+								<?php echo $rw_empresa['sed_razsoc'];?>
+								<?php echo $rw_empresa['sed_pagina'];?>
+								<br><strong>Teléfono :</strong> <?php echo $rw_empresa['sed_telcel'];?>
+								<br><strong>Dirección: </strong> <?php echo $rw_empresa['sed_direcc'];?>
 								<br><strong>Fecha: </strong><?php echo $rw_factura['fac_fecope'];?>
 								<br><strong>Factura Nº: </strong> <?php echo $rw_factura['fac_prefijo'], ' - ', $rw_factura['id_facturas'];?> 
 							</p>

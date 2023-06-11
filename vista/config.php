@@ -5,6 +5,7 @@
     include "../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
+    $idusuario = $_SESSION['usuario']['id'];
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
@@ -21,7 +22,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6 text-center"">
-                            <a class="acard" type="button" id="empresabtn">
+                            <a class="acard" type="button" id="empresabtn" onclick="detalleempresa('<?php echo $_SESSION['usuario']['id']?>')">
                                 <div class="card border-danger text-white bg-primary mb-3">
                                     <div class="card-header">
                                         <div class="row">

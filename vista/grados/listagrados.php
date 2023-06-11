@@ -26,6 +26,10 @@
         ORDER BY g.id_grado ASC";
     $query = mysqli_query($conexion, $sql);
 } else {
+    $filtro = '';
+    if(isset($_GET['filtro'])){
+        $filtro = $_GET['filtro'];
+    }
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
@@ -42,6 +46,7 @@
         FROM grados AS g
         LEFT JOIN empleados AS e ON g.id_empleado = e.id_empleado
         WHERE grados.gra_estado = 1
+        AND g.gra_nombre LIKE '%$filtro%'
         ORDER BY grados.id_grado ASC";
     $query = mysqli_query($conexion, $sql);
     }

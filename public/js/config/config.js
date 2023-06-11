@@ -105,3 +105,57 @@ function editarparafiscal(){
     });
     return false;
 }
+
+function detalleempresa(idusuario){
+    $.ajax({
+        type: "POST",
+        data: "idusuario=" + idusuario,
+        url: "../controlador/config/detallesede.php",
+        success: function(respuesta){
+            respuesta = jQuery.parseJSON(respuesta);
+            $('#idsede').val(respuesta['idsede']);
+            $('#idtipu').val(respuesta['idtip']);
+            $('#razsocu').val(respuesta['razsoc']);
+            $('#nombreu').val(respuesta['nombre']);
+            $('#nitu').val(respuesta['nit']);
+            $('#correou').val(respuesta['correo']);
+            $('#paginau').val(respuesta['pagina']);
+            $('#telcelu').val(respuesta['telcel']);
+            $('#direccu').val(respuesta['direcc']);
+            $('#tipperu').val(respuesta['tipper']);
+            $('#regimeu').val(respuesta['regime']);
+            $('#paisu').val(respuesta['pais']);
+            $('#departu').val(respuesta['depart']);
+            $('#muniu').val(respuesta['muni']);
+        }
+    });
+}
+
+function editarempresa(){
+    $.ajax({
+        type: "POST",
+        data: $('#frmempresa').serialize(),
+        url: "../controlador/config/editarempresa.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                $('#empresa').load('config/empresa.php');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Actualizado Exitosamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error al Editar!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+    });
+    return false;
+}

@@ -50,13 +50,13 @@ th.price {
 }
 
 .centered {
-    text-align: center;
-    align-content: center;
+    text-align: center !important;
+    align-content: center !important;
 }
 
 .ticket {
-    width: 80mm;
-    max-width: 80mm;
+    width: 70mm;
+    max-width: 70mm;
 }
 
 td.totales {

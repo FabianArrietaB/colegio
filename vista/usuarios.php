@@ -17,9 +17,9 @@
                         <div class="col-9">
                             <h4>Lista Usuarios</h4>
                         </div>
-                        <div class="col-3 border-primary">
-                            <input class="form-control me-xl-2" type="search" placeholder="Search">
-                        </div>
+                        <form action="" method="GET">
+                                <input class="form-control me-xl-2" type="search" placeholder="Buscar" name="filtro" id="filtro">
+                        </form>
                     </div>
                 </div>
                 <div class="card-body">

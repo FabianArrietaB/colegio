@@ -2,6 +2,16 @@ $(document).ready(function(){
     $('#tablalistaproductos').load('productos/listaproductos.php');
 });
 
+//FILTRAR
+$(document).ready(function(){
+    setInterval(
+        function(){
+            const filtro = $('#filtro').val()
+            $('#Recargar').load('productos/listaproductos.php?filtro='+filtro);
+        },1000
+    );
+});
+
 function activarproducto(idproducto, estado){
     $.ajax({
         type:"POST",

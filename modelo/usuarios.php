@@ -13,6 +13,7 @@
                     $_SESSION['usuario']['nombre'] = $datosUsuario['user_nombre'];
                     $_SESSION['usuario']['id'] = $datosUsuario['id_usuario'];
                     $_SESSION['usuario']['rol'] = $datosUsuario['id_rol'];
+                    $_SESSION['usuario']['sede'] = $datosUsuario['id_sede'];
                     return 1;
                 }else{
                     return 0;

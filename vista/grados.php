@@ -19,8 +19,8 @@
                             <h4>Lista Grados</h4>
                         </div>
                         <div class="col-3 border-primary">
-                            <form action="" method="POST">
-                                <input class="form-control me-xl-2" type="search" placeholder="Search" name="filtro" id="filtro">
+                        <form action="" method="GET">
+                                <input class="form-control me-xl-2" type="search" placeholder="Buscar" name="filtro" id="filtro">
                             </form>
                         </div>
                     </div>

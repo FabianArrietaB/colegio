@@ -2,6 +2,16 @@ $(document).ready(function(){
     $('#tablalistaacudientes').load('alumnos/listaacudientes.php');
 });
 
+//FILTRAR
+$(document).ready(function(){
+    setInterval(
+        function(){
+            const filtro = $('#filtro').val()
+            $('#Recargar').load('alumnos/listaacudientes.php?filtro='+filtro);
+        },1000
+    );
+});
+
 function detalleacudiente(idacudiente){
     $.ajax({
         type: "POST",

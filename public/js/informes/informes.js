@@ -63,10 +63,10 @@ function detallefactura(idfacturas){
 
 function imprimir(){
     var viewfactura = window.open("", "viewfactura", "width=800, heigth=600");
-    factura.document.write("<html><head><title>Factura de Venta</title>");
-    factura.document.write("<style><link rel='stylesheet' href='../../../public/css/ticket.css'></style></head><body>");
-    factura.document.write($("#conte-modal-viewfactura").html());
-    factura.document.write("</body></html>");
-    factura.document.close();
-    factura.print();
+    viewfactura.document.write("<html><head><title>Factura de Venta</title>");
+    viewfactura.document.write("<style><link rel='stylesheet' href='../../../public/css/ticket.css'></style></head><body>");
+    viewfactura.document.write($("#conte-modal-viewfactura").html());
+    viewfactura.document.write("</body></html>");
+    viewfactura.document.close();
+    viewfactura.print();
 }

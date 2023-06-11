@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="row text-center">
+                    <div class="row text-center mb-2">
                         <div class="col-3">
                             <a name="" id="ventasbtn" class="btn btn-primary" href="#" role="button">VENTAS</a>
                         </div>

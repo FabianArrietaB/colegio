@@ -1,5 +1,9 @@
 <?php
     session_start();
+    $filtro = '';
+    if(isset($_GET['filtro'])){
+        $filtro = $_GET['filtro'];
+    }
     include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
@@ -23,7 +27,8 @@
         LEFT JOIN acudientes as ac ON ac.id_acudiente = f.id_acudiente
         LEFT JOIN productos as p ON p.id_producto = f.id_producto
         LEFT JOIN usuarios as u ON u.id_usuario = f.id_operador
-        ORDER BY f.id_facturas ASC";
+        WHERE a.alu_nombre LIKE '%$filtro%'|| a.alu_docume LIKE '%$filtro%'
+        ORDER BY f.id_facturas DESC";
     $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio Tabla -->
@@ -75,7 +80,7 @@
                 </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody >
         <?php
             while ($facturas = mysqli_fetch_array($query)){
         ?>
