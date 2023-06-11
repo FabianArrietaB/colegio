@@ -5,6 +5,7 @@ $conexion = $con->conectar();
 $sql = "SELECT
             p.id_parafiscal AS idparafiscal,
             p.par_nit AS nit,
+            p.id_tipo AS idtip,
             p.par_nombre AS nombre
         FROM parafiscales AS p";
 $query=mysqli_query($conexion,$sql);
@@ -17,7 +18,6 @@ $query=mysqli_query($conexion,$sql);
                 <th scope="col" >Nit</th>
                 <th scope="col" >Nombre</th>
                 <th>
-
                 </th>
             </tr>
         </thead>
