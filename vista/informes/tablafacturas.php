@@ -15,8 +15,6 @@
         CONCAT(f.fac_prefijo, ' ' ,f.id_facturas) as factura,
         f.id_alumno   as idalumno,
         a.alu_nombre as alumno,
-        f.id_acudiente as idacudiente,
-        ac.acu_nombre as acudiente,
         f.id_producto  as idproducto,
         p.pro_nombre as producto,
         f.id_tippag as tippag,
@@ -24,7 +22,6 @@
         f.fac_fecope as fecha
         FROM facturas AS f
         LEFT JOIN alumnos as a ON a.id_alumno = f.id_alumno
-        LEFT JOIN acudientes as ac ON ac.id_acudiente = f.id_acudiente
         LEFT JOIN productos as p ON p.id_producto = f.id_producto
         LEFT JOIN usuarios as u ON u.id_usuario = f.id_operador
         WHERE a.alu_nombre LIKE '%$filtro%'|| a.alu_docume LIKE '%$filtro%'

@@ -64,8 +64,13 @@
                     $saldo = $datos['matric']-$datos['abono'];
                     $query->bind_param("iiissssss", $idalumno, $datos['idgrado'], $datos['idoperador'], $datos['tippag'], $datos['matric'], $datos['pensio'], $datos['pensio'], $saldo, $datos['fecpro'],);
                     $respuesta = $query->execute();
-                    $idfactura = self::crearfactura($datos);
-                    if ($idfactura > 0) {
+                    if ($respuesta > 0) {
+                        $fecha = date("Y-m-d");
+                        $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_fecope) VALUES (?, ?, ?, ?, ?)";
+                        $query = $conexion->prepare($crearfactura);
+                        $query->bind_param("iiiss", $datos['idoperador'], $idalumno, $datos['tippag'], $datos['abono'], $fecha);
+                        $respuesta = $query->execute();
+                        $idfactura = $conexion->insert_id;
                         $insertauditoria = "INSERT INTO auditorias (id_operador, id_alumno, id_grado, id_tipopago, aud_numdoc, aud_valor, aud_abono)
                                         VALUES(?, ?, ?, ?, ?, ?, ?)";
                         $query = $conexion->prepare($insertauditoria);
@@ -77,19 +82,6 @@
             }else {
                 return 0;
             }
-        }
-
-        public function crearfactura($datos){
-            $conexion = Conexion::conectar();
-            $idalumno = "SELECT MAX(id_alumno) from alumnos";
-            $fecha = date("Y-m-d");
-            $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_fecope) VALUES (?, ?, ?, ?, ?)";
-            $query = $conexion->prepare($crearfactura);
-            $query->bind_param("iiiss", $datos['idoperador'], $idalumno, $datos['tippag'], $datos['abono'], $fecha);
-            $respuesta = $query->execute();
-            $idfactura = mysqli_insert_id($conexion);
-            $query->close();
-            return $idfactura;
         }
 
         public function agregarusuario($datos){

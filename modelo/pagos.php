@@ -83,8 +83,13 @@
             $conexion = Conexion::conectar();
             $sql = "UPDATE matriculas SET mat_salpen = ?, mat_fecpen = ?, mat_fecpropag = ?, id_tippagpen = ? WHERE id_matricula = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('sssii', $datos['diferencia'], $datos['fecpen'], $datos['fecpro'], $datos['idtippagou'], $datos['idmatriculau']);
-            $respuesta = $query->execute();
+            if ($datos ['diferencia'] > 0) {
+                $query->bind_param('sssii', $datos['diferencia'], $datos['fecpen'], $datos['fecpro'], $datos['idtippagou'], $datos['idmatriculau']);
+                $respuesta = $query->execute();
+            } else if ($datos ['diferencia'] <= 0) {
+                $query->bind_param('sssii', $datos['pension'], $datos['fecpen'], $datos['fecpro'], $datos['idtippagou'], $datos['idmatriculau']);
+                $respuesta = $query->execute();
+            }
             if ($respuesta > 0) {
                 $fecha = date("Y-m-d");
                 $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_fecope) VALUES (?, ?, ?, ?, ?)";

@@ -96,15 +96,9 @@
     let diferencia = document.getElementById("diferenciau")
     let avance = document.getElementById("avanceu")
 
-    if (resta == 0) {
-        avance.addEventListener("change", () => {
+    avance.addEventListener("change", () => {
             diferencia.value = parseFloat(resta.value) - parseFloat(avance.value)
         })
-      
-    } else {
-        avance.addEventListener("change", () => {
-            diferencia.value = parseFloat(pension.value) - parseFloat(avance.value)
-        })
-    }
+
 </script>
 

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-06-2023 a las 03:50:03
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 12-06-2023 a las 16:13:30
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -247,6 +247,33 @@ CREATE TABLE `parafiscales` (
   `par_nit` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `parafiscales`
+--
+
+INSERT INTO `parafiscales` (`id_parafiscal`, `id_tipo`, `par_nombre`, `par_fecope`, `par_nit`) VALUES
+(1, 1, '800250119', '0000-00-00 00:00:00', '2023-06-11 21:13:02'),
+(2, 1, '805000427', '0000-00-00 00:00:00', '2023-06-11 21:14:38'),
+(3, 1, '800130907', '0000-00-00 00:00:00', '2023-06-11 21:14:50'),
+(4, 1, '830003564', '0000-00-00 00:00:00', '2023-06-11 21:15:01'),
+(5, 1, '800229739', '0000-00-00 00:00:00', '2023-06-11 21:15:12'),
+(6, 1, '899999284', '0000-00-00 00:00:00', '2023-06-11 21:15:23'),
+(7, 1, '900336004', '0000-00-00 00:00:00', '2023-06-11 21:15:34'),
+(8, 1, '900156264', '0000-00-00 00:00:00', '2023-06-11 21:15:45'),
+(9, 1, '800251440', '0000-00-00 00:00:00', '2023-06-11 21:15:55'),
+(10, 1, '900226715', '0000-00-00 00:00:00', '2023-06-11 21:16:06'),
+(11, 1, '806008394', '0000-00-00 00:00:00', '2023-06-11 21:16:19'),
+(12, 1, '818000140', '0000-00-00 00:00:00', '2023-06-11 21:16:31'),
+(13, 1, '830074184', '0000-00-00 00:00:00', '2023-06-11 21:16:55'),
+(14, 1, '901097473', '0000-00-00 00:00:00', '2023-06-11 21:17:07'),
+(15, 1, '800227940', '0000-00-00 00:00:00', '2023-06-11 21:17:32'),
+(16, 1, '800224808', '0000-00-00 00:00:00', '2023-06-11 21:17:44'),
+(17, 1, '800140949', '0000-00-00 00:00:00', '2023-06-11 21:17:55'),
+(18, 1, '800088702', '0000-00-00 00:00:00', '2023-06-11 21:18:07'),
+(19, 2, '860002183', '0000-00-00 00:00:00', '2023-06-11 21:18:36'),
+(20, 2, '800256161', '0000-00-00 00:00:00', '2023-06-11 21:18:49'),
+(21, 2, '890903790', '0000-00-00 00:00:00', '2023-06-11 21:19:04');
+
 -- --------------------------------------------------------
 
 --
@@ -380,7 +407,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_operador`, `id_sede`, `user_usuario`, `user_nombre`, `user_contra`, `user_correo`, `user_estado`, `user_fecope`, `user_fecupd`) VALUES
-(1, 1, 1, 1, 'ADMIN', 'ADMINISTRADOR', '202cb962ac59075b964b07152d234b70', 'ADMIN@GMAIL.COM', 1, '2023-06-11 05:00:00', '2023-06-12 01:49:22');
+(1, 4, 1, 1, 'ADMIN', 'ADMINISTRADOR', '202cb962ac59075b964b07152d234b70', 'ADMIN@GMAIL.COM', 1, '2023-06-11 05:00:00', '2023-06-12 14:12:46');
 
 -- --------------------------------------------------------
 
@@ -561,6 +588,12 @@ ALTER TABLE `matriculas`
 --
 ALTER TABLE `pais`
   MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `parafiscales`
+--
+ALTER TABLE `parafiscales`
+  MODIFY `id_parafiscal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
