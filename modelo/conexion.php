@@ -4,7 +4,7 @@
       $servidor = "localhost";
       $usuario = "root";
       $password = "";
-      $db = "colegio";
+      $db = "colgimame";
       $conexion = mysqli_connect($servidor, $usuario, $password, $db);
       return $conexion;
    }

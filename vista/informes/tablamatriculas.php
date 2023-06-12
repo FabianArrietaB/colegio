@@ -15,7 +15,7 @@
         a.alu_nombre  as alumno,
         g.gra_nombre  as grado,
         au.aud_abono  as valor,
-        SUM(aud_abono) as vtpension,
+        SUM(if(au.id_tipopago = 1 || au.id_tipopago = 2, au.aud_abono, 0)) as vtmatricula,
         au.aud_fecope  as fecope
         FROM auditorias AS au
         LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
@@ -79,7 +79,7 @@
             <tr>
                 <td> <?php echo $ventas['alumno']; ?> </td>
                 <td> <?php echo $ventas['grado']; ?> </td>
-                <td> <?php echo $ventas['vtpension']; ?> </td>
+                <td> <?php echo $ventas['vtmatricula']; ?> </td>
                 <td>
                     <div class="d-grid gap-2">
                         <input type="button" class="btn btn-info" value="Reporte" onclick="detallematricula('<?php echo $ventas['idalumno']?>')"></input>

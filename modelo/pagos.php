@@ -65,22 +65,13 @@
             $query->bind_param('sssii', $datos['balance'], $datos['fecmat'], $datos['fecpro'], $datos['idtippago'], $datos['idmatricula']);
             $respuesta = $query->execute();
             if ($respuesta > 0) {
-                $insertauditoria = "INSERT INTO auditorias( id_operador, id_alumno, id_grado, aud_valor, aud_abono, id_tipopago) VALUES(?, ?, ?, ?, ?, ?)";
+                $insertauditoria = "INSERT INTO auditorias( id_operador, id_alumno, id_grado, aud_valor, aud_abono, id_tipopago, aud_numdoc) VALUES(?, ?, ?, ?, ?, ?, ?)";
                 $query = $conexion->prepare($insertauditoria);
-                $query->bind_param("iiissi", $datos['idoperador'], $datos['idalumno'], $datos['idgrado'], $datos['matricula'], $datos['abono'],  $datos['idtippago'],);
+                $query->bind_param("iiissis", $datos['idoperador'], $datos['idalumno'], $datos['idgrado'], $datos['matricula'], $datos['abono'],  $datos['idtippago'], $idfactura);
                 $respuesta = $query->execute();
-                if ($respuesta > 0) {
-                    $fecha = date("Y-m-d");
-                    $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_fecope) VALUES (?, ?, ?, ?, ?)";
-                    $query = $conexion->prepare($crearfactura);
-                    $query->bind_param("iiiss", $datos['idoperador'], $datos['idalumno'], $datos['idtippago'], $datos['abono'], $fecha);
-                    $respuesta = $query->execute();
-                }
             }
             return $respuesta;
         }
-
-        
 
         public function pagopension($datos){
             $conexion = Conexion::conectar();
@@ -89,17 +80,16 @@
             $query->bind_param('sssii', $datos['diferencia'], $datos['fecpen'], $datos['fecpro'], $datos['idtippagou'], $datos['idmatriculau']);
             $respuesta = $query->execute();
             if ($respuesta > 0) {
-                $insertauditoria = "INSERT INTO auditorias( id_operador, id_alumno, id_grado, aud_valor, aud_abono, id_tipopago) VALUES(?, ?, ?, ?, ?, ?)";
-                $query = $conexion->prepare($insertauditoria);
-                $query->bind_param("iiissi",  $datos['idoperador'],  $datos['idalumnou'],  $datos['idgradou'],  $datos['pension'],  $datos['avance'],  $datos['idtippagou'],);
+                $fecha = date("Y-m-d");
+                $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_fecope) VALUES (?, ?, ?, ?, ?)";
+                $query = $conexion->prepare($crearfactura);
+                $query->bind_param("iiiss", $datos['idoperador'], $datos['idalumnou'], $datos['idtippagou'], $datos['avance'], $fecha);
                 $respuesta = $query->execute();
-                if ($respuesta > 0) {
-                    $fecha = date("Y-m-d");
-                    $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_fecope) VALUES (?, ?, ?, ?, ?)";
-                    $query = $conexion->prepare($crearfactura);
-                    $query->bind_param("iiiss", $datos['idoperador'], $datos['idalumno'], $datos['idtippago'], $datos['avance'], $fecha);
-                    $respuesta = $query->execute();
-                }
+                $idfactura = $conexion->insert_id;
+                $insertauditoria = "INSERT INTO auditorias( id_operador, id_alumno, id_grado, aud_valor, aud_abono, id_tipopago, aud_numdoc) VALUES(?, ?, ?, ?, ?, ?, ?)";
+                $query = $conexion->prepare($insertauditoria);
+                $query->bind_param("iiissis",  $datos['idoperador'],  $datos['idalumnou'],  $datos['idgradou'],  $datos['pension'],  $datos['avance'],  $datos['idtippagou'], $idfactura);
+                $respuesta = $query->execute();
             }
             return $respuesta;
         }

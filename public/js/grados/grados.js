@@ -79,12 +79,14 @@ function detallegrado(idgrado){
         url: "../controlador/grados/detalle.php",
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
+            console.log(respuesta)
             $('#idgrado').val(respuesta['idgrado']);
             $('#nombreu').val(respuesta['nombre']);
             $('#matricu').val(respuesta['matric']);
             $('#pensiou').val(respuesta['pensio']);
             $('#canaluu').val(respuesta['canalu']);
             $('#iddiru').val(respuesta['iddir']);
+            $('#nomprou').val(respuesta['nompro']);
         }
     });
 }

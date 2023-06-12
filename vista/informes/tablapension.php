@@ -15,7 +15,7 @@
         a.alu_nombre  as alumno,
         g.gra_nombre  as grado,
         au.aud_valor  as valor,
-        SUM(aud_abono) as vtpension,
+        SUM(if(au.id_tipopago = 3 || au.id_tipopago = 4, au.aud_abono, 0)) as vtpension,
         au.aud_fecope  as fecope
         FROM auditorias AS au
         LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno

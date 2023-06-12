@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2023 a las 05:45:55
+-- Tiempo de generación: 12-06-2023 a las 03:50:03
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -104,6 +104,14 @@ CREATE TABLE `categorias` (
   `cat_fecope` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id_categoria`, `id_operador`, `cat_nombre`, `cat_fecope`) VALUES
+(1, 1, 'ACTA', '0000-00-00 00:00:00'),
+(2, 1, 'CERTIFICADO', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -155,7 +163,7 @@ CREATE TABLE `facturas` (
   `id_producto` int(11) NOT NULL,
   `id_tippag` int(11) NOT NULL,
   `fac_prefijo` varchar(45) NOT NULL DEFAULT 'GAV',
-  `fac_cantidad` varchar(45) NOT NULL,
+  `fac_cantidad` varchar(45) NOT NULL DEFAULT '1',
   `fac_valor` varchar(45) NOT NULL,
   `fac_detalle` varchar(45) NOT NULL,
   `fac_fecope` varchar(45) NOT NULL
@@ -215,6 +223,15 @@ CREATE TABLE `pais` (
   `pais_nombre` varchar(45) NOT NULL,
   `pais_fecope` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pais`
+--
+
+INSERT INTO `pais` (`id_pais`, `pais_nombre`, `pais_fecope`) VALUES
+(1, 'ALEMANIA', '2023-02-01 05:00:00'),
+(2, 'BRASIL', '2023-02-01 05:00:00'),
+(3, 'COLOMBIA', '2023-02-01 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -282,8 +299,8 @@ CREATE TABLE `sedes` (
   `sed_razsoc` varchar(45) NOT NULL,
   `sed_nombre` varchar(45) NOT NULL,
   `sed_nit` varchar(45) NOT NULL,
-  `sed_pagina` varchar(255) NOT NULL,
   `sed_correo` varchar(45) NOT NULL,
+  `sed_pagina` varchar(255) NOT NULL,
   `sed_telcel` varchar(45) NOT NULL,
   `sed_direcc` varchar(45) NOT NULL,
   `sed_tipper` varchar(45) NOT NULL,
@@ -300,8 +317,8 @@ CREATE TABLE `sedes` (
 -- Volcado de datos para la tabla `sedes`
 --
 
-INSERT INTO `sedes` (`id_sedes`, `id_tipo`, `id_operador`, `sed_razsoc`, `sed_nombre`, `sed_nit`, `sed_pagina`, `sed_correo`, `sed_telcel`, `sed_direcc`, `sed_tipper`, `sed_regime`, `sed_pais`, `sed_depart`, `sed_muni`, `sed_estado`, `sed_fecope`, `sed_fecupd`) VALUES
-(1, 1, 1, 'COLEGIO GIMNASIO LAS AMERICAS', 'COLEGIO GIMNASIO LAS AMERICAS', '347001005243', 'colegiogimnasiolasamericas.edu.co', 'secretariageneral@colegiogimnasiolasamericas.', '3245833253', 'Cra. 33b #9f-27 a 9f-1', '1', '1', 'COLOMBIA', 'MAGDALENA', 'SANTA MARTA', '1', '0000-00-00 00:00:00', '2023-06-11 01:39:24');
+INSERT INTO `sedes` (`id_sedes`, `id_tipo`, `id_operador`, `sed_razsoc`, `sed_nombre`, `sed_nit`, `sed_correo`, `sed_pagina`, `sed_telcel`, `sed_direcc`, `sed_tipper`, `sed_regime`, `sed_pais`, `sed_depart`, `sed_muni`, `sed_estado`, `sed_fecope`, `sed_fecupd`) VALUES
+(1, 2, 1, 'COLEGIO GIMNASIO LAS AMERICAS', 'COLEGIO GIMNASIO LAS AMERICA', '347001005243', 'colegiogimnasiolasamericas.edu.co', 'secretariageneral@colegiogimnasiolasamericas', '3245833253', 'Cra. 33b #9f-27 a 9f-1', '1', '2', 'COLOMBIA', 'MAGDALENA', 'SANTA MARTA', '1', '0000-00-00 00:00:00', '2023-06-11 21:45:44');
 
 -- --------------------------------------------------------
 
@@ -338,14 +355,6 @@ CREATE TABLE `tmp` (
   `precio` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `tmp`
---
-
-INSERT INTO `tmp` (`id`, `id_producto`, `id_tippag`, `descripcion`, `cantidad`, `precio`) VALUES
-(5, 1, 0, 'CERTIFICADO ESTUDIANTIL', 1, 50000.00),
-(6, 0, 1, 'ABONO MATRICULA', 1, 1000000.00);
-
 -- --------------------------------------------------------
 
 --
@@ -371,16 +380,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_operador`, `id_sede`, `user_usuario`, `user_nombre`, `user_contra`, `user_correo`, `user_estado`, `user_fecope`, `user_fecupd`) VALUES
-(1, 4, 1, 1, 'Admin', 'Administrador', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(9, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(10, 0, 0, 0, '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 1, 1, 1, 'ADMIN', 'ADMINISTRADOR', '202cb962ac59075b964b07152d234b70', 'ADMIN@GMAIL.COM', 1, '2023-06-11 05:00:00', '2023-06-12 01:49:22');
 
 -- --------------------------------------------------------
 
@@ -530,7 +530,7 @@ ALTER TABLE `auditorias`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `empleados`
@@ -560,7 +560,7 @@ ALTER TABLE `matriculas`
 -- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
-  MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -590,13 +590,13 @@ ALTER TABLE `solicitudes`
 -- AUTO_INCREMENT de la tabla `tmp`
 --
 ALTER TABLE `tmp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

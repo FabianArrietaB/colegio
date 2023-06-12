@@ -45,9 +45,9 @@
         e.emp_nombre    AS nompro
         FROM grados AS g
         LEFT JOIN empleados AS e ON g.id_empleado = e.id_empleado
-        WHERE grados.gra_estado = 1
+        WHERE g.gra_estado = 1
         AND g.gra_nombre LIKE '%$filtro%'
-        ORDER BY grados.id_grado ASC";
+        ORDER BY g.id_grado ASC";
     $query = mysqli_query($conexion, $sql);
     }
 ?>
@@ -94,33 +94,15 @@
                     <?php echo $grados['estado'] ?>)">
                         INACTIVO
                     </button>
-                <?php
-                } else if ($grados['estado'] == 1) {
-                ?>
-                    <button class="btn btn-success btn-sm" onclick="activargrado(
-                    <?php echo $grados['idgrado'] ?>,
-                    <?php echo $grados['estado'] ?>)">
-                        ACTIVO
-                    </button>
-                <?php
-                }
-                ?>
+                <?php } else if ($grados['estado'] == 1) { ?>
+                    <button class="btn btn-success btn-sm" onclick="activargrado(<?php echo $grados['idgrado'] ?>, <?php echo $grados['estado'] ?>)">ACTIVO</button>
+                <?php } ?>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar"
-                        onclick="detallegrado('<?php echo $grados['idgrado']?>')">
-                        <i class="fa-solid fa-pen-to-square fa-xl"></i>
-                    </button>
-                    <?php
-                        if($_SESSION['usuario']['rol'] == 4) {
-                    ?>
-                        <button type="button" class="btn btn-danger" onclick="eliminargrado(
-                        '<?php echo $grados['idgrado']?>')">
-                        <i class="fa-regular fa-trash-can fa-xl"></i>
-                        </button>
-                    <?php
-                    }
-                    ?>
+                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detallegrado('<?php echo $grados['idgrado']?>')"><i class="fa-solid fa-pen-to-square fa-xl"></i></button>
+                    <?php if($_SESSION['usuario']['rol'] == 4) { ?>
+                        <button type="button" class="btn btn-danger" onclick="eliminargrado('<?php echo $grados['idgrado']?>')"><i class="fa-regular fa-trash-can fa-xl"></i></button>
+                    <?php } ?>
                 </td>
             </tr>
             <?php } ?>

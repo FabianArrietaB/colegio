@@ -92,7 +92,7 @@
             'nombre' => $empleado['nombre'],
             'cladoc' => $empleado['cladoc'],
             'docume' => $empleado['docume'],
-            'cargo' => $empleado['cargo'],
+            'cargo'  => $empleado['cargo'],
             'telcel' => $empleado['telcel'],
             'ciudad' => $empleado['ciudad'],
             'direcc' => $empleado['direcc'],
@@ -104,12 +104,12 @@
             'codeps' => $empleado['codeps'],
             'codpen' => $empleado['codpen'],
             'codarl' => $empleado['codarl'],
-            'sexo' => $empleado['sexo'],
+            'sexo'   => $empleado['sexo'],
             'estciv' => $empleado['estciv'],
             'escola' => $empleado['escola'],
             'gposan' => $empleado['gposan'],
             'factrh' => $empleado['factrh'],
-            'hijos' => $empleado['hijos'],
+            'hijos'  => $empleado['hijos'],
             'fecnac' => $empleado['fecnac'],
             );
             return $datos;
@@ -143,7 +143,7 @@
                     emp_codces = ?
                     WHERE id_empleado = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('issssssssssssssssssssssi', $datos['idoperador'],                     $datos['nombre'], $datos['cladoc'], $datos['docume'], $datos['fecnac'], $datos['sexo'], $datos['gposan'], $datos['factrh'], $datos['estciv'], $datos['escola'], $datos['hijos'], $datos['telcel'], $datos['ciudad'], $datos['direcc'], $datos['estrat'], $datos['correo'], $datos['cargo'], $datos['tipcon'], $datos['salari'], $datos['codeps'], $datos['codarl'], $datos['codpen'], $datos['codces'], $datos['idempleado']);
+            $query->bind_param('issssssssssssssssssssssi', $datos['idoperador'], $datos['nombre'], $datos['cladoc'], $datos['docume'], $datos['fecnac'], $datos['sexo'], $datos['gposan'], $datos['factrh'], $datos['estciv'], $datos['escola'], $datos['hijos'], $datos['telcel'], $datos['ciudad'], $datos['direcc'], $datos['estrat'], $datos['correo'], $datos['cargo'], $datos['tipcon'], $datos['salari'], $datos['codeps'], $datos['codarl'], $datos['codpen'], $datos['codces'], $datos['idempleado']);
             $respuesta = $query->execute();
             $query->close();
             return $respuesta;

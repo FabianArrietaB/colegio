@@ -77,7 +77,10 @@
                 <div class="col-2">
                     <div class="mb-3">
                         <label class="form-label">Tipo</label>
-                        <input type="text" class="form-control" name="idtipu" id="idtipu" placeholder="NOMBRE DE LA EMPRESA">
+                        <select name="idtipu" id="idtipu" class="form-control input-sm">
+                                <option value="1">PUBLICA</option>
+                                <option value="2">PRIVADA</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-4">
