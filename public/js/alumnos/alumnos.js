@@ -8,7 +8,7 @@ $(document).ready(function(){
         function(){
             const filtro = $('#filtro').val()
             $('#Recargar').load('alumnos/listaalumnos.php?filtro='+filtro);
-        },1000
+        },2000
     );
 });
 

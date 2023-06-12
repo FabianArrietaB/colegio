@@ -3,9 +3,30 @@
     include "sidebar.php";
     if(isset($_SESSION['usuario']) &&
     $_SESSION['usuario']['rol'] == 4){
+        $filtro = '';
+    if(isset($_GET['filtro'])){
+        $filtro = $_GET['filtro'];
+    }
     include "../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
+    $idusuario = $_SESSION['usuario']['id'];
+    $sql = "SELECT
+        au.id_auditoria as idpension,
+        au.id_alumno  as idalumno,
+        a.alu_nombre  as alumno,
+        au.id_grado  as idgrado,
+        g.gra_nombre  as grado,
+        au.id_tipopago as tippag,
+        au.aud_numdoc as idfacturas,
+        au.aud_abono  as valor,
+        au.aud_fecope  as fecope
+        FROM auditorias AS au
+        INNER JOIN alumnos as a ON a.id_alumno = au.id_alumno
+        INNER JOIN grados as g ON g.id_grado = au.id_grado
+        WHERE a.alu_nombre LIKE '%$filtro%'|| a.alu_docume LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' || au.aud_numdoc LIKE '%$filtro%'
+        ORDER BY au.id_auditoria ASC";
+    $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
@@ -195,9 +216,40 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <form action="" method="GET">
+                            <input class="form-control me-xl-2" type="search" onkeyup="filtrar()" placeholder="Buscar" name="filtro" id="filtro">
+                        </form>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <div id="tablaestadistica"></div>
+                    <!-- inicio Tabla -->
+                    <div class="table-responsive justify-content-center">
+                        <table class="table table-light text-center" id="estadisticas">
+                            <thead>
+                                <tr>
+                                    <th scope="col" >Alumno</th>
+                                    <th scope="col" >Grado</th>
+                                    <th scope="col" >Factura</th>
+                                    <th scope="col" >Precio</th>
+                                    <th scope="col" >Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                                while ($ventas = mysqli_fetch_array($query)){
+                            ?>
+                                <tr>
+                                    <td> <?php echo $ventas['alumno']; ?> </td>
+                                    <td> <?php echo $ventas['grado']; ?> </td>
+                                    <td> <?php echo "GVA". ' - ' . $ventas['idfacturas']; ?> </td>
+                                    <td> <?php echo $ventas['valor']; ?> </td>
+                                    <td> <?php echo $ventas['fecope']; ?> </td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
