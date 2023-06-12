@@ -64,7 +64,13 @@
             $query = $conexion->prepare($sql);
             $query->bind_param('sssii', $datos['balance'], $datos['fecmat'], $datos['fecpro'], $datos['idtippago'], $datos['idmatricula']);
             $respuesta = $query->execute();
-            if ($respuesta > 0) {
+            if ($respuesta > 0){
+                $fecha = date("Y-m-d");
+                $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_fecope) VALUES (?, ?, ?, ?, ?)";
+                $query = $conexion->prepare($crearfactura);
+                $query->bind_param("iiiss", $datos['idoperador'], $datos['idalumno'], $datos['idtippago'], $datos['abono'], $fecha);
+                $respuesta = $query->execute();
+                $idfactura = $conexion->insert_id;
                 $insertauditoria = "INSERT INTO auditorias( id_operador, id_alumno, id_grado, aud_valor, aud_abono, id_tipopago, aud_numdoc) VALUES(?, ?, ?, ?, ?, ?, ?)";
                 $query = $conexion->prepare($insertauditoria);
                 $query->bind_param("iiissis", $datos['idoperador'], $datos['idalumno'], $datos['idgrado'], $datos['matricula'], $datos['abono'],  $datos['idtippago'], $idfactura);

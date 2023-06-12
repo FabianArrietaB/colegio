@@ -9,8 +9,8 @@
         'abono'      => $_POST['abonou'],
         'matricula'  => $_POST['matriculau'],
         'balance'    => $_POST['balanceu'],
-        'fecmat'    => $_POST['fecmatu'],
-        'fecpro'      => $_POST['fecpro'],
+        'fecmat'     => $_POST['fecmatu'],
+        'fecpro'     => $_POST['fecpro'],
     );
     include "../../modelo/pagos.php";
     $Pagos = new Pagos();
