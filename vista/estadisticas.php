@@ -13,6 +13,8 @@
     $idusuario = $_SESSION['usuario']['id'];
     $sql = "SELECT
         au.id_auditoria as idpension,
+        au.id_operador  as idoperador,
+        u.user_nombre as vendedor,
         au.id_alumno  as idalumno,
         a.alu_nombre  as alumno,
         au.id_grado  as idgrado,
@@ -22,9 +24,10 @@
         au.aud_abono  as valor,
         au.aud_fecope  as fecope
         FROM auditorias AS au
-        INNER JOIN alumnos as a ON a.id_alumno = au.id_alumno
-        INNER JOIN grados as g ON g.id_grado = au.id_grado
-        WHERE a.alu_nombre LIKE '%$filtro%'|| a.alu_docume LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' || au.aud_numdoc LIKE '%$filtro%'
+        LEFT JOIN alumnos as a ON a.id_alumno = au.id_alumno
+        LEFT JOIN grados as g ON g.id_grado = au.id_grado
+        LEFT JOIN usuarios as u ON u.id_usuario = au.id_operador
+        WHERE a.alu_nombre LIKE '%$filtro%'|| a.alu_docume LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' || au.aud_numdoc LIKE '%$filtro%' || u.user_nombre LIKE '%$filtro%'
         ORDER BY au.id_auditoria ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
@@ -230,6 +233,7 @@
                                 <tr>
                                     <th scope="col" >Alumno</th>
                                     <th scope="col" >Grado</th>
+                                    <th scope="col" >Vendedor</th>
                                     <th scope="col" >Factura</th>
                                     <th scope="col" >Precio</th>
                                     <th scope="col" >Fecha</th>
@@ -242,6 +246,7 @@
                                 <tr>
                                     <td> <?php echo $ventas['alumno']; ?> </td>
                                     <td> <?php echo $ventas['grado']; ?> </td>
+                                    <td> <?php echo $ventas['vendedor']; ?> </td>
                                     <td> <?php echo "GVA". ' - ' . $ventas['idfacturas']; ?> </td>
                                     <td> <?php echo $ventas['valor']; ?> </td>
                                     <td> <?php echo $ventas['fecope']; ?> </td>

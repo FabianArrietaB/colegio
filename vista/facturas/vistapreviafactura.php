@@ -52,7 +52,7 @@
 						<div class="ticket">
 							<p class="centered">
 								<?php echo $rw_empresa['sed_razsoc'];?>
-								<?php echo $rw_empresa['sed_pagina'];?>
+								<br><?php echo $rw_empresa['sed_pagina'];?>
 								<br><strong>Teléfono :</strong> <?php echo $rw_empresa['sed_telcel'];?>
 								<br><strong>Dirección: </strong> <?php echo $rw_empresa['sed_direcc'];?>
 								<br><strong>Fecha: </strong><?php echo $rw_factura['fac_fecope'];?>

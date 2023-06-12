@@ -13,6 +13,7 @@
                         <legend class="group-border">Informacion Solicitud</legend>
                         <div class="row">
                             <input type="text" id="idsolicitudu" name="idsolicitudu" hidden>
+                            <input type="text" id="idgradou" name="idgradou" hidden>
                             <div class="col-6">
                                 <div class="input-group mb-3">
                                     <input type="text" id="usuario" name="usuario" class="form-control input-sm" disabled>

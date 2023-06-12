@@ -66,6 +66,7 @@
             $solicitud = mysqli_fetch_array($respuesta);
             $datos = array(
             'idsolicitudu' => $solicitud['idsolicitudu'],
+            'idgradou' => $solicitud['idgradou'],
             'reptipou' => $solicitud['reptipou'],
             'detalleu' => $solicitud['detalleu'],
             'estadou' => $solicitud['estadou'],
@@ -101,6 +102,11 @@
                     $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_producto, fac_valor, fac_fecope) VALUES (?, ?, ?, ?, ?)";
                     $query = $conexion->prepare($crearfactura);
                     $query->bind_param("iiiss", $datos['idoperador'], $datos['idalumno'], $datos['idproducto'], $datos['precio'], $fecha);
+                    $respuesta = $query->execute();
+                    $idfactura = $conexion->insert_id;
+                    $insertauditoria = "INSERT INTO auditorias( id_operador, id_alumno, id_grado, id_producto, aud_valor, aud_abono, aud_numdoc) VALUES(?, ?, ?, ?, ?, ?, ?)";
+                    $query = $conexion->prepare($insertauditoria);
+                    $query->bind_param("iiissis",  $datos['idoperador'],  $datos['idalumno'],  $datos['idgradou'],  $datos['idproducto'],  $datos['precio'], $datos['precio'], $idfactura);
                     $respuesta = $query->execute();
                 }
             }
