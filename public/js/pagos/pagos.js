@@ -133,6 +133,13 @@ function detallefactura(idfacturas){
     });
 }
 
+let menuicn = document.querySelector(".menuicn");
+let nav = document.querySelector(".navcontainer");
+ 
+menuicn.addEventListener("click", () => {
+    nav.classList.toggle("navclose");
+})
+
 function imprimir(){
     var factura = window.open("", "factura", "width=800, heigth=600");
     factura.document.write("<html><head><title>Factura de Venta</title>");

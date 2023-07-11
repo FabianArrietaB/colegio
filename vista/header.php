@@ -13,6 +13,8 @@ if (!empty($_SESSION["user_estado"])) {
     <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
     <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="../public/css/factura.css"/>
+    <link rel="stylesheet" href="../public/css/responsive.css">
+    <link rel="stylesheet" href="../public/css/dash.css">
     <!--<title> Bootstrap </title>-->
     <link rel="stylesheet" href="../public/bootstrap5/css/bootstrap.min.css">
     <!--<title> Boxicons </title>-->
@@ -25,6 +27,7 @@ if (!empty($_SESSION["user_estado"])) {
     <link rel="stylesheet" href="../public/fontawesome/css/fontawesome.min.css">
     <!-- Boxicons CDN Link -->
     <link href="../public/images/icono.png" rel="shortcut icon">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 <body>
