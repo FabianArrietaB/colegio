@@ -13,14 +13,13 @@
         au.id_alumno  as idalumno,
         au.id_tipopago as tippag,
         a.alu_nombre  as alumno,
+        au.aud_valor  as valor,
         g.gra_nombre  as grado,
-        au.aud_abono  as valor,
-        SUM(if(au.id_tipopago = 1 || au.id_tipopago = 2, au.aud_abono, 0)) as vtmatricula,
         au.aud_fecope  as fecope
         FROM auditorias AS au
         LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
         LEFT JOIN grados AS g ON au.id_grado = g.id_grado
-        WHERE au.id_tipopago = 1 || au.id_tipopago = 2
+        WHERE au.id_tipopago = 1
         AND a.alu_nombre LIKE '%$filtro%'|| a.alu_docume LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%'
         GROUP BY au.id_alumno
         ORDER BY au.id_auditoria ASC";
@@ -46,7 +45,7 @@
                                 <div class="float-sm-right">&nbsp;
                                     <span style="font-size: 20px">
                                     <?php
-                                        $sql=$conexion->query("SELECT SUM(mat_valmat) as 'matricula' from matriculas WHERE mat_saldo = 0");
+                                        $sql=$conexion->query("SELECT SUM(mat_valmat) as 'matricula' from matriculas");
                                         $data = mysqli_fetch_array($sql);
                                         $matricula = $data['matricula'];
                                         echo '$'. $matricula;
@@ -79,7 +78,7 @@
             <tr>
                 <td> <?php echo $ventas['alumno']; ?> </td>
                 <td> <?php echo $ventas['grado']; ?> </td>
-                <td> <?php echo $ventas['vtmatricula']; ?> </td>
+                <td> <?php echo $ventas['valor']; ?> </td>
                 <td>
                     <div class="d-grid gap-2">
                         <input type="button" class="btn btn-info" value="Reporte" onclick="detallematricula('<?php echo $ventas['idalumno']?>')"></input>

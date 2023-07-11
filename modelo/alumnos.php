@@ -58,10 +58,9 @@
                 $query->bind_param("iisssssssss", $idalumno, $datos['idoperador'], $datos['nompad'], $datos['cldopa'], $datos['docpad'], $datos['ciupad'], $datos['dirpad'], $datos['estpad'], $datos['telpad'], $datos['corpad'], $datos['parpad'],);
                 $respuesta = $query->execute();
                 if ($respuesta > 0) {
-                    $insertmatricula = "INSERT INTO matriculas(id_alumno, id_grado, id_operador, id_tipopago, mat_valmat, mat_pensio, mat_salpen, mat_saldo, mat_fecpropag)
+                    $insertmatricula = "INSERT INTO matriculas(id_alumno, id_grado, id_operador, id_tipopago, mat_valmat, mat_pensio, mat_fecpropag)
                                 VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $query = $conexion->prepare($insertmatricula);
-                    $saldo = $datos['matric']-$datos['abono'];
                     $query->bind_param("iiissssss", $idalumno, $datos['idgrado'], $datos['idoperador'], $datos['tippag'], $datos['matric'], $datos['pensio'], $datos['pensio'], $saldo, $datos['fecpro'],);
                     $respuesta = $query->execute();
                     if ($respuesta > 0) {
@@ -71,10 +70,10 @@
                         $query->bind_param("iiiss", $datos['idoperador'], $idalumno, $datos['tippag'], $datos['abono'], $fecha);
                         $respuesta = $query->execute();
                         $idfactura = $conexion->insert_id;
-                        $insertauditoria = "INSERT INTO auditorias (id_operador, id_alumno, id_grado, id_tipopago, aud_numdoc, aud_valor, aud_abono)
-                                        VALUES(?, ?, ?, ?, ?, ?, ?)";
+                        $insertauditoria = "INSERT INTO auditorias (id_operador, id_alumno, id_grado, id_tipopago, aud_numdoc, aud_valor)
+                                        VALUES(?, ?, ?, ?, ?, ?)";
                         $query = $conexion->prepare($insertauditoria);
-                        $query->bind_param("iiissss", $datos['idoperador'], $idalumno, $datos['idgrado'], $datos['tippag'], $idfactura, $datos['matric'], $datos['abono']);
+                        $query->bind_param("iiisss", $datos['idoperador'], $idalumno, $datos['idgrado'], $datos['tippag'], $idfactura, $datos['matric']);
                         $respuesta = $query->execute();
                     }
                 }

@@ -99,7 +99,7 @@ foreach ($query as $row) {
                                                 <?php }
                                                 ?>
                                                 </td>
-                                                <td><?php echo $value['abono']; ?></td>
+                                                <td><?php echo '$ '. number_format($value['abono']); ?></td>
                                                 <td>
                                                     <?php if ($ventas['mes'] == 1) { ?>
                                                         <h5><span >Enero</span></h5>
