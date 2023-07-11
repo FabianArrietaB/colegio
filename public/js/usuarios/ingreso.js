@@ -7,7 +7,7 @@ function ingresar(){
             respuesta = respuesta.trim();
             console.log(respuesta)
             if(respuesta == 1){
-                window.location.href = "vista/inicio.php";
+                window.location.href = "vista/dashboard.php";
             }else{
                 swal.fire({
                     icon: 'error',

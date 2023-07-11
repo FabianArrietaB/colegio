@@ -5,7 +5,7 @@
     </div>
     <ul class="nav-list">
       <li>
-        <a href="inicio.php">
+        <a href="dashboard.php">
           <i class="bx bx-grid-alt"></i>
             <span class="link_name">Inicio</span>
         </a>
