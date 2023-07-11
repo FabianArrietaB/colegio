@@ -15,6 +15,7 @@ au.id_tipopago as tippag,
 a.alu_nombre  as alumno,
 g.gra_nombre  as grado,
 au.aud_abono  as abono,
+MONTH(au.aud_fecope) as mes,
 au.aud_fecope  as fecope
 FROM auditorias AS au
 LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
@@ -80,12 +81,12 @@ foreach ($query as $row) {
                                     <tr>
                                         <th scope="col" >Producto</th>
                                         <th scope="col" >Precio</th>
+                                        <th scope="col" >mes</th>
                                         <th scope="col" >Fecha</th>
                                     </tr>
                                 </thead>
                                 <tbody">
                                 <?php
-                                   
                                     if (count($arrayDetalle) > 0) {
                                         foreach ($arrayDetalle as $c => $value) {
                                             ?>
@@ -99,6 +100,33 @@ foreach ($query as $row) {
                                                 ?>
                                                 </td>
                                                 <td><?php echo $value['abono']; ?></td>
+                                                <td>
+                                                    <?php if ($ventas['mes'] == 1) { ?>
+                                                        <h5><span >Enero</span></h5>
+                                                    <?php } else if ($ventas['mes'] == 2) { ?>
+                                                        <h5><span >Febrero</span></h5>
+                                                        <?php } else if ($ventas['mes'] == 3) { ?>
+                                                        <h5><span >Marzo</span></h5>
+                                                        <?php } else if ($ventas['mes'] == 4) { ?>
+                                                        <h5><span >Abril</span></h5>
+                                                        <?php } else if ($ventas['mes'] == 5) { ?>
+                                                        <h5><span >Mayo</span></h5>
+                                                        <?php } else if ($ventas['mes'] == 6) { ?>
+                                                        <h5><span >Junio</span></h5>
+                                                        <?php } else if ($ventas['mes'] == 7) { ?>
+                                                        <h5><span >Julio</span></h5>
+                                                        <?php } else if ($ventas['mes'] == 8) { ?>
+                                                        <h5><span >Agosto</span></h5>
+                                                        <?php } else if ($ventas['mes'] == 9) { ?>
+                                                        <h5><span >Septiembre</span></h5>
+                                                        <?php } else if ($ventas['mes'] == 10) { ?>
+                                                        <h5><span >Octubre</span></h5>
+                                                        <?php } else if ($ventas['mes'] == 11) { ?>
+                                                        <h5><span >Noviembre</span></h5>
+                                                        <?php } else if ($ventas['mes'] == 12) { ?>
+                                                        <h5><span >Diciembre</span></h5>
+                                                    <?php } ?>
+                                                </td>
                                                 <td><?php echo $value['fecope']; ?></td>
                                             </tr>
                                             <?php

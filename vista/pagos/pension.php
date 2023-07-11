@@ -46,29 +46,21 @@
                             </div>
                             <div class="col-3">
                                 <div class="mb-3">
-                                    <label class="form-label">Saldo Anterior</label>
-                                    <input type="text" id="salpenu" name="salpenu" class="form-control input-sm" disabled>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="mb-3">
-                                    <label class="form-label">Saldo Nuevo</label>
-                                    <input type="text" id="diferenciau" name="diferenciau" class="form-control input-sm" readonly>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Valor Abono</label>
-                                    <input type="text" id="avanceu" name="avanceu" class="form-control input-sm">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="mb-3">
-                                <label class="form-label">Tipo Pago</label>
-                                    <select id="idtippago" name="idtippago" class="form-control input-sm">
-                                        <option selected >TIPO PAGO</option>
-                                        <option value="3">ABONO PENSION</option>
-                                        <option value="4">PAGO TOTAL PENSION</option>
+                                    <label class="form-label">Mes Pension</label>
+                                    <select name="mes" id="mes" class="form-control">
+                                        <option value="">MES</option>
+                                        <option value="01">ENERO</option>
+                                        <option value="02">FEBRERO</option>
+                                        <option value="03">MARZO</option>
+                                        <option value="04">ABRIL</option>
+                                        <option value="05">MAYO</option>
+                                        <option value="06">JUNIO</option>
+                                        <option value="07">JULIO</option>
+                                        <option value="08">AGOSTO</option>
+                                        <option value="09">SEPTIEMBRE</option>
+                                        <option value="10">OCTUBRE</option>
+                                        <option value="11">NOVIEMBRE</option>
+                                        <option value="12">DICIEMBRE</option>
                                     </select>
                                 </div>
                             </div>
@@ -89,16 +81,3 @@
     </div>
 </form>
 <!-- Fin Formulario (Agregar, Modificar) -->
-<!-- Calcular Valor Balance -->
-<script>
-    let pension = document.getElementById("pensionu")
-    let resta = document.getElementById("salpenu")
-    let diferencia = document.getElementById("diferenciau")
-    let avance = document.getElementById("avanceu")
-
-    avance.addEventListener("change", () => {
-            diferencia.value = parseFloat(resta.value) - parseFloat(avance.value)
-        })
-
-</script>
-
