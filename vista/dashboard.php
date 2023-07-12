@@ -106,6 +106,11 @@
 					</div>
 				</a>
 			</div>
+			<br>
+			<div class="box-container">
+				<div class="textoddd"><div class="logo_name"><?php echo 'BIENVENIDO '. $_SESSION['usuario']['nombre'];?></div></div>
+			</div>
+			
 <?php }else{
 	header("../index.php");
 }
