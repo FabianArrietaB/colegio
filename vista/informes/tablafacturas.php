@@ -51,7 +51,7 @@
                                         $sql=$conexion->query("SELECT SUM(fac_valor) as 'precio' from facturas");
                                         $data = mysqli_fetch_array($sql);
                                         $precio = $data['precio'];
-                                        echo '$'. $precio;
+                                        echo '$ '. number_format($precio);
                                     ?>
                                     </span>
                                 </div>
@@ -89,17 +89,13 @@
                         echo $facturas['producto'];
                     } else {
                         if ($facturas['tippag'] == 1) { ?>
-                            <span>ABONO MATRICULA</span>
+                            <span>PAGO MATRICULA</span>
                         <?php } else if ($facturas['tippag'] == 2) { ?>
-                            <span>PAGO TOTAL MATRICULA</span>
-                        <?php } else if ($facturas['tippag'] == 3) { ?>
-                            <span>ABONO PENSION</span>
-                        <?php } else if ($facturas['tippag'] == 4) { ?>
-                            <span>PAGO TOTAL PENSION</span>
+                            <span>PAGO PENSION</span>
                         <?php } ?>
                     <?php } ?>
                 </td>
-                <td> <?php echo $facturas['precio']; ?> </td>
+                <td> <?php echo '$ '. number_format($facturas['precio']); ?> </td>
                 <td> <?php echo $facturas['vendedor']; ?> </td>
                 <td> <?php echo $facturas['fecha']; ?> </td>
                 <td>

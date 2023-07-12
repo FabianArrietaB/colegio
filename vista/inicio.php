@@ -271,13 +271,13 @@
                 </div>
                 <div class="card-body">
                     <div class="row text-center mb-3">
-                        <div class="col-4">
+                        <!-- <div class="col-4">
                             <a name="" id="pagosbtn" class="btn btn-primary" href="#" role="button">MATRICULAS</a>
-                        </div>
-                        <div class="col-4">
+                        </div> -->
+                        <div class="col-6">
                             <a name="" id="facturasbtn" class="btn btn-primary" href="#" role="button">FACTURAS</a>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <a name="" id="pensionbt" class="btn btn-primary" href="#" role="button">PENSION</a>
                         </div>
                     </div>

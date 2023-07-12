@@ -46,10 +46,10 @@
                                 <div class="float-sm-right">&nbsp;
                                     <span style="font-size: 20px">
                                     <?php
-                                            $sql=$conexion->query("SELECT SUM(aud_valor) as 'pension' from auditorias WHERE id_tipopago = 4 || id_tipopago = 3");
+                                            $sql=$conexion->query("SELECT SUM(aud_valor) as 'pension' from auditorias WHERE id_tipopago = 2");
                                             $data = mysqli_fetch_array($sql);
                                             $pension = $data['pension'];
-                                            echo '$'. $pension;
+                                            echo '$ '. number_format($pension);
                                         ?>
                                     </span>
                                 </div>
@@ -79,7 +79,7 @@
             <tr>
                 <td> <?php echo $ventas['alumno']; ?> </td>
                 <td> <?php echo $ventas['grado']; ?> </td>
-                <td> <?php echo $ventas['vtpension']; ?> </td>
+                <td> <?php echo '$ '. number_format($ventas['vtpension']); ?> </td>
                 <td>
                 <div class="d-grid gap-2">
                     <input type="button" class="btn btn-info" value="Reporte" onclick="detallepension('<?php echo $ventas['idalumno']?>')"></input>

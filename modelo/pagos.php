@@ -79,12 +79,12 @@
 
         public function pagopension($datos){
             $conexion = Conexion::conectar();
+            $fecha = date("Y-m-d");
             $sql = "UPDATE matriculas SET mat_fecpen = ?, mat_fecpropag = ?, id_tipopago = ? WHERE id_matricula = ?";
             $query = $conexion->prepare($sql);
-            $query->bind_param('ssii', $datos['fecpen'], $datos['fecpro'], $datos['idtippagou'], $datos['idmatriculau']);
+            $query->bind_param('ssii', $fecha, $datos['fecpro'], $datos['idtippagou'], $datos['idmatriculau']);
             $respuesta = $query->execute();
             if ($respuesta > 0) {
-                $fecha = date("Y-m-d");
                 $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_fecope) VALUES (?, ?, ?, ?, ?)";
                 $query = $conexion->prepare($crearfactura);
                 $tipag = 2;
@@ -93,7 +93,7 @@
                 $idfactura = $conexion->insert_id;
                 $insertauditoria = "INSERT INTO auditorias( id_operador, id_alumno, id_grado, aud_valor, id_tipopago, aud_mespro, aud_numdoc) VALUES(?, ?, ?, ?, ?, ?, ?)";
                 $query = $conexion->prepare($insertauditoria);
-                $query->bind_param("iiiisss",  $datos['idoperador'], $datos['idalumnou'],  $datos['idgradou'], $datos['pension'], $tipag, $datos['mesu'], $idfactura);
+                $query->bind_param("iiiisss",  $datos['idoperador'], $datos['idalumnou'],  $datos['idgradou'], $datos['pension'], $tipag, $datos['mes'], $idfactura);
                 $respuesta = $query->execute();
             }
             return $respuesta;

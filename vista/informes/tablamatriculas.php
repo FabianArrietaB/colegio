@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-9">
                 <div class="title">
-                    <h2>INFORME PENSION</h2>
+                    <h2>INFORME MATRICULAS</h2>
                 </div>
             </div>
             <div class="col-3">
@@ -48,7 +48,7 @@
                                         $sql=$conexion->query("SELECT SUM(mat_valmat) as 'matricula' from matriculas");
                                         $data = mysqli_fetch_array($sql);
                                         $matricula = $data['matricula'];
-                                        echo '$'. $matricula;
+                                        echo '$ '. number_format($matricula);
                                     ?>
                                     </span>
                                 </div>
@@ -78,7 +78,7 @@
             <tr>
                 <td> <?php echo $ventas['alumno']; ?> </td>
                 <td> <?php echo $ventas['grado']; ?> </td>
-                <td> <?php echo $ventas['valor']; ?> </td>
+                <td> <?php echo '$ '. number_format($ventas['valor']); ?> </td>
                 <td>
                     <div class="d-grid gap-2">
                         <input type="button" class="btn btn-info" value="Reporte" onclick="detallematricula('<?php echo $ventas['idalumno']?>')"></input>

@@ -84,17 +84,13 @@
 												echo $rw_producto['pro_nombre'];
 											} else {
 												if ($rw_factura['id_tippag'] == 1) { ?>
-													<span>ABONO MATRICULA</span>
+													<span>PAGO MATRICULA</span>
 												<?php } else if ($rw_factura['id_tippag'] == 2) { ?>
-													<span>PAGO TOTAL MATRICULA</span>
-												<?php } else if ($rw_factura['id_tippag'] == 3) { ?>
-													<span>ABONO PENSION</span>
-												<?php } else if ($rw_factura['id_tippag'] == 4) { ?>
-													<span>PAGO TOTAL PENSION</span>
+													<span>PAGO PENSION</span>
 												<?php } ?>
 											<?php } ?>
 										</td>
-										<td class="price"> <?php echo number_format($total);?></td>
+										<td class="price">$ <?php echo number_format($total);?></td>
 									</tr>
 									<?php
 										$suma+= $total;

@@ -19,7 +19,7 @@
         FROM matriculas AS m
         INNER JOIN alumnos AS a ON m.id_alumno = a.id_alumno
         INNER JOIN grados AS g ON m.id_grado = g.id_grado
-        WHERE MONTH(m.mat_fecpropag) = MONTH(CURDATE())
+        WHERE m.mat_fecpropag BETWEEN MONTH(m.mat_fecpropag) AND  MONTH(CURDATE())
         ORDER BY m.mat_fecpen ASC";
     $query = mysqli_query($conexion, $sql);
 ?>
@@ -31,6 +31,7 @@
                 <th>Nombre Alumno</th>
                 <th>Grado</th>
                 <th>Valor Pension</th>
+
                 <th>Estado</th>
                 <th>Ultimo Pago</th>
                 <th>Dias Proximo Pago</th>
@@ -46,10 +47,10 @@
                 <td><?php echo $matriculas['nombre'];?></td>
                 <td><?php echo $matriculas['grado'];?></td>
                 <td><?php echo $matriculas['pension'];?></td>
-                <td><?php if ($matriculas['idtippago'] == 2) { ?>
-                        <span class="badge text-bg-success">PAGO TOTAL</span>
-                    <?php } else { ?>
+                <td><?php if ($matriculas['idtippago'] == 0) { ?>
                         <span class="badge text-bg-danger">NO REGISTRA PAGO</span>
+                    <?php } else if ($matriculas['idtippago'] == 2)  { ?>
+                        <span class="badge text-bg-success">PAGO TOTAL</span>
                     <?php } ?>
                 </td>
 

@@ -59,7 +59,6 @@ function detallepension(idmatricula){
             $('#nomalu').val(respuesta['nomaluu']);
             $('#grado').val(respuesta['gradou']);
             $('#pensionu').val(respuesta['pension']);
-            $('#salpenu').val(respuesta['salpen']);
         }
     });
 }

@@ -7,7 +7,6 @@
         "idgradou"    => $_POST['idgradou'],
         'mes'         => $_POST['mesu'],
         'pension'     => $_POST['pensionu'],
-        'fecpen'      => $_POST['fecpenu'],
         'fecpro'      => $_POST['fecpro'],
     );
     include "../../modelo/pagos.php";

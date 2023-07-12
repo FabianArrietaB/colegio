@@ -70,7 +70,7 @@
             <tr>
                 <td> <?php echo $productos['nombre']; ?> </td>
                 <td> <?php echo $productos['catego']; ?></td>
-                <td> <?php echo $productos['precio']; ?></td>
+                <td> <?php echo '$ '. number_format($productos['precio']); ?></td>
                 <td>
                     <?php
                         if ($productos['estado'] == 0) {

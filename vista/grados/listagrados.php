@@ -83,8 +83,8 @@
                         <?php echo $grados['nompro']; ?>
                     <?php } ?>
                 </td>
-                <td> <?php echo $grados['matric']; ?></td>
-                <td> <?php echo $grados['pensio']; ?></td>
+                <td> <?php echo '$ '. number_format($grados['matric']); ?></td>
+                <td> <?php echo '$ '. number_format($grados['pensio']); ?></td>
                 <td>
                 <?php
                     if ($grados['estado'] == 0) {

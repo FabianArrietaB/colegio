@@ -15,7 +15,7 @@ au.id_tipopago as tippag,
 a.alu_nombre  as alumno,
 g.gra_nombre  as grado,
 au.aud_valor  as precio,
-MONTH(au.aud_fecope) as mes,
+au.aud_mespro as mes,
 au.aud_fecope  as fecope
 FROM auditorias AS au
 LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
@@ -101,29 +101,29 @@ foreach ($query as $row) {
                                                 </td>
                                                 <td><?php echo '$ '. number_format($value['precio']); ?></td>
                                                 <td>
-                                                    <?php if ($ventas['mes'] == 1) { ?>
+                                                    <?php if ($value['mes'] == 1) { ?>
                                                         <h5><span >Enero</span></h5>
-                                                    <?php } else if ($ventas['mes'] == 2) { ?>
+                                                    <?php } else if ($value['mes'] == 2) { ?>
                                                         <h5><span >Febrero</span></h5>
-                                                        <?php } else if ($ventas['mes'] == 3) { ?>
+                                                        <?php } else if ($value['mes'] == 3) { ?>
                                                         <h5><span >Marzo</span></h5>
-                                                        <?php } else if ($ventas['mes'] == 4) { ?>
+                                                        <?php } else if ($value['mes'] == 4) { ?>
                                                         <h5><span >Abril</span></h5>
-                                                        <?php } else if ($ventas['mes'] == 5) { ?>
+                                                        <?php } else if ($value['mes'] == 5) { ?>
                                                         <h5><span >Mayo</span></h5>
-                                                        <?php } else if ($ventas['mes'] == 6) { ?>
+                                                        <?php } else if ($value['mes'] == 6) { ?>
                                                         <h5><span >Junio</span></h5>
-                                                        <?php } else if ($ventas['mes'] == 7) { ?>
+                                                        <?php } else if ($value['mes'] == 7) { ?>
                                                         <h5><span >Julio</span></h5>
-                                                        <?php } else if ($ventas['mes'] == 8) { ?>
+                                                        <?php } else if ($value['mes'] == 8) { ?>
                                                         <h5><span >Agosto</span></h5>
-                                                        <?php } else if ($ventas['mes'] == 9) { ?>
+                                                        <?php } else if ($value['mes'] == 9) { ?>
                                                         <h5><span >Septiembre</span></h5>
-                                                        <?php } else if ($ventas['mes'] == 10) { ?>
+                                                        <?php } else if ($value['mes'] == 10) { ?>
                                                         <h5><span >Octubre</span></h5>
-                                                        <?php } else if ($ventas['mes'] == 11) { ?>
+                                                        <?php } else if ($value['mes'] == 11) { ?>
                                                         <h5><span >Noviembre</span></h5>
-                                                        <?php } else if ($ventas['mes'] == 12) { ?>
+                                                        <?php } else if ($value['mes'] == 12) { ?>
                                                         <h5><span >Diciembre</span></h5>
                                                     <?php } ?>
                                                 </td>

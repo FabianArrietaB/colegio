@@ -34,12 +34,6 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="mb-3">
-                                <label class="form-label">Fecha Operacion</label>
-                                    <input type="date" id="fecpenu" name="fecpenu" class="form-control input-sm" placeholder="Fecha Nacimiento">
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="mb-3">
                                     <label class="form-label">Valor Pension</label>
                                     <input type="text" id="pensionu" name="pensionu" class="form-control input-sm" readonly>
                                 </div>
@@ -47,17 +41,17 @@
                             <div class="col-3">
                                 <div class="mb-3">
                                     <label class="form-label">Mes Pension</label>
-                                    <select name="mes" id="mes" class="form-control">
+                                    <select name="mesu" id="mesu" class="form-control">
                                         <option value="">MES</option>
-                                        <option value="01">ENERO</option>
-                                        <option value="02">FEBRERO</option>
-                                        <option value="03">MARZO</option>
-                                        <option value="04">ABRIL</option>
-                                        <option value="05">MAYO</option>
-                                        <option value="06">JUNIO</option>
-                                        <option value="07">JULIO</option>
-                                        <option value="08">AGOSTO</option>
-                                        <option value="09">SEPTIEMBRE</option>
+                                        <option value="1">ENERO</option>
+                                        <option value="2">FEBRERO</option>
+                                        <option value="3">MARZO</option>
+                                        <option value="4">ABRIL</option>
+                                        <option value="5">MAYO</option>
+                                        <option value="6">JUNIO</option>
+                                        <option value="7">JULIO</option>
+                                        <option value="8">AGOSTO</option>
+                                        <option value="9">SEPTIEMBRE</option>
                                         <option value="10">OCTUBRE</option>
                                         <option value="11">NOVIEMBRE</option>
                                         <option value="12">DICIEMBRE</option>

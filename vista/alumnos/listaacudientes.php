@@ -1,5 +1,6 @@
 <?php
     session_start();
+    
     if ($_SESSION['usuario']['rol'] == 4) {
         $filtro = '';
         if(isset($_GET['filtro'])){

@@ -21,7 +21,7 @@
         g.gra_nombre  as grado,
         au.id_tipopago as tippag,
         au.aud_numdoc as idfacturas,
-        au.aud_abono  as valor,
+        au.aud_valor as valor,
         au.aud_fecope  as fecope
         FROM auditorias AS au
         LEFT JOIN alumnos as a ON a.id_alumno = au.id_alumno
@@ -178,7 +178,7 @@
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 20px">
                                                 <?php
-                                                        $sql=$conexion->query("SELECT SUM(mat_valmat) as 'matricula' from matriculas WHERE mat_saldo = 0");
+                                                        $sql=$conexion->query("SELECT SUM(mat_valmat) as 'matricula' from matriculas");
                                                         $data = mysqli_fetch_array($sql);
                                                         $matricula = $data['matricula'];
                                                         echo '$'. $matricula;
@@ -204,7 +204,7 @@
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 20px">
                                                 <?php
-                                                        $sql=$conexion->query("SELECT SUM(aud_valor) as 'pension' from auditorias WHERE id_tipopago = 4");
+                                                        $sql=$conexion->query("SELECT SUM(aud_valor) as 'pension' from auditorias WHERE id_tipopago = 2");
                                                         $data = mysqli_fetch_array($sql);
                                                         $pension = $data['pension'];
                                                         echo '$'. $pension;

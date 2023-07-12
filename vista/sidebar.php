@@ -7,9 +7,9 @@
       <li>
         <a href="dashboard.php">
           <i class="bx bx-grid-alt"></i>
-            <span class="link_name">Inicio</span>
+            <span class="link_name">Menu</span>
         </a>
-        <span class="tooltip">Inicio</span>
+        <span class="tooltip">Menu</span>
       </li>
       <?php if($_SESSION['usuario']['rol'] == 1) {?>
       
@@ -65,6 +65,13 @@
       </li>
       <?php } else if($_SESSION['usuario']['rol'] == 4){?>
       <li>
+        <a href="inicio.php">
+          <i class='bx bx-home-alt-2'></i>
+          <span class="link_name">Inicio</span>
+        </a>
+        <span class="tooltip">Inicio</span>
+      </li>
+        <li>
         <a href="alumnos.php">
           <i class="bx bx-user"></i>
           <span class="link_name">Alumnos</span>
