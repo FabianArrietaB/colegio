@@ -12,14 +12,15 @@ a.alu_direcc  as direcc,
 a.alu_telcel  as telcel,
 a.alu_fecope  as fecmat,
 au.id_tipopago as tippag,
+au.aud_valor  as precio,
 a.alu_nombre  as alumno,
 g.gra_nombre  as grado,
-au.aud_abono  as abono,
+MONTH(au.aud_fecope) as mes,
 au.aud_fecope  as fecope
 FROM auditorias AS au
 LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
 LEFT JOIN grados AS g ON au.id_grado = g.id_grado
-WHERE au.id_tipopago IN (1 , 2) AND au.id_alumno = '$idalumno'";
+WHERE au.id_tipopago = 1  AND au.id_alumno = '$idalumno'";
 $arrayDetalle = array();
 $query = mysqli_query($conexion, $sql);
 foreach ($query as $row) {
@@ -80,25 +81,50 @@ foreach ($query as $row) {
                                     <tr>
                                         <th scope="col" >Producto</th>
                                         <th scope="col" >Precio</th>
+                                        <th scope="col" >Mes</th>
                                         <th scope="col" >Fecha</th>
                                     </tr>
                                 </thead>
                                 <tbody">
                                 <?php
-                                   
                                     if (count($arrayDetalle) > 0) {
                                         foreach ($arrayDetalle as $c => $value) {
                                             ?>
                                             <tr>
                                                 <td>
                                                 <?php if ($value['tippag'] == 1) { ?>
-                                                    <span>ABONO MATRICULA</span>
-                                                <?php } else { ?>
                                                     <span>PAGO TOTAL MATRICULA</span>
                                                 <?php }
                                                 ?>
                                                 </td>
-                                                <td><?php echo $value['abono']; ?></td>
+                                                <td><?php echo $value['precio']; ?></td>
+                                                <td>
+                                                    <?php if ($value['mes'] == 1) { ?>
+                                                    <h5><span >Enero</span></h5>
+                                                    <?php } else if ($value['mes'] == 2) { ?>
+                                                    <h5><span >Febrero</span></h5>
+                                                    <?php } else if ($value['mes'] == 3) { ?>
+                                                    <h5><span >Marzo</span></h5>
+                                                    <?php } else if ($value['mes'] == 4) { ?>
+                                                    <h5><span >Abril</span></h5>
+                                                    <?php } else if ($value['mes'] == 5) { ?>
+                                                    <h5><span >Mayo</span></h5>
+                                                    <?php } else if ($value['mes'] == 6) { ?>
+                                                    <h5><span >Junio</span></h5>
+                                                    <?php } else if ($value['mes'] == 7) { ?>
+                                                    <h5><span >Julio</span></h5>
+                                                    <?php } else if ($value['mes'] == 8) { ?>
+                                                    <h5><span >Agosto</span></h5>
+                                                    <?php } else if ($value['mes'] == 9) { ?>
+                                                    <h5><span >Septiembre</span></h5>
+                                                    <?php } else if ($value['mes'] == 10) { ?>
+                                                    <h5><span >Octubre</span></h5>
+                                                    <?php } else if ($value['mes'] == 11) { ?>
+                                                    <h5><span >Noviembre</span></h5>
+                                                    <?php } else if ($value['mes'] == 12) { ?>
+                                                    <h5><span >Diciembre</span></h5>
+                                                <?php } ?>
+                                                </td>
                                                 <td><?php echo $value['fecope']; ?></td>
                                             </tr>
                                             <?php

@@ -15,12 +15,12 @@
         a.alu_nombre  as alumno,
         g.gra_nombre  as grado,
         au.aud_valor  as valor,
-        SUM(if(au.id_tipopago = 3 || au.id_tipopago = 4, au.aud_abono, 0)) as vtpension,
+        SUM(if(au.id_tipopago = 2, au.aud_valor, 0)) as vtpension,
         au.aud_fecope  as fecope
         FROM auditorias AS au
         LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
         LEFT JOIN grados AS g ON au.id_grado = g.id_grado
-        WHERE au.id_tipopago = 3 || au.id_tipopago = 4
+        WHERE au.id_tipopago = 2
         AND a.alu_nombre LIKE '%$filtro%'|| a.alu_docume LIKE '%$filtro%'|| g.gra_nombre LIKE '%$filtro%'
         GROUP BY au.id_alumno
         ORDER BY au.id_auditoria ASC";

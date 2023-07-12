@@ -6,13 +6,11 @@
     $idusuario = $_SESSION['usuario']['id'];
     $sql = "SELECT
         m.id_matricula AS idmatricula,
-        m.mat_saldo AS saldo,
-        m.id_tippagpen AS idtippago,
-        m.mat_pensio AS pension,
-        m.mat_salpen AS salpen,
-        m.mat_fecope AS fecha,
-        m.id_alumno AS idalumno,
-        m.mat_fecpen AS fecpen,
+        m.id_tipopago  AS idtippago,
+        m.mat_pensio   AS pension,
+        m.mat_fecope   AS fecha,
+        m.id_alumno    AS idalumno,
+        m.mat_fecpen   AS fecpen,
         m.mat_fecpropag AS fecpro,
         DATEDIFF(m.mat_fecpropag,CURDATE()) AS diffDays,
         a.alu_nombre AS nombre,
@@ -33,7 +31,6 @@
                 <th>Nombre Alumno</th>
                 <th>Grado</th>
                 <th>Valor Pension</th>
-                <th>Saldo Anterior</th>
                 <th>Estado</th>
                 <th>Ultimo Pago</th>
                 <th>Dias Proximo Pago</th>
@@ -49,13 +46,10 @@
                 <td><?php echo $matriculas['nombre'];?></td>
                 <td><?php echo $matriculas['grado'];?></td>
                 <td><?php echo $matriculas['pension'];?></td>
-                <td><?php echo $matriculas['salpen'];?></td>
-                <td><?php if ($matriculas['idtippago'] == 0) { ?>
-                        <span class="badge text-bg-danger">NO REGISTRA PAGO</span>
-                    <?php } else if ($matriculas['idtippago'] == 3)  { ?>
-                        <span class="badge text-bg-warning">ABONO PENSION</span>
-                    <?php } else if ($matriculas['idtippago'] == 4)  { ?>
+                <td><?php if ($matriculas['idtippago'] == 2) { ?>
                         <span class="badge text-bg-success">PAGO TOTAL</span>
+                    <?php } else { ?>
+                        <span class="badge text-bg-danger">NO REGISTRA PAGO</span>
                     <?php } ?>
                 </td>
 

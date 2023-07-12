@@ -362,7 +362,6 @@ fieldset.group-border {
   flex: 1 1 auto !important;
   width: 1% !important;
   min-width: 0 !important;
-  text-transform: uppercase !important;
 }
 
 /*ACORION*/
