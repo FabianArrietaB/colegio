@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-06-2023 a las 16:13:30
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 13-07-2023 a las 00:04:03
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,6 +45,14 @@ CREATE TABLE `acudientes` (
   `acu_fecupd` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `acudientes`
+--
+
+INSERT INTO `acudientes` (`id_acudiente`, `id_alumno`, `id_operador`, `acu_nombre`, `acu_cladoc`, `acu_docume`, `acu_ciudad`, `acu_direcc`, `acu_estrat`, `acu_telcel`, `acu_correo`, `acu_parent`, `acu_estado`, `acu_fecope`, `acu_fecupd`) VALUES
+(1, 1, 1, 'ANGIE MICHELLE BOLAÑOS GRANADOZ', 'CEDULA', '1002155187', 'BARRANQUILLA', 'CARRERA 8E # 41 - 27', '3', '3024589632', 'SAGIAN@GMAIL.COM', 'MADRE', 1, '2023-07-12 21:39:34', '2023-07-12 21:39:34'),
+(2, 1, 1, 'FABIAN ANDRES ARRIETA BLANCO', 'CEDULA', '1045689945', 'SANTA MARTA', 'CALLE 43 # 27 - 116', '3', '30245879632', 'F.ARRIETA@OUTLOOK.ES', 'PADRE', 1, '2023-07-12 21:39:34', '2023-07-12 21:39:34');
+
 -- --------------------------------------------------------
 
 --
@@ -73,6 +81,13 @@ CREATE TABLE `alumnos` (
   `alu_fecupd` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `alumnos`
+--
+
+INSERT INTO `alumnos` (`id_alumno`, `id_grado`, `id_operador`, `id_usuario`, `alu_nombre`, `alu_cladoc`, `alu_docume`, `alu_sexo`, `alu_gposan`, `alu_factrh`, `alu_ciudad`, `alu_direcc`, `alu_estrat`, `alu_telcel`, `alu_correo`, `alu_estado`, `alu_fecnac`, `alu_fecope`, `alu_fecupd`) VALUES
+(1, 1, 1, 9, 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'TARJETA IDENTIDAD', '1043698754', 'FEMENINO', 'O', 'POSITIVO', 'BARRANQUILLA', 'CARRERA 8E # 41 - 27', '3', '3024589632', 'MARRIETA@GMAIL.COM', 1, '2021-10-14', '2023-07-12 21:39:34', '2023-07-12 21:39:34');
+
 -- --------------------------------------------------------
 
 --
@@ -85,11 +100,18 @@ CREATE TABLE `auditorias` (
   `id_alumno` int(11) NOT NULL,
   `id_grado` int(11) NOT NULL,
   `id_tipopago` int(11) NOT NULL,
+  `aud_mespro` int(11) DEFAULT NULL,
   `aud_numdoc` varchar(45) NOT NULL,
   `aud_valor` varchar(45) NOT NULL,
-  `aud_abono` varchar(45) NOT NULL,
   `aud_fecope` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `auditorias`
+--
+
+INSERT INTO `auditorias` (`id_auditoria`, `id_operador`, `id_alumno`, `id_grado`, `id_tipopago`, `aud_mespro`, `aud_numdoc`, `aud_valor`, `aud_fecope`) VALUES
+(1, 1, 1, 1, 1, NULL, '1', '1200000', '2023-07-12 21:39:34');
 
 -- --------------------------------------------------------
 
@@ -169,6 +191,13 @@ CREATE TABLE `facturas` (
   `fac_fecope` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `facturas`
+--
+
+INSERT INTO `facturas` (`id_facturas`, `id_operador`, `id_alumno`, `id_acudiente`, `id_producto`, `id_tippag`, `fac_prefijo`, `fac_cantidad`, `fac_valor`, `fac_detalle`, `fac_fecope`) VALUES
+(1, 1, 1, 0, 0, 1, 'GAV', '1', '1200000', '', '2023-07-12');
+
 -- --------------------------------------------------------
 
 --
@@ -188,6 +217,13 @@ CREATE TABLE `grados` (
   `gra_fecupd` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `grados`
+--
+
+INSERT INTO `grados` (`id_grado`, `id_empleado`, `id_operador`, `gra_nombre`, `gra_matric`, `gra_pensio`, `gra_canalu`, `gra_estado`, `gra_fecope`, `gra_fecupd`) VALUES
+(1, 0, 1, 'TRANSICION', '1200000', '580000', 30, 1, '2023-07-12 19:17:50', '2023-07-12 19:17:50');
+
 -- --------------------------------------------------------
 
 --
@@ -200,17 +236,21 @@ CREATE TABLE `matriculas` (
   `id_grado` int(11) NOT NULL,
   `id_operador` int(11) NOT NULL,
   `id_tipopago` int(11) NOT NULL,
-  `id_tippagpen` int(11) NOT NULL,
   `mat_numdoc` varchar(45) NOT NULL,
   `mat_valmat` varchar(45) NOT NULL,
   `mat_pensio` varchar(45) NOT NULL,
-  `mat_saldo` varchar(45) NOT NULL,
-  `mat_salpen` varchar(45) NOT NULL,
   `mat_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
   `mat_fecmat` timestamp NOT NULL DEFAULT current_timestamp(),
   `mat_fecpen` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `mat_fecpropag` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `matriculas`
+--
+
+INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `id_operador`, `id_tipopago`, `mat_numdoc`, `mat_valmat`, `mat_pensio`, `mat_fecope`, `mat_fecmat`, `mat_fecpen`, `mat_fecpropag`) VALUES
+(1, 1, 1, 1, 1, '', '1200000', '580000', '2023-07-12 21:39:34', '2023-07-12 21:39:34', '2023-07-12 21:39:34', '2023-07-12 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -290,6 +330,13 @@ CREATE TABLE `productos` (
   `pro_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
   `pro_fecupd` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id_producto`, `id_categoria`, `id_operador`, `pro_nombre`, `pro_precio`, `pro_estado`, `pro_fecope`, `pro_fecupd`) VALUES
+(1, 1, 1, 'ACTA GRADO', '65000', 1, '2023-07-12 19:18:10', '2023-07-12 19:18:10');
 
 -- --------------------------------------------------------
 
@@ -407,7 +454,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_operador`, `id_sede`, `user_usuario`, `user_nombre`, `user_contra`, `user_correo`, `user_estado`, `user_fecope`, `user_fecupd`) VALUES
-(1, 4, 1, 1, 'ADMIN', 'ADMINISTRADOR', '202cb962ac59075b964b07152d234b70', 'ADMIN@GMAIL.COM', 1, '2023-06-11 05:00:00', '2023-06-12 14:12:46');
+(1, 4, 1, 1, 'ADMIN', 'ADMINISTRADOR', '202cb962ac59075b964b07152d234b70', 'ADMIN@GMAIL.COM', 1, '2023-06-11 05:00:00', '2023-06-12 14:12:46'),
+(2, 1, 1, 1, 'MARRIETA', 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'd41d8cd98f00b204e9800998ecf8427e', 'MARRIETA@GMAIL.COM', 0, '2023-07-11 22:00:57', '2023-07-12 18:01:38');
 
 -- --------------------------------------------------------
 
@@ -539,19 +587,19 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `acudientes`
 --
 ALTER TABLE `acudientes`
-  MODIFY `id_acudiente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_acudiente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `auditorias`
 --
 ALTER TABLE `auditorias`
-  MODIFY `id_auditoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_auditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -569,19 +617,19 @@ ALTER TABLE `empleados`
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
-  MODIFY `id_facturas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_facturas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `grados`
 --
 ALTER TABLE `grados`
-  MODIFY `id_grado` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_grado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  MODIFY `id_matricula` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `pais`
@@ -599,7 +647,7 @@ ALTER TABLE `parafiscales`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -629,7 +677,7 @@ ALTER TABLE `tmp`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

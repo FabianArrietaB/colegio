@@ -31,7 +31,6 @@
                 <th>Nombre Alumno</th>
                 <th>Grado</th>
                 <th>Valor Pension</th>
-
                 <th>Estado</th>
                 <th>Ultimo Pago</th>
                 <th>Dias Proximo Pago</th>

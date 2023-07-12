@@ -275,10 +275,14 @@
                             <a name="" id="pagosbtn" class="btn btn-primary" href="#" role="button">MATRICULAS</a>
                         </div> -->
                         <div class="col-6">
-                            <a name="" id="facturasbtn" class="btn btn-primary" href="#" role="button">FACTURAS</a>
+                            <div class="d-grid gap-2">
+                                <a name="" id="facturasbtn" class="btn btn-primary" href="#" role="button">FACTURAS</a>
+                            </div>
                         </div>
                         <div class="col-6">
-                            <a name="" id="pensionbt" class="btn btn-primary" href="#" role="button">PENSION</a>
+                            <div class="d-grid gap-2">
+                                <a name="" id="pensionbt" class="btn btn-primary" href="#" role="button">PENSION</a>
+                            </div>
                         </div>
                     </div>
                     <div class="row">

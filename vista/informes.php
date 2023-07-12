@@ -20,17 +20,23 @@
                 </div>
                 <div class="card-body">
                     <div class="row text-center mb-2">
-                        <div class="col-3">
-                            <a name="" id="ventasbtn" class="btn btn-primary" href="#" role="button">VENTAS</a>
+                        <div class="col-4">
+                            <div class="d-grid gap-2">
+                                <a name="" id="ventasbtn" class="btn btn-primary" href="#" role="button">VENTAS</a>
+                            </div>
                         </div>
-                        <div class="col-3">
-                            <a name="" id="pensionbtn" class="btn btn-primary" href="#" role="button">PENSION</a>
+                        <div class="col-4">
+                            <div class="d-grid gap-2">
+                                <a name="" id="pensionbtn" class="btn btn-primary" href="#" role="button">PENSION</a>
+                            </div>
                         </div>
-                        <div class="col-3">
+                        <!-- <div class="col-3">
                             <a name="" id="matriculasbtn" class="btn btn-primary" href="#" role="button">MATRICULAS</a>
-                        </div>
-                        <div class="col-3">
-                            <a name="" id="facturasbtn" class="btn btn-primary" href="#" role="button">FACTURAS</a>
+                        </div> -->
+                        <div class="col-4">
+                            <div class="d-grid gap-2">
+                                <a name="" id="facturasbtn" class="btn btn-primary" href="#" role="button">FACTURAS</a>
+                            </div>
                         </div>
                     </div>
                 </div>
