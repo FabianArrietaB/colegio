@@ -58,7 +58,7 @@
 								<br><strong>Fecha: </strong><?php echo $rw_factura['fac_fecope'];?>
 								<br><strong>Factura Nº: </strong> <?php echo $rw_factura['fac_prefijo'], ' - ', $rw_factura['id_facturas'];?> 
 							</p>
-							<p>
+							<p class="centered">
 								<strong>Cliente : </strong><?php echo $rw_alumno['alu_nombre'];?>
 								<br><strong>Dirección: </strong> <?php echo $rw_alumno['alu_direcc'];?>
 								<br><strong>Telefono: </strong> <?php echo $rw_alumno['alu_telcel'];?>

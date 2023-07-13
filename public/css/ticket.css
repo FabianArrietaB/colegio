@@ -5,6 +5,8 @@
 }
 .table{
     margin-bottom: 1rem !important;
+    text-align: center !important;
+    align-content: center !important;
 }
 
 .modal-content {
