@@ -25,14 +25,14 @@
 	//Consulta Alumnos
 	$idalumno = $rw_factura['id_alumno'];
 	$sql_alumno = "select * from alumnos Where id_alumno = '$idalumno'";
-	$query3 = mysqli_query($conexion, $sql_alumno);
-	$rw_alumno = mysqli_fetch_array($query3);
+	$query4 = mysqli_query($conexion, $sql_alumno);
+	$rw_alumno = mysqli_fetch_array($query4);
 
 	//Consulta Productos
 	$idproducto = $rw_factura['id_producto'];
 	$sql_prducto = "select * from productos Where id_producto = '$idproducto'";
-	$query4 = mysqli_query($conexion, $sql_prducto);
-	$rw_producto = mysqli_fetch_array($query4);
+	$query5 = mysqli_query($conexion, $sql_prducto);
+	$rw_producto = mysqli_fetch_array($query5);
 
 ?>
 <div class="modal fade" id="factura" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
@@ -98,12 +98,16 @@
 										//$detalle = mysqli_query($con,"INSERT INTO `detalle` (`id`, `descripcion`, `cantidad`, `precio`, `id_factura`) VALUES (NULL, '".$row['pro_nombre']."', '".$row['pro_estado']."', '".$row['pro_precio']."', '$numero');");
 									?>
 									<tr>
+									<br>
 										<th class="price totales both_border" colspan=3> TOTAL PAGO  $ <?php echo number_format($total);?></th>
 									</tr>
 								</tbody>
 							</table>
-							<p class="centered">Gracias por su compra!
-							<br>www.gimnasiolasamericas.com</p>
+							<p class="centered">
+								Gracias por su compra!
+								<br>
+								www.gimnasiolasamericas.com
+							</p>
 						</div>
 					</body>
 				</html>
