@@ -16,6 +16,8 @@
 				<div class="textoddd">SOFTWARE EDUCATIVO</div>
 			</div>
 			<br>
+			<br>
+			<br>
 			<div class="box-container">
 				<a href="inicio.php">
 					<div class="box box1">
@@ -33,9 +35,6 @@
 						<i class="fa-solid fa-graduation-cap fa-2x" style="color: #ffffff;"></i>
 					</div>
 				</a>
-			</div>
-            <br><br>
-			<div class="box-container">
 				<a href="empleados.php">
 					<div class="box box1">
 						<div class="text">
@@ -52,6 +51,9 @@
 						<i class="fa-solid fa-list-check fa-2x" style="color: #ffffff;"></i>
 					</div>
 				</a>
+			</div>
+            <br><br>
+			<div class="box-container">
 				<a href="informes.php">
 					<div class="box box1">
 						<div class="text">
@@ -60,10 +62,6 @@
 						<i class="fa-solid fa-file-invoice fa-2x" style="color: #ffffff;"></i>
 					</div>
 				</a>
-			</div>
-            <br>
-			<br>
-			<div class="box-container">
 				<a href="grados.php">
 					<div class="box box1">
 						<div class="text">
@@ -90,6 +88,12 @@
 				</a>
 			</div>
             <br>
+			<br><br>
+			<div class="box-container">
+				<div class="textoddd"><div class="logo_name"><?php echo 'BIENVENIDO '. $_SESSION['usuario']['nombre'];?></div></div>
+			</div>
+			<br>
+			<br>
 			<br>
 			<div class="box-container">
 				<a href="../controlador/usuarios/salir.php">
@@ -97,10 +101,6 @@
 					<i class="fa-solid fa-right-from-bracket fa-2x" style="color: #ffffff;"></i>
 					</div>
 				</a>
-			</div>
-			<br>
-			<div class="box-container">
-				<div class="textoddd"><div class="logo_name"><?php echo 'BIENVENIDO '. $_SESSION['usuario']['nombre'];?></div></div>
 			</div>
 			
 <?php }else{
