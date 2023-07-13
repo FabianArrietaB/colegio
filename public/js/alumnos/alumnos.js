@@ -2,15 +2,6 @@ $(document).ready(function(){
     $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
 });
 
-//FILTRAR
-$(document).ready(function(){
-    setInterval(
-        function(){
-            const filtro = $('#filtro').val()
-            $('#Recargar').load('alumnos/listaalumnos.php?filtro='+filtro);
-        },2000
-    );
-});
 
 
 //CONSULTAR VALOR GRADO
@@ -175,13 +166,13 @@ function editaralumno(){
     return false;
 }
 
-$("#datos_factura").submit(function(){
-    var idalumno = $("#cliente").val();
-    if (idalumno>0){
-        window.open('../../../ticket.php?idalumno='+idalumno);
-    } else {
-        alert("Selecciona el alumno");
-        return false;
-    }
-});
+
+function padres(idalumno){
+    $('#conte-modal-padres').load('alumnos/listaacudientes.php?idalumno='+idalumno, function(){
+        $('#acudientes').modal("show");
+        
+    });
+}
+
+
 

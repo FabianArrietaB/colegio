@@ -33,14 +33,6 @@
 						<i class="fa-solid fa-graduation-cap fa-2x" style="color: #ffffff;"></i>
 					</div>
 				</a>
-				<a href="acudientes.php">
-					<div class="box box1">
-						<div class="text">
-							<h2 class="topic">ACUDIENTES</h2>
-						</div>
-						<i class="fa-solid fa-user-group fa-2x" style="color: #ffffff;"></i>
-					</div>
-				</a>
 			</div>
             <br><br>
 			<div class="box-container">

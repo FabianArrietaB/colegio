@@ -36,11 +36,13 @@
 <!-- por ultimo se carga el footer -->
 <?php
 include "alumnos/crearalumno.php";
+include "alumnos/editaracudiente.php";
 include "alumnos/editaralumno.php";
 include "footer.php";
 ?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/alumnos/alumnos.js"></script>
+<script src="../public/js/alumnos/acudientes.js"></script>
 
 <?php
     }else{

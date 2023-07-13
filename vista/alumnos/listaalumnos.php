@@ -1,10 +1,6 @@
 <?php
     session_start();
     if ($_SESSION['usuario']['rol'] == 4) {
-        $filtro = '';
-        if(isset($_GET['filtro'])){
-            $filtro = $_GET['filtro'];
-        }
         include "../../modelo/conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
@@ -27,8 +23,6 @@
             g.gra_nombre as grado
         FROM alumnos as a
         LEFT JOIN grados as g ON a.id_grado = g.id_grado
-        WHERE a.alu_nombre
-        LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' ||  a.alu_docume LIKE '%$filtro%'
         ORDER BY a.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     } else {
@@ -58,7 +52,6 @@
             FROM alumnos as a
             INNER JOIN grados as g ON a.id_grado = g.id_grado
             WHERE a.alu_estado = 1
-            AND LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' ||  a.alu_docume LIKE '%$filtro%'
             ORDER BY a.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     }
@@ -84,7 +77,7 @@
         <tbody>
         <?php while ($alumnos = mysqli_fetch_array($query)) { ?>
             <tr>
-                <td> <?php echo $alumnos['nombre']; ?> </td>
+                <td onclick="padres('<?php echo $alumnos['idalumno']?>')"> <?php echo $alumnos['nombre']; ?> </td>
                 <td> <?php echo $alumnos['grado']; ?></td>
                 <td> <?php echo $alumnos['direcc']; ?></td>
                 <td> <?php echo $alumnos['telcel']; ?></td>
