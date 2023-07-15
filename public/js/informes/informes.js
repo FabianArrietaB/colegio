@@ -72,10 +72,21 @@ function imprimir(){
 
 function obtenergrado(){
     var grado = $('#grado').val();
-    console.log(grado)
+    //console.log(grado)
     $.ajax({
         method: 'GET',
     }).done(function(info) {
         $('#tablapension').load('informes/tablapension.php?grado='+grado);
+    })
+}
+
+
+function obtenergradoventas(){
+    var grado = $('#grado').val();
+    console.log(grado)
+    $.ajax({
+        method: 'GET',
+    }).done(function(info) {
+        $('#tablapension').load('informes/tablaventas.php?grado='+grado);
     })
 }
