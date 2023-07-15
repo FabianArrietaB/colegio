@@ -72,6 +72,7 @@ function imprimir(){
 
 function obtenergrado(){
     var grado = $('#grado').val();
+    console.log(grado)
     $.ajax({
         method: 'GET',
     }).done(function(info) {
