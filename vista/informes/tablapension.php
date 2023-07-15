@@ -5,25 +5,45 @@
     $grado = '';
     if(isset($_GET['grado'])){
         $grado = $_GET['grado'];
+        $conexion = $con->conectar();
+        $idusuario = $_SESSION['usuario']['id'];
+        $sql = "SELECT
+            au.id_auditoria as idpension,
+            au.id_alumno  as idalumno,
+            au.id_tipopago as tippag,
+            a.alu_nombre  as alumno,
+            g.gra_nombre  as grado,
+            au.aud_valor  as valor,
+            SUM(if(au.id_tipopago = 2, au.aud_valor, 0)) as vtpension,
+            au.aud_fecope  as fecope
+            FROM auditorias AS au
+            LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
+            LEFT JOIN grados AS g ON au.id_grado = g.id_grado
+            WHERE au.id_tipopago = 2 AND au.id_grado = '$grado'
+            GROUP BY au.id_alumno
+            ORDER BY au.id_auditoria ASC";
+        $query = mysqli_query($conexion, $sql);
+    } else {
+        $conexion = $con->conectar();
+        $idusuario = $_SESSION['usuario']['id'];
+        $sql = "SELECT
+            au.id_auditoria as idpension,
+            au.id_alumno  as idalumno,
+            au.id_tipopago as tippag,
+            a.alu_nombre  as alumno,
+            g.gra_nombre  as grado,
+            au.aud_valor  as valor,
+            SUM(if(au.id_tipopago = 2, au.aud_valor, 0)) as vtpension,
+            au.aud_fecope  as fecope
+            FROM auditorias AS au
+            LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
+            LEFT JOIN grados AS g ON au.id_grado = g.id_grado
+            WHERE au.id_tipopago = 2
+            GROUP BY au.id_alumno
+            ORDER BY au.id_auditoria ASC";
+        $query = mysqli_query($conexion, $sql);
     }
-    $conexion = $con->conectar();
-    $idusuario = $_SESSION['usuario']['id'];
-    $sql = "SELECT
-        au.id_auditoria as idpension,
-        au.id_alumno  as idalumno,
-        au.id_tipopago as tippag,
-        a.alu_nombre  as alumno,
-        g.gra_nombre  as grado,
-        au.aud_valor  as valor,
-        SUM(if(au.id_tipopago = 2, au.aud_valor, 0)) as vtpension,
-        au.aud_fecope  as fecope
-        FROM auditorias AS au
-        LEFT JOIN alumnos AS a ON au.id_alumno = a.id_alumno
-        LEFT JOIN grados AS g ON au.id_grado = g.id_grado
-        WHERE au.id_tipopago = 2 AND au.id_grado = '$grado'
-        GROUP BY au.id_alumno
-        ORDER BY au.id_auditoria ASC";
-    $query = mysqli_query($conexion, $sql);
+    
 ?>
 <!-- inicio Tabla -->
 <div class="card border-primary">

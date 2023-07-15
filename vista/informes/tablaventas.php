@@ -3,29 +3,52 @@
     $grado = '';
     if(isset($_GET['grado'])){
         $grado = $_GET['grado'];
+        include "../../modelo/conexion.php";
+        $con = new Conexion();
+        $conexion = $con->conectar();
+        $idusuario = $_SESSION['usuario']['id'];
+        $sql = "SELECT
+            v.id_venta    as idventa,
+            v.id_alumno   as idalumno,
+            a.alu_nombre  as alumno,
+            v.id_producto as idproducto,
+            p.pro_nombre  as producto,
+            g.gra_nombre  as grado,
+            v.ven_precio  as precio,
+            SUM(ven_precio) as vtventas,
+            v.ven_fecope  as fecope
+            FROM ventas AS v
+            LEFT JOIN alumnos AS a ON v.id_alumno = a.id_alumno
+            LEFT JOIN productos AS p ON v.id_producto = p.id_producto
+            LEFT JOIN grados AS g ON a.id_grado = g.id_grado
+            WHERE g.id_grado = '$grado'
+            GROUP BY v.id_alumno
+            ORDER BY v.id_venta ASC";
+        $query = mysqli_query($conexion, $sql);
+    }else{
+        include "../../modelo/conexion.php";
+        $con = new Conexion();
+        $conexion = $con->conectar();
+        $idusuario = $_SESSION['usuario']['id'];
+        $sql = "SELECT
+            v.id_venta    as idventa,
+            v.id_alumno   as idalumno,
+            a.alu_nombre  as alumno,
+            v.id_producto as idproducto,
+            p.pro_nombre  as producto,
+            g.gra_nombre  as grado,
+            v.ven_precio  as precio,
+            SUM(ven_precio) as vtventas,
+            v.ven_fecope  as fecope
+            FROM ventas AS v
+            LEFT JOIN alumnos AS a ON v.id_alumno = a.id_alumno
+            LEFT JOIN productos AS p ON v.id_producto = p.id_producto
+            LEFT JOIN grados AS g ON a.id_grado = g.id_grado
+            GROUP BY v.id_alumno
+            ORDER BY v.id_venta ASC";
+        $query = mysqli_query($conexion, $sql);
     }
-    include "../../modelo/conexion.php";
-    $con = new Conexion();
-    $conexion = $con->conectar();
-    $idusuario = $_SESSION['usuario']['id'];
-    $sql = "SELECT
-        v.id_venta    as idventa,
-        v.id_alumno   as idalumno,
-        a.alu_nombre  as alumno,
-        v.id_producto as idproducto,
-        p.pro_nombre  as producto,
-        g.gra_nombre  as grado,
-        v.ven_precio  as precio,
-        SUM(ven_precio) as vtventas,
-        v.ven_fecope  as fecope
-        FROM ventas AS v
-        LEFT JOIN alumnos AS a ON v.id_alumno = a.id_alumno
-        LEFT JOIN productos AS p ON v.id_producto = p.id_producto
-        LEFT JOIN grados AS g ON a.id_grado = g.id_grado
-        WHERE au.id_grado = '$grado'
-        GROUP BY v.id_alumno
-        ORDER BY v.id_venta ASC";
-    $query = mysqli_query($conexion, $sql);
+
 ?>
 <!-- inicio Tabla -->
 <div class="card border-primary">
