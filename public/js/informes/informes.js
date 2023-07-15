@@ -69,3 +69,12 @@ function imprimir(){
     factura.document.close();
     factura.print();
 }
+
+function obtenergrado(){
+    var grado = $('#grado').val();
+    $.ajax({
+        method: 'GET',
+    }).done(function(info) {
+        $('#tablapension').load('informes/tablapension.php?grado='+grado);
+    })
+}

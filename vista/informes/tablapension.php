@@ -25,7 +25,7 @@
 <div class="card border-primary">
     <div class="card-header text-center">
         <div class="row">
-            <div class="col-9">
+            <div class="col-7">
                 <div class="title">
                     <h2>INFORME PENSION</h2>
                 </div>
@@ -51,6 +51,21 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">GRADO</span>
+                    <select name="grado" id="grado" onchange="obtenergrado()" class="form-control input-sm">
+                        <option value="0">SELECCIONE GRADO</option>
+                        <?php
+                        $sql="SELECT g.id_grado as idgrado, g.gra_nombre as nombre FROM grados as g";
+                        $respuesta = mysqli_query($conexion, $sql);
+                        while($grados = mysqli_fetch_array($respuesta)) {
+                        ?>
+                            <option value="<?php echo $grados['idgrado']?>"><?php echo $grados['nombre'];?></option>
+                        <?php }?>
+                    </select>
                 </div>
             </div>
         </div>
