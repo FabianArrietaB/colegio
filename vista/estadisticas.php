@@ -248,7 +248,7 @@
                                     <td> <?php echo $ventas['grado']; ?> </td>
                                     <td> <?php echo $ventas['vendedor']; ?> </td>
                                     <td> <?php echo "GVA". ' - ' . $ventas['idfacturas']; ?> </td>
-                                    <td> <?php echo $ventas['valor']; ?> </td>
+                                    <td> <?php echo '$ '. number_format($ventas['valor']); ?> </td>
                                     <td> <?php echo $ventas['fecope']; ?> </td>
                                 </tr>
                                 <?php } ?>
