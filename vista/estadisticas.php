@@ -3,33 +3,10 @@
     include "sidebar.php";
     if(isset($_SESSION['usuario']) &&
     $_SESSION['usuario']['rol'] == 4){
-        $filtro = '';
-    if(isset($_GET['filtro'])){
-        $filtro = $_GET['filtro'];
-    }
     include "../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
     $idusuario = $_SESSION['usuario']['id'];
-    $sql = "SELECT
-        au.id_auditoria as idpension,
-        au.id_operador  as idoperador,
-        u.user_nombre as vendedor,
-        au.id_alumno  as idalumno,
-        a.alu_nombre  as alumno,
-        au.id_grado  as idgrado,
-        g.gra_nombre  as grado,
-        au.id_tipopago as tippag,
-        au.aud_numdoc as idfacturas,
-        au.aud_valor as valor,
-        au.aud_fecope  as fecope
-        FROM auditorias AS au
-        LEFT JOIN alumnos as a ON a.id_alumno = au.id_alumno
-        LEFT JOIN grados as g ON g.id_grado = au.id_grado
-        LEFT JOIN usuarios as u ON u.id_usuario = au.id_operador
-        WHERE a.alu_nombre LIKE '%$filtro%'|| a.alu_docume LIKE '%$filtro%' || g.gra_nombre LIKE '%$filtro%' || au.aud_numdoc LIKE '%$filtro%' || u.user_nombre LIKE '%$filtro%'
-        ORDER BY au.id_auditoria ASC";
-    $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
@@ -219,42 +196,48 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <form action="" method="GET">
-                            <input class="form-control me-xl-2" type="search" onkeyup="filtrar()" placeholder="Buscar" name="filtro" id="filtro">
-                        </form>
-                    </div>
                 </div>
                 <div class="card-body">
-                    <!-- inicio Tabla -->
-                    <div class="table-responsive justify-content-center">
-                        <table class="table table-light text-center" id="estadisticas">
-                            <thead>
-                                <tr>
-                                    <th scope="col" >Alumno</th>
-                                    <th scope="col" >Grado</th>
-                                    <th scope="col" >Vendedor</th>
-                                    <th scope="col" >Factura</th>
-                                    <th scope="col" >Precio</th>
-                                    <th scope="col" >Fecha</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                                while ($ventas = mysqli_fetch_array($query)){
-                            ?>
-                                <tr>
-                                    <td> <?php echo $ventas['alumno']; ?> </td>
-                                    <td> <?php echo $ventas['grado']; ?> </td>
-                                    <td> <?php echo $ventas['vendedor']; ?> </td>
-                                    <td> <?php echo "GVA". ' - ' . $ventas['idfacturas']; ?> </td>
-                                    <td> <?php echo '$ '. number_format($ventas['valor']); ?> </td>
-                                    <td> <?php echo $ventas['fecope']; ?> </td>
-                                </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
+                    <div class="card border-primary">
+                        <div class="card-header ">
+                            <div class="card mb-3">
+                                <div class="card-header bg-primary text-left text-white">Filtro de la Consulta</div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Fecha Operacion</label>
+                                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Fecha Operacion</label>
+                                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- inicio Tabla -->
+                        <div class="table-responsive justify-content-center">
+                            <table class="table table-light text-center" id="estadisticas">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" >Alumno</th>
+                                        <th scope="col" >Grado</th>
+                                        <th scope="col" >Vendedor</th>
+                                        <th scope="col" >Factura</th>
+                                        <th scope="col" >Precio</th>
+                                        <th scope="col" >Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
                 </div>
             </div>
         </div>

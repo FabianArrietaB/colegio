@@ -55,20 +55,17 @@ function detallepension(idalumno){
 }
 
 function detallefactura(idfacturas){
-    $('#conte-modal-factura').load('facturas/vistapreviafactura.php?idfacturas='+idfacturas, function(){
-        $('#factura').modal("show");
-        $('.modal-backdrop').remove()
-    });
+    window.open('facturas/factura.php?idfacturas='+idfacturas);
 }
 
-function imprimir(){
-    var factura = window.open("", "factura", "width=800, heigth=600");
-    factura.document.write("<style><link rel='stylesheet' href='../../css/ticket.css'></style></head><body>");
-    factura.document.write($("#conte-modal-factura").html());
-    factura.document.write("</body>");
-    factura.document.close();
-    factura.print();
-}
+// function imprimir(){
+//     var factura = window.open("", "factura", "width=800, heigth=600");
+//     factura.document.write("<style><link rel='stylesheet' href='../../css/ticket.css'></style></head><body>");
+//     factura.document.write($("#conte-modal-factura").html());
+//     factura.document.write("</body>");
+//     factura.document.close();
+//     factura.print();
+// }
 
 function obtenergrado(){
     var grado = $('#grado').val();
