@@ -85,10 +85,36 @@
             $query->bind_param('ssii', $fecha, $datos['fecpro'], $datos['idtippagou'], $datos['idmatriculau']);
             $respuesta = $query->execute();
             if ($respuesta > 0) {
-                $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_fecope) VALUES (?, ?, ?, ?, ?)";
+                $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_detalle, fac_fecope) VALUES (?, ?, ?, ?, ?)";
                 $query = $conexion->prepare($crearfactura);
                 $tipag = 2;
-                $query->bind_param("iiiss", $datos['idoperador'], $datos['idalumnou'], $tipag, $datos['pension'], $fecha);
+                if ($datos['mes'] == 1) {
+                    $mes = 'ENERO';
+                } else if ($datos['mes'] == 2) {
+                    $mes = 'FEBRERO';
+                } else if ($datos['mes'] == 3) {
+                    $mes = 'MARZO';
+                } else if ($datos['mes'] == 4) {
+                    $mes = 'ABRIL';
+                } else if ($datos['mes'] == 5) {
+                    $mes = 'MAYO';
+                } else if ($datos['mes'] == 6) {
+                    $mes = 'JUNIO';
+                } else if ($datos['mes'] == 7) {
+                    $mes = 'JULIO';
+                } else if ($datos['mes'] == 8) {
+                    $mes = 'AGOSTO';
+                } else if ($datos['mes'] == 9) {
+                    $mes = 'SEPTIEMBRE';
+                } else if ($datos['mes'] == 10) {
+                    $mes = 'OCTUBRE';
+                } else if ($datos['mes'] == 11) {
+                    $mes = 'NOVIEMBRE';
+                } else if ($datos['mes'] == 12) {
+                    $mes = 'DICIEMBRE';
+                }
+                $detalle = 'PAGO PENSION MES' . $mes;
+                $query->bind_param("iiiss", $datos['idoperador'], $datos['idalumnou'], $tipag, $datos['pension'], $detalle, $fecha);
                 $respuesta = $query->execute();
                 $idfactura = $conexion->insert_id;
                 $insertauditoria = "INSERT INTO auditorias( id_operador, id_alumno, id_grado, aud_valor, id_tipopago, aud_mespro, aud_numdoc) VALUES(?, ?, ?, ?, ?, ?, ?)";
