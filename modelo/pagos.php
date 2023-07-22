@@ -85,7 +85,7 @@
             $query->bind_param('ssii', $fecha, $datos['fecpro'], $datos['idtippagou'], $datos['idmatriculau']);
             $respuesta = $query->execute();
             if ($respuesta > 0) {
-                $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_detalle, fac_fecope) VALUES (?, ?, ?, ?, ?)";
+                $crearfactura = "INSERT INTO facturas (id_operador, id_alumno, id_tippag, fac_valor, fac_detalle, fac_fecope) VALUES (?, ?, ?, ?, ?, ?)";
                 $query = $conexion->prepare($crearfactura);
                 $tipag = 2;
                 if ($datos['mes'] == 1) {
@@ -113,8 +113,8 @@
                 } else if ($datos['mes'] == 12) {
                     $mes = 'DICIEMBRE';
                 }
-                $detalle = 'PAGO PENSION MES' . $mes;
-                $query->bind_param("iiiss", $datos['idoperador'], $datos['idalumnou'], $tipag, $datos['pension'], $detalle, $fecha);
+                $detalle = 'PAGO PENSION MES ' . $mes;
+                $query->bind_param("iiisss", $datos['idoperador'], $datos['idalumnou'], $tipag, $datos['pension'], $detalle, $fecha);
                 $respuesta = $query->execute();
                 $idfactura = $conexion->insert_id;
                 $insertauditoria = "INSERT INTO auditorias( id_operador, id_alumno, id_grado, aud_valor, id_tipopago, aud_mespro, aud_numdoc) VALUES(?, ?, ?, ?, ?, ?, ?)";
