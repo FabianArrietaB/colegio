@@ -2,8 +2,6 @@ $(document).ready(function(){
     $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
 });
 
-
-
 //CONSULTAR VALOR GRADO
 $('#frmagregaralumno').change(function(){
     //condicion para limpiar campos

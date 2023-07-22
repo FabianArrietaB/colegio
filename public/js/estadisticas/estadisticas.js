@@ -16,28 +16,34 @@ function imprimir(){
     factura.print();
 }
 
-function filtrar() {
-    // Declare variables 
-    var input, filter, table, tr, td, i, j, visible;
-    input = document.getElementById("filtro");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("estadisticas");
-    tr = table.getElementsByTagName("tr");
-  
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-      visible = false;
-      /* Obtenemos todas las celdas de la fila, no sólo la primera */
-      td = tr[i].getElementsByTagName("td");
-      for (j = 0; j < td.length; j++) {
-        if (td[j] && td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-          visible = true;
-        }
-      }
-      if (visible === true) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
+//CONSULTAR Datos Alumno
+$('#frmaestadistica').change(function(){
+  //condicion para limpiar campos
+  if($('#docume').val()==0){
+    $('#idalumno').val("");
+    $('#nombre').val("");
+    $('#fecing').val("");
+    $('#telcel').val("");
+    $('#direcc').val("");
+    $('#grado').val("");
+    $('#correo').val("");
+    $('#nommad').val("");
+    $('#nompad').val("");
+    return
   }
+  $.ajax({
+      type:"POST",
+      data:"docume=" + $('#docume').val(),
+      url:"../controlador/informe/detalle.php",
+      success:function(respuesta){
+          respuesta=jQuery.parseJSON(respuesta);
+          $('#idalumno').val(respuesta['idalumno']);
+          $('#nombre').val(respuesta['nombre']);
+          $('#fecing').val(respuesta['fecing']);
+          $('#telcel').val(respuesta['telcel']);
+          $('#direcc').val(respuesta['direcc']);
+          $('#grado').val(respuesta['grado']);
+          $('#correo').val(respuesta['correo']);
+      }
+  });
+});

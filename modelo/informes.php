@@ -39,10 +39,33 @@
             return $datos;
         }
 
-        // public function detalleEstudiante() {
-            
-        //     return array(array(
-        //     ));
-        // }
+        public function detalleEstudiante($docume) {
+            $conexion = Conexion::conectar();
+            $sql ="SELECT
+                a.alu_docume  AS docume,
+                a.id_alumno   AS idalumno,
+                a.alu_nombre  AS nombre,
+                a.alu_direcc  AS direcc,
+                a.alu_telcel  AS telcel,
+                a.alu_correo  AS correo,
+                a.alu_fecope  AS fecing,
+                g.gra_nombre  AS grado
+                FROM alumnos AS a
+                INNER JOIN grados AS g ON g.id_grado = a.id_grado
+                WHERE a.alu_docume = '$docume'";
+            $respuesta = mysqli_query($conexion,$sql);
+            $alumno = mysqli_fetch_array($respuesta);
+            $datos = array(
+                'docume' => $alumno['docume'],
+                'idalumno' => $alumno['idalumno'],
+                'nombre' => $alumno['nombre'],
+                'direcc' => $alumno['direcc'],
+                'telcel' => $alumno['telcel'],
+                'correo' => $alumno['correo'],
+                'fecing' => $alumno['fecing'],
+                'grado' => $alumno['grado'],
+            );
+            return $datos;
+        }
     }
 ?>
