@@ -8,6 +8,8 @@
     include "../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
+    $sql = "SELECT a.alu_estado as estado, a.id_grado as idgrado, g.gra_nombre as grado FROM alumnos as a INNER JOIN grados as g ON a.id_grado = g.id_grado";
+    $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio del contenido principal -->
 <section class="home-section">
@@ -22,8 +24,7 @@
                     <div class="row student" style="align-items: center;">
                         <!-- Curso Transicion -->
                         <?php
-                            $sql = "SELECT a.alu_estado as estado, a.id_grado as idgrado, g.gra_nombre as grado FROM alumnos as a INNER JOIN grados as g ON a.id_grado = g.id_grado";
-                            $query = mysqli_query($conexion, $sql);
+                            
                             while ($row = mysqli_fetch_array($query)){
                         ?>
                             <div class="col-sm-2">

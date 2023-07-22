@@ -18,6 +18,7 @@
         f.id_producto  as idproducto,
         p.pro_nombre as producto,
         f.id_tippag as tippag,
+        f.fac_detalle as detalle,
         f.fac_valor as precio,
         f.fac_fecope as fecha
         FROM facturas AS f
@@ -39,6 +40,7 @@
             <th scope="col" >Prefijo</th>
             <th scope="col" >Numero</th>
             <th scope="col" >Fecha Documento</th>
+            <th scope="col" >Tipo Producto</th>
             <th scope="col" >Detalle</th>
             <th scope="col" >Valor</th>
             <th scope="col" >Operador</th>
@@ -63,6 +65,7 @@
                         <?php } ?>
                     <?php } ?>
                 </td>
+                <td> <?php echo $facturas['detalle']; ?> </td>
                 <td> <?php echo '$ '. number_format($facturas['precio']); ?> </td>
                 <td> <?php echo $facturas['vendedor']; ?> </td>
                 
