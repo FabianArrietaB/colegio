@@ -5,10 +5,6 @@
     $_SESSION['usuario']['rol'] == 4){
     include "../modelo/conexion.php";
     $con = new Conexion();
-    $idalumno = '';
-    if(isset($_GET['idalumno'])){
-        $idalumno = $_GET['idalumno'];
-    }
     $conexion = $con->conectar();
     $idusuario = $_SESSION['usuario']['id'];
 ?>
@@ -208,7 +204,7 @@
                             <div class="card mb-3">
                                 <div class="card-header bg-primary text-left text-white">Filtro de la Consulta</div>
                                 <div class="card-body">
-                                    <input hidden type="text" id="idalumno" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <input hidden type="text" id="idalumno" onchange="facturas()" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="input-group input-group-sm mb-3">
@@ -255,17 +251,21 @@
                                                 <input disabled type="text" id="grado" name="grado" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-6">
                                             <div class="input-group input-group-sm mb-3">
                                                 <span class="input-group-text" id="inputGroup-sizing-sm">Correo</span>
                                                 <input disabled type="text" id="correo" name="correo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-3">
                                             <div class="input-group input-group-sm mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-sm">Acudientes</span>
-                                                <input disabled type="text" id="nommad" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                                <input disabled type="text" id="nompad" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">Modulo</span>
+                                                <select name="modulo" id="modulo" class="form-control input-sm">
+                                                    <option>Todos</option>
+                                                    <option value="0">Ventas</option>
+                                                    <option value="1">Matriculas</option>
+                                                    <option value="2">Pension</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -273,22 +273,7 @@
                             </div>
                         </div>
                         <!-- inicio Tabla -->
-                        <div class="table-responsive justify-content-center">
-                            <table class="table table-info text-center table-bordered" id="estadisticas">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" >Prefijo</th>
-                                        <th scope="col" >Numero</th>
-                                        <th scope="col" >Fecha Documento</th>
-                                        <th scope="col" >Valor</th>
-                                        <th scope="col" >Operador</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <td><?php echo $idalumno;?></td>
-                                </tbody>
-                            </table>
-                        </div>
+                        <div id="tablaestadisticas"></div>
                     </div>
                 </div>
             </div>
@@ -300,7 +285,7 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
-require('footer.php'); 
+require('footer.php');
 ?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/estadisticas/estadisticas.js"></script>
