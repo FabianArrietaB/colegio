@@ -21,245 +21,33 @@
                     </div>
                     <div class="row student" style="align-items: center;">
                         <!-- Curso Transicion -->
-                        <div class="col-sm-2">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 30px">
-                                                    <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 1 AND alu_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql;
-                                                    ?>
-                                                </span>
+                        <?php
+                            $sql = "SELECT a.alu_estado as estado, a.id_grado as idgrado, g.gra_nombre as grado FROM alumnos as a INNER JOIN grados as g ON a.id_grado = g.id_grado";
+                            $query = mysqli_query($conexion, $sql);
+                            while ($row = mysqli_fetch_array($query)){
+                        ?>
+                            <div class="col-sm-2">
+                                <div class="card text-white bg-primary mb-3">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <div class="float-sm-right">&nbsp;
+                                                    <span style="font-size: 30px">
+                                                        <?php
+                                                        $idgrado = $row['idgrado'];
+                                                        $estado  = $row['estado'];
+                                                        $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = $idgrado AND alu_estado = $estado"); $sql= mysqli_num_rows($sql); echo $sql;
+                                                        ?>
+                                                    </span>
+                                                </div>
+                                                <div class="clearfix"></div>
                                             </div>
-                                            <div class="clearfix"></div>
+                                            <div class="float-sm-right">Transicion</div>
                                         </div>
-                                        <div class="float-sm-right">Transicion</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Curso Primero -->
-                        <div class="col-sm-2">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 30px">
-                                                    <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 2 AND alu_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql; 
-                                                    ?>
-                                                </span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="float-sm-right">Primero</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Curso Segundo -->
-                        <div class="col-sm-2">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 30px">
-                                                    <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 3 AND alu_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql; 
-                                                    ?>
-                                                </span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="float-sm-right">Segundo</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Curso Tercero -->
-                        <div class="col-sm-2">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 30px">
-                                                    <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 4 AND alu_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql; 
-                                                    ?>
-                                                </span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="float-sm-right">Tercero</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Curso Cuarto -->
-                        <div class="col-sm-2">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 30px">
-                                                    <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 5 AND alu_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql; 
-                                                    ?>
-                                                </span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="float-sm-right">Cuarto</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Curso Quinto -->
-                        <div class="col-sm-2">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 30px">
-                                                    <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 6 AND alu_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql; 
-                                                    ?>
-                                                </span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="float-sm-right">Quinto</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Curso Sexto -->
-                        <div class="col-sm-2">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 30px">
-                                                    <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 7 AND alu_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql; 
-                                                    ?>
-                                                </span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="float-sm-right">Sexto</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Curso Septimo -->
-                        <div class="col-sm-2">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 30px">
-                                                    <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 8 AND alu_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql; 
-                                                    ?>
-                                                </span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="float-sm-right">Septimo</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Curso Octavo -->
-                        <div class="col-sm-2">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 30px">
-                                                    <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 9 AND alu_estado = 1"); $sql= mysqli_num_rows($sql); echo $sql; 
-                                                    ?>
-                                                </span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="float-sm-right">Octavo</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Curso Noveno -->
-                        <div class="col-sm-2">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 30px">
-                                                    <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 1 AND alu_estado = 10"); $sql= mysqli_num_rows($sql); echo $sql; 
-                                                    ?>
-                                                </span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="float-sm-right">Noveno</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Curso Decimo -->
-                        <div class="col-sm-2">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 30px">
-                                                    <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 1 AND alu_estado = 11"); $sql= mysqli_num_rows($sql); echo $sql; 
-                                                    ?>
-                                                </span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="float-sm-right">Decimo</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Curso UnDecimo -->
-                        <div class="col-sm-2">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 30px">
-                                                    <?php
-                                                    $sql=$conexion->query("SELECT * FROM alumnos WHERE id_grado = 1 AND alu_estado = 12"); $sql= mysqli_num_rows($sql); echo $sql; 
-                                                    ?>
-                                                </span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="float-sm-right">UnDecimo</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
