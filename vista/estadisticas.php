@@ -204,7 +204,7 @@
                             <div class="card mb-3">
                                 <div class="card-header bg-primary text-left text-white">Filtro de la Consulta</div>
                                 <div class="card-body">
-                                    <input type="text" id="idalumno" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <input hidden type="text" id="idalumno" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="input-group input-group-sm mb-3">
