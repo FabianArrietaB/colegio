@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-07-2023 a las 00:04:03
+-- Tiempo de generación: 22-07-2023 a las 21:11:45
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -111,7 +111,8 @@ CREATE TABLE `auditorias` (
 --
 
 INSERT INTO `auditorias` (`id_auditoria`, `id_operador`, `id_alumno`, `id_grado`, `id_tipopago`, `aud_mespro`, `aud_numdoc`, `aud_valor`, `aud_fecope`) VALUES
-(1, 1, 1, 1, 1, NULL, '1', '1200000', '2023-07-12 21:39:34');
+(1, 1, 1, 1, 1, NULL, '1', '1200000', '2023-07-12 21:39:34'),
+(2, 1, 1, 1, 2, 1, '2', '580000', '2023-07-17 22:47:10');
 
 -- --------------------------------------------------------
 
@@ -196,7 +197,8 @@ CREATE TABLE `facturas` (
 --
 
 INSERT INTO `facturas` (`id_facturas`, `id_operador`, `id_alumno`, `id_acudiente`, `id_producto`, `id_tippag`, `fac_prefijo`, `fac_cantidad`, `fac_valor`, `fac_detalle`, `fac_fecope`) VALUES
-(1, 1, 1, 0, 0, 1, 'GAV', '1', '1200000', '', '2023-07-12');
+(1, 1, 1, 1, 0, 1, 'GAV', '1', '1200000', 'PAGO MATRICULA PERIODO 2023', '2023-07-12'),
+(2, 1, 1, 2, 0, 2, 'GAV', '1', '580000', 'PAGO PENSION MES JULIO', '2023-07-18');
 
 -- --------------------------------------------------------
 
@@ -250,7 +252,7 @@ CREATE TABLE `matriculas` (
 --
 
 INSERT INTO `matriculas` (`id_matricula`, `id_alumno`, `id_grado`, `id_operador`, `id_tipopago`, `mat_numdoc`, `mat_valmat`, `mat_pensio`, `mat_fecope`, `mat_fecmat`, `mat_fecpen`, `mat_fecpropag`) VALUES
-(1, 1, 1, 1, 1, '', '1200000', '580000', '2023-07-12 21:39:34', '2023-07-12 21:39:34', '2023-07-12 21:39:34', '2023-07-12 05:00:00');
+(1, 1, 1, 1, 0, '', '1200000', '580000', '2023-07-12 21:39:34', '2023-07-12 21:39:34', '2023-07-18 05:00:00', '2023-07-31 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -455,7 +457,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_operador`, `id_sede`, `user_usuario`, `user_nombre`, `user_contra`, `user_correo`, `user_estado`, `user_fecope`, `user_fecupd`) VALUES
 (1, 4, 1, 1, 'ADMIN', 'ADMINISTRADOR', '202cb962ac59075b964b07152d234b70', 'ADMIN@GMAIL.COM', 1, '2023-06-11 05:00:00', '2023-06-12 14:12:46'),
-(2, 1, 1, 1, 'MARRIETA', 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'd41d8cd98f00b204e9800998ecf8427e', 'MARRIETA@GMAIL.COM', 0, '2023-07-11 22:00:57', '2023-07-12 18:01:38');
+(2, 1, 1, 1, 'MARRIETA', 'MICHELLE ANDREA ARRIETA BOLAÑOS', 'd41d8cd98f00b204e9800998ecf8427e', 'MARRIETA@GMAIL.COM', 1, '2023-07-11 22:00:57', '2023-07-22 15:34:43');
 
 -- --------------------------------------------------------
 
@@ -599,7 +601,7 @@ ALTER TABLE `alumnos`
 -- AUTO_INCREMENT de la tabla `auditorias`
 --
 ALTER TABLE `auditorias`
-  MODIFY `id_auditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_auditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -617,7 +619,7 @@ ALTER TABLE `empleados`
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
-  MODIFY `id_facturas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_facturas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `grados`
