@@ -42,7 +42,7 @@
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div>
-                                            <div class="float-sm-right">Transicion</div>
+                                            <div class="float-sm-right"><?php echo $row['grado'] ?></div>
                                         </div>
                                     </div>
                                 </div>
