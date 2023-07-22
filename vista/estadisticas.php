@@ -5,6 +5,10 @@
     $_SESSION['usuario']['rol'] == 4){
     include "../modelo/conexion.php";
     $con = new Conexion();
+    $idalumno = '';
+    if(isset($_GET['idalumno'])){
+        $idalumno = $_GET['idalumno'];
+    }
     $conexion = $con->conectar();
     $idusuario = $_SESSION['usuario']['id'];
 ?>
@@ -281,6 +285,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <td><?php echo $idalumno;?></td>
                                 </tbody>
                             </table>
                         </div>
@@ -291,6 +296,7 @@
     </div>
 </section>
 </form>
+<!-- 1043698754 -->
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
