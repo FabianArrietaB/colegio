@@ -58,7 +58,6 @@ function detallefactura(idfacturas){
     window.open('facturas/factura.php?idfacturas='+idfacturas);
 }
 
-
 function obtenergrado(){
     var grado = $('#grado').val();
     //console.log(grado)

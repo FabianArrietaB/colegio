@@ -26,25 +26,6 @@ function ocultar(){
     return false;
 }
 
-function detallematricula(idmatricula){
-    $.ajax({
-        type: "POST",
-        data: "idmatricula=" + idmatricula,
-        url: "../controlador/pagos/detalle.php",
-        success: function(respuesta){
-            respuesta = jQuery.parseJSON(respuesta);
-            console.log(respuesta)
-            $('#idmatricula').val(respuesta['idmatricula']);
-            $('#idalumno').val(respuesta['idalumno']);
-            $('#idgrado').val(respuesta['idgrado']);
-            $('#nomaluu').val(respuesta['nomalu']);
-            $('#gradou').val(respuesta['grado']);
-            $('#matriculau').val(respuesta['matricula']);
-            $('#saldou').val(respuesta['saldo']);
-        }
-    });
-}
-
 function detallepension(idmatricula){
     $.ajax({
         type: "POST",
@@ -61,37 +42,6 @@ function detallepension(idmatricula){
             $('#pensionu').val(respuesta['pension']);
         }
     });
-}
-
-function pagomatricula(){
-    $.ajax({
-        type: "POST",
-        data: $('#frmpagomatricula').serialize(),
-        url: "../controlador/pagos/pagos.php",
-        success:function(respuesta){
-            respuesta = respuesta.trim();
-            console.log(respuesta)
-            if(respuesta == 1){
-                $('#frmpagomatricula')[0].reset();
-                $('#tablalistapagos').load('pagos/listapagos.php');
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Pago Realizado Exitosamente',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }else{
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Error al Editar!',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }
-        }
-    });
-    return false;
 }
 
 function pagopension(){
@@ -132,12 +82,38 @@ function detallefactura(idfacturas){
     });
 }
 
-function imprimir(){
-    var factura = window.open("", "factura", "width=800, heigth=600");
-    factura.document.write("<html><head><title>Factura de Venta</title>");
-    factura.document.write("<style><link rel='stylesheet' href='../../../public/css/ticket.css'></style></head><body>");
-    factura.document.write($("#conte-modal-factura").html());
-    factura.document.write("</body></html>");
-    factura.document.close();
-    factura.print();
+function obteneracudiente(idfacturas){
+    $('#conte-modal-acudientes').load('informes/acudiente.php?idfacturas='+idfacturas, function(){
+        $('#acudientes').modal("show");
+        $('.modal-backdrop').remove()
+    });
+}
+
+function datosacudientes(idacudiente, idfacturas){
+    $.ajax({
+        type:"POST",
+        data:"idacudiente=" + idacudiente +"&idfacturas=" + idfacturas,
+        url:"../controlador/informe/addacudiente.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                console.log(respuesta)
+                $('#tablafacturas').load('informes/tablafacturas.php');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Operacion Exitosa',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'No se pudo realizar la operacion!',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        }
+    });
 }

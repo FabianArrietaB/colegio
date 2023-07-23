@@ -76,7 +76,6 @@
                     </div>
                     <div class="row">
                         <div id="tablafacturas"></div>
-                        <div id="tablalistapagos"></div>
                         <div id="tablalistapension"></div>
                     </div>
                 </div>
@@ -89,12 +88,10 @@
 <!-- por ultimo se carga el footer -->
 <?php
     include "pagos/pension.php";
-    include "pagos/pagos.php";
     include "footer.php";
 ?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/pagos/pagos.js"></script>
-<script src="../public/js/informes/informes.js"></script>
 <!-- Vista Alumno -->
 <?php } else if($_SESSION['usuario']['rol'] == 1) {
 include "../modelo/conexion.php";
