@@ -24,7 +24,6 @@
                     <div class="row student" style="align-items: center;">
                         <!-- Curso Transicion -->
                         <?php
-                            
                             while ($row = mysqli_fetch_array($query)){
                         ?>
                             <div class="col-sm-2">
