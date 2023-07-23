@@ -53,6 +53,7 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
+include "informes/acudiente.php";
 require('footer.php');
 ?>
 <!-- carga ficheros javascript -->

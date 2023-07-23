@@ -39,5 +39,5 @@ $('#frmaestadistica').change(function(){
     }).done(function(info) {
         $('#tablaestadisticas').load('informes/general.php?idalumno='+idalumno+'&modulo='+modulo);
     })
-    console.log(idalumno)
+    //console.log(idalumno)
 });

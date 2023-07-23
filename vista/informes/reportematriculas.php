@@ -28,7 +28,7 @@ foreach ($query as $row) {
 }
 ?>
 <!-- Formulario (Agregar) -->
-<form id="frmrepmatricula" method="post" action="" onsubmit="return imprimir()">
+<form id="frmrepmatricula" method="post" action="">
     <div class="modal fade" id="repmatricula" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">

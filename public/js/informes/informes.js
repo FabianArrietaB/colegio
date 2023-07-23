@@ -58,14 +58,6 @@ function detallefactura(idfacturas){
     window.open('facturas/factura.php?idfacturas='+idfacturas);
 }
 
-// function imprimir(){
-//     var factura = window.open("", "factura", "width=800, heigth=600");
-//     factura.document.write("<style><link rel='stylesheet' href='../../css/ticket.css'></style></head><body>");
-//     factura.document.write($("#conte-modal-factura").html());
-//     factura.document.write("</body>");
-//     factura.document.close();
-//     factura.print();
-// }
 
 function obtenergrado(){
     var grado = $('#grado').val();
@@ -77,7 +69,6 @@ function obtenergrado(){
     })
 }
 
-
 function obtenergradoventas(){
     var grado = $('#grado').val();
     console.log(grado)
@@ -86,4 +77,11 @@ function obtenergradoventas(){
     }).done(function(info) {
         $('#tablapension').load('informes/tablaventas.php?grado='+grado);
     })
+}
+
+function obteneracudiente(idalumno){
+    $('#conte-modal-acudientes').load('informes/acudiente.php?idalumno='+idalumno, function(){
+        $('#acudientes').modal("show");
+        $('.modal-backdrop').remove()
+    });
 }

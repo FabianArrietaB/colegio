@@ -98,22 +98,22 @@
         public function detallealumno($idalumno){
             $conexion = Conexion::conectar();
             $sql ="SELECT
-                alumnos.id_alumno   AS idalumno,
-                alumnos.alu_nombre  AS nombre,
-                alumnos.alu_cladoc  AS cladoc,
-                alumnos.alu_docume  AS docume,
-                alumnos.alu_sexo    AS sexo,
-                alumnos.alu_fecnac  AS fecnac,
-                alumnos.alu_gposan  AS gposan,
-                alumnos.alu_factrh  AS factrh,
-                alumnos.alu_ciudad  AS ciudad,
-                alumnos.alu_direcc  AS direcc,
-                alumnos.alu_estrat  AS estrat,
-                alumnos.alu_telcel  AS telcel,
-                alumnos.alu_correo  AS correo,
-                alumnos.id_grado    AS idgrado
-                FROM alumnos AS alumnos
-                WHERE alumnos.id_alumno = '$idalumno'";
+                a.id_alumno   AS idalumno,
+                a.alu_nombre  AS nombre,
+                a.alu_cladoc  AS cladoc,
+                a.alu_docume  AS docume,
+                a.alu_sexo    AS sexo,
+                a.alu_fecnac  AS fecnac,
+                a.alu_gposan  AS gposan,
+                a.alu_factrh  AS factrh,
+                a.alu_ciudad  AS ciudad,
+                a.alu_direcc  AS direcc,
+                a.alu_estrat  AS estrat,
+                a.alu_telcel  AS telcel,
+                a.alu_correo  AS correo,
+                a.id_grado    AS idgrado
+                FROM alumnos AS a
+                WHERE a.id_alumno = '$idalumno'";
             $respuesta = mysqli_query($conexion,$sql);
             $alumno = mysqli_fetch_array($respuesta);
             $datos = array(

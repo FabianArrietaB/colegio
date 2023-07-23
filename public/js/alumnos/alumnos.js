@@ -164,11 +164,9 @@ function editaralumno(){
     return false;
 }
 
-
 function padres(idalumno){
     $('#conte-modal-padres').load('alumnos/listaacudientes.php?idalumno='+idalumno, function(){
         $('#acudientes').modal("show");
-        
     });
 }
 

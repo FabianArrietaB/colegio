@@ -36,7 +36,7 @@
 <!-- por ultimo se carga el footer -->
 <?php
 include "alumnos/crearalumno.php";
-include "alumnos/editaracudiente.php";
+include "acudientes/editaracudiente.php";
 include "alumnos/editaralumno.php";
 include "footer.php";
 ?>

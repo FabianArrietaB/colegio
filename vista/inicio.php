@@ -94,6 +94,7 @@
 ?>
 <!-- carga ficheros javascript -->
 <script src="../public/js/pagos/pagos.js"></script>
+<script src="../public/js/informes/informes.js"></script>
 <!-- Vista Alumno -->
 <?php } else if($_SESSION['usuario']['rol'] == 1) {
 include "../modelo/conexion.php";

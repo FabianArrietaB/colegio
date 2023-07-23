@@ -7,7 +7,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Editar Empleado</h5>
                     <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <d class="modal-body">
+                <div class="modal-body">
                     <!-- Formulario (Empleado) -->
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Empleado</legend>

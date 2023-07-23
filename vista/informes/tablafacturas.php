@@ -9,8 +9,9 @@
     $conexion = $con->conectar();
     $idusuario = $_SESSION['usuario']['id'];
     $sql = "SELECT
-        f.id_facturas as idfacturas,
-        f.id_operador as idoperador,
+        f.id_facturas  as idfacturas,
+        f.id_operador  as idoperador,
+        f.id_acudiente as idacudiente,
         u.user_nombre as vendedor,
         CONCAT(f.fac_prefijo, ' ' ,f.id_facturas) as factura,
         f.id_alumno   as idalumno,
@@ -73,8 +74,8 @@
                 <th scope="col" >Valor</th>
                 <th scope="col" >Vendedor</th>
                 <th scope="col" >fecha</th>
-                <th>
-                </th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody >
@@ -99,13 +100,16 @@
                 <td> <?php echo $facturas['vendedor']; ?> </td>
                 <td> <?php echo $facturas['fecha']; ?> </td>
                 <td>
-                <div class="d-grid gap-2">
-                    <input type="button" class="btn btn-info" value="Reporte" onclick="detallefactura('<?php echo $facturas['idfacturas']?>')"></input>
-                </div>
+                <?php if ($facturas['idacudiente'] <> 0 ) { ?>
+                    <div class="d-grid gap-2">
+                        <input type="button" class="btn btn-info" value="Reporte" onclick="detallefactura('<?php echo $facturas['idfacturas']?>')"></input>
+                    </div>
+                    <?php } ?>
+                    <?php if ($facturas['idacudiente'] == 0 ) { ?> <button type="button" class="btn btn-success" onclick="obteneracudiente('<?php echo $facturas['idalumno']?>')"><i class="fa-solid fa-user"></i></button><?php } ?>
                 </td>
             </tr>
             <?php } ?>
         </tbody>
     </table>
 </div>
-<div id="conte-modal-factura"></div>
+<div id="conte-modal-acudientes"></div>
