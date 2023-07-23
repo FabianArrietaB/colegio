@@ -70,7 +70,7 @@ function obtenergrado(){
 
 function obtenergradoventas(){
     var grado = $('#grado').val();
-    console.log(grado)
+    //console.log(grado)
     $.ajax({
         method: 'GET',
     }).done(function(info) {

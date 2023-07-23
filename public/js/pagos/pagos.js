@@ -33,7 +33,7 @@ function detallepension(idmatricula){
         url: "../controlador/pagos/detallepension.php",
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
-            console.log(respuesta)
+            //console.log(respuesta)
             $('#idmatriculau').val(respuesta['idmatriculau']);
             $('#idalumnou').val(respuesta['idalumnou']);
             $('#idgradou').val(respuesta['idgradou']);
@@ -51,7 +51,7 @@ function pagopension(){
         url: "../controlador/pagos/pension.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
-            console.log(respuesta)
+            //console.log(respuesta)
             if(respuesta == 1){
                 $('#frmpagopension')[0].reset();
                 $('#tablalistapension').load('pagos/listapension.php');
@@ -97,7 +97,7 @@ function datosacudientes(idacudiente, idfacturas){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
-                console.log(respuesta)
+                //console.log(respuesta)
                 $('#tablafacturas').load('informes/tablafacturas.php');
                 Swal.fire({
                     icon: 'success',
