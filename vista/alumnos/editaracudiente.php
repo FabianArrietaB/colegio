@@ -12,7 +12,7 @@
                     <fieldset class="group-border">
                         <legend class="group-border">Informacion Alumno</legend>
                         <div class="row">
-                            <input type="text" id="idalumno" name="idalumno" hidden>
+                            <input type="text" id="alumnoid" name="alumnoid" hidden>
                             <div class="col-8">
                                 <div class="input-group mb-3">
                                     <input type="text" id="nomaluu" name="nomaluu" class="form-control input-sm" placeholder="Ingrese Nombre" disabled>
@@ -26,12 +26,12 @@
                             <input type="text" id="idacudiente" name="idacudiente" hidden>
                             <div class="col-4">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="nombreu" name="nombreu" class="form-control input-sm" placeholder="Ingrese Nombre" >
+                                    <input type="text" id="padnombreu" name="padnombreu" class="form-control input-sm" placeholder="Ingrese Nombre" >
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <select name="cladocu" id="cladocu" class="form-control input-sm">
+                                    <select name="padcladocu" id="padcladocu" class="form-control input-sm">
                                         <option value="CEDULA">CEDULA</option>
                                         <option value="CEDULA EXTRANEJERIA">CEDULA EXTRANGERIA</option>
                                         <option value="PASAPORTE">PASAPORTE</option>
@@ -40,29 +40,29 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="documeu" name="documeu" class="form-control input-sm" placeholder="Ingrese Documento">
+                                    <input type="text" id="paddocumeu" name="paddocumeu" class="form-control input-sm" placeholder="Ingrese Documento">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="telcelu" name="telcelu" class="form-control input-sm" placeholder="Ingrese Telefono">
+                                    <input type="text" id="padtelcelu" name="padtelcelu" class="form-control input-sm" placeholder="Ingrese Telefono">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-2">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="ciudadu" name="ciudadu" class="form-control input-sm" placeholder="Ingrese Ciudad">
+                                    <input type="text" id="padciudadu" name="padciudadu" class="form-control input-sm" placeholder="Ingrese Ciudad">
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="direccu" name="direccu" class="form-control input-sm" placeholder="Direccion">
+                                    <input type="text" id="paddireccu" name="paddireccu" class="form-control input-sm" placeholder="Direccion">
                                 </div>
                             </div>
                             <div class="col-2">
                             <div class="input-group mb-3">
-                                    <select name="estratu" id="estratu" class="form-control input-sm">
+                                    <select name="padestratu" id="padestratu" class="form-control input-sm">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -75,7 +75,7 @@
                             </div>
                             <div class="col-4">
                                 <div class="input-group mb-3">
-                                    <input type="text" id="correou" name="correou" class="form-control input-sm" placeholder="Ingrese Correo" >
+                                    <input type="text" id="padcorreou" name="padcorreou" class="form-control input-sm" placeholder="Ingrese Correo" >
                                 </div>
                             </div>
                         </div>

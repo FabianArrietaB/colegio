@@ -5,18 +5,18 @@ function detalleacudiente(idacudiente){
         url: "../controlador/alumnos/detallepadre.php",
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
-            //console.log(respuesta)
+            console.log(respuesta)
             $('#idacudiente').val(respuesta['idacudiente']);
-            $('#idalumno').val(respuesta['idalumno']);
+            $('#alumnoid').val(respuesta['alumnoid']);
             $('#nomaluu').val(respuesta['nomalu']);
-            $('#nombreu').val(respuesta['nombre']);
-            $('#cladocu').val(respuesta['cladoc']);
-            $('#documeu').val(respuesta['docume']);
-            $('#ciudadu').val(respuesta['ciudad']);
-            $('#direccu').val(respuesta['direcc']);
-            $('#estratu').val(respuesta['estrat']);
-            $('#telcelu').val(respuesta['telcel']);
-            $('#correou').val(respuesta['correo']);
+            $('#padnombreu').val(respuesta['acunombre']);
+            $('#padcladocu').val(respuesta['acucladoc']);
+            $('#paddocumeu').val(respuesta['acudocume']);
+            $('#padtelcelu').val(respuesta['acutelcel']);
+            $('#padciudadu').val(respuesta['acuciudad']);
+            $('#paddireccu').val(respuesta['acudirecc']);
+            $('#padestratu').val(respuesta['acuestrat']);
+            $('#padcorreou').val(respuesta['acucorreo']);
         }
     });
 }

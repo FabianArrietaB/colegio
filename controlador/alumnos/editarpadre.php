@@ -3,15 +3,15 @@
     $datos = array(
         'idacudiente' => $_POST['idacudiente'],
         'idoperador' => $_SESSION['usuario']['id'],
-        'idalumno' => $_POST['idalumno'],
-        "nombre" => $_POST['nombreu'],
-        "cladoc" => $_POST['cladocu'],
-        "docume" => $_POST['documeu'],
-        "ciudad" => $_POST['ciudadu'],
-        "direcc" => $_POST['direccu'],
-        "estrat" => $_POST['estratu'],
-        "telcel" => $_POST['telcelu'],
-        "correo" => $_POST['correou'],
+        'alumnoid' => $_POST['alumnoid'],
+        "nombre" => $_POST['padnombreu'],
+        "cladoc" => $_POST['padcladocu'],
+        "docume" => $_POST['paddocumeu'],
+        "ciudad" => $_POST['padciudadu'],
+        "direcc" => $_POST['paddireccu'],
+        "estrat" => $_POST['padestratu'],
+        "telcel" => $_POST['padtelcelu'],
+        "correo" => $_POST['padcorreou'],
     );
     include "../../modelo/alumnos.php";
     $Alumnos   = new Alumnos();

@@ -29,6 +29,7 @@ function activaralumno(idalumno, estado){
         url:"../controlador/alumnos/activar.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
+            //console.log(respuesta)
             if(respuesta == 1){
                 $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
                 Swal.fire({
@@ -57,6 +58,7 @@ function eliminaralumno(idalumno){
         url:"../controlador/alumnos/eliminar.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
+            //console.log(respuesta)
             if(respuesta == 1){
                 $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
                     swal.fire({
@@ -85,7 +87,7 @@ function agregaralumno(){
         url: "../controlador/alumnos/crear.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
-            console.log(respuesta)
+            //console.log(respuesta)
             if(respuesta == 1){
                 $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
                 $('#frmagregaralumno')[0].reset();
@@ -115,6 +117,7 @@ function detallealumno(idalumno){
         data: "idalumno=" + idalumno,
         url: "../controlador/alumnos/detalle.php",
         success: function(respuesta){
+            //console.log(respuesta)
             respuesta = jQuery.parseJSON(respuesta);
             $('#idalumno').val(respuesta['idalumno']);
             $('#nombreu').val(respuesta['nombre']);
@@ -142,6 +145,7 @@ function editaralumno(){
         success:function(respuesta){
             respuesta = respuesta.trim();
             if(respuesta == 1){
+                //console.log(respuesta)
                 $('#editar').modal('hide');
                 $('#tablalistaalumnos').load('alumnos/listaalumnos.php');
                 Swal.fire({

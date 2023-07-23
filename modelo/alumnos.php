@@ -178,39 +178,34 @@
         public function detalleacudiente($idacudiente){
             $conexion = Conexion::conectar();
             $sql ="SELECT
-            acudientes.id_acudiente AS idacudiente,
-            acudientes.acu_nombre  AS nombre,
-            acudientes.acu_cladoc  AS cladoc,
-            acudientes.acu_docume  AS docume,
-            acudientes.acu_ciudad  AS ciudad,
-            acudientes.acu_direcc  AS direcc,
-            acudientes.acu_estrat  AS estrat,
-            acudientes.acu_telcel  AS telcel,
-            acudientes.acu_correo  AS correo,
-            alumnos.id_alumno      AS idalumno,
-            alumnos.alu_nombre     AS nomalu,
-            grados.id_grado        AS idgrado,
-            grados.gra_nombre      AS grado
-            FROM acudientes AS acudientes
-            INNER JOIN alumnos AS alumnos ON acudientes.id_alumno = alumnos.id_alumno
-            INNER JOIN grados AS grados ON grados.id_grado = alumnos.id_grado
-            WHERE acudientes.id_acudiente = '$idacudiente'";
+            ac.id_acudiente AS idacudiente,
+            ac.acu_nombre   AS acunombre,
+            ac.acu_cladoc   AS acucladoc,
+            ac.acu_docume   AS acudocume,
+            ac.acu_ciudad   AS acuciudad,
+            ac.acu_direcc   AS acudirecc,
+            ac.acu_estrat   AS acuestrat,
+            ac.acu_telcel   AS acutelcel,
+            ac.acu_correo   AS acucorreo,
+            ac.id_alumno    AS alumnoid,
+            a.alu_nombre    AS nomalu
+            FROM acudientes AS ac
+            INNER JOIN alumnos AS a ON a.id_alumno = ac.id_alumno
+            WHERE ac.id_acudiente = '$idacudiente'";
             $respuesta = mysqli_query($conexion,$sql);
             $acudiente = mysqli_fetch_array($respuesta);
             $datos = array(
                 'idacudiente' => $acudiente['idacudiente'],
-                'idalumno' => $acudiente['idalumno'],
-                'idgrado' => $acudiente['idgrado'],
-                'nomalu' => $acudiente['nomalu'],
-                'nombre' => $acudiente['nombre'],
-                'cladoc' => $acudiente['cladoc'],
-                'docume' => $acudiente['docume'],
-                'ciudad' => $acudiente['ciudad'],
-                'direcc' => $acudiente['direcc'],
-                'estrat' => $acudiente['estrat'],
-                'telcel' => $acudiente['telcel'],
-                'correo' => $acudiente['correo'],
-                'grado' => $acudiente['grado'],
+                'alumnoid'    => $acudiente['alumnoid'],
+                'nomalu'      => $acudiente['nomalu'],
+                'acunombre'   => $acudiente['acunombre'],
+                'acucladoc'   => $acudiente['acucladoc'],
+                'acudocume'   => $acudiente['acudocume'],
+                'acuciudad'   => $acudiente['acuciudad'],
+                'acudirecc'   => $acudiente['acudirecc'],
+                'acuestrat'   => $acudiente['acuestrat'],
+                'acutelcel'   => $acudiente['acutelcel'],
+                'acucorreo'   => $acudiente['acucorreo'],
             );
             return $datos;
         }
@@ -231,7 +226,7 @@
                     WHERE id_acudiente = ?";
             $query = $conexion->prepare($sql);
             $query->bind_param('iissssssssi',
-                                $datos['idalumno'],
+                                $datos['alumnoid'],
                                 $datos['idoperador'],
                                 $datos['nombre'],
                                 $datos['cladoc'],
