@@ -1,17 +1,25 @@
 <?php
-$idalumno = $_GET['idalumno'];
+$idfacturas = $_GET['idfacturas'];
 include "../../modelo/conexion.php";
 $con = new Conexion();
 $conexion = $con->conectar();
+$sql_alumno = "SELECT
+        f.id_facturas AS idfactura,
+        f.id_alumno AS idalumno
+        FROM facturas AS f
+        WHERE f.id_facturas = '$idfacturas'";
+$queryalu = mysqli_query($conexion, $sql_alumno);
+$rw_alumno = mysqli_fetch_array($queryalu);
+$idalumno = $rw_alumno['idalumno'];
 $sql = "SELECT
-    ac.id_alumno    AS idalumno,
+    ac.id_alumno AS idalumno,
     ac.id_acudiente AS idacudiente,
-    ac.acu_docume   AS docume,
-    ac.acu_nombre   AS nombre
+    ac.acu_docume AS docume,
+    ac.acu_nombre AS nombre
     FROM acudientes AS ac
     WHERE ac.id_alumno = '$idalumno'";
-$arrayDetalle = array();
 $query = mysqli_query($conexion, $sql);
+$arrayDetalle = array();
 foreach ($query as $row) {
     $arrayDetalle[] = $row;
 }
@@ -46,7 +54,7 @@ foreach ($query as $row) {
                                         <tr>
                                             <td><?php echo $value['idacudiente']; ?></td>
                                             <td><?php echo $value['docume']; ?></td>
-                                            <td><?php echo $value['nombre']; ?></td>
+                                            <td onclick="datosacudientes(<?php echo $value['idacudiente']?>, '<?php echo $idfacturas?>')"><?php echo $value['nombre']; ?></td>
                                         </tr>
                                             <?php
                                         }

@@ -67,5 +67,15 @@
             );
             return $datos;
         }
+
+        public function agregaracudiente($idacudiente, $idfacturas){
+            $conexion = Conexion::conectar();
+            $sql = "UPDATE facturas SET id_acudiente = ? WHERE id_facturas = ?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('ii', $idacudiente, $idfacturas);
+            $respuesta = $query->execute();
+            $query->close();
+            return $respuesta;
+        }
     }
 ?>

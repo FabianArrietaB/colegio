@@ -105,7 +105,7 @@
                         <input type="button" class="btn btn-info" value="Reporte" onclick="detallefactura('<?php echo $facturas['idfacturas']?>')"></input>
                     </div>
                     <?php } ?>
-                    <?php if ($facturas['idacudiente'] == 0 ) { ?> <button type="button" class="btn btn-success" onclick="obteneracudiente('<?php echo $facturas['idalumno']?>')"><i class="fa-solid fa-user"></i></button><?php } ?>
+                    <?php if ($facturas['idacudiente'] == 0 ) { ?> <button type="button" class="btn btn-success" onclick="obteneracudiente('<?php echo $facturas['idfacturas']?>')"><i class="fa-solid fa-user"></i></button><?php } ?>
                 </td>
             </tr>
             <?php } ?>

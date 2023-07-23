@@ -79,9 +79,38 @@ function obtenergradoventas(){
     })
 }
 
-function obteneracudiente(idalumno){
-    $('#conte-modal-acudientes').load('informes/acudiente.php?idalumno='+idalumno, function(){
+function obteneracudiente(idfacturas){
+    $('#conte-modal-acudientes').load('informes/acudiente.php?idfacturas='+idfacturas, function(){
         $('#acudientes').modal("show");
         $('.modal-backdrop').remove()
+    });
+}
+
+function datosacudientes(idacudiente, idfacturas){
+    $.ajax({
+        type:"POST",
+        data:"idacudiente=" + idacudiente +"&idfacturas=" + idfacturas,
+        url:"../controlador/informe/addacudiente.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                console.log(respuesta)
+                $('#tablafacturas').load('informes/tablafacturas.php');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Operacion Exitosa',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'No se pudo realizar la operacion!',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        }
     });
 }
