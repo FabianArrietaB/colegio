@@ -37,8 +37,7 @@
     <table class="table table-light text-center">
         <thead>
             <tr>
-            <th scope="col" >Prefijo</th>
-            <th scope="col" >Numero</th>
+            <th scope="col" >Factura</th>
             <th scope="col" >Fecha Documento</th>
             <th scope="col" >Tipo Producto</th>
             <th scope="col" >Detalle</th>
@@ -51,8 +50,7 @@
             while ($facturas = mysqli_fetch_array($query)){
         ?>
             <tr>
-                <td> <?php echo $facturas['prefijo']; ?> </td>
-                <td> <?php echo str_pad($facturas['factura'], 6, "0", STR_PAD_LEFT); ?> </td>
+                <td> <?php echo $facturas['prefijo'] . ' - ' .str_pad($facturas['factura'], 6, "0", STR_PAD_LEFT); ?> </td>
                 <td> <?php echo $facturas['fecha']; ?> </td>
                 <td>
                     <?php if ($facturas['producto'] <> 0) {

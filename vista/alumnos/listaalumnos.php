@@ -62,6 +62,7 @@
         <thead>
             <tr>
                 <th scope="col" >Nombres</th>
+                <th scope="col" >Documentos</th>
                 <th scope="col" >Grado</th>
                 <th scope="col" >Direccion</th>
                 <th scope="col" >Celular</th>
@@ -78,7 +79,8 @@
         <?php while ($alumnos = mysqli_fetch_array($query)) { ?>
             <tr>
                 <td onclick="padres('<?php echo $alumnos['idalumno']?>')"> <?php echo $alumnos['nombre']; ?> </td>
-                <td> <?php echo $alumnos['grado']; ?></td>
+                <td> <?php echo $alumnos['docume']; ?></td>
+                <td> <?php echo $alumnos['grado'];  ?></td>
                 <td> <?php echo $alumnos['direcc']; ?></td>
                 <td> <?php echo $alumnos['telcel']; ?></td>
                 <td> <?php echo $alumnos['correo']; ?></td>

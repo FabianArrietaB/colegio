@@ -34,10 +34,11 @@ $('#frmaestadistica').change(function(){
     });
     var idalumno = $('#idalumno').val();
     var modulo = $('#modulo').val();
+    var fecha = $('#fecope').val();
     $.ajax({
         method: 'GET',
     }).done(function(info) {
-        $('#tablaestadisticas').load('informes/general.php?idalumno='+idalumno+'&modulo='+modulo);
+        $('#tablaestadisticas').load('informes/general.php?idalumno='+idalumno+'&modulo='+modulo+'&fecha='+fecha);
     })
-    //console.log(idalumno)
+    console.log(fecha)
 });

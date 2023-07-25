@@ -22,19 +22,19 @@
                         <!-- Valor Ventas -->
                         <div class="col-sm-2">
                             <div class="card border-danger text-white bg-warning mb-3">
-                                <div class="card-header">
+                                <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-3">
                                             <i class="fa-solid fa-sack-dollar fa-3x"></i>
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-9">
                                             <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 20px">
+                                                <span style="font-size: 15px">
                                                     <?php
                                                         $sql=$conexion->query("SELECT SUM(ven_precio) as 'precio' from ventas");
                                                         $data = mysqli_fetch_array($sql);
                                                         $precio = $data['precio'];
-                                                        echo '$'. $precio;
+                                                        echo '$ '. number_format($precio);
                                                     ?>
                                                 </span>
                                             </div>
@@ -48,9 +48,9 @@
                         <!-- Numero Alumnos -->
                         <div class="col-sm-2">
                             <div class="card border-success text-white bg-primary mb-3">
-                                <div class="card-header">
+                                <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-4">
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 20px">
                                                     <?php
@@ -60,10 +60,10 @@
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-4">
                                             <i class="fa fa-graduation-cap fa-3x"></i>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-4">
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 20px">
                                                     <?php
@@ -81,9 +81,9 @@
                         <!-- Numero Usuarios -->
                         <div class="col-sm-2">
                             <div class="card text-white bg-info mb-3">
-                                <div class="card-header">
+                                <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-4">
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 20px">
                                                     <?php
@@ -93,10 +93,10 @@
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-4">
                                             <i class="fa fa-users fa-3x"></i>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-4">
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 20px">
                                                     <?php
@@ -114,9 +114,9 @@
                         <!-- Numero Empleados -->
                         <div class="col-sm-2">
                             <div class="card border-success text-white bg-primary mb-3">
-                                <div class="card-header">
+                                <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-4">
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 20px">
                                                     <?php
@@ -126,10 +126,10 @@
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-4">
                                             <i class="fa fa-users fa-3x"></i>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-4">
                                             <div class="float-sm-right">&nbsp;
                                                 <span style="font-size: 20px">
                                                     <?php
@@ -147,19 +147,19 @@
                         <!-- Numero Matricula -->
                         <div class="col-sm-2">
                             <div class="card border-danger text-white bg-warning mb-3">
-                                <div class="card-header">
+                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <i class="fa-solid fa-sack-dollar fa-3x"></i>
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 20px">
+                                                <span style="font-size: 15px">
                                                 <?php
                                                         $sql=$conexion->query("SELECT SUM(mat_valmat) as 'matricula' from matriculas");
                                                         $data = mysqli_fetch_array($sql);
                                                         $matricula = $data['matricula'];
-                                                        echo '$'. $matricula;
+                                                        echo '$ '. number_format($matricula);
                                                     ?>
                                                 </span>
                                             </div>
@@ -173,19 +173,19 @@
                         <!-- Valor Pension -->
                         <div class="col-sm-2">
                             <div class="card border-danger text-white bg-warning mb-3">
-                                <div class="card-header">
+                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <i class="fa-solid fa-sack-dollar fa-3x"></i>
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="float-sm-right">&nbsp;
-                                                <span style="font-size: 20px">
+                                                <span style="font-size: 15px">
                                                 <?php
                                                         $sql=$conexion->query("SELECT SUM(aud_valor) as 'pension' from auditorias WHERE id_tipopago = 2");
                                                         $data = mysqli_fetch_array($sql);
                                                         $pension = $data['pension'];
-                                                        echo '$'. $pension;
+                                                        echo '$ '. number_format($pension);
                                                     ?>
                                                 </span>
                                             </div>
@@ -200,7 +200,7 @@
                 </div>
                 <div class="card-body">
                     <div class="card border-primary">
-                        <div class="card-header ">
+                        <div class="card-body">
                             <div class="card mb-3">
                                 <div class="card-header bg-primary text-left text-white">Filtro de la Consulta</div>
                                 <div class="card-body">
@@ -257,7 +257,7 @@
                                                 <input disabled type="text" id="correo" name="correo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-2">
                                             <div class="input-group input-group-sm mb-3">
                                                 <span class="input-group-text" id="inputGroup-sizing-sm">Modulo</span>
                                                 <select name="modulo" id="modulo" class="form-control input-sm">
@@ -266,6 +266,11 @@
                                                     <option value="1">Matriculas</option>
                                                     <option value="2">Pension</option>
                                                 </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-1 aling-items-center">
+                                            <div class="input-group input-group-sm mb-3">
+                                                <button class="btn btn-info" type="button" onclick="informegeneral()"><i class="fa-solid fa-print"></i></i></button>
                                             </div>
                                         </div>
                                     </div>

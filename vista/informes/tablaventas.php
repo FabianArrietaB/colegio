@@ -73,7 +73,7 @@
                                         $sql=$conexion->query("SELECT SUM(ven_precio) as 'precio' from ventas");
                                         $data = mysqli_fetch_array($sql);
                                         $precio = $data['precio'];
-                                        echo '$'. $precio;
+                                        echo '$ '. number_format($precio);
                                     ?>
                                     </span>
                                 </div>
