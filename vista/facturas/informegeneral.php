@@ -15,11 +15,17 @@ class PDF extends FPDF{
 
     // Cabecera de página
     function Header(){
-        $this->SetFont('times','B');
+        $this->SetXY(2, 1);
+        $this->SetFont('times','B',30);
         $this->Image('../../public/images/informes/triangulosrecortados.png',0,0,50); //imagen(archivo, png/jpg || x,y,tamaño)
         // Logo
         $this->Image('../../public/images/logo.png', 20, 10, 30);
         $fill = True;
+        $this->Cell(280,25,'REPORTE RELACION FACTURAS',0,1,'C');
+        $this->SetFont('times','B',15);
+        $this->Cell(120,6,'Informe #: ',0,1,'C');
+        $this->Cell(120,3,'Fecha #: ',0,1,'C');
+
         $this->SetXY(10,42);//Esquina del inicio del margen de la cabecera Intitucion //
         $posicion_MulticeldaDX= $this->GetX();//Aquí inicializo donde va a comenzar el primer recuadro en la posición X
         $posicion_MulticeldaDY= $this->GetY();//Aquí inicializo donde va a comenzar el primer recuadro en la posición Y
@@ -36,7 +42,7 @@ class PDF extends FPDF{
 //*************************************************************************//
         $this->SetXY($posicion_MulticeldaDX,$posicion_MulticeldaDY); //Aquí le indicas la posición de la esquina superior izquierda para el primer multicell que envuelve toda la tabla o recuadro
         $this->MultiCell(137,25,'',1);
-        $this->SetFont('times','B');
+        $this->SetFont('times','B',10);
         $this->SetXY($posicion_MulticeldaDX,$posicion_MulticeldaDY); // Esto posiciona cada etiqueta en base a la posición de la esquina
         $this->Cell(137,5,'INFORMACION INSTITUCION', 1,1,'C',$fill);
         $this->SetXY($posicion_MulticeldaDX,$posicion_MulticeldaDY+5);
@@ -112,16 +118,16 @@ class PDF extends FPDF{
 $pdf = new PDF();//hacemos una instancia de la clase
 $pdf->AliasNbPages();
 $pdf->AddPage('Letter');
-$pdf->SetMargins(10,10,10);
-$pdf->SetAutoPageBreak(true,20);//salto de pagina automatico
-$pdf->SetX(20);
-$pdf->SetFont('times','B',15);
-$pdf->Cell(10,8,'#',1,0,'C',0);
-$pdf->Cell(30,8,'Factura',1,0,'C',0);
-$pdf->Cell(30,8,'Cantidad',1,0,'C',0);
-$pdf->Cell(30,8,'Valor',1,0,'C',0);
-$pdf->Cell(50,8,'Detalle',1,0,'C',0);
-$pdf->Cell(35,8,'Fecha',1,0,'C',0);
+// $pdf->SetMargins(10,10,10);
+// $pdf->SetAutoPageBreak(true,20);//salto de pagina automatico
+// $pdf->SetX(20);
+// $pdf->SetFont('times','B',15);
+// $pdf->Cell(10,8,'#',1,0,'C',0);
+// $pdf->Cell(30,8,'Factura',1,0,'C',0);
+// $pdf->Cell(30,8,'Cantidad',1,0,'C',0);
+// $pdf->Cell(30,8,'Valor',1,0,'C',0);
+// $pdf->Cell(50,8,'Detalle',1,0,'C',0);
+// $pdf->Cell(35,8,'Fecha',1,0,'C',0);
 
 $pdf->SetFillColor(233, 229, 235);//color de fondo rgb
 $pdf->SetDrawColor(61, 61, 61);//color de linea  rgb
