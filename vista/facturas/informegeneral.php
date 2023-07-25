@@ -16,9 +16,11 @@ class PDF extends FPDF{
     // Cabecera de página
     function Header(){
         $this->SetFont('times','B');
+        $this->Image('../../public/images/informes/triangulosrecortados.png',0,0,50); //imagen(archivo, png/jpg || x,y,tamaño)
+        // Logo
+        $this->Image('../../public/images/logo.png', 20, 10, 30);
         $fill = True;
-        $this->SetXY(10,42);//Esquina del inicio del margen de la cabecera dependencia // 
-        
+        $this->SetXY(10,42);//Esquina del inicio del margen de la cabecera Intitucion //
         $posicion_MulticeldaDX= $this->GetX();//Aquí inicializo donde va a comenzar el primer recuadro en la posición X
         $posicion_MulticeldaDY= $this->GetY();//Aquí inicializo donde va a comenzar el primer recuadro en la posición Y
         //Estas lineas comentadas las ocupo para verificar la posición, imprime la posición de cada eje//
@@ -27,35 +29,39 @@ class PDF extends FPDF{
   //-------------------------------------------------------------------------//
 //**************************************************************************//
       // Estas lineas son para asignar relleno, color del texto y color de lineas de contorno si mal no recuerdo //
-        $this->SetFillColor(224,235,255); 
-        $this->SetTextColor(0); 
-        $this->SetDrawColor(224,235,255);  
+        $this->SetFillColor(224,235,255);
+        $this->SetTextColor(0);
+        $this->SetDrawColor(224,235,255);
 
 //*************************************************************************//
         $this->SetXY($posicion_MulticeldaDX,$posicion_MulticeldaDY); //Aquí le indicas la posición de la esquina superior izquierda para el primer multicell que envuelve toda la tabla o recuadro
         $this->MultiCell(137,25,'',1);
-        $this->SetXY($posicion_MulticeldaDX,$posicion_MulticeldaDY); // Esto posiciona cada etiqueta en base a la posición de la esquina 
-        $this->Cell(137,5,'DATOS DE LA DEPENDENCIA', 1,1,'C',$fill);
+        $this->SetFont('times','B');
+        $this->SetXY($posicion_MulticeldaDX,$posicion_MulticeldaDY); // Esto posiciona cada etiqueta en base a la posición de la esquina
+        $this->Cell(137,5,'INFORMACION INSTITUCION', 1,1,'C',$fill);
         $this->SetXY($posicion_MulticeldaDX,$posicion_MulticeldaDY+5);
-        $this->Cell(137,5,'DEPENDENCIA:', 0,1,'L');
-        $this->SetXY($posicion_MulticeldaDX+35,$posicion_MulticeldaDY+5);
-        $this->Cell(80,5,utf8_decode('nombre empresa'),0,1,'L',0);
+        $this->Cell(137,5,'RAZON SOCIAL:', 0,1,'L');
         $this->SetXY($posicion_MulticeldaDX,$posicion_MulticeldaDY+10);
-        $this->Cell(137,5,'UR:', 0,1,'L');
-        $this->SetXY($posicion_MulticeldaDX+35,$posicion_MulticeldaDY+10);
-        $this->Cell(80,5,utf8_decode('nombre empresa') ,0,1,'L',0);
+        $this->Cell(137,5,'NIT:', 0,1,'L');
         $this->SetXY($posicion_MulticeldaDX,$posicion_MulticeldaDY+15);
-        $this->Cell(137,5,utf8_decode('DIRECCIÓN GENERAL:'), 0,1,'L');
-        $this->SetXY($posicion_MulticeldaDX+35,$posicion_MulticeldaDY+15);
-        $this->Cell(80,5,utf8_decode('DIRECCIÓN DE ADMINISTRACION Y FINANZAS' ),0,1,'L',0);
+        $this->Cell(137,5,utf8_decode('DIRECCIÓN:'), 0,1,'L');
         $this->SetXY($posicion_MulticeldaDX,$posicion_MulticeldaDY+20);
-        $this->Cell(137,5,utf8_decode('DIRECCIÓN DE AREA:'), 0,1,'L');
+        $this->Cell(137,5,utf8_decode('TELEFONO:'), 0,1,'L');
+        $this->SetFont('times','');
+        $this->SetXY($posicion_MulticeldaDX+35,$posicion_MulticeldaDY+5);
+        $this->Cell(80,5,utf8_decode('COLEGIO GIMNASIO LAS AMERICAS'),0,1,'L',0);
+        $this->SetXY($posicion_MulticeldaDX+35,$posicion_MulticeldaDY+10);
+        $this->Cell(80,5,utf8_decode('347001005243') ,0,1,'L',0);
+        $this->SetXY($posicion_MulticeldaDX+35,$posicion_MulticeldaDY+15);
+        $this->Cell(80,5,utf8_decode('Cra. 33b #9f-27 a 9f-1' ),0,1,'L',0);
         $this->SetXY($posicion_MulticeldaDX+35,$posicion_MulticeldaDY+20);
-        $this->Cell(80,5,utf8_decode('nombre empresa'),0,1,'L',0);
-        $this->Ln();  // Termina seccion de multicelda de datos de dependencia
+        $this->Cell(80,5,utf8_decode('3245833253'),0,1,'L',0);
+        $this->Ln();  // Termina seccion de multicelda de datos de Informacion Institucion
+
+
         $this->SetFont('','B');
         $fill = True;
-        $this->SetXY(153,42); // Esquina del unicio de la cabecera del usuario//
+        $this->SetXY(153,42); // Esquina del unicio de la cabecera del Alumno//
         $posicion_MulticeldaUX= $this->GetX();
         $posicion_MulticeldaUY= $this->GetY();
         $this->SetFillColor(224,235,255);
@@ -64,23 +70,24 @@ class PDF extends FPDF{
         $this->SetXY($posicion_MulticeldaUX,$posicion_MulticeldaUY);
         $this->MultiCell(137,25,'',1);
         $this->SetXY($posicion_MulticeldaUX,$posicion_MulticeldaUY);
-        $this->Cell(137,5,'DATOS DEL USUARIO', 1,1,'C',$fill);
+        $this->Cell(137,5,'DATOS DEL ALUMNO', 1,1,'C',$fill);
         $this->SetXY($posicion_MulticeldaUX,$posicion_MulticeldaUY+5);
-        $this->Cell(137,5,'NUMERO DE EMPLEADO:', 0,1,'L');
-        $this->SetXY($posicion_MulticeldaUX+40,$posicion_MulticeldaUY+5);
-        $this->Cell(80,5,utf8_decode('nombre empresa'),0,1,'L',0);
+        $this->Cell(137,5,'IDENTIFICACION:', 0,1,'L');
         $this->SetXY($posicion_MulticeldaUX,$posicion_MulticeldaUY+10);
-        $this->Cell(137,5,'NOMBRE DE EMPLEADO:', 0,1,'L');
-        $this->SetXY($posicion_MulticeldaUX+40,$posicion_MulticeldaUY+10);
-        $this->Cell(80,5,utf8_decode('nombre empresa'),0,1,'L',0);
+        $this->Cell(137,5,'NOMBRE:', 0,1,'L');
         $this->SetXY($posicion_MulticeldaUX,$posicion_MulticeldaUY+15);
-        $this->Cell(137,5,'NIVEL TABULAR:', 0,1,'L');
-        $this->SetXY($posicion_MulticeldaUX+40,$posicion_MulticeldaUY+15);
-        $this->Cell(80,5,utf8_decode('nombre empresa'),0,1,'L',0);
+        $this->Cell(137,5,'GRADO:', 0,1,'L');
         $this->SetXY($posicion_MulticeldaUX,$posicion_MulticeldaUY+20);
-        $this->Cell(137,5,'CATEGORIA O PUESTO:', 0,1,'L');
+        $this->Cell(137,5,'CORREO:', 0,1,'L');
+        $this->SetFont('times','');
+        $this->SetXY($posicion_MulticeldaUX+40,$posicion_MulticeldaUY+5);
+        $this->Cell(80,5,utf8_decode('1043698754'),0,1,'L',0);
+        $this->SetXY($posicion_MulticeldaUX+40,$posicion_MulticeldaUY+10);
+        $this->Cell(80,5,utf8_decode('MICHELLE ANDREA ARRIETA BOLAÑOS'),0,1,'L',0);
+        $this->SetXY($posicion_MulticeldaUX+40,$posicion_MulticeldaUY+15);
+        $this->Cell(80,5,utf8_decode('TRANSICION'),0,1,'L',0);
         $this->SetXY($posicion_MulticeldaUX+40,$posicion_MulticeldaUY+20);
-        $this->Cell(80,5,utf8_decode('nombre empresa'),0,1,'L',0);
+        $this->Cell(80,5,utf8_decode('marrieta@gmail.com'),0,1,'L',0);
         $this->Ln();
         //$this->Cell(185,5,'', 0,1,'L');
         $posicion_CierreCeldaCabeceraX = $this->GetX();
