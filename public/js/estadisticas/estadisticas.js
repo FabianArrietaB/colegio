@@ -9,9 +9,10 @@ $('#frmaestadistica').change(function(){
         $('#idalumno').val("");
         $('#cladoc').val("");
         $('#nombre').val("");
-        $('#fecing').val("");
         $('#telcel').val("");
+        $('#ciudad').val("");
         $('#direcc').val("");
+        $('#fecing').val("");
         $('#grado').val("");
         $('#correo').val("");
         $('#nommad').val("");
@@ -27,20 +28,21 @@ $('#frmaestadistica').change(function(){
             $('#idalumno').val(respuesta['idalumno']);
             $('#cladoc').val(respuesta['cladoc']);
             $('#nombre').val(respuesta['nombre']);
-            $('#fecing').val(respuesta['fecing']);
             $('#telcel').val(respuesta['telcel']);
+            $('#ciudad').val(respuesta['ciudad']);
             $('#direcc').val(respuesta['direcc']);
+            $('#fecing').val(respuesta['fecing']);
             $('#grado').val(respuesta['grado']);
             $('#correo').val(respuesta['correo']);
         }
     });
     var idalumno = $('#idalumno').val();
     var modulo = $('#modulo').val();
-    var fecha = $('#fecope').val();
+    var desde = $('#fecini').val();
+    var hasta = $('#fecfin').val();
     $.ajax({
         method: 'GET',
     }).done(function(info) {
-        $('#tablaestadisticas').load('informes/general.php?idalumno='+idalumno+'&modulo='+modulo+'&fecha='+fecha);
+        $('#tablaestadisticas').load('informes/general.php?idalumno='+idalumno+'&modulo='+modulo+'&desde='+desde+'&hasta='+hasta);
     })
-    console.log(fecha)
 });
