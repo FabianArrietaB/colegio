@@ -21,10 +21,10 @@ class PDF extends FPDF{
         // Logo
         $this->Image('../../public/images/logo.png', 20, 10, 30);
         $fill = True;
-        $this->Cell(280,25,'REPORTE RELACION FACTURAS',0,1,'C');
+        $this->Cell(280,22,'REPORTE RELACION FACTURAS',0,1,'C');
         $this->SetFont('times','B',15);
         $this->Cell(120,6,'Informe #: ',0,1,'C');
-        $this->Cell(120,3,'Fecha #: ',0,1,'C');
+        $this->Cell(115,3,'Fecha: ',0,1,'C');
 
         $this->SetXY(10,42);//Esquina del inicio del margen de la cabecera Intitucion //
         $posicion_MulticeldaDX= $this->GetX();//Aquí inicializo donde va a comenzar el primer recuadro en la posición X

@@ -7,6 +7,7 @@ $('#frmaestadistica').change(function(){
     //condicion para limpiar campos
     if($('#docume').val()==0){
         $('#idalumno').val("");
+        $('#cladoc').val("");
         $('#nombre').val("");
         $('#fecing').val("");
         $('#telcel').val("");
@@ -24,6 +25,7 @@ $('#frmaestadistica').change(function(){
         success:function(respuesta){
             respuesta=jQuery.parseJSON(respuesta);
             $('#idalumno').val(respuesta['idalumno']);
+            $('#cladoc').val(respuesta['cladoc']);
             $('#nombre').val(respuesta['nombre']);
             $('#fecing').val(respuesta['fecing']);
             $('#telcel').val(respuesta['telcel']);

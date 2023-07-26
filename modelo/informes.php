@@ -45,6 +45,7 @@
                 a.alu_docume  AS docume,
                 a.id_alumno   AS idalumno,
                 a.alu_nombre  AS nombre,
+                a.alu_cladoc  AS cladoc,
                 a.alu_direcc  AS direcc,
                 a.alu_telcel  AS telcel,
                 a.alu_correo  AS correo,
@@ -56,8 +57,9 @@
             $respuesta = mysqli_query($conexion,$sql);
             $alumno = mysqli_fetch_array($respuesta);
             $datos = array(
-                'docume' => $alumno['docume'],
                 'idalumno' => $alumno['idalumno'],
+                'docume' => $alumno['docume'],
+                'cladoc' => $alumno['cladoc'],
                 'nombre' => $alumno['nombre'],
                 'direcc' => $alumno['direcc'],
                 'telcel' => $alumno['telcel'],

@@ -208,14 +208,14 @@
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="input-group input-group-sm mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha Operacion</span>
-                                                <input type="date" id="fecope" name="fecope" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">Identificacion</span>
+                                                <input type="text" id="docume" name="docume" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="input-group input-group-sm mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-sm">Identificacion</span>
-                                                <input type="text" id="docume" name="docume" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">Tipo Documento</span>
+                                                <input disabled type="text" id="cladoc" name="cladoc" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -227,14 +227,14 @@
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="input-group input-group-sm mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha Ingreso</span>
-                                                <input disabled type="text" id="fecing" name="fecing" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">Telefono</span>
+                                                <input disabled type="text" id="telcel" name="telcel" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="input-group input-group-sm mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-sm">Telefono</span>
-                                                <input disabled type="text" id="telcel" name="telcel" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">Ciudad</span>
+                                                <input disabled type="text" id="ciudad" name="ciudad" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -247,6 +247,12 @@
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="input-group input-group-sm mb-3">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha Ingreso</span>
+                                                <input disabled type="text" id="fecing" name="fecing" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="input-group input-group-sm mb-3">
                                                 <span class="input-group-text" id="inputGroup-sizing-sm">Grado</span>
                                                 <input disabled type="text" id="grado" name="grado" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                             </div>
@@ -257,7 +263,21 @@
                                                 <input disabled type="text" id="correo" name="correo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                             </div>
                                         </div>
-                                        <div class="col-2">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="input-group input-group-sm mb-3">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha Inicial</span>
+                                                <input type="date" id="fecini" name="fecini" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="input-group input-group-sm mb-3">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha Final</span>
+                                                <input type="date" id="fecfin" name="fecfin" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
                                             <div class="input-group input-group-sm mb-3">
                                                 <span class="input-group-text" id="inputGroup-sizing-sm">Modulo</span>
                                                 <select name="modulo" id="modulo" class="form-control input-sm">
@@ -270,7 +290,16 @@
                                         </div>
                                         <div class="col-1 aling-items-center">
                                             <div class="input-group input-group-sm mb-3">
-                                                <button class="btn btn-info" type="button" onclick="informegeneral()"><i class="fa-solid fa-print"></i></i></button>
+                                                <div class="d-grid gap-2 d-md-block">
+                                                    <button class="btn btn-info" type="button" onclick="informegeneral()"><i class="fa-solid fa-print"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-1 aling-items-center">
+                                            <div class="input-group input-group-sm mb-3">
+                                                <div class="d-grid gap-2 d-md-block">
+                                                <button class="btn btn-success" type="button" onclick="informeexcel()"><i class="fa-solid fa-file-excel"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
