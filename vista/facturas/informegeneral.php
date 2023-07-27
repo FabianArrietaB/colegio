@@ -8,9 +8,11 @@ $sql = "SELECT
     f.id_operador as idoperador,
     u.user_nombre as vendedor,
     f.fac_prefijo as prefijo,
-    f.id_facturas as factura,
+    f.id_facturas as idfactura,
+    CONCAT(f.fac_prefijo, ' - ' ,f.id_facturas) as factura,
     f.id_producto  as idproducto,
     p.pro_nombre as producto,
+    f.fac_cantidad as cantidad,
     f.id_tippag as tippag,
     f.fac_detalle as detalle,
     f.fac_valor as precio,
@@ -44,7 +46,16 @@ class PDF extends FPDF{
         //Consulta Alumnos
         $desde = date('2023-07-01');
         $hasta = date('2023-07-31');
-        
+        $entdesde = strtotime($desde);
+        $enthasta = strtotime($hasta);
+        $añodesde = date("Y", $entdesde);
+        $mesdesde = date('M', $entdesde);
+        $diadesde = date('d', $entdesde);
+        $añohasta = date("Y", $enthasta);
+        $meshasta = date('M', $enthasta);
+        $diahasta = date('d', $enthasta);
+
+        //Consulta Datos Alumnos
         $idalumno =  1;//($_GET['idfacturas']);
         $sql_alumno = "select * from alumnos Where id_alumno = '$idalumno'";
         $query4 = mysqli_query($conexion, $sql_alumno);
@@ -62,10 +73,10 @@ class PDF extends FPDF{
         // Logo
         $this->Image('../../public/images/logo.png', 20, 10, 30);
         $fill = True;
-        $this->Cell(280,22,'REPORTE RELACION FACTURAS',0,1,'C');
+        $this->Cell(350,17,'REPORTE RELACION FACTURAS',0,1,'C');
         $this->SetFont('times','B',15);
-        $this->Cell(220,5,'Informe de facturas periodo ' . $desde . ' hasta ' . $hasta,0,1,'C');
-        $this->Cell(120,3,'Fecha #: ',0,1,'C');
+        $this->Cell(350,15,'PERIODO COMPRENDIDO DE ' . $añodesde . ' - ' . $mesdesde . ' - ' . $diadesde . ' AL ' . $añohasta . ' - ' . $meshasta . ' - ' . $diahasta,0,1,'C');
+        $this->Cell(350,3,'Fecha Documento: ' . date("Y-m-d"),0,1,'C');
 
         $this->SetXY(10,42);//Esquina del inicio del margen de la cabecera Intitucion //
         $posicion_MulticeldaDX= $this->GetX();//Aquí inicializo donde va a comenzar el primer recuadro en la posición X
@@ -73,14 +84,13 @@ class PDF extends FPDF{
         //Estas lineas comentadas las ocupo para verificar la posición, imprime la posición de cada eje//
         //$this->Cell(50,5,utf8_decode('Posicion X'  ." " .$posicion_MulticeldaDX),1,0,'C');
         //$this->Cell(50,5,utf8_decode('Posicion Y'  ." " .$posicion_MulticeldaDY),1,0,'C');
-  //-------------------------------------------------------------------------//
-//**************************************************************************//
-      // Estas lineas son para asignar relleno, color del texto y color de lineas de contorno si mal no recuerdo //
+        //-------------------------------------------------------------------------//
+        //**************************************************************************//
+        // Estas lineas son para asignar relleno, color del texto y color de lineas de contorno si mal no recuerdo //
         $this->SetFillColor(224,235,255);
         $this->SetTextColor(0);
         $this->SetDrawColor(224,235,255);
-
-//*************************************************************************//
+        //*************************************************************************//
         $this->SetXY($posicion_MulticeldaDX,$posicion_MulticeldaDY); //Aquí le indicas la posición de la esquina superior izquierda para el primer multicell que envuelve toda la tabla o recuadro
         $this->MultiCell(137,25,'',1);
         $this->SetFont('times','B',10);
@@ -121,7 +131,7 @@ class PDF extends FPDF{
         $this->SetXY($posicion_MulticeldaUX,$posicion_MulticeldaUY+5);
         $this->Cell(137,5,'IDENTIFICACION:', 0,1,'L');
         $this->SetXY($posicion_MulticeldaUX,$posicion_MulticeldaUY+10);
-        $this->Cell(137,5,'NOMBRE:', 0,1,'L');
+        $this->Cell(137,5,'Item:', 0,1,'L');
         $this->SetXY($posicion_MulticeldaUX,$posicion_MulticeldaUY+15);
         $this->Cell(137,5,'GRADO:', 0,1,'L');
         $this->SetXY($posicion_MulticeldaUX,$posicion_MulticeldaUY+20);
@@ -153,26 +163,153 @@ class PDF extends FPDF{
         $this->Cell(170,10,'Todos los derechos reservados',0,0,'C',0);
         $this->Cell(25,10,utf8_decode('Página ').$this->PageNo().'/{nb}',0,0,'C');
     }
+
+    var $widths;
+    var $aligns;
+
+    function SetWidths($w){
+        //Set the array of column widths
+        $this->widths=$w;
+    }
+
+    function SetAligns($a){
+        //Set the array of column alignments
+        $this->aligns=$a;
+    }
+
+    function Row($data,$setX){
+        //Calculate the height of the row
+        $nb=0;
+        for($i=0;$i<count($data);$i++)
+            $nb=max($nb,$this->NbLines($this->widths[$i],$data[$i]));
+        $h=5*$nb;
+        //Issue a page break first if needed
+        $this->CheckPageBreak($h);
+        //Draw the cells of the row
+        for($i=0;$i<count($data);$i++)
+        {
+            $w=$this->widths[$i];
+            $a=isset($this->aligns[$i]) ? $this->aligns[$i] : 'C';
+            //Save the current position
+            $x=$this->GetX();
+            $y=$this->GetY();
+            //Draw the border
+            $this->Rect($x,$y,$w,$h);
+            //Print the text
+            $this->MultiCell($w,5,$data[$i],0,$a);
+            //Put the position to the right of the cell
+            $this->SetXY($x+$w,$y);
+        }
+        //Go to the next line
+        $this->Ln($h);
+    }
+
+    function CheckPageBreak($h){
+        //If the height h would cause an overflow, add a new page immediately
+        if($this->GetY()+$h>$this->PageBreakTrigger)
+            $this->AddPage($this->CurOrientation);
+    }
+
+    function NbLines($w,$txt){
+        //Computes the number of lines a MultiCell of width w will take
+        $cw=&$this->CurrentFont['cw'];
+        if($w==0)
+            $w=$this->w-$this->rMargin-$this->x;
+            $wmax=($w-2*$this->cMargin)*1000/$this->FontSize;
+            $s=str_replace("\r",'',$txt);
+            $nb=strlen($s);
+            if($nb>0 and $s[$nb-1]=="\n")
+                $nb--;
+                $sep=-1;
+                $i=0;
+                $j=0;
+                $l=0;
+                $nl=1;
+                while($i<$nb){
+                    $c=$s[$i];
+                    if($c=="\n"){
+                        $i++;
+                        $sep=-1;
+                        $j=$i;
+                        $l=0;
+                        $nl++;
+                        continue;
+                    }
+                    if($c==' ')
+                        $sep=$i;
+                        $l+=$cw[$c];
+                        if($l>$wmax){
+                            if($sep==-1){
+                                if($i==$j)
+                                $i++;
+                            }else
+                                $i=$sep+1;
+                                $sep=-1;
+                                $j=$i;
+                                $l=0;
+                                $nl++;
+                        }else
+                            $i++;
+                }
+                return $nl;
+    }
 }
 
 // Creación del objeto de la clase heredada
 $pdf = new PDF();//hacemos una instancia de la clase
 $pdf->AliasNbPages();
-$pdf->AddPage('Letter');
-// $pdf->SetMargins(10,10,10);
-// $pdf->SetAutoPageBreak(true,20);//salto de pagina automatico
-// $pdf->SetX(20);
-// $pdf->SetFont('times','B',15);
-// $pdf->Cell(10,8,'#',1,0,'C',0);
-// $pdf->Cell(30,8,'Factura',1,0,'C',0);
-// $pdf->Cell(30,8,'Cantidad',1,0,'C',0);
-// $pdf->Cell(30,8,'Valor',1,0,'C',0);
-// $pdf->Cell(50,8,'Detalle',1,0,'C',0);
-// $pdf->Cell(35,8,'Fecha',1,0,'C',0);
+$pdf->AddPage('p','A3');
+$pdf->SetFont('times','B',16);
+$pdf->SetXY(10,70);
+$pdf->SetFillColor(224,235,255);
+$pdf->SetTextColor(0);
+$pdf->SetDrawColor(224,235,255);
+$pdf->SetFont('times','B',12);
+$pdf->Cell(30,8,'FACTURA',1,0,'C',1);
+$pdf->Cell(30,8,'CANTIDAD',1,0,'C',1);
+$pdf->Cell(35,8,'VALOR',1,0,'C',1);
+$pdf->Cell(70,8,'DETALLE',1,0,'C',1);
+$pdf->Cell(35,8,'FECHA',1,0,'C',1);
+$pdf->Cell(40,8,'TIPO PAGO',1,0,'C',1);
+$pdf->Cell(40,8,'VENDEDOR',1,1,'C',1);
 
-$pdf->SetFillColor(233, 229, 235);//color de fondo rgb
-$pdf->SetDrawColor(61, 61, 61);//color de linea  rgb
 
-// cell(ancho, largo, contenido,borde?, salto de linea?)
+
+//colorear fondo
+$contador = 1;
+
+$pdf->Setfont('times','',9);
+$pdf->SetWidths(array(30,30,35,70,35,40, 40));
+$total=0;
+while($mostrar= mysqli_fetch_array($query)){
+    $pdf->SetX(10);
+    $pdf->Row(array(
+        $mostrar['factura'],
+        $mostrar['cantidad'],
+        number_format($mostrar['precio'], 2),
+        $mostrar['detalle'],
+        $mostrar['fecha'],
+        $mostrar['tippag'],
+        $mostrar['vendedor']), 30);
+        $total += $mostrar['precio'];
+
+        $contador++;
+        if($contador >=66){
+            $contador =1;
+            $pdf->AddPage('p','A3');
+            $pdf->SetXY(20,60);
+            $pdf->SetFont('Helvetica','B',12);
+
+            $pdf->Cell(30,8,'FACTURA',1,0,'C',1);
+            $pdf->Cell(30,8,'CANTIDAD',1,0,'C',1);
+            $pdf->Cell(35,8,'VALOR',1,0,'C',1);
+            $pdf->Cell(60,8,'DETALLE',1,0,'C',1);
+            $pdf->Cell(35,8,'FECHA',1,0,'C',1);
+            $pdf->Cell(35,8,'TIPO PAGO',1,0,'C',1);
+            $pdf->Cell(35,8,'VENDEDOR',1,1,'C',1);
+            $pdf->Setfont('Arial','',9);
+        }
+}
+
 $pdf->Output();
 ?>
