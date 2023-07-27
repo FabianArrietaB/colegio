@@ -3,7 +3,24 @@
 require_once ("../../modelo/conexion.php");//Contiene funcion que conecta a la base de datos
 $con = new Conexion();
 $conexion = $con->conectar();
-// $idalumno = ($_GET['idfacturas']);
+$idalumno =  1;//($_GET['idfacturas']);
+$sql = "SELECT
+    f.id_operador as idoperador,
+    u.user_nombre as vendedor,
+    f.fac_prefijo as prefijo,
+    f.id_facturas as factura,
+    f.id_producto  as idproducto,
+    p.pro_nombre as producto,
+    f.id_tippag as tippag,
+    f.fac_detalle as detalle,
+    f.fac_valor as precio,
+    f.fac_fecope as fecha
+    FROM facturas AS f
+    LEFT JOIN alumnos as a ON a.id_alumno = f.id_alumno
+    LEFT JOIN productos as p ON p.id_producto = f.id_producto
+    LEFT JOIN usuarios as u ON u.id_usuario = f.id_operador
+    WHERE f.id_alumno = '$idalumno'";
+$query = mysqli_query($conexion, $sql);
 
 require('../../public/fpdf/fpdf.php');
 
@@ -15,6 +32,30 @@ class PDF extends FPDF{
 
     // Cabecera de página
     function Header(){
+        require_once ("../../modelo/conexion.php");//Contiene funcion que conecta a la base de datos
+        $con = new Conexion();
+        $conexion = $con->conectar();
+
+         //Consulta Empresa
+        $sql_empresa = "select * from sedes where id_sedes = 1 limit 0,1";//Obtengo los datos del Empresa
+        $query2 = mysqli_query($conexion, $sql_empresa);
+        $rw_empresa = mysqli_fetch_array($query2);
+
+        //Consulta Alumnos
+        $desde = date('2023-07-01');
+        $hasta = date('2023-07-31');
+        
+        $idalumno =  1;//($_GET['idfacturas']);
+        $sql_alumno = "select * from alumnos Where id_alumno = '$idalumno'";
+        $query4 = mysqli_query($conexion, $sql_alumno);
+        $rw_alumno = mysqli_fetch_array($query4);
+
+        //Consulta Acudiente
+        $idgrado = $rw_alumno['id_grado'];
+        $sql_acudiente = "select * from grados Where id_grado = '$idgrado'";
+        $query5 = mysqli_query($conexion, $sql_acudiente);
+        $rw_grado = mysqli_fetch_array($query5);
+
         $this->SetXY(2, 1);
         $this->SetFont('times','B',30);
         $this->Image('../../public/images/informes/triangulosrecortados.png',0,0,50); //imagen(archivo, png/jpg || x,y,tamaño)
@@ -23,8 +64,8 @@ class PDF extends FPDF{
         $fill = True;
         $this->Cell(280,22,'REPORTE RELACION FACTURAS',0,1,'C');
         $this->SetFont('times','B',15);
-        $this->Cell(120,6,'Informe #: ',0,1,'C');
-        $this->Cell(115,3,'Fecha: ',0,1,'C');
+        $this->Cell(220,5,'Informe de facturas periodo ' . $desde . ' hasta ' . $hasta,0,1,'C');
+        $this->Cell(120,3,'Fecha #: ',0,1,'C');
 
         $this->SetXY(10,42);//Esquina del inicio del margen de la cabecera Intitucion //
         $posicion_MulticeldaDX= $this->GetX();//Aquí inicializo donde va a comenzar el primer recuadro en la posición X
@@ -55,13 +96,13 @@ class PDF extends FPDF{
         $this->Cell(137,5,utf8_decode('TELEFONO:'), 0,1,'L');
         $this->SetFont('times','');
         $this->SetXY($posicion_MulticeldaDX+35,$posicion_MulticeldaDY+5);
-        $this->Cell(80,5,utf8_decode('COLEGIO GIMNASIO LAS AMERICAS'),0,1,'L',0);
+        $this->Cell(80,5,utf8_decode($rw_empresa['sed_nombre']),0,1,'L',0);
         $this->SetXY($posicion_MulticeldaDX+35,$posicion_MulticeldaDY+10);
-        $this->Cell(80,5,utf8_decode('347001005243') ,0,1,'L',0);
+        $this->Cell(80,5,utf8_decode($rw_empresa['sed_nit']) ,0,1,'L',0);
         $this->SetXY($posicion_MulticeldaDX+35,$posicion_MulticeldaDY+15);
-        $this->Cell(80,5,utf8_decode('Cra. 33b #9f-27 a 9f-1' ),0,1,'L',0);
+        $this->Cell(80,5,utf8_decode($rw_empresa['sed_direcc']),0,1,'L',0);
         $this->SetXY($posicion_MulticeldaDX+35,$posicion_MulticeldaDY+20);
-        $this->Cell(80,5,utf8_decode('3245833253'),0,1,'L',0);
+        $this->Cell(80,5,utf8_decode($rw_empresa['sed_telcel']),0,1,'L',0);
         $this->Ln();  // Termina seccion de multicelda de datos de Informacion Institucion
 
 
@@ -87,13 +128,13 @@ class PDF extends FPDF{
         $this->Cell(137,5,'CORREO:', 0,1,'L');
         $this->SetFont('times','');
         $this->SetXY($posicion_MulticeldaUX+40,$posicion_MulticeldaUY+5);
-        $this->Cell(80,5,utf8_decode('1043698754'),0,1,'L',0);
+        $this->Cell(80,5,utf8_decode($rw_alumno['alu_telcel']),0,1,'L',0);
         $this->SetXY($posicion_MulticeldaUX+40,$posicion_MulticeldaUY+10);
-        $this->Cell(80,5,utf8_decode('MICHELLE ANDREA ARRIETA BOLAÑOS'),0,1,'L',0);
+        $this->Cell(80,5,utf8_decode($rw_alumno['alu_nombre']),0,1,'L',0);
         $this->SetXY($posicion_MulticeldaUX+40,$posicion_MulticeldaUY+15);
-        $this->Cell(80,5,utf8_decode('TRANSICION'),0,1,'L',0);
+        $this->Cell(80,5,utf8_decode($rw_grado['gra_nombre']),0,1,'L',0);
         $this->SetXY($posicion_MulticeldaUX+40,$posicion_MulticeldaUY+20);
-        $this->Cell(80,5,utf8_decode('marrieta@gmail.com'),0,1,'L',0);
+        $this->Cell(80,5,utf8_decode($rw_alumno['alu_correo']),0,1,'L',0);
         $this->Ln();
         //$this->Cell(185,5,'', 0,1,'L');
         $posicion_CierreCeldaCabeceraX = $this->GetX();
