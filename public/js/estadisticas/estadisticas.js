@@ -52,3 +52,17 @@ function generar(){
     console.log(desde)
     console.log(hasta)
 }
+
+function informegeneral(){
+    var idalumno = $('#idalumno').val();
+    var modulo = $('#modulo').val();
+    var desde = $('#fecini').val();
+    var hasta = $('#fecfin').val();
+    $.ajax({
+        method: 'GET',
+    }).done(function(info) {
+        $('#tablaestadisticas').load('informes/general.php?idalumno='+idalumno+'&modulo='+modulo+'&desde='+desde+'&hasta='+hasta);
+    })
+    console.log(desde)
+    console.log(hasta)
+}
