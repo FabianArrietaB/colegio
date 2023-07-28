@@ -8,12 +8,12 @@ $sql = "SELECT
     f.id_operador as idoperador,
     u.user_nombre as vendedor,
     f.fac_prefijo as prefijo,
-    f.id_facturas as idfactura,
-    CONCAT(f.fac_prefijo, ' - ' ,f.id_facturas) as factura,
+    f.id_facturas as factura,
     f.id_producto  as idproducto,
     p.pro_nombre as producto,
     f.fac_cantidad as cantidad,
     f.id_tippag as tippag,
+    f.fac_forpag as forpag,
     f.fac_detalle as detalle,
     f.fac_valor as precio,
     f.fac_fecope as fecha
@@ -23,6 +23,7 @@ $sql = "SELECT
     LEFT JOIN usuarios as u ON u.id_usuario = f.id_operador
     WHERE f.id_alumno = '$idalumno'";
 $query = mysqli_query($conexion, $sql);
+
 
 require('../../public/fpdf/fpdf.php');
 
@@ -43,7 +44,9 @@ class PDF extends FPDF{
         $query2 = mysqli_query($conexion, $sql_empresa);
         $rw_empresa = mysqli_fetch_array($query2);
 
-        //Consulta Alumnos
+        //Valores Consulta
+        $modulo = 'Todos';
+        $idalumno =  1;//($_GET['idfacturas']);
         $desde = date('2023-07-01');
         $hasta = date('2023-07-31');
         $entdesde = strtotime($desde);
@@ -55,8 +58,18 @@ class PDF extends FPDF{
         $meshasta = date('M', $enthasta);
         $diahasta = date('d', $enthasta);
 
+        //Consulta Modulo
+        if ($modulo == 'Todos'){
+            $detalle = 'DE FACTURA GENERALES';
+        } else if ($modulo =='0'){
+            $detalle = 'FACTURAS DE VENTAS';
+        } else if ($modulo =='1'){
+            $detalle = 'FACTURAS DE PAGOS MATRICULAS';
+        } else if ($modulo =='2'){
+            $detalle = 'FACTURAS DE PAGOS PENSION';
+        }
+
         //Consulta Datos Alumnos
-        $idalumno =  1;//($_GET['idfacturas']);
         $sql_alumno = "select * from alumnos Where id_alumno = '$idalumno'";
         $query4 = mysqli_query($conexion, $sql_alumno);
         $rw_alumno = mysqli_fetch_array($query4);
@@ -72,11 +85,13 @@ class PDF extends FPDF{
         $this->Image('../../public/images/informes/triangulosrecortados.png',0,0,50); //imagen(archivo, png/jpg || x,y,tamaño)
         // Logo
         $this->Image('../../public/images/logo.png', 20, 10, 30);
+        $this->Image('../../public/images/logo.png', 250, 10, 30);
         $fill = True;
-        $this->Cell(350,17,'REPORTE RELACION FACTURAS',0,1,'C');
+        $this->Cell(300,15,'REPORTE RELACION FACTURAS',0,1,'C');
         $this->SetFont('times','B',15);
-        $this->Cell(350,15,'PERIODO COMPRENDIDO DE ' . $añodesde . ' - ' . $mesdesde . ' - ' . $diadesde . ' AL ' . $añohasta . ' - ' . $meshasta . ' - ' . $diahasta,0,1,'C');
-        $this->Cell(350,3,'Fecha Documento: ' . date("Y-m-d"),0,1,'C');
+        $this->Cell(280,8,'PERIODO COMPRENDIDO DE ' . $añodesde . ' - ' . $mesdesde . ' - ' . $diadesde . ' AL ' . $añohasta . ' - ' . $meshasta . ' - ' . $diahasta,0,1,'C');
+        $this->Cell(280,8,'FECHA DOCUMENTO: ' . date("Y-m-d"),0,1,'C');
+        $this->Cell(280,8,'INFORME ' . $detalle,0,1,'C');
 
         $this->SetXY(10,42);//Esquina del inicio del margen de la cabecera Intitucion //
         $posicion_MulticeldaDX= $this->GetX();//Aquí inicializo donde va a comenzar el primer recuadro en la posición X
@@ -284,12 +299,12 @@ $total=0;
 while($mostrar= mysqli_fetch_array($query)){
     $pdf->SetX(10);
     $pdf->Row(array(
-        $mostrar['factura'],
+        $mostrar['prefijo'] . ' - ' . str_pad($mostrar['factura'], 6, "0", STR_PAD_LEFT),
         $mostrar['cantidad'],
         number_format($mostrar['precio'], 2),
         $mostrar['detalle'],
         $mostrar['fecha'],
-        $mostrar['tippag'],
+        $mostrar['forpag'],
         $mostrar['vendedor']), 30);
         $total += $mostrar['precio'];
 
