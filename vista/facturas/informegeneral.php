@@ -3,7 +3,11 @@
 require_once ("../../modelo/conexion.php");//Contiene funcion que conecta a la base de datos
 $con = new Conexion();
 $conexion = $con->conectar();
+//Valores Consulta
+$modulo = ($_GET['modulo']);
 $idalumno =  ($_GET['idalumno']);
+$desde = ($_GET['desde']);
+$hasta = ($_GET['hasta']);
 $sql = "SELECT
     f.id_operador as idoperador,
     u.user_nombre as vendedor,
@@ -22,6 +26,12 @@ $sql = "SELECT
     LEFT JOIN productos as p ON p.id_producto = f.id_producto
     LEFT JOIN usuarios as u ON u.id_usuario = f.id_operador
     WHERE f.id_alumno = '$idalumno'";
+    if ($modulo != 'Todos') {
+        $sql .= " AND f.id_tippag = '$modulo'";
+        }
+    if ($desde != '' && $hasta != '') {
+        $sql .= " AND f.fac_fecope BETWEEN '$desde' AND '$hasta'";
+    }
 $query = mysqli_query($conexion, $sql);
 
 
