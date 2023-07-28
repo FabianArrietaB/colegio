@@ -5,10 +5,14 @@
     $conexion = $con->conectar();
     $idusuario = $_SESSION['usuario']['id'];
     $idalumno = '';
+    $desde = '';
+    $hasta = '';
     $modulo = '';
-    if(isset($_GET['idalumno']) && $_GET['modulo']){
+    if(isset($_GET['idalumno']) && $_GET['modulo'] && $_GET['desde'] && $_GET['hasta']){
         $idalumno = $_GET['idalumno'];
         $modulo = $_GET['modulo'];
+        $desde = $_GET['desde'];
+        $hasta = $_GET['hasta'];
     }
     $sql = "SELECT
         f.id_operador as idoperador,
@@ -28,6 +32,9 @@
         WHERE f.id_alumno = '$idalumno'";
         if ($modulo != 'Todos') {
             $sql .= " AND f.id_tippag = '$modulo'";
+        }
+        if ($desde != '' && $hasta != '') {
+            $sql .= " AND f.fac_fecope BETWEEN '$desde' AND '$hasta'";
         }
         $sql ." ORDER BY f.id_facturas ASC";
         $query = mysqli_query($conexion, $sql);
