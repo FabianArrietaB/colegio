@@ -204,6 +204,6 @@ $pdf->Ln(2);
 
 
 
-$pdf->Output('../../public/facturaspdf/' . $rw_factura['fac_prefijo'] .' - '. $idfactura .'.pdf','f');
+$pdf->Output('../../public/pdffacturas/' . $rw_factura['fac_prefijo'] .' - '. $idfactura .'.pdf','f');
 $pdf->Output('ticket.pdf','i');
 ?>

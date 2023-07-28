@@ -8,11 +8,22 @@ $modulo = ($_GET['modulo']);
 $idalumno =  ($_GET['idalumno']);
 $desde = ($_GET['desde']);
 $hasta = ($_GET['hasta']);
+//Consulta Modulo
+if ($modulo == 'Todos'){
+    $detalle = 'general';
+} else if ($modulo =='0'){
+    $detalle = 'ventas';
+} else if ($modulo =='1'){
+    $detalle = 'matricula';
+} else if ($modulo =='2'){
+    $detalle = 'pension';
+}
 $sql = "SELECT
     f.id_operador as idoperador,
     u.user_nombre as vendedor,
     f.fac_prefijo as prefijo,
     f.id_facturas as factura,
+    a.alu_nombre  as nomalu,
     f.id_producto  as idproducto,
     p.pro_nombre as producto,
     f.fac_cantidad as cantidad,
@@ -33,6 +44,7 @@ $sql = "SELECT
         $sql .= " AND f.fac_fecope BETWEEN '$desde' AND '$hasta'";
     }
 $query = mysqli_query($conexion, $sql);
+$alumno = mysqli_fetch_array($query);
 
 
 require('../../public/fpdf/fpdf.php');
@@ -99,7 +111,7 @@ class PDF extends FPDF{
         $fill = True;
         $this->Cell(300,15,'REPORTE RELACION FACTURAS',0,1,'C');
         $this->SetFont('times','B',15);
-        $this->Cell(280,8,'PERIODO COMPRENDIDO DE ' . $añodesde . ' - ' . $mesdesde . ' - ' . $diadesde . ' AL ' . $añohasta . ' - ' . $meshasta . ' - ' . $diahasta,0,1,'C');
+        $this->Cell(280,8,'PERIODO COMPRENDIDO DE ' . $diadesde . ' - ' . $mesdesde . ' - ' . $añodesde . ' AL ' . $diahasta . ' - ' . $meshasta . ' - ' . $añohasta ,0,1,'C');
         $this->Cell(280,8,'FECHA DOCUMENTO: ' . date("Y-m-d"),0,1,'C');
         $this->Cell(280,8,'INFORME ' . $detalle,0,1,'C');
 
@@ -336,5 +348,6 @@ while($mostrar= mysqli_fetch_array($query)){
         }
 }
 
+$pdf->Output('../../public/pdfinformes/informe' . $detalle . $alumno['nomalu'] . date("Y-m-d") .'.pdf','f');
 $pdf->Output();
 ?>
