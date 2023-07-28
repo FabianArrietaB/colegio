@@ -3,7 +3,7 @@
 require_once ("../../modelo/conexion.php");//Contiene funcion que conecta a la base de datos
 $con = new Conexion();
 $conexion = $con->conectar();
-$idalumno =  1;//($_GET['idfacturas']);
+$idalumno =  ($_GET['idalumno']);
 $sql = "SELECT
     f.id_operador as idoperador,
     u.user_nombre as vendedor,
@@ -45,10 +45,10 @@ class PDF extends FPDF{
         $rw_empresa = mysqli_fetch_array($query2);
 
         //Valores Consulta
-        $modulo = 'Todos';
-        $idalumno =  1;//($_GET['idfacturas']);
-        $desde = date('2023-07-01');
-        $hasta = date('2023-07-31');
+        $modulo = ($_GET['modulo']);
+        $idalumno =  ($_GET['idalumno']);
+        $desde = ($_GET['desde']);
+        $hasta = ($_GET['hasta']);
         $entdesde = strtotime($desde);
         $enthasta = strtotime($hasta);
         $añodesde = date("Y", $entdesde);

@@ -61,8 +61,6 @@ function informegeneral(){
     $.ajax({
         method: 'GET',
     }).done(function(info) {
-        $('#tablaestadisticas').load('informes/general.php?idalumno='+idalumno+'&modulo='+modulo+'&desde='+desde+'&hasta='+hasta);
+        window.open('facturas/informegeneral.php?idalumno='+idalumno+'&modulo='+modulo+'&desde='+desde+'&hasta='+hasta);
     })
-    console.log(desde)
-    console.log(hasta)
 }
