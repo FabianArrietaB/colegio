@@ -64,3 +64,15 @@ function pdf(){
         window.open('facturas/informepdf.php?idalumno='+idalumno+'&modulo='+modulo+'&desde='+desde+'&hasta='+hasta);
     })
 }
+
+function excel(){
+    var idalumno = $('#idalumno').val();
+    var modulo = $('#modulo').val();
+    var desde = $('#fecini').val();
+    var hasta = $('#fecfin').val();
+    $.ajax({
+        method: 'GET',
+    }).done(function(info) {
+        window.open('facturas/informeexcel.php?idalumno='+idalumno+'&modulo='+modulo+'&desde='+desde+'&hasta='+hasta);
+    })
+}
