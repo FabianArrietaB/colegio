@@ -36,7 +36,6 @@
         if ($desde != '' && $hasta != '') {
             $sql .= " AND f.fac_fecope BETWEEN '$desde' AND '$hasta'";
         }
-        $sql ." ORDER BY f.id_facturas ASC";
         $query = mysqli_query($conexion, $sql);
 ?>
 <!-- inicio Tabla -->

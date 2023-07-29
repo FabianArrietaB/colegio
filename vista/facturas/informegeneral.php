@@ -44,7 +44,12 @@ $sql = "SELECT
         $sql .= " AND f.fac_fecope BETWEEN '$desde' AND '$hasta'";
     }
 $query = mysqli_query($conexion, $sql);
-$alumno = mysqli_fetch_array($query);
+$sqlalumno = "SELECT
+a.alu_nombre  as nomalu
+FROM alumnos AS a
+WHERE a.id_alumno = '$idalumno'";
+$rwalumno = mysqli_query($conexion, $sqlalumno);
+$alumno = mysqli_fetch_array($rwalumno);
 
 
 require('../../public/fpdf/fpdf.php');
@@ -313,11 +318,9 @@ $pdf->Cell(40,8,'VENDEDOR',1,1,'C',1);
 
 
 //colorear fondo
-$contador = 1;
-
 $pdf->Setfont('times','',9);
-$pdf->SetWidths(array(30,30,35,70,35,40, 40));
-$total=0;
+$pdf->SetWidths(array(30,30,35,70,35,40,40));
+$i = 0;
 while($mostrar= mysqli_fetch_array($query)){
     $pdf->SetX(10);
     $pdf->Row(array(
@@ -328,15 +331,11 @@ while($mostrar= mysqli_fetch_array($query)){
         $mostrar['fecha'],
         $mostrar['forpag'],
         $mostrar['vendedor']), 30);
-        $total += $mostrar['precio'];
-
-        $contador++;
-        if($contador >=66){
-            $contador =1;
+        if($i >=66){
+            $i++;
             $pdf->AddPage('p','A3');
             $pdf->SetXY(20,60);
-            $pdf->SetFont('Helvetica','B',12);
-
+            $pdf->SetFont('times','B',12);
             $pdf->Cell(30,8,'FACTURA',1,0,'C',1);
             $pdf->Cell(30,8,'CANTIDAD',1,0,'C',1);
             $pdf->Cell(35,8,'VALOR',1,0,'C',1);
@@ -344,7 +343,6 @@ while($mostrar= mysqli_fetch_array($query)){
             $pdf->Cell(35,8,'FECHA',1,0,'C',1);
             $pdf->Cell(35,8,'TIPO PAGO',1,0,'C',1);
             $pdf->Cell(35,8,'VENDEDOR',1,1,'C',1);
-            $pdf->Setfont('Arial','',9);
         }
 }
 
