@@ -51,6 +51,17 @@ $sql = "SELECT
     $rwalumno = mysqli_query($conexion, $sqlalumno);
     $alumno = mysqli_fetch_array($rwalumno);
 
+     //Consulta Modulo
+     if ($modulo == 'Todos'){
+        $detalle = 'DE FACTURA GENERALES';
+    } else if ($modulo =='0'){
+        $detalle = 'FACTURAS DE VENTAS';
+    } else if ($modulo =='1'){
+        $detalle = 'FACTURAS DE PAGOS MATRICULAS';
+    } else if ($modulo =='2'){
+        $detalle = 'FACTURAS DE PAGOS PENSION';
+    }
+
     $dataTable = '';
     $dataTable .='<table class="table">
                     <thead>
@@ -90,7 +101,7 @@ $sql = "SELECT
                         }
     $dataTable .= '  </tbody>
                 </table>';
-    $filename = "exported-data-".date('d-m-Y H:i:s').".xls";
+    $filename = "informe " . $detalle . $alumno['nomalu'] . date('d-m-Y H:i:s').".xls";
     header('Content-Type: application/xls');
     header('Content-Disposition: attachment; filename='.$filename);
     echo $dataTable;
