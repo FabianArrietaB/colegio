@@ -315,8 +315,6 @@ $pdf->Cell(35,8,'FECHA',1,0,'C',1);
 $pdf->Cell(30,8,'TIPO PAGO',1,0,'C',1);
 $pdf->Cell(30,8,'VENDEDOR',1,1,'C',1);
 
-
-
 //colorear fondo
 $pdf->Setfont('times','',9);
 $pdf->SetWidths(array(20,30,30,35,70,35,30,30));
