@@ -53,7 +53,7 @@ function generar(){
     console.log(hasta)
 }
 
-function informegeneral(){
+function pdf(){
     var idalumno = $('#idalumno').val();
     var modulo = $('#modulo').val();
     var desde = $('#fecini').val();
@@ -61,6 +61,6 @@ function informegeneral(){
     $.ajax({
         method: 'GET',
     }).done(function(info) {
-        window.open('facturas/informegeneral.php?idalumno='+idalumno+'&modulo='+modulo+'&desde='+desde+'&hasta='+hasta);
+        window.open('facturas/informepdf.php?idalumno='+idalumno+'&modulo='+modulo+'&desde='+desde+'&hasta='+hasta);
     })
 }

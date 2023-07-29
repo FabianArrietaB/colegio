@@ -292,8 +292,8 @@
                                             <div class="input-group input-group-sm mb-3">
                                                 <div class="d-grid gap-1 d-md-block">
                                                     <button class="btn btn-info" type="button" value="Buscar" onclick="generar()"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                                    <button class="btn btn-danger" type="button" onclick="informegeneral()"><i class="fa-solid fa-file-pdf"></i></button>
-                                                    <button class="btn btn-success" type="button" onclick="informeexcel()"><i class="fa-solid fa-file-excel"></i></button>
+                                                    <button class="btn btn-danger" type="button" onclick="pdf()"><i class="fa-solid fa-file-pdf"></i></button>
+                                                    <button class="btn btn-success" type="button" onclick="excel()"><i class="fa-solid fa-file-excel"></i></button>
                                                 </div>
                                             </div>
                                         </div>
