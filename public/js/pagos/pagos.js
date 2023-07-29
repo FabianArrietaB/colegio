@@ -76,10 +76,7 @@ function pagopension(){
 }
 
 function detallefactura(idfacturas){
-    $('#conte-modal-factura').load('facturas/vistapreviafactura.php?idfacturas='+idfacturas, function(){
-        $('#factura').modal("show");
-        $('.modal-backdrop').remove()
-    });
+    window.open('facturas/factura.php?idfacturas='+idfacturas);
 }
 
 function obteneracudiente(idfacturas){
