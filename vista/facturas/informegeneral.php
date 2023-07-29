@@ -301,29 +301,30 @@ class PDF extends FPDF{
 $pdf = new PDF();//hacemos una instancia de la clase
 $pdf->AliasNbPages();
 $pdf->AddPage('p','A3');
-$pdf->SetFont('times','B',16);
 $pdf->SetXY(10,70);
 $pdf->SetFillColor(224,235,255);
 $pdf->SetTextColor(0);
 $pdf->SetDrawColor(224,235,255);
 $pdf->SetFont('times','B',12);
+$pdf->Cell(20,8,'ITEM',1,0,'C',1);
 $pdf->Cell(30,8,'FACTURA',1,0,'C',1);
 $pdf->Cell(30,8,'CANTIDAD',1,0,'C',1);
 $pdf->Cell(35,8,'VALOR',1,0,'C',1);
 $pdf->Cell(70,8,'DETALLE',1,0,'C',1);
 $pdf->Cell(35,8,'FECHA',1,0,'C',1);
-$pdf->Cell(40,8,'TIPO PAGO',1,0,'C',1);
-$pdf->Cell(40,8,'VENDEDOR',1,1,'C',1);
+$pdf->Cell(30,8,'TIPO PAGO',1,0,'C',1);
+$pdf->Cell(30,8,'VENDEDOR',1,1,'C',1);
 
 
 
 //colorear fondo
 $pdf->Setfont('times','',9);
-$pdf->SetWidths(array(30,30,35,70,35,40,40));
+$pdf->SetWidths(array(20,30,30,35,70,35,30,30));
 $i = 0;
 while($mostrar= mysqli_fetch_array($query)){
     $pdf->SetX(10);
     $pdf->Row(array(
+        ++$i,
         $mostrar['prefijo'] . ' - ' . str_pad($mostrar['factura'], 6, "0", STR_PAD_LEFT),
         $mostrar['cantidad'],
         number_format($mostrar['precio'], 2),
@@ -336,13 +337,14 @@ while($mostrar= mysqli_fetch_array($query)){
             $pdf->AddPage('p','A3');
             $pdf->SetXY(20,60);
             $pdf->SetFont('times','B',12);
+            $pdf->Cell(20,8,'ITEM',1,0,'C',1);
             $pdf->Cell(30,8,'FACTURA',1,0,'C',1);
             $pdf->Cell(30,8,'CANTIDAD',1,0,'C',1);
             $pdf->Cell(35,8,'VALOR',1,0,'C',1);
             $pdf->Cell(60,8,'DETALLE',1,0,'C',1);
             $pdf->Cell(35,8,'FECHA',1,0,'C',1);
-            $pdf->Cell(35,8,'TIPO PAGO',1,0,'C',1);
-            $pdf->Cell(35,8,'VENDEDOR',1,1,'C',1);
+            $pdf->Cell(30,8,'TIPO PAGO',1,0,'C',1);
+            $pdf->Cell(30,8,'VENDEDOR',1,1,'C',1);
         }
 }
 
