@@ -21,7 +21,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-6 text-center"">
+                        <div class="col-sm-6 text-center">
                             <a class="acard" type="button" id="empresabtn" onclick="detalleempresa('<?php echo $_SESSION['usuario']['id']?>')">
                                 <div class="card border-danger text-white bg-primary mb-3">
                                     <div class="card-header">
