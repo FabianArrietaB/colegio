@@ -1,7 +1,9 @@
 <?php
    $datos = array(
+      "codigo" => $_POST['codigo'],
       "nit" => $_POST['nit'],
       "nombre" => $_POST['nombre'],
+      "regimen" => $_POST['regimen'],
       "idtip" => $_POST['idtip'],
    );
 

@@ -16,7 +16,9 @@ $query=mysqli_query($conexion,$sql);
         <thead>
             <tr>
                 <th scope="col" >Nit</th>
-                <th scope="col" >Nombre</th>
+                <th scope="col" >Nombre Entidad</th>
+                <th scope="col" >Codigo</th>
+                <th scope="col" >Regime</th>
                 <th>
                 </th>
             </tr>

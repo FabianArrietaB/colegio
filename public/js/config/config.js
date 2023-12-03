@@ -69,9 +69,11 @@ function detalleparafiscal(idparafiscal){
         success: function(respuesta){
             respuesta = jQuery.parseJSON(respuesta);
             $('#idparafiscal').val(respuesta['idparafiscal']);
-            $('#nombreu').val(respuesta['nombre']);
-            $('#nitu').val(respuesta['nit']);
             $('#idtipu').val(respuesta['idtip']);
+            $('#codigou').val(respuesta['codigo']);
+            $('#nitu').val(respuesta['nit']);
+            $('#nombreu').val(respuesta['nombre']);
+            $('#regimenu').val(respuesta['regimen']);
         }
     });
 }
