@@ -3,10 +3,12 @@ include "../../modelo/conexion.php";
 $con = new Conexion();
 $conexion = $con->conectar();
 $sql = "SELECT
-            p.id_parafiscal AS idparafiscal,
-            p.par_nit AS nit,
-            p.id_tipo AS idtip,
-            p.par_nombre AS nombre
+        p.id_parafiscal AS idparafiscal,
+        p.id_tipo       AS idtip,
+        p.par_codigo    AS codigo,
+        p.par_nit       AS nit,
+        p.par_nombre    AS nombre,
+        p.par_regimen   AS regimen
         FROM parafiscales AS p";
 $query=mysqli_query($conexion,$sql);
 ?>
@@ -30,6 +32,8 @@ $query=mysqli_query($conexion,$sql);
             <tr>
                 <td> <?php echo $parafiscal['nit']; ?> </td>
                 <td> <?php echo $parafiscal['nombre']; ?> </td>
+                <td> <?php echo $parafiscal['codigo']; ?> </td>
+                <td> <?php echo $parafiscal['regimen']; ?> </td>
                 <td>
                 <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detalleparafiscal('<?php echo $parafiscal['idparafiscal']?>')"><i class="fa-solid fa-pen-to-square fa-xl"></i></button>
                 </td>

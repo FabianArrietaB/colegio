@@ -49,6 +49,7 @@
                                 <select name="idtip" id="idtip" class="form-control input-sm">
                                     <option value="1">EPS o PENSION</option>
                                     <option value="2">ARL</option>
+                                    <option value="3">CESANTIAS</option>
                                 </select>
                             </div>
                         </div>

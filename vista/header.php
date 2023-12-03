@@ -11,6 +11,7 @@ if (!empty($_SESSION["user_estado"])) {
   <head>
     <meta charset="UTF-8">
     <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
+    <title>Gimnasio de las Americas</title>
     <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="../public/css/factura.css"/>
     <link rel="stylesheet" href="../public/css/dash.css">

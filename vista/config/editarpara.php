@@ -7,33 +7,62 @@
                     <h5 class="modal-title" id="exampleModalLabel">Editar Parafiscal</h5>
                     <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <d class="modal-body">
+                <div class="modal-body">
                     <!-- Formulario (Estudiante) -->
                     <fieldset class="group-border">
-                        <legend class="group-border">Informacion</legend>
                             <input type="text" id="idparafiscal" name="idparafiscal" hidden>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="nombreu" name="nombreu" class="form-control input-sm" " >
-                                </div>
+                        <br>
+                        <div class="col">
+                            <div class="input-group">
+                                <span class="input-group-text">Codigo Entidad</span>
+                                <input type="text" id="codigou" name="codigou"  aria-label="First name" class="form-control">
                             </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <input type="text" id="nitu" name="nitu" class="form-control input-sm" ">
-                                </div>
+                        </div>
+                        <br>
+                        <div class="col">
+                            <div class="input-group">
+                                <span class="input-group-text">Nit Entidad</span>
+                                <input type="text" id="nitu" name="nitu" aria-label="First name" class="form-control">
                             </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
+                        </div>
+                        <br>
+                        <div class="col">
+                            <div class="input-group">
+                                <span class="input-group-text">Nombre Entidad</span>
+                                <input type="text" id="nombreu" name="nombreu"  aria-label="First name" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col">
+                            <div class="input-group">
+                                <span class="input-group-text">Tipo Regimen</span>
+                                <select name="regimenu" id="regimenu" class="form-control input-sm">
+                                    <option value="CONTRIBUTIVO">CONTRIBUTIVO</option>
+                                    <option value="SUBSIDIADO">SUBSIDIADO</option>
+                                    <option value="AMBOS">AMBOS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col">
+                            <div class="input-group">
+                                <span class="input-group-text">Tipo Entidad</span>
                                 <select name="idtipu" id="idtipu" class="form-control input-sm">
                                     <option value="1">EPS o PENSION</option>
                                     <option value="2">ARL</option>
                                 </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col">
+                            <div class="card-footer">
+                                <div class="d-grid gap-2">
+                                <button class="btn btn-success" data-bs-dismiss="modal">Actualizar</button>
                                 </div>
                             </div>
-                    </fieldset>
-                        <div class="card-footer">
-                        <button class="btn btn-success" data-bs-dismiss="modal">Actualizar</button>
                         </div>
+                    </div>
+                    </fieldset>
                 </div>
             </div>
         </div>
