@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-11-2023 a las 01:04:07
+-- Tiempo de generación: 04-12-2023 a las 00:41:25
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -232,37 +232,19 @@ INSERT INTO `pais` (`id_pais`, `pais_nombre`, `pais_fecope`) VALUES
 CREATE TABLE `parafiscales` (
   `id_parafiscal` int(11) NOT NULL,
   `id_tipo` int(11) DEFAULT NULL,
+  `par_codigo` varchar(45) NOT NULL,
+  `par_nit` varchar(45) NOT NULL,
   `par_nombre` varchar(45) NOT NULL,
-  `par_fecope` timestamp NOT NULL DEFAULT current_timestamp(),
-  `par_nit` varchar(45) NOT NULL
+  `par_regimen` varchar(45) NOT NULL,
+  `par_fecope` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `parafiscales`
 --
 
-INSERT INTO `parafiscales` (`id_parafiscal`, `id_tipo`, `par_nombre`, `par_fecope`, `par_nit`) VALUES
-(1, 1, '800250119', '0000-00-00 00:00:00', '2023-06-11 21:13:02'),
-(2, 1, '805000427', '0000-00-00 00:00:00', '2023-06-11 21:14:38'),
-(3, 1, '800130907', '0000-00-00 00:00:00', '2023-06-11 21:14:50'),
-(4, 1, '830003564', '0000-00-00 00:00:00', '2023-06-11 21:15:01'),
-(5, 1, '800229739', '0000-00-00 00:00:00', '2023-06-11 21:15:12'),
-(6, 1, '899999284', '0000-00-00 00:00:00', '2023-06-11 21:15:23'),
-(7, 1, '900336004', '0000-00-00 00:00:00', '2023-06-11 21:15:34'),
-(8, 1, '900156264', '0000-00-00 00:00:00', '2023-06-11 21:15:45'),
-(9, 1, '800251440', '0000-00-00 00:00:00', '2023-06-11 21:15:55'),
-(10, 1, '900226715', '0000-00-00 00:00:00', '2023-06-11 21:16:06'),
-(11, 1, '806008394', '0000-00-00 00:00:00', '2023-06-11 21:16:19'),
-(12, 1, '818000140', '0000-00-00 00:00:00', '2023-06-11 21:16:31'),
-(13, 1, '830074184', '0000-00-00 00:00:00', '2023-06-11 21:16:55'),
-(14, 1, '901097473', '0000-00-00 00:00:00', '2023-06-11 21:17:07'),
-(15, 1, '800227940', '0000-00-00 00:00:00', '2023-06-11 21:17:32'),
-(16, 1, '800224808', '0000-00-00 00:00:00', '2023-06-11 21:17:44'),
-(17, 1, '800140949', '0000-00-00 00:00:00', '2023-06-11 21:17:55'),
-(18, 1, '800088702', '0000-00-00 00:00:00', '2023-06-11 21:18:07'),
-(19, 2, '860002183', '0000-00-00 00:00:00', '2023-06-11 21:18:36'),
-(20, 2, '800256161', '0000-00-00 00:00:00', '2023-06-11 21:18:49'),
-(21, 2, '890903790', '0000-00-00 00:00:00', '2023-06-11 21:19:04');
+INSERT INTO `parafiscales` (`id_parafiscal`, `id_tipo`, `par_codigo`, `par_nit`, `par_nombre`, `par_regimen`, `par_fecope`) VALUES
+(1, 1, 'ESS024 - EPS042', '900226715', 'COOSALUD EPS-S', 'AMBOS', '2023-12-03 23:05:13');
 
 -- --------------------------------------------------------
 
@@ -335,7 +317,7 @@ CREATE TABLE `sedes` (
 --
 
 INSERT INTO `sedes` (`id_sedes`, `id_tipo`, `id_operador`, `sed_razsoc`, `sed_nombre`, `sed_nit`, `sed_correo`, `sed_pagina`, `sed_telcel`, `sed_direcc`, `sed_tipper`, `sed_regime`, `sed_pais`, `sed_depart`, `sed_muni`, `sed_estado`, `sed_fecope`, `sed_fecupd`) VALUES
-(1, 2, 1, 'COLEGIO GIMNASIO LAS AMERICAS', 'COLEGIO GIMNASIO LAS AMERICA', '347001005243', 'colegiogimnasiolasamericas.edu.co', 'secretariageneral@colegiogimnasiolasamericas', '3245833253', 'Cra. 33b #9f-27 a 9f-1', '1', '2', 'COLOMBIA', 'MAGDALENA', 'SANTA MARTA', '1', '0000-00-00 00:00:00', '2023-06-11 21:45:44');
+(1, 2, 1, 'COLEGIO GIMNASIO LAS AMERICAS', 'COLEGIO GIMNASIO LAS AMERICA', '347001005243', 'colegiogimnasiolasamericas.edu.co', 'secretariageneral@colegiogimnasiolasamericas', '3245833253', 'Cra. 33b #9f-27 a 9f-1', '1', '2', 'COLOMBIA', 'MAGDALENA', 'SANTA MARTA', '1', '0000-00-00 00:00:00', '2023-12-03 23:25:24');
 
 -- --------------------------------------------------------
 
@@ -583,7 +565,7 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de la tabla `parafiscales`
 --
 ALTER TABLE `parafiscales`
-  MODIFY `id_parafiscal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_parafiscal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
