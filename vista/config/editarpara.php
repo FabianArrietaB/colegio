@@ -10,7 +10,7 @@
                 <div class="modal-body">
                     <!-- Formulario (Estudiante) -->
                     <fieldset class="group-border">
-                            <input type="text" id="idparafiscal" name="idparafiscal" hidden>
+                        <input type="text" id="idparafiscal" name="idparafiscal" hidden>
                         <br>
                         <div class="col">
                             <div class="input-group">
@@ -57,11 +57,10 @@
                         <div class="col">
                             <div class="card-footer">
                                 <div class="d-grid gap-2">
-                                <button class="btn btn-success" data-bs-dismiss="modal">Actualizar</button>
+                                    <button class="btn btn-success" data-bs-dismiss="modal">Actualizar</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </fieldset>
                 </div>
             </div>
