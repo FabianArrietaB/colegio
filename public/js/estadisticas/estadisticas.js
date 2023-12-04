@@ -2,7 +2,7 @@ $(document).ready(function(){
     $('#tablaestadisticas').load('informes/general.php');
 });
 
-//CONSULTAR Datos Alumno
+//CONSULTAR DATOS ALUMNO
 $('#frmaestadistica').change(function(){
     //condicion para limpiar campos
     if($('#docume').val()==0){
@@ -38,6 +38,11 @@ $('#frmaestadistica').change(function(){
     });
     
 });
+
+function obtenerAlumno(){
+    
+    
+}
 
 function generar(){
     var idalumno = $('#idalumno').val();
