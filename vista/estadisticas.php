@@ -210,6 +210,7 @@
                                             <div class="input-group input-group-sm mb-3">
                                                 <span class="input-group-text" id="inputGroup-sizing-sm">Identificacion</span>
                                                 <input type="text" id="docume" name="docume" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                <button onclick="obteneralumno()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alumnos"><i class="fa-solid fa-magnifying-glass"></i></button>
                                             </div>
                                         </div>
                                         <div class="col-3">
