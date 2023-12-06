@@ -52,6 +52,11 @@
                 </div>
             </div>
             <div class="card border-primary">
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createfactura"><i class="fa-solid fa-square-plus fa-lg"></i> CREAR FACTURA</button>
+                </div>
+            </div>
+            <div class="card border-primary">
                 <div class="card-header text-center">
                     <div class="title">
                         <h2>PAGOS</h2>
@@ -86,6 +91,7 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
+    include "facturas/facturar.php";
     include "pagos/pension.php";
     include "footer.php";
 ?>

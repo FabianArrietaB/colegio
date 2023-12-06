@@ -56,7 +56,7 @@
             g.gra_nombre as grado
             FROM alumnos as a
             INNER JOIN grados as g ON a.id_grado = g.id_grado
-            WHERE a.alu_estado = 1
+            WHERE a.alu_estado = 1 AND a.id_grado = '$idgrado'
             ORDER BY a.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     }

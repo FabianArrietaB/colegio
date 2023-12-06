@@ -27,7 +27,7 @@
                             <div class="input-group">
                                 <span class="input-group-text" id="inputGroup-sizing-default">GRADO</span>
                                 <select name="grado" id="grado" onchange="selectgrado()" class="form-control input-sm">
-                                    <option selected>Seleccione Grado</option>
+                                    <option value="0" selected>Seleccione Grado</option>
                                     <?php
                                         $sql="SELECT g.id_grado as idgrado, g.gra_nombre as nombre FROM grados as g";
                                         $respuesta = mysqli_query($conexion, $sql);

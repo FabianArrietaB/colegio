@@ -24,7 +24,7 @@ $('#frmagregaralumno').change(function(){
 
 function selectgrado(){
     idgrado = $('#grado').val();
-    //console.log(idgrado)
+    console.log(idgrado)
     $.ajax({
         method: 'GET',
         }).done(function (data) {
