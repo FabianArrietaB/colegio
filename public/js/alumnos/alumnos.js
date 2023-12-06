@@ -22,6 +22,16 @@ $('#frmagregaralumno').change(function(){
     });
 });
 
+function selectgrado(){
+    idgrado = $('#grado').val();
+    //console.log(idgrado)
+    $.ajax({
+        method: 'GET',
+        }).done(function (data) {
+            $('#tablalistaalumnos').load('alumnos/listaalumnos.php?idgrado='+idgrado);
+    })
+}
+
 function activaralumno(idalumno, estado){
     $.ajax({
         type:"POST",

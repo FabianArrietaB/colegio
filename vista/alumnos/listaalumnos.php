@@ -1,5 +1,9 @@
 <?php
     session_start();
+    $idgrado = '';
+    if(isset($_GET['idgrado'])){
+        $idgrado = $_GET['idgrado'];
+    }
     if ($_SESSION['usuario']['rol'] == 4) {
         include "../../modelo/conexion.php";
         $con = new Conexion();
@@ -23,6 +27,7 @@
             g.gra_nombre as grado
         FROM alumnos as a
         LEFT JOIN grados as g ON a.id_grado = g.id_grado
+        WHERE a.id_grado = '$idgrado'
         ORDER BY a.id_alumno ASC";
         $query = mysqli_query($conexion, $sql);
     } else {

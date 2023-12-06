@@ -42,12 +42,7 @@
                 <fieldset class="group-border">
                     <legend class="group-border mb-4"></legend>
                     <div class="row">
-                        <div class="col-6">
-                            <div class="input-group">
-                                <input type="text" id="filtroalumno" name="filtroalumno" class="form-control input-sm" placeholder="Ingrese Nombre">
-                            </div>
-                        </div>
-                        <div class="col-6">
+                        <div class="col">
                             <select onchange="enviargrado()" name="filtroidgrado" id="filtroidgrado" class="form-control input-sm">
                                     <option selected >Selecione Grado</option>
                                     <?php

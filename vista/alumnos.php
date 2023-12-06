@@ -15,13 +15,28 @@
             <div class="card border-primary">
                 <div class="card-header text-center">
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-6">
                             <h4>Lista Alumnos</h4>
                         </div>
                         <div class="col-3 border-primary">
                             <form action="" method="GET">
                                 <input class="form-control me-xl-2" type="search" placeholder="Buscar" name="filtro" id="filtro">
                             </form>
+                        </div>
+                        <div class="col-3 border-primary">
+                            <div class="input-group">
+                                <span class="input-group-text" id="inputGroup-sizing-default">GRADO</span>
+                                <select name="grado" id="grado" onchange="selectgrado()" class="form-control input-sm">
+                                    <option selected>Seleccione Grado</option>
+                                    <?php
+                                        $sql="SELECT g.id_grado as idgrado, g.gra_nombre as nombre FROM grados as g";
+                                        $respuesta = mysqli_query($conexion, $sql);
+                                        while($grados = mysqli_fetch_array($respuesta)) {
+                                    ?>
+                                        <option value="<?php echo $grados['idgrado']?>"><?php echo $grados['nombre'];?></option>
+                                    <?php }?>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
