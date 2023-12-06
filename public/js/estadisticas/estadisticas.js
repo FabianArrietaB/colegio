@@ -3,11 +3,9 @@ $(document).ready(function(){
 });
 
 //CONSULTAR DATOS ALUMNO
-
 function obteneralumno(docume){
     var documento = docume;
     $('#docume').val(documento);
-
     $.ajax({
         type:"POST",
         data: "docume=" + documento,
@@ -27,6 +25,14 @@ function obteneralumno(docume){
     });
 }
 
+function enviargrado(){
+    idgrado = $('#filtroidgrado').val();
+    $.ajax({
+        method: 'GET',
+        }).done(function (data) {
+            $('#tblalumnos').load('informes/buscaralumno.php?idgrado='+idgrado);
+    })
+}
 
 
 function generar(){
@@ -39,8 +45,8 @@ function generar(){
     }).done(function(info) {
         $('#tablaestadisticas').load('informes/general.php?idalumno='+idalumno+'&modulo='+modulo+'&desde='+desde+'&hasta='+hasta);
     })
-    console.log(desde)
-    console.log(hasta)
+    //console.log(desde)
+    //console.log(hasta)
 }
 
 function pdf(){
