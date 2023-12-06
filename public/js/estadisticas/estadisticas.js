@@ -4,33 +4,13 @@ $(document).ready(function(){
 
 //CONSULTAR DATOS ALUMNO
 
-function obteneralumno(){
-    console.log('Lista Alumnos')
-}
+function obteneralumno(docume){
+    var documento = docume;
+    $('#docume').val(documento);
 
-function datosAlumnos(){
-    
-}
-
-$('#frmaestadistica').change(function(){
-    //condicion para limpiar campos
-    if($('#docume').val()==0){
-        $('#idalumno').val("");
-        $('#cladoc').val("");
-        $('#nombre').val("");
-        $('#telcel').val("");
-        $('#ciudad').val("");
-        $('#direcc').val("");
-        $('#fecing').val("");
-        $('#grado').val("");
-        $('#correo').val("");
-        $('#nommad').val("");
-        $('#nompad').val("");
-        return
-    }
     $.ajax({
         type:"POST",
-        data:"docume=" + $('#docume').val(),
+        data: "docume=" + documento,
         url:"../controlador/informe/detalle.php",
         success:function(respuesta){
             respuesta=jQuery.parseJSON(respuesta);
@@ -45,9 +25,7 @@ $('#frmaestadistica').change(function(){
             $('#correo').val(respuesta['correo']);
         }
     });
-    
-});
-
+}
 
 
 
