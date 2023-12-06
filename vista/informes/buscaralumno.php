@@ -26,7 +26,7 @@
                                         <th scope="col" >Grado</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tblalumnos">
                                 </tbody>
                             </table>
                         </div>

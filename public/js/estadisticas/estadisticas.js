@@ -40,15 +40,7 @@ $('#frmaestadistica').change(function(){
 });
 
 function obteneralumno(){
-    var filtro = $('filtroalumno').val();
-    $.ajax({
-        type:'get',
-        url:'../controlador/informe/obteneralumnos.php?filtro='+filtro,
-        success: function (response) {
-            $("#resultados").html(response);
-            console.log(response)
-        },
-    })
+    console.log('Lista Alumnos')
 }
 
 
