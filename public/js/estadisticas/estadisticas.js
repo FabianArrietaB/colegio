@@ -3,6 +3,15 @@ $(document).ready(function(){
 });
 
 //CONSULTAR DATOS ALUMNO
+
+function obteneralumno(){
+    console.log('Lista Alumnos')
+}
+
+function datosAlumnos(){
+    
+}
+
 $('#frmaestadistica').change(function(){
     //condicion para limpiar campos
     if($('#docume').val()==0){
@@ -39,9 +48,7 @@ $('#frmaestadistica').change(function(){
     
 });
 
-function obteneralumno(){
-    console.log('Lista Alumnos')
-}
+
 
 
 function generar(){
