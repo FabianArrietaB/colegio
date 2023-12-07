@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    $('#tablaparafiscales').load("config/listaparafiscales.php");
+    $('#tablaparafiscales').load("config/parafiscaleslista.php");
+    $('#tablamovimientos').load("config/tipmovlista.php");
 
     $('#empresabtn').click(function(){
         ocultarsecciondes();
@@ -13,20 +14,25 @@ $(document).ready(function(){
         $('#parafiscales').show();
     });
 
-    $('#paisbtn').click(function(){
+    $('#prefijbtn').click(function(){
         ocultarsecciondes();
-        $('#paises').load('config/pais.php');
-        $('#paises').show();
+        $('#prefijos').load('config/prefijos.php');
+        $('#prefijos').show();
     });
+
+    $('#tipmovbtn').click(function(){
+        ocultarsecciondes();
+        $('#tipomovimientos').load('config/tiposmovimientos.php');
+        $('#tipomovimientos').show();
+    });
+
 });
 
 function ocultarsecciondes(){
     $('#empresa').hide();
     $('#parafiscales').hide();
-    $('#paises').hide();
-    $('#parametros').hide();
-    $('#seguridad').hide();
-    $('#sedes').hide();
+    $('#prefijos').hide();
+    $('#tipomovimientos').hide();
     return false;
 }
 
@@ -40,7 +46,7 @@ function agregarparafiscal(){
             respuesta = respuesta.trim();
             if(respuesta == 1){
                 $('#frmagregarparafiscal')[0].reset();
-                $('#tablaparafiscales').load('config/listaparafiscales.php');
+                $('#tablaparafiscales').load('config/parafiscaleslista.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Agregado Exitosamente',
@@ -87,7 +93,7 @@ function editarparafiscal(){
             respuesta = respuesta.trim();
             if(respuesta == 1){
                 $('#editar').modal('hide');
-                $('#tablaparafiscales').load('config/listaparafiscales.php');
+                $('#tablaparafiscales').load('config/parafiscaleslista.php');
                 Swal.fire({
                     icon: 'success',
                     title: 'Actualizado Exitosamente',

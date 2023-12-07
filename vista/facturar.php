@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-6">
                         <div class="card border-primary ">
-                            <div class="row">
+                            <div class="row ">
                                 <div class="col-6">
                                     <div class="input-group">
                                         <span class="input-group-text" id="inputGroup-sizing-default">Tipo Documento</span>

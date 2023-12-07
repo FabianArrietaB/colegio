@@ -21,7 +21,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-6 text-center">
+                        <div class="col-sm-3 text-center">
                             <a class="acard" type="button" id="empresabtn" onclick="detalleempresa('<?php echo $_SESSION['usuario']['id']?>')">
                                 <div class="card border-danger text-white bg-primary mb-3">
                                     <div class="card-header">
@@ -37,7 +37,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-sm-6 text-center"">
+                        <div class="col-sm-3 text-center"">
                             <a class="acard" type="button" id="parafiscalesbtn">
                                 <div class="card border-danger text-white bg-primary mb-3">
                                     <div class="card-header">
@@ -53,10 +53,44 @@
                                 </div>
                             </a>
                         </div>
+                        <div class="col-sm-3 text-center">
+                            <a class="acard" type="button" id="prefijbtn">
+                                <div class="card border-danger text-white bg-primary mb-3">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <i class="fa-solid fa-hotel fa-3x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="float-sm-right">Prefijos</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3 text-center">
+                            <a class="acard" type="button" id="tipmovbtn">
+                                <div class="card border-danger text-white bg-primary mb-3">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <i class="fa-solid fa-hotel fa-3x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="float-sm-right">Tipo Movimientos</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                     <div class="row">
                         <div id="empresa"></div>
                         <div id="parafiscales"></div>
+                        <div id="prefijos"></div>
+                        <div id="tipomovimientos"></div>
                     </div>
                 </div>
             </div>

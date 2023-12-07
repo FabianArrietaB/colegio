@@ -1,8 +1,8 @@
 <!-- Formulario (Agregar) -->
-    <div class="card-header bg-primary text-center text-white">
+<div class="card-header bg-primary text-center text-white">
         <div class="row">
             <div class="col-9">
-            <h5 class="modal-title" id="exampleModalLabel">Parafiscales</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Prefijos</h5>
             </div>
         </div>
     </div>
@@ -10,8 +10,8 @@
     <fieldset class="group-border">
         <legend class="group-border"></legend>
             <div class="row">
-                <form id="frmagregarparafiscal" method="post" onsubmit="return agregarparafiscal()">
-                    <div class="row">
+                <form id="frmagregarprefijo" method="post" onsubmit="return agregarprefijo()">
+                <div class="row">
                         <div class="col-4">
                             <div class="input-group">
                                 <span class="input-group-text">Codigo Entidad</span>
@@ -66,7 +66,7 @@
             <br>
             <div class="row">
                 <div class="col-12">
-                    <div id="tablaparafiscales"></div>
+                    <h4>TABLA PREFIJOS</h4>
                 </div>
             </div>
         </fieldset>
