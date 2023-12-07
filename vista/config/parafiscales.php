@@ -37,6 +37,7 @@
                             <div class="input-group">
                                 <span class="input-group-text">Tipo Regimen</span>
                                 <select name="regimen" id="regimen" class="form-control input-sm">
+                                    <option selected>Seleccione Regimen</option>
                                     <option value="CONTRIBUTIVO">CONTRIBUTIVO</option>
                                     <option value="SUBSIDIADO">SUBSIDIADO</option>
                                     <option value="AMBOS">AMBOS</option>
@@ -47,6 +48,7 @@
                             <div class="input-group">
                                 <span class="input-group-text">Tipo Entidad</span>
                                 <select name="idtip" id="idtip" class="form-control input-sm">
+                                    <option selected>Seleccione Entidad</option>
                                     <option value="1">EPS o PENSION</option>
                                     <option value="2">ARL</option>
                                     <option value="3">CESANTIAS</option>
