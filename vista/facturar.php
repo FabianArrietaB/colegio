@@ -13,11 +13,34 @@
                 </div>
             </div>
             <form id="frmcrearfactura" method="post" onsubmit="return crearfactura()">
-                <div class="card border-primary">
-                    <div class="card-header text-center">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12">
-                                <label for="cliente">Cliente:</label><br />
+                <div class="row">
+                    <div class="col-9">
+                        <div class="card border-primary">
+                            <div class="title">
+                                <h4>INFORMACION CLIENTE</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card border-primary">
+                            <div class="title">
+                                <h4>INFORMACION FACTURA</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-9">
+                        <div class="card border-primary">
+                            <div class="title">
+                                <h4>INFORMACION CLIENTE</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card border-primary">
+                            <div class="title">
+                                <h4>INFORMACION FACTURA</h4>
                             </div>
                         </div>
                     </div>
