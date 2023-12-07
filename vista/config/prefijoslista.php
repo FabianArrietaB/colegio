@@ -27,9 +27,16 @@ $query=mysqli_query($conexion,$sql);
         <thead>
             <tr>
                 <th scope="col" >Codigo</th>
+                <th scope="col" >prefij</th>
                 <th scope="col" >Nombre</th>
+                <th scope="col" >Tipo Moviento</th>
+                <th scope="col" >Consecutivo</th>
+                <th scope="col" >Num Inicial</th>
+                <th scope="col" >Num Final</th>
+                <th scope="col" >Fecha Inicial</th>
+                <th scope="col" >Fecha Final</th>
+                <th scope="col" >Fecha Operacion</th>
                 <th scope="col" >Estado</th>
-                <th scope="col" >Fecha</th>
                 <th>
                 </th>
             </tr>
@@ -40,7 +47,16 @@ $query=mysqli_query($conexion,$sql);
         ?>
             <tr>
                 <td> <?php echo str_pad($prefijos['codigo'],2,"0",STR_PAD_LEFT); ?> </td>
+                <td> <?php echo $prefijos['prefij']; ?> </td>
                 <td> <?php echo $prefijos['nombre']; ?> </td>
+                <td> <?php echo $prefijos['tipmov']; ?> </td>
+                <td> <?php echo $prefijos['consec']; ?> </td>
+                <td> <?php echo $prefijos['inicio']; ?> </td>
+                <td> <?php echo $prefijos['final']; ?> </td>
+                <td> <?php echo $prefijos['fecini']; ?> </td>
+                <td> <?php echo $prefijos['fecven']; ?> </td>
+                <td> <?php echo $prefijos['fecope']; ?> </td>
+                <td> <?php echo $prefijos['fecope']; ?> </td>
                 <td> <?php
                     if ($prefijos['estado'] == 0) {
                     ?>
@@ -59,8 +75,9 @@ $query=mysqli_query($conexion,$sql);
                         </button>
                     <?php
                     }
-                    ?></td>
-                <td> <?php echo $prefijos['fecope']; ?> </td>
+                    ?>
+                </td>
+                
                 <td>
                     <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detallemovimiento('<?php echo $prefijos['codigo']?>')"><i class="fa-solid fa-pen-to-square fa-xl"></i></button>
                 </td>

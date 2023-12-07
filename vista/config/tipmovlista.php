@@ -3,7 +3,7 @@ include "../../modelo/conexion.php";
 $con = new Conexion();
 $conexion = $con->conectar();
 $sql = "SELECT
-    m.id AS codigo,
+    m.id_tipmov AS codigo,
     m.mov_nombre AS nombre,
     m.mov_detall AS detall,
     m.mov_estado AS estado,

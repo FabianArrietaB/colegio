@@ -13,9 +13,17 @@
                 <form id="frmagregarprefijo" method="post" onsubmit="return agregarprefijo()">
                 <div class="row">
                         <div class="col-4">
-                            <div class="input-group">
-                                <span class="input-group-text">Codigo Entidad</span>
-                                <input type="text" id="codigo" name="codigo"  aria-label="First name" class="form-control">
+                            <div class="input-group mb-3">
+                                <select name="idtipmov" id="idtipmov" class="form-control input-sm">
+                                    <option selected >Selecione Tipo Movimiento</option>
+                                    <?php
+                                        $sql="SELECT m.id_tipmov AS codigo, m.mov_nombre AS nombre FROM movimientos as m";
+                                        $respuesta = mysqli_query($conexion, $sql);
+                                        while($movimiento = mysqli_fetch_array($respuesta)) {
+                                    ?>
+                                        <option value="<?php echo $movimiento['codigo']?>"><?php echo str_pad($movimiento['codigo'],2,"0",STR_PAD_LEFT) . ' - ' . $movimiento['nombre'];?></option>
+                                    <?php }?>
+                                </select>
                             </div>
                         </div>
                         <div class="col-4">
