@@ -53,7 +53,7 @@
             </div>
             <div class="card border-primary">
                 <div class="d-grid gap-2">
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createfactura"><i class="fa-solid fa-square-plus fa-lg"></i> CREAR FACTURA</button>
+                    <a type="button" class="btn btn-success" href="facturar.php"><i class="fa-solid fa-square-plus fa-lg"></i> CREAR FACTURA</a>
                 </div>
             </div>
             <div class="card border-primary">
