@@ -101,7 +101,8 @@
 <!-- por ultimo se carga el footer -->
 <?php
 include "config/prefijomdltipmov.php";
-include "config/editarpara.php";
+include "config/prefijoseditar.php";
+include "config/parafiscaleseditar.php";
 include "config/tipmoveditar.php";
 include "footer.php";
 ?>

@@ -1,9 +1,4 @@
 <?php
-    $filtro = '';
-    if(isset($_GET['filtro'])){
-        $filtro = $_GET['filtro'];
-    }
-    include "../../modelo/conexion.php";
     $con = new Conexion();
     $conexion = $con->conectar();
     $query = "SELECT

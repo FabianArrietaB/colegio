@@ -91,7 +91,6 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
-    include "facturas/facturar.php";
     include "pagos/pension.php";
     include "footer.php";
 ?>

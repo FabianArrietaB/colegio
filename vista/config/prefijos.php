@@ -15,8 +15,8 @@
                         <div class="col-6">
                             <div class="input-group input-group">
                                 <span class="input-group-text" id="inputGroup-sizing-sm">Tipo Movimiento</span>
-                                <input hidden type="text" id="idpretipmov" name="idpretipmov" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                <input type="text" id="pretipmov" name="pretipmov" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                <input hidden type="text" id="idpretipmovu" name="idpretipmovu" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                <input type="text" id="pretipmovu" name="pretipmovu" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tipmovimientos"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
                         </div>
@@ -59,13 +59,13 @@
                         <div class="col-3">
                             <div class="input-group">
                                 <span class="input-group-text">Fecha Inicial</span>
-                                <input type="text" id="prefecini" name="prefecini"  aria-label="First name" class="form-control">
+                                <input type="date" id="prefecini" name="prefecini"  aria-label="First name" class="form-control">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="input-group">
                                 <span class="input-group-text">Fecha Final</span>
-                                <input type="text" id="prefecfin" name="prefecfin"  aria-label="First name" class="form-control">
+                                <input type="date" id="prefecfin" name="prefecfin"  aria-label="First name" class="form-control">
                             </div>
                         </div>
                         <div class="col-3">

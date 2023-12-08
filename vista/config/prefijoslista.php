@@ -7,7 +7,6 @@ $sql = "SELECT
     p.pre_tipmov AS tipmov,
     p.pre_prefij AS prefij,
     p.pre_nombre AS nombre,
-    p.pre_detall AS detall,
     p.pre_consec AS consec,
     p.pre_inicio AS inicio,
     p.pre_final  AS final,
@@ -47,7 +46,7 @@ $query=mysqli_query($conexion,$sql);
         ?>
             <tr>
                 <td> <?php echo str_pad($prefijos['codigo'],2,"0",STR_PAD_LEFT); ?> </td>
-                <td data-bs-toggle="modal" data-bs-target="#editarprefijo" onclick="detalleprefijo('<?php echo $prefijos['codigo']?>')"> <?php echo $prefijos['prefij']; ?> </td>
+                <td data-bs-toggle="modal" data-bs-target="#prefijoeditar" onclick="detalleprefijo('<?php echo $prefijos['codigo']?>')"> <?php echo $prefijos['prefij']; ?> </td>
                 <td> <?php echo $prefijos['nombre']; ?> </td>
                 <td> <?php echo $prefijos['tipmov']; ?> </td>
                 <td> <?php echo $prefijos['consec']; ?> </td>

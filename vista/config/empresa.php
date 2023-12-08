@@ -51,7 +51,6 @@
                                 <input type="text" class="form-control" name="direccu" id="direccu" placeholder="NOMBRE DE LA EMPRESA">
                             </div>
                         </div>
-                       
                     </div>
                 </div>
             </div>

@@ -26,7 +26,7 @@
                     </div>
                         <div class="col mb-2">
                             <div class="input-group">
-                                <span class="input-group-text">Tipo Regimen</span>
+                                <span class="input-group-text">Estado</span>
                                 <select name="estado" id="estado" class="form-control input-sm">
                                     <option value="1">ACTIVO</option>
                                     <option value="0">INACTIVO</option>
