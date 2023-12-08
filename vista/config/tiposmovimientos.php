@@ -10,12 +10,13 @@
     <fieldset class="group-border">
         <legend class="group-border"></legend>
         <div class="row">
-            <form id="frmagregarprefijo" method="post" onsubmit="return agregarprefijo()">
+            <form id="frmagregarmovimiento" method="post" onsubmit="return agregarmovimiento()">
                 <div class="row">
+                
                     <div class="col-4">
                         <div class="input-group">
                             <span class="input-group-text">Detalle Movimiento</span>
-                            <input type="text" id="predetalle" name="predetalle"  aria-label="First name" class="form-control">
+                            <input type="text" id="predetall" name="predetall"  aria-label="First name" class="form-control">
                         </div>
                     </div>
                     <div class="col-4">
@@ -35,7 +36,7 @@
         <br>
         <div class="row">
             <div class="col-12">
-            <div id="tablamovimientos"></div>
+                <div id="tablamovimientos"></div>
             </div>
         </div>
     </fieldset>

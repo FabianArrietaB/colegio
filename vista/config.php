@@ -100,7 +100,9 @@
 <!-- fin del contenido principal -->
 <!-- por ultimo se carga el footer -->
 <?php
+include "config/prefijomdltipmov.php";
 include "config/editarpara.php";
+include "config/tipmoveditar.php";
 include "footer.php";
 ?>
 <!-- carga ficheros javascript -->

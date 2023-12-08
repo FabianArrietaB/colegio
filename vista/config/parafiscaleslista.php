@@ -21,8 +21,6 @@ $query=mysqli_query($conexion,$sql);
                 <th scope="col" >Nombre Entidad</th>
                 <th scope="col" >Codigo</th>
                 <th scope="col" >Regime</th>
-                <th>
-                </th>
             </tr>
         </thead>
         <tbody>
@@ -31,12 +29,9 @@ $query=mysqli_query($conexion,$sql);
         ?>
             <tr>
                 <td> <?php echo $parafiscal['nit']; ?> </td>
-                <td> <?php echo $parafiscal['nombre']; ?> </td>
+                <td  data-bs-toggle="modal" data-bs-target="#editar" onclick="detalleparafiscal('<?php echo $parafiscal['idparafiscal']?>')"> <?php echo $parafiscal['nombre']; ?> </td>
                 <td> <?php echo $parafiscal['codigo']; ?> </td>
                 <td> <?php echo $parafiscal['regimen']; ?> </td>
-                <td>
-                <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detalleparafiscal('<?php echo $parafiscal['idparafiscal']?>')"><i class="fa-solid fa-pen-to-square fa-xl"></i></button>
-                </td>
             <?php } ?>
         </tbody>
     </table>

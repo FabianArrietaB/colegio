@@ -106,5 +106,52 @@
             $query->close();
             return $respuesta;
         }
+
+        public function agregarmovimiento($datos){
+            $conexion = Conexion::conectar();
+            $sql = "INSERT INTO movimientos (mov_nombre, mov_detall, mov_operad, mov_usuari) VALUES(?,?,?,?)";
+            $query = $conexion->prepare($sql);
+            $query->bind_param("ssii", $datos['nombre'], $datos['detalle'], $datos['idoperador'], $datos['idoperador']);
+            $respuesta = $query->execute();
+            return $respuesta;
+        }
+
+        public function detallemovimiento($idmovimiento){
+            $conexion = Conexion::conectar();
+            $sql ="SELECT
+                m.id_tipmov AS codigo,
+                m.mov_nombre AS nombre,
+                m.mov_detall AS detall,
+                m.mov_estado AS estado,
+                m.mov_operad AS operad,
+                m.mov_usuari AS usuari,
+                m.mov_fecope AS fecope,
+                m.mov_fecupd AS fecupd
+            FROM movimientos AS m
+            WHERE m.id_tipmov ='$idmovimiento'";
+            $respuesta = mysqli_query($conexion,$sql);
+            $sede = mysqli_fetch_array($respuesta);
+            $datos = array(
+            'codigo' => $sede['codigo'],
+            'nombre' => $sede['nombre'],
+            'detall' => $sede['detall'],
+            'estado' => $sede['estado'],
+            'operad' => $sede['operad'],
+            'usuari' => $sede['usuari'],
+            'fecope' => $sede['fecope'],
+            'fecupd' => $sede['fecupd'],
+            );
+            return $datos;
+        }
+
+        public function editarmovimiento($datos){
+            $conexion = Conexion::conectar();
+            $sql = "UPDATE movimientos SET mov_nombre = ?, mov_detall = ?, mov_estado = ?, mov_usuari = ? WHERE id_tipmov = ?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('ssiii', $datos['nombre'], $datos['datalle'], $datos['estado'], $datos['idoperador'], $datos['idmovimiento']);
+            $respuesta = $query->execute();
+            $query->close();
+            return $respuesta;
+        }
     }
 ?>
