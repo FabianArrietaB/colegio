@@ -153,5 +153,61 @@
             $query->close();
             return $respuesta;
         }
+
+        public function agregarprefijo($datos){
+            $conexion = Conexion::conectar();
+            $sql = "INSERT INTO prefijos (pre_tipmov, pre_prefij, pre_nombre, pre_consec, pre_inicio, pre_final, pre_fecini, pre_fecven, pre_resolu, pre_operad,pre_usuari) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            $query = $conexion->prepare($sql);
+            $query->bind_param("issiiisssii", $datos['idtipmov'], $datos['prefij'], $datos['nombre'], $datos['consecutivo'], $datos['numinicial'], $datos['numfinal'], $datos['fecinicial'], $datos['fecfinal'], $datos['resolucion'], $datos['idoperador'], $datos['idoperador']);
+            $respuesta = $query->execute();
+            return $respuesta;
+        }
+
+        public function detalleprefijo($idprefijo){
+            $conexion = Conexion::conectar();
+            $sql ="SELECT
+            p.id_prefij  AS codigo,
+            p.pre_tipmov AS tipmov,
+            p.pre_prefij AS prefij,
+            p.pre_nombre AS nombre,
+            p.pre_detall AS detall,
+            p.pre_consec AS consec,
+            p.pre_inicio AS inicio,
+            p.pre_final  AS final,
+            p.pre_fecini AS fecini,
+            p.pre_fecven AS fecven,
+            p.pre_estado AS estado,
+            p.pre_fecope AS fecope,
+            p.pre_fecupd AS fecupd
+        FROM prefijos AS p
+        WHERE p.id_prefij ='$idprefijo'";
+            $respuesta = mysqli_query($conexion,$sql);
+            $prefijo = mysqli_fetch_array($respuesta);
+            $datos = array(
+            'codigo' => $prefijo['codigo'],
+            'tipmov' => $prefijo['tipmov'],
+            'prefij' => $prefijo['prefij'],
+            'nombre' => $prefijo['nombre'],
+            'detall' => $prefijo['detall'],
+            'consec' => $prefijo['consec'],
+            'final' => $prefijo['final'],
+            'fecini' => $prefijo['fecini'],
+            'fecven' => $prefijo['fecven'],
+            'estado' => $prefijo['estado'],
+            'fecope' => $prefijo['fecope'],
+            'fecupd' => $prefijo['fecupd'],
+            );
+            return $datos;
+        }
+
+        public function editarprefijo($datos){
+            $conexion = Conexion::conectar();
+            $sql = "UPDATE prefijos SET pre_tipmov = ?, pre_prefij = ?, pre_nombre = ?, pre_consec = ?, pre_inicio = ?, pre_final = ?, pre_fecini = ?, pre_fecven = ?, pre_resolu = ?, pre_usuari = ?, pre_estado = ? WHERE id_prefij = ?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('issiiisssiii', $datos['idtipmov'], $datos['prefij'], $datos['nombre'], $datos['consecutivo'], $datos['numinicial'], $datos['numfinal'], $datos['fecinicial'], $datos['fecfinal'], $datos['resolucion'], $datos['idoperador'], $datos['estado'], $datos['idprefijo']);
+            $respuesta = $query->execute();
+            $query->close();
+            return $respuesta;
+        }
     }
 ?>

@@ -270,7 +270,7 @@ function agregarprefijo(){
             respuesta = respuesta.trim();
             if(respuesta == 1){
                 $('#frmagregarmovimiento')[0].reset();
-                $('#tablamovimientos').load("config/tipmovlista.php");
+                $('#tablaprefijos').load("config/prefijoslista.php");
                 Swal.fire({
                     icon: 'success',
                     title: 'Agregado Exitosamente',
@@ -315,7 +315,7 @@ function editarprefijo(){
             respuesta = respuesta.trim();
             if(respuesta == 1){
                 $('#prefijoeditar').modal('hide');
-                $('#tablamovimientos').load("config/tipmovlista.php");
+                $('#tablaprefijos').load("config/prefijoslista.php");
                 Swal.fire({
                     icon: 'success',
                     title: 'Actualizado Exitosamente',

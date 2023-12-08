@@ -47,7 +47,7 @@ $query=mysqli_query($conexion,$sql);
         ?>
             <tr>
                 <td> <?php echo str_pad($prefijos['codigo'],2,"0",STR_PAD_LEFT); ?> </td>
-                <td> <?php echo $prefijos['prefij']; ?> </td>
+                <td data-bs-toggle="modal" data-bs-target="#editarprefijo" onclick="detalleprefijo('<?php echo $prefijos['codigo']?>')"> <?php echo $prefijos['prefij']; ?> </td>
                 <td> <?php echo $prefijos['nombre']; ?> </td>
                 <td> <?php echo $prefijos['tipmov']; ?> </td>
                 <td> <?php echo $prefijos['consec']; ?> </td>
@@ -76,10 +76,6 @@ $query=mysqli_query($conexion,$sql);
                     <?php
                     }
                     ?>
-                </td>
-                
-                <td>
-                    <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#editar" onclick="detallemovimiento('<?php echo $prefijos['codigo']?>')"><i class="fa-solid fa-pen-to-square fa-xl"></i></button>
                 </td>
             <?php } ?>
         </tbody>
